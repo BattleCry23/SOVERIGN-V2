@@ -344,6 +344,7 @@ obj
 				//winset(target,"char_creation.eye_color","background-color=[c]")
 
 				target.update_looks("skin color")
+				target.saved_skin_c = target.skin_c
 				if(usr.port && usr.hud_char)
 					//Adjust players portrait first.
 					usr.hud_char.update_portrait_transform()
@@ -363,12 +364,18 @@ obj
 		hud_y = 375
 		Click()
 			var/mob/target = usr
+			if(target.race == "Saiyan" && !target.is_hybrid) 
+				target.eye_c = rgb(0,0,0)
+				target.update_looks("eye color")
+				target << "Saiyans have black eyes by default."
+				return
 			var/c  = input ("Choose a color for your eyes.") as color
 			if(target)
 				target.eye_c = c
 				winset(target,"char_creation.eye_color","background-color=[c]")
 
 				target.update_looks("eye color")
+				target.saved_eye_c = target.eye_c
 				if(usr.port && usr.hud_char)
 					//Adjust players portrait first.
 					usr.hud_char.update_portrait_transform()
@@ -388,12 +395,16 @@ obj
 		hud_y = 435
 		Click()
 			var/mob/target = usr
-			if(target.race == "Saiyan") return
+			if(target.race == "Saiyan" && !target.is_hybrid) return
 			var/c  = input ("Choose a color for your hair.") as color
 			if(target)
 				target.hair_c = c
+				if(target.saiyan_dna && target.is_hybrid)
+					target.tail_c = target.hair_c
+					target.saved_tail_c = target.tail_c
 				winset(target,"char_creation.hair_color","background-color=[c]")
 				target.update_looks("hair color")
+				target.saved_hair_c = target.hair_c
 				if(usr.port && usr.hud_char)
 					//Adjust players portrait first.
 					usr.hud_char.update_portrait_transform()
