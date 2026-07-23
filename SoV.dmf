@@ -1,0 +1,3072 @@
+macro "macro"
+	elem 
+		name = "Tab"
+		command = "Target-A-Mob"
+	elem 
+		name = "Center+REP"
+		command = ".center"
+	elem 
+		name = "Northeast+REP"
+		command = ".northeast"
+	elem 
+		name = "Southeast+REP"
+		command = ".southeast"
+	elem 
+		name = "Southwest+REP"
+		command = ".southwest"
+	elem 
+		name = "Northwest+REP"
+		command = ".northwest"
+	elem 
+		name = "West+REP"
+		command = ".west"
+	elem 
+		name = "CTRL+West+REP"
+		command = "TurnW"
+	elem 
+		name = "North+REP"
+		command = ".north"
+	elem 
+		name = "CTRL+North+REP"
+		command = "TurnN"
+	elem 
+		name = "East+REP"
+		command = ".east"
+	elem 
+		name = "CTRL+East+REP"
+		command = "TurnE"
+	elem 
+		name = "South+REP"
+		command = ".south"
+	elem 
+		name = "CTRL+South+REP"
+		command = "TurnS"
+	elem 
+		name = "C+UP"
+		command = "Stop-Draw-Energy"
+	elem 
+		name = "C+REP"
+		command = "Awaken-Energy"
+	elem 
+		name = "ALT+S"
+		command = "Auto-Spawn"
+	elem 
+		name = "F1+REP"
+		command = ".options"
+	elem 
+		name = "F2+REP"
+		command = ".screenshot"
+
+
+menu "menu"
+	elem "connection_window"
+		name = "Options"
+		command = ""
+		saved-params = "is-checked"
+	elem 
+		name = "Correct Resolution"
+		command = ".winset \"mainwindow.map.icon-size=32\""
+		category = "Options"
+		saved-params = "is-checked"
+	elem 
+		name = "&Check Time"
+		command = "checktime"
+		category = "Options"
+		saved-params = "is-checked"
+	elem 
+		name = "&Check Offline Gains"
+		command = "checkofflinegains"
+		category = "Options"
+		saved-params = "is-checked"
+
+
+window "ScouterInterface"
+	elem "ScouterInterface"
+		type = MAIN
+		pos = 916,208
+		size = 226x177
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #00cc99
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		image = 'sprites\\DBGIconset\\DefaultScan.dmi'
+		image-mode = center
+		transparent-color = #00cc99
+		alpha = 169
+		outer-size = 240x191
+		outer-pos = 916,208
+		inner-size = 226x177
+		inner-pos = 7,7
+		screen-size = 1920x1080
+	elem "ScouterReading"
+		type = OUTPUT
+		pos = 0,0
+		size = 226x177
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #339966
+		border = line
+		saved-params = "max-lines"
+		style = "background_alpha = 1"
+		enable-http-images = true
+		image = 'sprites\\DBGIconset\\DefaultScan.dmi'
+	elem "Pombo"
+		type = LABEL
+		pos = 52,113
+		size = 152x31
+		anchor1 = 23,64
+		anchor2 = 90,81
+		font-family = "@Microsoft YaHei,Ultimate Saiyan Scouter,Stencil,Stencil Std,@Arial Unicode MS"
+		font-size = 14
+		font-style = "bold"
+		text-color = #c5c46c
+		background-color = #1ac69b
+		saved-params = ""
+		text = ""
+		text-wrap = true
+	elem "TargetAppearance"
+		type = LABEL
+		pos = 109,60
+		size = 32x32
+		anchor1 = 48,34
+		anchor2 = 62,52
+		text-color = #53cea7
+		background-color = #53cea7
+		is-visible = false
+		saved-params = ""
+		text = ""
+		image = 'sprites\\DBGIconset\\BaseForBase.dmi'
+
+window "assesss"
+	elem "assesss"
+		type = MAIN
+		pos = 291,0
+		size = 346x679
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		can-resize = false
+	elem "label"
+		type = LABEL
+		pos = 24,24
+		size = 296x632
+		anchor1 = 7,4
+		anchor2 = 92,97
+		background-color = #333333
+		border = sunken
+		saved-params = ""
+		text = ""
+
+window "clockin"
+	elem "clockin"
+		type = MAIN
+		pos = 434,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "World Spy"
+		statusbar = false
+	elem "label1"
+		type = LABEL
+		pos = 1,2
+		size = 53x18
+		anchor1 = 0,0
+		anchor2 = -1,-1
+		font-family = "Sour Crunch"
+		text-color = #ff0000
+		background-color = #000000
+		saved-params = ""
+		text = "WORLD SPY"
+	elem "output2"
+		type = OUTPUT
+		pos = 11,67
+		size = 617x395
+		anchor1 = 2,14
+		anchor2 = 98,96
+		font-family = "System"
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "max-lines"
+
+window "combatPPs"
+	elem "combatPPs"
+		type = MAIN
+		pos = 418,0
+		size = 350x300
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Combat Passive Skills"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+	elem "label6"
+		type = LABEL
+		pos = 32,24
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Bone Breaker"
+		text-wrap = true
+	elem "label7"
+		type = LABEL
+		pos = 106,24
+		size = 62x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Laceration"
+		text-wrap = true
+	elem "label8"
+		type = LABEL
+		pos = 180,24
+		size = 60x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Deflection"
+		text-wrap = true
+	elem "bbreakerLb"
+		type = LABEL
+		pos = 45,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "lacerationLb"
+		type = LABEL
+		pos = 118,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "deflectionLb"
+		type = LABEL
+		pos = 192,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "bbreakerBt"
+		type = BUTTON
+		pos = 51,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\bBreaker.png'
+		command = "BBreakerClick"
+		is-flat = true
+	elem "partsBt"
+		type = BUTTON
+		pos = 123,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\Laceration.png'
+		command = "LacerationClick"
+		is-flat = true
+	elem "skinBt"
+		type = BUTTON
+		pos = 195,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\Deflection.png'
+		command = "DeflectionClick"
+		is-flat = true
+	elem "points"
+		type = LABEL
+		pos = 171,128
+		size = 72x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+		align = left
+	elem "label10"
+		type = LABEL
+		pos = 107,128
+		size = 64x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Points Left:"
+		text-wrap = true
+	elem "label9"
+		type = LABEL
+		pos = 32,160
+		size = 72x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Energy Master"
+		text-wrap = true
+	elem "label11"
+		type = LABEL
+		pos = 107,160
+		size = 66x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Energy Manipulation"
+		text-wrap = true
+	elem "label12"
+		type = LABEL
+		pos = 178,160
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Regeneration"
+		text-wrap = true
+	elem "emasterLb"
+		type = LABEL
+		pos = 48,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "emanipLb"
+		type = LABEL
+		pos = 118,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "regenLb"
+		type = LABEL
+		pos = 192,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button8"
+		type = BUTTON
+		pos = 52,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\eMaster.png'
+		command = "EMasterClick"
+		is-flat = true
+	elem "button9"
+		type = BUTTON
+		pos = 124,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\eManip.png'
+		command = "EManipClick"
+		is-flat = true
+	elem "button10"
+		type = BUTTON
+		pos = 196,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\regen.png'
+		command = "RegenClick"
+		is-flat = true
+	elem "label16"
+		type = LABEL
+		pos = 265,24
+		size = 55x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Energy Deflection"
+		text-wrap = true
+	elem "edeflectionLb"
+		type = LABEL
+		pos = 272,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button11"
+		type = BUTTON
+		pos = 278,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\eDeflection.png'
+		command = "EDeflectionClick"
+		is-flat = true
+	elem "label18"
+		type = LABEL
+		pos = 259,160
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Energy Recovery"
+		text-wrap = true
+	elem "recovLb"
+		type = LABEL
+		pos = 273,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button12"
+		type = BUTTON
+		pos = 277,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\recov.png'
+		command = "RecovClick"
+		is-flat = true
+
+window "connection_window"
+	elem "connection_window"
+		type = MAIN
+		pos = 418,0
+		size = 476x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-default = true
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Sovereign"
+		statusbar = false
+		macro = "macro"
+		menu = "menu"
+	elem "client_pane"
+		type = CHILD
+		pos = 0,0
+		size = 476x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+		saved-params = "splitter"
+		is-vert = false
+
+window "eontitle"
+	elem "eontitle"
+		type = MAIN
+		pos = 434,0
+		size = 476x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Sovereign"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		image = 'SovLogoNow.png'
+	elem "loadbt"
+		type = BUTTON
+		pos = 212,389
+		size = 264x91
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		background-color = #21213d
+		border = line
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\loadSV.png'
+		command = "ClickLoad"
+		is-flat = true
+		is-checked = true
+	elem "newbt"
+		type = BUTTON
+		pos = 2,1
+		size = 243x87
+		anchor1 = 0,0
+		anchor2 = -1,-1
+		background-color = #21213d
+		border = line
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\newSV.png'
+		command = "ClickNew"
+		is-flat = true
+		is-checked = true
+
+window "mainwindow"
+	elem "mainwindow"
+		type = MAIN
+		pos = 291,0
+		size = 640x440
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-maximized"
+		title = "Sovereign"
+		statusbar = false
+		transparent-color = #8000ff
+		macro = "macro"
+		menu = "menu"
+	elem "mainvsplit"
+		type = CHILD
+		pos = 0,0
+		size = 640x419
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = "splitter"
+		right = "rpane"
+		is-vert = true
+	elem "input"
+		type = INPUT
+		pos = 0,420
+		size = 140x20
+		anchor1 = 0,100
+		anchor2 = 100,100
+		font-family = "@Arial Unicode MS"
+		text-color = #ffffff
+		background-color = #000000
+		is-default = true
+		border = sunken
+		saved-params = ""
+	elem "hostb"
+		type = BUTTON
+		pos = 590,420
+		size = 47x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		font-family = "@Arial Unicode MS"
+		text-color = #ffffff
+		background-color = #000000
+		border = sunken
+		saved-params = "is-checked"
+		text = "Host"
+		command = ".host"
+	elem "Health"
+		type = LABEL
+		pos = 140,420
+		size = 100x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		font-family = "@Arial Unicode MS"
+		text-color = #ffffff
+		background-color = #000000
+		is-visible = false
+		border = sunken
+		saved-params = ""
+		text = "Health"
+		align = left
+	elem "Energy"
+		type = LABEL
+		pos = 240,420
+		size = 100x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		font-family = "@Arial Unicode MS"
+		text-color = #ffffff
+		background-color = #000000
+		is-visible = false
+		border = sunken
+		saved-params = ""
+		text = "Energy"
+		align = left
+	elem "Power"
+		type = LABEL
+		pos = 340,420
+		size = 150x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		font-family = "@Arial Unicode MS"
+		text-color = #ffffff
+		background-color = #000000
+		is-visible = false
+		border = sunken
+		saved-params = ""
+		text = "Power"
+		align = left
+	elem "Gravity"
+		type = LABEL
+		pos = 490,420
+		size = 100x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		font-family = "@Arial Unicode MS"
+		text-color = #ffffff
+		background-color = #000000
+		is-visible = false
+		border = sunken
+		saved-params = ""
+		text = "Gravity"
+		align = left
+
+window "new_build"
+	elem "new_build"
+		type = MAIN
+		pos = 418,0
+		size = 973x560
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #111111
+		is-visible = false
+		is-transparent = true
+		border = line
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Build"
+		statusbar = false
+		alpha = 200
+	elem "button16"
+		type = BUTTON
+		pos = 612,8
+		size = 235x32
+		anchor1 = 63,1
+		anchor2 = 87,7
+		font-style = "bold"
+		background-color = #ff0000
+		border = line
+		saved-params = "is-checked"
+		text = "REFUND"
+		command = "RefundBuild"
+		button-type = pushbox
+	elem "button6"
+		type = BUTTON
+		pos = 352,8
+		size = 234x32
+		anchor1 = 36,1
+		anchor2 = 60,7
+		font-style = "bold"
+		background-color = #b2b2b2
+		border = line
+		saved-params = "is-checked"
+		text = "RESET"
+		command = "ResetBuild"
+		button-type = pushbox
+	elem "button5"
+		type = BUTTON
+		pos = 94,8
+		size = 234x32
+		anchor1 = 10,1
+		anchor2 = 34,7
+		font-style = "bold"
+		background-color = #66ff66
+		border = line
+		saved-params = "is-checked"
+		text = "CONFIRM"
+		command = "ConfirmBuild"
+		button-type = pushbox
+	elem "button22"
+		type = BUTTON
+		pos = 0,255
+		size = 95x20
+		anchor1 = 0,46
+		anchor2 = 10,49
+		saved-params = "is-checked"
+		text = "Miscelleneous"
+		command = "Misc"
+	elem "button15"
+		type = BUTTON
+		pos = 0,184
+		size = 95x20
+		anchor1 = 0,33
+		anchor2 = 10,36
+		saved-params = "is-checked"
+		text = "Signs"
+		command = "Signs"
+	elem "button14"
+		type = BUTTON
+		pos = 0,208
+		size = 95x20
+		anchor1 = 0,37
+		anchor2 = 10,41
+		saved-params = "is-checked"
+		text = "Heat"
+		command = "Heat"
+	elem "button13"
+		type = BUTTON
+		pos = 0,324
+		size = 95x20
+		anchor1 = 0,58
+		anchor2 = 10,61
+		saved-params = "is-checked"
+		text = "Terrains"
+		command = "Terrains"
+	elem "button12"
+		type = BUTTON
+		pos = 0,301
+		size = 95x20
+		anchor1 = 0,54
+		anchor2 = 10,57
+		saved-params = "is-checked"
+		text = "Furniture"
+		command = "Furniture"
+	elem "button11"
+		type = BUTTON
+		pos = 0,232
+		size = 95x20
+		anchor1 = 0,41
+		anchor2 = 10,45
+		saved-params = "is-checked"
+		text = "Terrain Misc"
+		command = "TerrainMisc"
+	elem "button9"
+		type = BUTTON
+		pos = 0,160
+		size = 95x20
+		anchor1 = 0,29
+		anchor2 = 10,32
+		saved-params = "is-checked"
+		text = "Tiles"
+		command = "Tiles"
+	elem "button8"
+		type = BUTTON
+		pos = 0,136
+		size = 95x20
+		anchor1 = 0,24
+		anchor2 = 10,28
+		saved-params = "is-checked"
+		text = "Stairs"
+		command = "Stairs"
+	elem "button4"
+		type = BUTTON
+		pos = 0,278
+		size = 95x20
+		anchor1 = 0,50
+		anchor2 = 10,53
+		saved-params = "is-checked"
+		text = "Doors"
+		command = "Doors"
+	elem "button3"
+		type = BUTTON
+		pos = -2,112
+		size = 97x20
+		anchor1 = 0,20
+		anchor2 = 10,24
+		saved-params = "is-checked"
+		text = "Walls"
+		command = "Walls"
+	elem "button2"
+		type = BUTTON
+		pos = 0,88
+		size = 95x20
+		anchor1 = 0,16
+		anchor2 = 10,19
+		saved-params = "is-checked"
+		text = "Roofs"
+		command = "Roofs"
+	elem "new_build_grid"
+		type = GRID
+		pos = 96,42
+		size = 749x462
+		anchor1 = 10,8
+		anchor2 = 87,90
+		text-color = #ffffff
+		background-color = #111111
+		border = sunken
+		right-click = true
+		saved-params = ""
+		cells = 1x333
+		current-cell = 1,1
+		highlight-color = #ff5050
+
+window "newmain"
+	elem "newmain"
+		type = MAIN
+		pos = 291,0
+		size = 1088x818
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		is-transparent = true
+		saved-params = "pos;size;is-maximized"
+		title = "Sovereign"
+		statusbar = false
+		is-pane = true
+		image = 'DBGIconset\\UPDATED DBG SET\\Skin.png'
+		transparent-color = #ffffff
+		alpha = 239
+		macro = "macro"
+		menu = "menu"
+	elem "map"
+		type = MAP
+		pos = 6,6
+		size = 544x557
+		anchor1 = 1,1
+		anchor2 = 51,69
+		is-default = true
+		saved-params = "icon-size"
+	elem "kibar"
+		type = BAR
+		pos = 39,579
+		size = 384x9
+		anchor1 = 4,71
+		anchor2 = 39,72
+		saved-params = ""
+		bar-color = #0099ff
+		is-slider = false
+		dir = east
+		value = 100
+	elem "KI"
+		type = LABEL
+		pos = 177,576
+		size = 108x17
+		anchor1 = 16,71
+		anchor2 = 26,73
+		font-family = "monospace"
+		font-size = 7
+		font-style = "bold"
+		text-color = #292929
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = ""
+	elem "input1"
+		type = INPUT
+		pos = 0,795
+		size = 1088x23
+		anchor1 = 0,97
+		anchor2 = 100,100
+		text-color = #f8f8f8
+		background-color = #080808
+		border = line
+		saved-params = ""
+	elem "hpbar"
+		type = BAR
+		pos = 39,565
+		size = 384x12
+		anchor1 = 4,69
+		anchor2 = 39,71
+		saved-params = ""
+		bar-color = #cc0000
+		is-slider = false
+		dir = east
+		value = 100
+	elem "HP"
+		type = LABEL
+		pos = 177,561
+		size = 108x16
+		anchor1 = 16,69
+		anchor2 = 26,71
+		font-family = "monospace"
+		font-size = 7
+		font-style = "bold"
+		text-color = #292929
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = ""
+	elem "Power"
+		type = LABEL
+		pos = 426,564
+		size = 121x25
+		anchor1 = 39,69
+		anchor2 = 50,72
+		font-family = "monospace"
+		font-size = 8
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		border = line
+		saved-params = ""
+		text = ""
+	elem "label15"
+		type = LABEL
+		pos = 6,574
+		size = 26x15
+		anchor1 = 1,70
+		anchor2 = 3,72
+		font-family = "sans-serif"
+		font-size = 8
+		text-color = #ffffff
+		is-transparent = true
+		saved-params = ""
+		text = "KI:"
+	elem "label14"
+		type = LABEL
+		pos = 7,563
+		size = 26x15
+		anchor1 = 1,69
+		anchor2 = 3,71
+		font-family = "sans-serif"
+		font-size = 8
+		text-color = #ffffff
+		is-transparent = true
+		saved-params = ""
+		text = "HP:"
+	elem "info"
+		type = INFO
+		pos = 554,6
+		size = 531x393
+		anchor1 = 51,1
+		anchor2 = 100,49
+		text-color = #ffffff
+		background-color = #000000
+		is-visible = false
+		is-default = true
+		saved-params = ""
+		tab-text-color = #ffffff
+		tab-background-color = #000000
+	elem "output"
+		type = OUTPUT
+		pos = 554,405
+		size = 533x388
+		anchor1 = 51,50
+		anchor2 = 100,97
+		text-color = #ffffff
+		background-color = #000000
+		is-default = true
+		border = sunken
+		saved-params = "max-lines"
+		max-lines = 0
+	elem "rpoutput"
+		type = OUTPUT
+		pos = 7,597
+		size = 543x195
+		anchor1 = 1,73
+		anchor2 = 51,97
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "max-lines"
+		enable-http-images = true
+		max-lines = 0
+
+window "outputwindow"
+	elem "outputwindow"
+		type = MAIN
+		pos = 418,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "output2"
+		type = OUTPUT
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		text-color = #c0c0c0
+		background-color = #000000
+		saved-params = "max-lines"
+		link-color = #80ffff
+		visited-color = #008080
+		max-lines = 300
+
+window "play_window"
+	elem "play_window"
+		type = MAIN
+		pos = 805,44
+		size = 800x600
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		border = line
+		saved-params = "pos;size;is-maximized"
+		title = "Sovereign"
+		statusbar = false
+	elem "client_pane2"
+		type = CHILD
+		pos = 0,0
+		size = 800x625
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = "splitter"
+		is-vert = false
+
+window "raceselect"
+	elem "raceselect"
+		type = MAIN
+		pos = 291,0
+		size = 476x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Sovereign: Racial Options"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		image = 'DBGIconset\\RaceScreen.png'
+	elem "racestatus"
+		type = LABEL
+		pos = 232,368
+		size = 72x16
+		anchor1 = 49,77
+		anchor2 = 64,80
+		font-family = "monospace"
+		font-size = 8
+		text-color = #1fc71f
+		is-transparent = true
+		saved-params = ""
+		text = ""
+	elem "label11"
+		type = LABEL
+		pos = 160,368
+		size = 72x16
+		anchor1 = 34,77
+		anchor2 = 49,80
+		font-family = "monospace"
+		font-size = 8
+		font-style = "bold"
+		text-color = #f8f8f8
+		is-transparent = true
+		saved-params = ""
+		text = "STATUS:"
+	elem "racedesc"
+		type = LABEL
+		pos = 112,144
+		size = 256x200
+		anchor1 = 24,30
+		anchor2 = 77,72
+		text-color = #f8f8f8
+		is-transparent = true
+		saved-params = ""
+		text = ""
+		align = left
+		text-wrap = true
+		allow-html = true
+	elem "cancelrace"
+		type = BUTTON
+		pos = 350,448
+		size = 128x32
+		anchor1 = 74,93
+		anchor2 = 100,100
+		background-color = #5f5f5f
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\UPDATED DBG SET\\DBGPngs\\racecancel.png'
+		command = "ClickRaceCancel"
+	elem "confirmrace"
+		type = BUTTON
+		pos = 0,448
+		size = 128x32
+		anchor1 = 0,93
+		anchor2 = 27,100
+		background-color = #5f5f5f
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\UPDATED DBG SET\\DBGPngs\\raceconfirm.png'
+		command = "ClickRaceConfirm"
+	elem "demonbt"
+		type = BUTTON
+		pos = 381,128
+		size = 96x64
+		anchor1 = 80,27
+		anchor2 = 100,40
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\UPDATED DBG SET\\DBGPngs\\demonBt.png'
+		command = "ClickDemon"
+	elem "makyobt"
+		type = BUTTON
+		pos = 410,224
+		size = 64x32
+		anchor1 = 86,47
+		anchor2 = 100,53
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\UPDATED DBG SET\\DBGPngs\\makyoBt.png'
+		command = "ClickMakyo"
+	elem "halfgodbt"
+		type = BUTTON
+		pos = 381,288
+		size = 96x96
+		anchor1 = 80,60
+		anchor2 = 100,80
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\halfgodBt.png'
+		command = "ClickHalfGod"
+	elem "saiyanbt"
+		type = BUTTON
+		pos = 317,352
+		size = 96x96
+		anchor1 = 67,73
+		anchor2 = 87,93
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\UPDATED DBG SET\\DBGPngs\\saiyanBt.png'
+		command = "ClickSaiyan"
+	elem "spiritdollbt"
+		type = BUTTON
+		pos = 222,414
+		size = 32x64
+		anchor1 = 47,86
+		anchor2 = 53,100
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\UPDATED DBG SET\\DBGPngs\\spiritdollBt.png'
+		command = "ClickSpiritDoll"
+	elem "earthlingbt"
+		type = BUTTON
+		pos = 64,352
+		size = 96x96
+		anchor1 = 13,73
+		anchor2 = 34,93
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\earthlingBt.png'
+		command = "ClickEarthling"
+	elem "namekianbt"
+		type = BUTTON
+		pos = 0,288
+		size = 96x96
+		anchor1 = 0,60
+		anchor2 = 20,80
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\namekianBt.png'
+		command = "ClickNamekian"
+	elem "babybt"
+		type = BUTTON
+		pos = 0,224
+		size = 64x32
+		anchor1 = 0,47
+		anchor2 = 13,53
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\newbornBt.png'
+		command = "ClickNewBorn"
+	elem "changelingbt"
+		type = BUTTON
+		pos = 0,128
+		size = 96x64
+		anchor1 = 0,27
+		anchor2 = 20,40
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\changelingBt.png'
+		command = "ClickChangeling"
+	elem "tufflebt"
+		type = BUTTON
+		pos = 350,65
+		size = 64x64
+		anchor1 = 74,14
+		anchor2 = 87,27
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\UPDATED DBG SET\\DBGPngs\\tuffleBt.png'
+		command = "ClickTuffle"
+	elem "alienbt"
+		type = BUTTON
+		pos = 222,0
+		size = 32x64
+		anchor1 = 47,0
+		anchor2 = 53,13
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\alienBt.png'
+		command = "ClickAlien"
+	elem "kaibt"
+		type = BUTTON
+		pos = 64,64
+		size = 64x64
+		anchor1 = 13,13
+		anchor2 = 27,27
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\kaiBt.png'
+		command = "ClickKai"
+
+window "rewardwindow"
+	elem "rewardwindow"
+		type = MAIN
+		pos = 434,0
+		size = 1085x600
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Player Reward System"
+		statusbar = false
+	elem "browser_reward"
+		type = BROWSER
+		pos = 0,0
+		size = 696x600
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #ffffff
+		saved-params = ""
+		auto-format = true
+
+window "rpPPs"
+	elem "rpPPs"
+		type = MAIN
+		pos = 434,0
+		size = 350x300
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Roleplay Passive Skills"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+	elem "label4"
+		type = LABEL
+		pos = 181,24
+		size = 67x32
+		anchor1 = 52,8
+		anchor2 = 71,19
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Discovery"
+		text-wrap = true
+	elem "discoveryLb"
+		type = LABEL
+		pos = 196,96
+		size = 40x24
+		anchor1 = 33,32
+		anchor2 = 45,40
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button36"
+		type = BUTTON
+		pos = 200,56
+		size = 32x32
+		anchor1 = 57,19
+		anchor2 = 66,29
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\discoveryBt.dmi'
+		command = "DiscoveryClick"
+		is-flat = true
+	elem "label6"
+		type = LABEL
+		pos = 103,24
+		size = 67x32
+		anchor1 = 29,8
+		anchor2 = 49,19
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Metabolism"
+		text-wrap = true
+	elem "metabolismLb"
+		type = LABEL
+		pos = 117,96
+		size = 40x24
+		anchor1 = 33,32
+		anchor2 = 45,40
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "metabolismBt"
+		type = BUTTON
+		pos = 120,56
+		size = 32x32
+		anchor1 = 34,19
+		anchor2 = 43,29
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\bellyBt.dmi'
+		command = "MetabolismClick"
+		is-flat = true
+	elem "points"
+		type = LABEL
+		pos = 188,128
+		size = 72x24
+		anchor1 = 54,43
+		anchor2 = 74,51
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+		align = left
+	elem "label10"
+		type = LABEL
+		pos = 123,128
+		size = 64x24
+		anchor1 = 35,43
+		anchor2 = 53,51
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Points Left:"
+		text-wrap = true
+	elem "label11"
+		type = LABEL
+		pos = 107,160
+		size = 66x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Will Power"
+		text-wrap = true
+	elem "label12"
+		type = LABEL
+		pos = 178,160
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Luck"
+		text-wrap = true
+	elem "willpowerLb"
+		type = LABEL
+		pos = 117,232
+		size = 40x24
+		anchor1 = 34,77
+		anchor2 = 45,85
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "luckLb"
+		type = LABEL
+		pos = 192,232
+		size = 40x24
+		anchor1 = 55,77
+		anchor2 = 66,85
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button9"
+		type = BUTTON
+		pos = 121,192
+		size = 32x32
+		anchor1 = 35,64
+		anchor2 = 45,75
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\willpowerBt.dmi'
+		command = "WillpowerClick"
+		is-flat = true
+	elem "button10"
+		type = BUTTON
+		pos = 196,192
+		size = 32x32
+		anchor1 = 56,64
+		anchor2 = 65,75
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\luckyBt.dmi'
+		command = "LuckClick"
+		is-flat = true
+
+window "browserwindow"
+	elem "browserwindow"
+		type = MAIN
+		pos = 434,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-maximized"
+		title = "Browser"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "browser"
+		type = BROWSER
+		pos = 0,0
+		size = 640x501
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #ffffff
+		is-default = true
+		saved-params = ""
+		auto-format = true
+		on-show = ".winset\"rpane.infob.is-visible=true?rpane.infob.pos=130,0;rpane.textb.is-visible=true;rpane.browseb.is-visible=true;rpane.browseb.is-checked=true;rpane.rpanewindow.pos=0,30;rpane.rpanewindow.size=0x0;rpane.rpanewindow.left=browserwindow\""
+		on-hide = ".winset\"rpane.browseb.is-visible=false;rpane.infob.is-visible=true?rpane.infob.is-checked=true rpane.infob.pos=65,0 rpane.rpanewindow.left=infowindow:rpane.rpanewindow.left=textwindow rpane.textb.is-visible=false rpane.rpanewindow.pos=0,0 rpane.rpanewindow.size=0x0\""
+
+window "infowindow"
+	elem "infowindow"
+		type = MAIN
+		pos = 434,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		saved-params = "pos;size;is-maximized"
+		title = "Info"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "info1"
+		type = INFO
+		pos = 0,0
+		size = 640x501
+		anchor1 = 0,0
+		anchor2 = 100,100
+		text-color = #c0c0c0
+		background-color = #000000
+		saved-params = ""
+		highlight-color = #00ffff
+		tab-text-color = #c0c0c0
+		tab-background-color = #000000
+		tab-font-family = "serif"
+		allow-html = false
+		on-show = ".winset\"rpane.infob.is-visible=true;rpane.browseb.is-visible=true?rpane.infob.pos=130,0:rpane.infob.pos=65,0 rpane.textb.is-visible=true rpane.infob.is-checked=true rpane.rpanewindow.pos=0,30 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=infowindow\""
+		on-hide = ".winset\"rpane.infob.is-visible=false;rpane.browseb.is-visible=true?rpane.browseb.is-checked=true rpane.rpanewindow.left=browserwindow:rpane.textb.is-visible=false rpane.rpanewindow.pos=0,0 rpane.rpanewindow.size=0x0 rpane.rpanewindow.left=\""
+
+window "rpspy"
+	elem "rpspy"
+		type = MAIN
+		pos = 434,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "I Spy With My Little Eye..."
+		statusbar = false
+	elem "label1"
+		type = LABEL
+		pos = 1,2
+		size = 53x18
+		anchor1 = 0,0
+		anchor2 = -1,-1
+		font-family = "Sour Crunch"
+		text-color = #ff0000
+		background-color = #000000
+		saved-params = ""
+		text = "RP SPY"
+	elem "output1"
+		type = OUTPUT
+		pos = 11,67
+		size = 617x395
+		anchor1 = 2,14
+		anchor2 = 98,96
+		font-family = "System"
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "max-lines"
+
+window "selection_window"
+	elem "selection_window"
+		type = MAIN
+		pos = 418,0
+		size = 476x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Sovereign: Racial Options"
+		statusbar = false
+		can-resize = false
+	elem "client_pane3"
+		type = CHILD
+		pos = 0,0
+		size = 476x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = "splitter"
+		is-vert = false
+
+window "skills"
+	elem "skills"
+		type = MAIN
+		pos = 434,0
+		size = 480x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "EON : CHARACTER CREATION"
+		statusbar = false
+		can-close = false
+		can-resize = false
+		image = 'NewDBGIcons\\DBGPngs\\StatScreen.png'
+		keep-aspect = true
+	elem "button35"
+		type = BUTTON
+		pos = 288,448
+		size = 96x32
+		anchor1 = 60,93
+		anchor2 = 80,100
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\cancelBt.png'
+		command = "ClickCancel"
+	elem "iconpreview"
+		type = OUTPUT
+		pos = 210,34
+		size = 68x62
+		anchor1 = 44,13
+		anchor2 = 58,20
+		background-color = #4d4d4d
+		saved-params = "one-line"
+		style = "BIG IMG.icon {width: 32px; height: 32px align:bottom}\nJJ {background-color:transparent;)"
+		max-lines = 1
+	elem "namedesc"
+		type = LABEL
+		pos = 297,388
+		size = 166x20
+		anchor1 = 62,81
+		anchor2 = 96,85
+		font-family = "P22 Johnston Underground"
+		font-size = 9
+		text-color = #f8f8f8
+		is-transparent = true
+		saved-params = ""
+		text = "UNDEFINED NAME"
+	elem "genderdesc"
+		type = LABEL
+		pos = 380,73
+		size = 60x20
+		anchor1 = 79,15
+		anchor2 = 92,19
+		font-family = "P22 Johnston Underground"
+		font-size = 7
+		font-style = "italic"
+		text-color = #f8f8f8
+		is-transparent = true
+		saved-params = ""
+		text = "UNDEFINED"
+	elem "label12"
+		type = LABEL
+		pos = 316,72
+		size = 60x20
+		anchor1 = 66,15
+		anchor2 = 78,19
+		font-family = "P22 Johnston Underground"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		is-transparent = true
+		saved-params = ""
+		text = "GENDER:"
+	elem "button34"
+		type = BUTTON
+		pos = 256,32
+		size = 32x32
+		anchor1 = 53,7
+		anchor2 = 60,13
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\rightBt.png'
+		command = "ClickHairR"
+	elem "button33"
+		type = BUTTON
+		pos = 192,32
+		size = 32x32
+		anchor1 = 40,7
+		anchor2 = 47,13
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\leftBt.png'
+		command = "ClickHairL"
+	elem "button32"
+		type = BUTTON
+		pos = 256,64
+		size = 32x32
+		anchor1 = 53,13
+		anchor2 = 60,20
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\rightBt.png'
+		command = "ClickGenderM"
+	elem "button31"
+		type = BUTTON
+		pos = 192,64
+		size = 32x32
+		anchor1 = 40,13
+		anchor2 = 47,20
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\leftBt.png'
+		command = "ClickGenderF"
+	elem "button30"
+		type = BUTTON
+		pos = 320,288
+		size = 128x32
+		anchor1 = 67,60
+		anchor2 = 93,67
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\skincolourBt.png'
+		command = "ClickSkinColor"
+	elem "button29"
+		type = BUTTON
+		pos = 192,384
+		size = 96x32
+		anchor1 = 40,80
+		anchor2 = 60,87
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\nameBt.png'
+		command = "ClickName"
+	elem "button28"
+		type = BUTTON
+		pos = 192,192
+		size = 96x32
+		anchor1 = 40,40
+		anchor2 = 60,47
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\adultBt.png'
+		command = "ClickAdult"
+	elem "button27"
+		type = BUTTON
+		pos = 192,160
+		size = 96x32
+		anchor1 = 40,33
+		anchor2 = 60,40
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\kidteenBt.png'
+		command = "ClickKidTeen"
+	elem "button26"
+		type = BUTTON
+		pos = 192,128
+		size = 96x32
+		anchor1 = 40,27
+		anchor2 = 60,33
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\babyBt.png'
+		command = "ClickBaby"
+	elem "sizedesc"
+		type = LABEL
+		pos = 344,260
+		size = 84x20
+		anchor1 = 72,54
+		anchor2 = 89,58
+		font-family = "P22 Johnston Underground"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		is-transparent = true
+		saved-params = ""
+		text = ""
+		text-wrap = true
+	elem "button25"
+		type = BUTTON
+		pos = 192,320
+		size = 96x32
+		anchor1 = 40,67
+		anchor2 = 60,73
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\largeBt.png'
+		command = "ClickLargeSize"
+	elem "button24"
+		type = BUTTON
+		pos = 192,256
+		size = 96x32
+		anchor1 = 40,53
+		anchor2 = 60,60
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\mediumBt.png'
+		command = "ClickMedSize"
+	elem "button23"
+		type = BUTTON
+		pos = 192,288
+		size = 96x32
+		anchor1 = 40,60
+		anchor2 = 60,67
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\smallBt.png'
+		command = "ClickSmallSize"
+	elem "Race BP"
+		type = LABEL
+		pos = 51,544
+		size = 229x30
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-size = 10
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		border = sunken
+		saved-params = ""
+		text = "This race has 2x Battle Power"
+	elem "Efficiency"
+		type = LABEL
+		pos = 24,96
+		size = 42x30
+		anchor1 = 5,20
+		anchor2 = 14,26
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Strength"
+		type = LABEL
+		pos = 24,128
+		size = 42x30
+		anchor1 = 5,27
+		anchor2 = 14,33
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Endurance"
+		type = LABEL
+		pos = 24,160
+		size = 42x30
+		anchor1 = 5,33
+		anchor2 = 14,40
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Speed"
+		type = LABEL
+		pos = 24,192
+		size = 42x30
+		anchor1 = 5,40
+		anchor2 = 14,46
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Force"
+		type = LABEL
+		pos = 24,224
+		size = 42x30
+		anchor1 = 5,47
+		anchor2 = 14,53
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Resistance"
+		type = LABEL
+		pos = 24,256
+		size = 42x30
+		anchor1 = 5,53
+		anchor2 = 14,60
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Offense"
+		type = LABEL
+		pos = 24,288
+		size = 42x30
+		anchor1 = 5,60
+		anchor2 = 14,66
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Defense"
+		type = LABEL
+		pos = 24,320
+		size = 42x30
+		anchor1 = 5,67
+		anchor2 = 14,73
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Regeneration"
+		type = LABEL
+		pos = 24,354
+		size = 42x30
+		anchor1 = 5,74
+		anchor2 = 14,80
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Recovery"
+		type = LABEL
+		pos = 24,384
+		size = 42x30
+		anchor1 = 5,80
+		anchor2 = 14,86
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #f8f8f8
+		background-color = #000000
+		is-transparent = true
+		saved-params = ""
+		text = "?"
+	elem "Proceed"
+		type = BUTTON
+		pos = 96,448
+		size = 96x32
+		anchor1 = 20,93
+		anchor2 = 40,100
+		font-family = "Arial"
+		font-size = 15
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\confirmBt.png'
+		command = ".Skill_Points_Done"
+	elem "label6"
+		type = LABEL
+		pos = 12,485
+		size = 128x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 10
+		font-style = "bold"
+		text-color = #11ace8
+		background-color = #000000
+		saved-params = ""
+		text = "Points remaining:"
+	elem "PointsRemaining"
+		type = LABEL
+		pos = 32,64
+		size = 30x30
+		anchor1 = 7,13
+		anchor2 = 13,20
+		font-family = "monospace"
+		font-size = 10
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		is-transparent = true
+		border = sunken
+		saved-params = ""
+		text = "?"
+	elem "plusRecov"
+		type = BUTTON
+		pos = 66,384
+		size = 30x30
+		anchor1 = 14,80
+		anchor2 = 20,86
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Recovery\""
+	elem "minusRecov"
+		type = BUTTON
+		pos = 96,384
+		size = 30x30
+		anchor1 = 20,80
+		anchor2 = 26,86
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Recovery\""
+	elem "plusRegen"
+		type = BUTTON
+		pos = 66,352
+		size = 30x30
+		anchor1 = 14,73
+		anchor2 = 20,80
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Regeneration\""
+	elem "minusRegen"
+		type = BUTTON
+		pos = 96,352
+		size = 30x30
+		anchor1 = 20,73
+		anchor2 = 26,80
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Regeneration\""
+	elem "plusDEF"
+		type = BUTTON
+		pos = 64,320
+		size = 30x30
+		anchor1 = 13,67
+		anchor2 = 20,73
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Defense\""
+	elem "minusDEF"
+		type = BUTTON
+		pos = 96,320
+		size = 30x30
+		anchor1 = 20,67
+		anchor2 = 26,73
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Defense\""
+	elem "plusOFF"
+		type = BUTTON
+		pos = 64,288
+		size = 30x30
+		anchor1 = 13,60
+		anchor2 = 20,66
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Offense\""
+	elem "minusOFF"
+		type = BUTTON
+		pos = 96,288
+		size = 30x30
+		anchor1 = 20,60
+		anchor2 = 26,66
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Offense\""
+	elem "plusRES"
+		type = BUTTON
+		pos = 66,256
+		size = 30x30
+		anchor1 = 14,53
+		anchor2 = 20,60
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Resistance\""
+	elem "minusRES"
+		type = BUTTON
+		pos = 98,256
+		size = 30x30
+		anchor1 = 20,53
+		anchor2 = 27,60
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Resistance\""
+	elem "plusPOW"
+		type = BUTTON
+		pos = 66,224
+		size = 30x30
+		anchor1 = 14,47
+		anchor2 = 20,53
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Force\""
+	elem "minusPOW"
+		type = BUTTON
+		pos = 98,224
+		size = 30x30
+		anchor1 = 20,47
+		anchor2 = 27,53
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Force\""
+	elem "plusSPD"
+		type = BUTTON
+		pos = 66,192
+		size = 30x30
+		anchor1 = 14,40
+		anchor2 = 20,46
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Speed\""
+	elem "minusSPD"
+		type = BUTTON
+		pos = 96,192
+		size = 30x30
+		anchor1 = 20,40
+		anchor2 = 26,46
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Speed\""
+	elem "plusEND"
+		type = BUTTON
+		pos = 66,160
+		size = 30x30
+		anchor1 = 14,33
+		anchor2 = 20,40
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Endurance\""
+	elem "minusEND"
+		type = BUTTON
+		pos = 98,160
+		size = 30x30
+		anchor1 = 20,33
+		anchor2 = 27,40
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Endurance\""
+	elem "plusSTR"
+		type = BUTTON
+		pos = 66,128
+		size = 30x30
+		anchor1 = 14,27
+		anchor2 = 20,33
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Strength\""
+	elem "minusSTR"
+		type = BUTTON
+		pos = 96,128
+		size = 30x30
+		anchor1 = 20,27
+		anchor2 = 26,33
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Strength\""
+	elem "plusEN"
+		type = BUTTON
+		pos = 66,97
+		size = 30x30
+		anchor1 = 14,20
+		anchor2 = 20,26
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\plusBt.png'
+		command = ".Skill_Points \"+\" \"Energy\""
+	elem "minusEN"
+		type = BUTTON
+		pos = 96,96
+		size = 32x32
+		anchor1 = 20,20
+		anchor2 = 27,27
+		font-family = "Arial Black"
+		font-size = 20
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #11ace8
+		saved-params = "is-checked"
+		text = ""
+		image = 'NewDBGIcons\\DBGPngs\\minusBt.png'
+		command = ".Skill_Points \"-\" \"Energy\""
+
+window "sovtitle2"
+	elem "sovtitle2"
+		type = MAIN
+		pos = 723,163
+		size = 480x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Sovereign"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		image = 'Icons\\loginSV2.png'
+		image-mode = center
+		keep-aspect = true
+	elem "loadbt"
+		type = BUTTON
+		pos = 0,386
+		size = 476x94
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #336699
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\loadSV2.png'
+		command = "ClickLoad"
+		is-flat = true
+		is-checked = true
+	elem "newbt"
+		type = BUTTON
+		pos = 74,-2
+		size = 318x94
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #336699
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\newsv2.png'
+		command = "ClickNew"
+		is-flat = true
+		is-checked = true
+
+window "techPPs"
+	elem "techPPs"
+		type = MAIN
+		pos = 281,0
+		size = 350x300
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Technology Passive Skills"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+	elem "label6"
+		type = LABEL
+		pos = 32,24
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Androids"
+		text-wrap = true
+	elem "label7"
+		type = LABEL
+		pos = 106,24
+		size = 62x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Cyborgs"
+		text-wrap = true
+	elem "label8"
+		type = LABEL
+		pos = 180,24
+		size = 60x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Parts"
+		text-wrap = true
+	elem "androidsLb"
+		type = LABEL
+		pos = 45,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "cyborgsLb"
+		type = LABEL
+		pos = 118,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "partsLb"
+		type = LABEL
+		pos = 192,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "androidBt"
+		type = BUTTON
+		pos = 51,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\Androids.png'
+		command = "AndroidsClick"
+		is-flat = true
+	elem "partsBt"
+		type = BUTTON
+		pos = 123,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\Cyborgs.png'
+		command = "CyborgsClick"
+		is-flat = true
+	elem "skinBt"
+		type = BUTTON
+		pos = 195,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\Parts.png'
+		command = "PartsClick"
+		is-flat = true
+	elem "points"
+		type = LABEL
+		pos = 171,128
+		size = 72x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+		align = left
+	elem "label10"
+		type = LABEL
+		pos = 107,128
+		size = 64x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Points Left:"
+		text-wrap = true
+	elem "label9"
+		type = LABEL
+		pos = 32,160
+		size = 72x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Artificial Skin"
+		text-wrap = true
+	elem "label11"
+		type = LABEL
+		pos = 107,160
+		size = 66x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Efficient"
+		text-wrap = true
+	elem "label12"
+		type = LABEL
+		pos = 178,160
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Study"
+		text-wrap = true
+	elem "skinLb"
+		type = LABEL
+		pos = 48,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "efficientLb"
+		type = LABEL
+		pos = 118,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "studyLb"
+		type = LABEL
+		pos = 192,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button8"
+		type = BUTTON
+		pos = 52,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\ArtificialSkin.png'
+		command = "SkinClick"
+		is-flat = true
+	elem "button9"
+		type = BUTTON
+		pos = 124,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\Efficient.png'
+		command = "EfficientClick"
+		is-flat = true
+	elem "button10"
+		type = BUTTON
+		pos = 196,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\Study.png'
+		command = "StudyClick"
+		is-flat = true
+	elem "label16"
+		type = LABEL
+		pos = 265,24
+		size = 55x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Implants"
+		text-wrap = true
+	elem "implantsLb"
+		type = LABEL
+		pos = 272,96
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button11"
+		type = BUTTON
+		pos = 278,56
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\Implants.png'
+		command = "ImplantsClick"
+		is-flat = true
+	elem "label18"
+		type = LABEL
+		pos = 259,160
+		size = 67x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "Self Borgification"
+		text-wrap = true
+	elem "selfBorgLb"
+		type = LABEL
+		pos = 273,232
+		size = 40x24
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+		text = "0"
+	elem "button12"
+		type = BUTTON
+		pos = 277,192
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\selfBorg.png'
+		command = "SelfBorgClick"
+		is-flat = true
+
+window "wholist"
+	elem "wholist"
+		type = MAIN
+		pos = 434,0
+		size = 240x482
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #111111
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Who"
+		statusbar = false
+		can-resize = false
+	elem "grid1"
+		type = GRID
+		pos = 16,16
+		size = 208x432
+		anchor1 = 7,3
+		anchor2 = 93,93
+		font-family = "sans-serif"
+		background-color = #111111
+		border = line
+		saved-params = ""
+		show-lines = horizontal
+		highlight-color = #000000
+
+window "win_playerDsc"
+	elem "win_playerDsc"
+		type = MAIN
+		pos = 281,0
+		size = 540x679
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		statusbar = false
+	elem "brow_playerDsc"
+		type = BROWSER
+		pos = 16,16
+		size = 504x646
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #000000
+		border = sunken
+		saved-params = ""
+
+window "win_playerEdit"
+	elem "win_playerEdit"
+		type = MAIN
+		pos = 434,0
+		size = 499x567
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		statusbar = false
+	elem "inp_playerEdit"
+		type = INPUT
+		pos = 16,24
+		size = 464x527
+		anchor1 = 0,0
+		anchor2 = 100,100
+		border = sunken
+		saved-params = ""
+		multi-line = true
+		no-command = true
+
+window "windowBuild"
+	elem "windowBuild"
+		type = MAIN
+		pos = 291,0
+		size = 640x450
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "grid_Build"
+		type = GRID
+		pos = 0,135
+		size = 640x315
+		anchor1 = 0,30
+		anchor2 = 100,100
+		text-color = #ffffff
+		background-color = #000000
+		drop-zone = false
+		saved-params = ""
+		cells = 1x0
+		current-cell = 1,1
+		show-names = false
+		line-color = #d8d8d8
+		highlight-color = #000000
+		is-list = true
+	elem "grid_buildCats"
+		type = GRID
+		pos = 0,0
+		size = 640x53
+		anchor1 = 0,0
+		anchor2 = 89,12
+		font-size = 12
+		font-style = "bold"
+		text-color = #f5f5f5
+		background-color = #000000
+		drop-zone = false
+		saved-params = ""
+		line-color = #e4e4e4
+		highlight-color = #000000
+	elem "grid_buildSubs"
+		type = GRID
+		pos = 0,38
+		size = 640x97
+		anchor1 = 0,8
+		anchor2 = 100,30
+		font-size = 11
+		font-style = "bold"
+		text-color = #efefef
+		background-color = #000000
+		drop-zone = false
+		saved-params = ""
+		cells = 1x0
+		current-cell = 1,1
+		line-color = #e4e4e4
+		highlight-color = #000000
+		is-list = true
+
+window "window26"
+	elem "window26"
+		type = MAIN
+		pos = 291,0
+		size = 476x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Sovereign"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		image-mode = center
+	elem "loadbt"
+		type = BUTTON
+		pos = 214,392
+		size = 264x91
+		anchor1 = 62,86
+		anchor2 = 100,100
+		background-color = #21213d
+		border = line
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\loadSV.png'
+		command = "ClickLoad"
+		is-flat = true
+		is-checked = true
+	elem "newbt"
+		type = BUTTON
+		pos = 235,305
+		size = 243x87
+		anchor1 = 0,86
+		anchor2 = 35,100
+		background-color = #21213d
+		border = line
+		saved-params = "is-checked"
+		text = ""
+		image = 'Icons\\newSV.png'
+		command = "ClickNew"
+		is-flat = true
+		is-checked = true
+
+window "window27"
+	elem "window27"
+		type = MAIN
+		pos = 291,0
+		size = 476x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Sovereign: Racial Options"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "racestatus"
+		type = LABEL
+		pos = 232,368
+		size = 72x16
+		anchor1 = 49,77
+		anchor2 = 64,80
+		font-family = "monospace"
+		font-size = 2
+		text-color = #1fc71f
+		is-transparent = true
+		saved-params = ""
+		text = ""
+	elem "label11"
+		type = LABEL
+		pos = 160,368
+		size = 72x16
+		anchor1 = 34,77
+		anchor2 = 49,80
+		font-family = "monospace"
+		font-size = 2
+		font-style = "bold"
+		text-color = #f8f8f8
+		is-transparent = true
+		saved-params = ""
+		text = "STATUS:"
+	elem "racedesc"
+		type = LABEL
+		pos = 112,144
+		size = 256x200
+		anchor1 = 24,30
+		anchor2 = 77,72
+		text-color = #f8f8f8
+		is-transparent = true
+		saved-params = ""
+		text = ""
+		align = left
+		text-wrap = true
+		allow-html = true
+	elem "cancelrace"
+		type = BUTTON
+		pos = 350,448
+		size = 128x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #5f5f5f
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickRaceCancel"
+	elem "confirmrace"
+		type = BUTTON
+		pos = 0,448
+		size = 128x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #5f5f5f
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickRaceConfirm"
+	elem "demonbt"
+		type = BUTTON
+		pos = 381,128
+		size = 96x64
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickDemon"
+	elem "makyobt"
+		type = BUTTON
+		pos = 410,224
+		size = 64x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickMakyo"
+	elem "halfgodbt"
+		type = BUTTON
+		pos = 381,288
+		size = 96x96
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		image = 'DBGIconset\\halfgodBt.png'
+		command = "ClickHalfGod"
+	elem "saiyanbt"
+		type = BUTTON
+		pos = 317,352
+		size = 96x96
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickSaiyan"
+	elem "spiritdollbt"
+		type = BUTTON
+		pos = 222,414
+		size = 32x64
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickSpiritDoll"
+	elem "earthlingbt"
+		type = BUTTON
+		pos = 64,352
+		size = 96x96
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickEarthling"
+	elem "namekianbt"
+		type = BUTTON
+		pos = 0,288
+		size = 96x96
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickNamekian"
+	elem "babybt"
+		type = BUTTON
+		pos = 0,224
+		size = 64x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickNewBorn"
+	elem "changelingbt"
+		type = BUTTON
+		pos = 0,128
+		size = 96x64
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickChangeling"
+	elem "tufflebt"
+		type = BUTTON
+		pos = 350,65
+		size = 64x64
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickTuffle"
+	elem "alienbt"
+		type = BUTTON
+		pos = 222,0
+		size = 32x64
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickAlien"
+	elem "kaibt"
+		type = BUTTON
+		pos = 64,64
+		size = 64x64
+		anchor1 = 13,13
+		anchor2 = 27,27
+		saved-params = "is-checked"
+		text = ""
+		command = "ClickKai"
+
+window "balancewin"
+	elem "balancewin"
+		type = MAIN
+		pos = 291,0
+		size = 374x84
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #363661
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-resize = false
+	elem "button18"
+		type = BUTTON
+		pos = 0,58
+		size = 58x26
+		anchor1 = 0,68
+		anchor2 = 16,100
+		text-color = #ffffff
+		background-color = #5d5d6f
+		saved-params = "is-checked"
+		text = "Awaken"
+		command = "Expel-Bal"
+	elem "balbar2"
+		type = BAR
+		pos = 63,51
+		size = 298x29
+		anchor1 = 17,61
+		anchor2 = 96,96
+		background-color = #5d5d6f
+		saved-params = ""
+		bar-color = #000000
+		is-slider = true
+		width = 15
+		dir = east
+		angle2 = 359
+	elem "balbar1"
+		type = BAR
+		pos = 63,29
+		size = 298x29
+		anchor1 = 17,35
+		anchor2 = 96,70
+		background-color = #5d5d6f
+		saved-params = ""
+		bar-color = #ffff00
+		is-slider = true
+		width = 15
+		dir = east
+		angle2 = 359
+		value = 50
+	elem "balbutton"
+		type = BUTTON
+		pos = 0,37
+		size = 58x18
+		anchor1 = 0,43
+		anchor2 = 16,65
+		text-color = #ffffff
+		background-color = #5d5d6f
+		saved-params = "is-checked"
+		text = "Balance!"
+		command = "Add-Bal"
+	elem "balmeterlab"
+		type = LABEL
+		pos = 14,0
+		size = 346x29
+		anchor1 = 4,0
+		anchor2 = 96,35
+		text-color = #ffffff
+		background-color = #5d5d6f
+		saved-params = ""
+		text = "!!??\nPress C to get the Black Bar near the Yellow!"
+		text-wrap = true
+
+window "yutput"
+	elem "yutput"
+		type = MAIN
+		pos = 291,0
+		size = 504x454
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		border = sunken
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+	elem "message"
+		type = OUTPUT
+		pos = 0,45
+		size = 504x131
+		anchor1 = 0,10
+		anchor2 = 100,39
+		font-family = "Fixedsys"
+		text-color = #c4c4c4
+		background-color = #080808
+		saved-params = "max-lines"
+	elem "grid"
+		type = GRID
+		pos = 0,176
+		size = 504x278
+		anchor1 = 0,39
+		anchor2 = 100,100
+		font-family = "Fixedsys"
+		text-color = #ffffff
+		background-color = #080808
+		saved-params = ""
+		show-lines = horizontal
+		highlight-color = #000000
+	elem "title"
+		type = LABEL
+		pos = 0,0
+		size = 504x45
+		anchor1 = 0,0
+		anchor2 = 100,10
+		font-family = "Fixedsys"
+		text-color = #ffffff
+		background-color = #a50021
+		border = sunken
+		saved-params = ""
+		text = "Title here"
+

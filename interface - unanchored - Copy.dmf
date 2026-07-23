@@ -1,0 +1,593 @@
+macro "macro"
+	elem 
+		name = "Tab"
+		command = ".tab_target"
+	elem 
+		name = "Center+REP"
+		command = ".center"
+	elem 
+		name = "Return"
+		command = "ChatBox"
+	elem 
+		name = "Escape"
+		command = ".esc"
+	elem 
+		name = "Space"
+		command = "Winsay"
+	elem 
+		name = "West+UP"
+		command = "MoveKey 8 0"
+	elem 
+		name = "West+REP"
+		command = "MoveKey 8 1"
+	elem 
+		name = "North+UP"
+		command = "MoveKey 1 0"
+	elem 
+		name = "North+REP"
+		command = "MoveKey 1 1"
+	elem 
+		name = "East+UP"
+		command = "MoveKey 4 0"
+	elem 
+		name = "East+REP"
+		command = "MoveKey 4 1"
+	elem 
+		name = "South+UP"
+		command = "MoveKey 2 0"
+	elem 
+		name = "South+REP"
+		command = "MoveKey 2 1"
+	elem 
+		name = "0"
+		command = ".start_macro_skill 0"
+	elem 
+		name = "0+UP"
+		command = ".stop_macro_skill 0"
+	elem 
+		name = "1"
+		command = ".start_macro_skill 1"
+	elem 
+		name = "CTRL+1"
+		command = ".follower_attack"
+	elem 
+		name = "1+UP"
+		command = ".stop_macro_skill 1"
+	elem 
+		name = "2"
+		command = ".start_macro_skill 2"
+	elem 
+		name = "2+UP"
+		command = ".stop_macro_skill 2"
+	elem 
+		name = "3"
+		command = ".start_macro_skill 3"
+	elem 
+		name = "3+UP"
+		command = ".stop_macro_skill 3"
+	elem 
+		name = "4"
+		command = ".start_macro_skill 4"
+	elem 
+		name = "CTRL+4"
+		command = ".follower_dig"
+	elem 
+		name = "4+UP"
+		command = ".stop_macro_skill 4"
+	elem 
+		name = "5"
+		command = ".start_macro_skill 5"
+	elem 
+		name = "CTRL+5"
+		command = ".follower_stop"
+	elem 
+		name = "5+UP"
+		command = ".stop_macro_skill 5"
+	elem 
+		name = "6"
+		command = ".start_macro_skill 6"
+	elem 
+		name = "6+UP"
+		command = ".stop_macro_skill 6"
+	elem 
+		name = "7"
+		command = ".start_macro_skill 7"
+	elem 
+		name = "7+UP"
+		command = ".stop_macro_skill 7"
+	elem 
+		name = "8"
+		command = ".start_macro_skill 8"
+	elem 
+		name = "8+UP"
+		command = ".stop_macro_skill 8"
+	elem 
+		name = "9"
+		command = ".start_macro_skill 9"
+	elem 
+		name = "9+UP"
+		command = ".stop_macro_skill 9"
+	elem 
+		name = "A+UP"
+		command = "MoveKey 8 0"
+	elem 
+		name = "A+REP"
+		command = "MoveKey 8 1"
+	elem 
+		name = "B"
+		command = ".open_build"
+	elem 
+		name = "C"
+		command = ".open_stats"
+	elem 
+		name = "D+UP"
+		command = "MoveKey 4 0"
+	elem 
+		name = "D+REP"
+		command = "MoveKey 4 1"
+	elem 
+		name = "E"
+		command = ".grab"
+	elem 
+		name = "CTRL+E"
+		command = ".follower_grab"
+	elem 
+		name = "CTRL+F"
+		command = ".follower_follow"
+	elem 
+		name = "CTRL+G"
+		command = ".follower_give"
+	elem 
+		name = "I"
+		command = ".open_inven"
+	elem 
+		name = "CTRL+I"
+		command = ".follower_inv"
+	elem 
+		name = "S+UP"
+		command = "MoveKey 2 0"
+	elem 
+		name = "S+REP"
+		command = "MoveKey 2 1"
+	elem 
+		name = "T"
+		command = ".open_tech"
+	elem 
+		name = "CTRL+T"
+		command = ".teach"
+	elem 
+		name = "V"
+		command = ".toggle_info"
+	elem 
+		name = "CTRL+V"
+		command = ".follower_view"
+	elem 
+		name = "W+UP"
+		command = "MoveKey 1 0"
+	elem 
+		name = "W+REP"
+		command = "MoveKey 1 1"
+	elem 
+		name = "="
+		command = ".macro_skills \"=\""
+	elem 
+		name = "-"
+		command = ".macro_skills \"-\""
+	elem 
+		name = "CTRL+`"
+		command = ".follower_dismiss"
+	elem 
+		name = "Any"
+		command = ".inputkey [[*]]"
+	elem 
+		name = "Any+UP"
+		command = ".inputkey_up [[*]]"
+
+
+window "AdWindow"
+	elem "AdWindow"
+		type = MAIN
+		pos = 291,0
+		size = 1x1
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-resize = false
+	elem "browser1"
+		type = BROWSER
+		pos = 0,0
+		size = 1x1
+		anchor1 = 5,1
+		anchor2 = 90,100
+		saved-params = ""
+		auto-format = true
+
+window "main"
+	elem "main"
+		type = MAIN
+		pos = 0,0
+		size = 1904x962
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		is-default = true
+		saved-params = "pos;size"
+		on-size = "WindowResize"
+		title = "Sovereign"
+		statusbar = false
+		icon = 'sovlogo.dmi'
+		macro = "macro"
+		menu = "menu"
+		outer-size = 1920x1021
+		inner-size = 1904x962
+	elem "child"
+		type = CHILD
+		pos = 0,0
+		size = 1903x962
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #111111
+		is-visible = false
+		saved-params = ""
+		left = "map"
+		right = "sidepanel"
+		is-vert = true
+		splitter = 65
+		lock = right
+	elem "map_main"
+		type = MAP
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+		saved-params = ""
+	elem "sayinput"
+		type = INPUT
+		pos = 0,944
+		size = 568x17
+		anchor1 = 0,98
+		anchor2 = 30,100
+		text-color = #ffffff
+		background-color = #232323
+		is-visible = false
+		border = line
+		saved-params = ""
+		command = "Say"
+	elem "worldinput"
+		type = INPUT
+		pos = 0,736
+		size = 568x16
+		anchor1 = 0,77
+		anchor2 = 30,78
+		text-color = #ffffff
+		background-color = #5f5f5f
+		is-visible = false
+		border = line
+		saved-params = ""
+		command = "ooc"
+	elem "ActionOutputChild"
+		type = CHILD
+		pos = 0,752
+		size = 568x192
+		anchor1 = 0,78
+		anchor2 = 30,98
+		background-color = #232323
+		is-visible = false
+		border = sunken
+		saved-params = "splitter;can-resize=true"
+		right = "ActionOut"
+		is-vert = false
+	elem "ChatOut"
+		type = CHILD
+		pos = 0,568
+		size = 568x168
+		anchor1 = 0,59
+		anchor2 = 30,77
+		background-color = #525252
+		is-visible = false
+		border = sunken
+		saved-params = "splitter;can-resize;alpha=50"
+		right = "Output"
+		is-vert = false
+
+window "ScouterInterface"
+	elem "ScouterInterface"
+		type = MAIN
+		pos = 291,0
+		size = 226x177
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #00cc99
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		image-mode = center
+		transparent-color = #00cc99
+		alpha = 169
+	elem "ScouterReading"
+		type = OUTPUT
+		pos = 0,0
+		size = 226x177
+		anchor1 = 0,0
+		anchor2 = 0,0
+		background-color = #339966
+		border = line
+		saved-params = "max-lines"
+		enable-http-images = true
+	elem "Pombo"
+		type = LABEL
+		pos = 52,113
+		size = 152x31
+		anchor1 = 31,61
+		anchor2 = 58,72
+		font-family = "@Microsoft YaHei,Ultimate Saiyan Scouter,Stencil,Stencil Std,@Arial Unicode MS"
+		font-size = 14
+		font-style = "bold"
+		text-color = #c5c46c
+		background-color = #1ac69b
+		saved-params = ""
+		text = ""
+		text-wrap = true
+	elem "TargetAppearance"
+		type = LABEL
+		pos = 109,60
+		size = 32x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		text-color = #53cea7
+		background-color = #53cea7
+		is-visible = false
+		saved-params = ""
+		text = ""
+
+window "ActionOut"
+	elem "ActionOut"
+		type = MAIN
+		pos = 291,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-transparent = true
+		saved-params = "pos;size;is-minimized;is-maximized;can-resize"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		is-pane = true
+		can-scroll = vertical
+		alpha = 155
+	elem "actionoutput"
+		type = OUTPUT
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = "Adobe Caslon Pro"
+		font-size = 10
+		text-color = #f8f8f8
+		background-color = #232323
+		border = line
+		saved-params = "max-lines"
+		link-color = #f8f8f8
+		visited-color = #f8f8f8
+		max-lines = 0
+		legacy-size = false
+
+window "Output"
+	elem "Output"
+		type = MAIN
+		pos = 291,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #1b1b1b
+		is-transparent = true
+		saved-params = "pos;size;is-minimized;is-maximized;can-resize=true"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		alpha = 0
+	elem "output1"
+		type = OUTPUT
+		pos = 8,8
+		size = 624x464
+		anchor1 = 1,2
+		anchor2 = 99,98
+		font-family = "@Kozuka Mincho Pro B"
+		font-size = 13
+		text-color = #ffffff
+		background-color = #111111
+		is-default = true
+		border = line
+		saved-params = "max-lines;alpha=50"
+		link-color = #ffffff
+		visited-color = #ffffff
+		max-lines = 0
+		legacy-size = false
+
+window "rpspy"
+	elem "rpspy"
+		type = MAIN
+		pos = 291,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #080808
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+	elem "label1"
+		type = LABEL
+		pos = 0,4
+		size = 640x20
+		anchor1 = 0,1
+		anchor2 = 100,5
+		font-size = 15
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #1c1c1c
+		border = line
+		saved-params = ""
+		text = "ROLEPLAY MONITOR:"
+	elem "output2"
+		type = OUTPUT
+		pos = 0,24
+		size = 640x456
+		anchor1 = 0,5
+		anchor2 = 100,100
+		font-size = 9
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #292929
+		border = sunken
+		saved-params = "max-lines"
+		enable-http-images = true
+
+window "chat"
+	elem "chat"
+		type = MAIN
+		pos = 291,0
+		size = 325x176
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-default = true
+		saved-params = ""
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		macro = "macros"
+	elem "RP"
+		type = BUTTON
+		pos = 280,156
+		size = 45x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		font-size = 8
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #191f3e
+		saved-params = "is-checked"
+		text = "RP"
+		command = "RolePlay"
+	elem "toggleChat"
+		type = BUTTON
+		pos = 224,156
+		size = 56x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		font-size = 8
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #191f3e
+		saved-params = "is-checked"
+		text = "Say"
+		command = "toggleSay"
+		is-flat = true
+	elem "input"
+		type = INPUT
+		pos = 0,156
+		size = 224x20
+		anchor1 = 0,100
+		anchor2 = 100,100
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		border = sunken
+		saved-params = ""
+		command = "Say"
+	elem "output"
+		type = OUTPUT
+		pos = 0,0
+		size = 325x154
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-default = true
+		saved-params = ""
+
+window "map"
+	elem "map"
+		type = MAIN
+		pos = 291,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = none
+		saved-params = ""
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		outer-size = 654x494
+	elem "map"
+		type = MAP
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+		right-click = true
+		saved-params = ""
+		icon-size = 32
+	elem "Area"
+		type = LABEL
+		pos = 460,0
+		size = 180x32
+		anchor1 = 100,0
+		anchor2 = 100,0
+		font-family = "Arial"
+		font-size = 12
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		border = line
+		saved-params = ""
+		text = ""
+
+window "output"
+	elem "output"
+		type = MAIN
+		pos = 291,0
+		size = 160x264
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "child"
+		type = CHILD
+		pos = 0,0
+		size = 160x264
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #333f7d
+		saved-params = "splitter"
+		left = "combat"
+		right = "chat"
+		is-vert = false
+		splitter = 30
+		lock = left
+

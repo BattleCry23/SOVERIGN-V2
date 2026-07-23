@@ -1,0 +1,1139 @@
+macro "title"
+	elem 
+		name = "F1"
+		command = "AdminMenu"
+
+macro "macro"
+	elem 
+		name = "Tab"
+		command = ".tab_target"
+	elem 
+		name = "Center+REP"
+		command = ".center"
+	elem 
+		name = "Return"
+		command = "ChatBox"
+	elem 
+		name = "Escape"
+		command = ".esc"
+	elem 
+		name = "Space"
+		command = "Winsay"
+	elem 
+		name = "West+UP"
+		command = "MoveKey 8 0"
+	elem 
+		name = "West+REP"
+		command = "MoveKey 8 1"
+	elem 
+		name = "North+UP"
+		command = "MoveKey 1 0"
+	elem 
+		name = "North+REP"
+		command = "MoveKey 1 1"
+	elem 
+		name = "East+UP"
+		command = "MoveKey 4 0"
+	elem 
+		name = "East+REP"
+		command = "MoveKey 4 1"
+	elem 
+		name = "South+UP"
+		command = "MoveKey 2 0"
+	elem 
+		name = "South+REP"
+		command = "MoveKey 2 1"
+	elem 
+		name = "0"
+		command = ".start_macro_skill 0"
+	elem 
+		name = "0+UP"
+		command = ".stop_macro_skill 0"
+	elem 
+		name = "1"
+		command = ".start_macro_skill 1"
+	elem 
+		name = "CTRL+1"
+		command = ".follower_attack"
+	elem 
+		name = "1+UP"
+		command = ".stop_macro_skill 1"
+	elem 
+		name = "2"
+		command = ".start_macro_skill 2"
+	elem 
+		name = "2+UP"
+		command = ".stop_macro_skill 2"
+	elem 
+		name = "3"
+		command = ".start_macro_skill 3"
+	elem 
+		name = "3+UP"
+		command = ".stop_macro_skill 3"
+	elem 
+		name = "4"
+		command = ".start_macro_skill 4"
+	elem 
+		name = "CTRL+4"
+		command = ".follower_dig"
+	elem 
+		name = "4+UP"
+		command = ".stop_macro_skill 4"
+	elem 
+		name = "5"
+		command = ".start_macro_skill 5"
+	elem 
+		name = "CTRL+5"
+		command = ".follower_stop"
+	elem 
+		name = "5+UP"
+		command = ".stop_macro_skill 5"
+	elem 
+		name = "6"
+		command = ".start_macro_skill 6"
+	elem 
+		name = "6+UP"
+		command = ".stop_macro_skill 6"
+	elem 
+		name = "7"
+		command = ".start_macro_skill 7"
+	elem 
+		name = "7+UP"
+		command = ".stop_macro_skill 7"
+	elem 
+		name = "8"
+		command = ".start_macro_skill 8"
+	elem 
+		name = "8+UP"
+		command = ".stop_macro_skill 8"
+	elem 
+		name = "9"
+		command = ".start_macro_skill 9"
+	elem 
+		name = "9+UP"
+		command = ".stop_macro_skill 9"
+	elem 
+		name = "A+UP"
+		command = "MoveKey 8 0"
+	elem 
+		name = "A+REP"
+		command = "MoveKey 8 1"
+	elem 
+		name = "B"
+		command = ".open_build"
+	elem 
+		name = "C"
+		command = ".open_stats"
+	elem 
+		name = "D+UP"
+		command = "MoveKey 4 0"
+	elem 
+		name = "D+REP"
+		command = "MoveKey 4 1"
+	elem 
+		name = "E"
+		command = ".grab"
+	elem 
+		name = "CTRL+E"
+		command = ".follower_grab"
+	elem 
+		name = "CTRL+F"
+		command = ".follower_follow"
+	elem 
+		name = "CTRL+G"
+		command = ".follower_give"
+	elem 
+		name = "G+REP"
+		command = ".pickup"
+	elem 
+		name = "I"
+		command = ".open_inven"
+	elem 
+		name = "CTRL+I"
+		command = ".follower_inv"
+	elem 
+		name = "S+UP"
+		command = "MoveKey 2 0"
+	elem 
+		name = "S+REP"
+		command = "MoveKey 2 1"
+	elem 
+		name = "T"
+		command = ".open_tech"
+	elem 
+		name = "CTRL+T"
+		command = ".teach"
+	elem 
+		name = "V"
+		command = ".toggle_info"
+	elem 
+		name = "CTRL+V"
+		command = ".follower_view"
+	elem 
+		name = "W+UP"
+		command = "MoveKey 1 0"
+	elem 
+		name = "W+REP"
+		command = "MoveKey 1 1"
+	elem 
+		name = "X"
+		command = ".toggle_skillbar"
+	elem 
+		name = "F3"
+		command = ".admin_mode"
+	elem 
+		name = "="
+		command = ".macro_skills \"=\""
+	elem 
+		name = "-"
+		command = ".macro_skills \"-\""
+	elem 
+		name = "CTRL+`"
+		command = ".follower_dismiss"
+	elem 
+		name = "Any"
+		command = ".inputkey [[*]]"
+	elem 
+		name = "Any+UP"
+		command = ".inputkey_up [[*]]"
+
+
+window "admin"
+	elem "admin"
+		type = MAIN
+		pos = 281,0
+		size = 210x580
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		statusbar = false
+		can-minimize = false
+		macro = "macros"
+		on-close = "AdminMenu"
+	elem "tab1"
+		type = TAB
+		pos = 0,28
+		size = 208x552
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = ""
+		tabs = "admin"
+		current-tab = "admin"
+	elem "info1"
+		type = INFO
+		pos = 0,0
+		size = 208x576
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = ""
+
+window "chat"
+	elem "chat"
+		type = MAIN
+		pos = 291,0
+		size = 160x176
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #272525
+		drop-zone = true
+		saved-params = ""
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		macro = "macros"
+	elem "toggleSay"
+		type = BUTTON
+		pos = 117,156
+		size = 45x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		font-size = 8
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #080808
+		saved-params = "is-checked"
+		text = "Who"
+		command = ".who_panel"
+	elem "input"
+		type = INPUT
+		pos = 0,156
+		size = 116x20
+		anchor1 = 0,100
+		anchor2 = 100,100
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #000000
+		border = sunken
+		saved-params = "focus;"
+		command = "Say"
+	elem "actionoutput"
+		type = OUTPUT
+		pos = 0,0
+		size = 160x154
+		anchor1 = 0,0
+		anchor2 = 100,100
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = ""
+
+window "combat"
+	elem "combat"
+		type = MAIN
+		pos = 291,0
+		size = 160x88
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-default = true
+		saved-params = ""
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		macro = "macros"
+	elem "output"
+		type = OUTPUT
+		pos = 0,0
+		size = 160x88
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		saved-params = ""
+
+window "guild"
+	elem "guild"
+		type = MAIN
+		pos = 291,0
+		size = 160x216
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		image-mode = tile
+	elem "child"
+		type = CHILD
+		pos = 0,0
+		size = 160x216
+		anchor1 = 0,0
+		anchor2 = 100,100
+		saved-params = "splitter"
+		left = "guildUI"
+		right = "guildInfo"
+		is-vert = false
+		splitter = 10
+		show-splitter = false
+		lock = left
+
+window "guildInfo"
+	elem "guildInfo"
+		type = MAIN
+		pos = 281,0
+		size = 160x176
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		image-mode = tile
+	elem "grid"
+		type = GRID
+		pos = 0,0
+		size = 160x176
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		saved-params = ""
+		cells = 1x2
+		current-cell = 1,1
+		show-lines = none
+
+window "guildRoster"
+	elem "guildRoster"
+		type = MAIN
+		pos = 281,0
+		size = 160x176
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		image-mode = tile
+	elem "grid"
+		type = GRID
+		pos = 0,0
+		size = 160x176
+		anchor1 = 0,0
+		anchor2 = 100,100
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		saved-params = ""
+		cells = 1x1
+		current-cell = 1,1
+		show-lines = horizontal
+
+window "guildUI"
+	elem "guildUI"
+		type = MAIN
+		pos = 281,0
+		size = 160x40
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #00e2e2
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		image-mode = tile
+	elem "invite"
+		type = BUTTON
+		pos = 80,20
+		size = 80x20
+		anchor1 = 50,0
+		anchor2 = 100,0
+		font-family = "Arial"
+		font-size = 8
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #737790
+		is-disabled = true
+		saved-params = "is-checked"
+		text = "Invite"
+		command = "guildInvite"
+	elem "MOTD"
+		type = BUTTON
+		pos = 0,20
+		size = 80x20
+		anchor1 = 0,0
+		anchor2 = 50,0
+		font-family = "Arial"
+		font-size = 8
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #737790
+		is-disabled = true
+		saved-params = "is-checked"
+		text = "MOTD"
+		command = "guildMOTD"
+	elem "guildinfo"
+		type = BUTTON
+		pos = 0,0
+		size = 80x20
+		anchor1 = 0,0
+		anchor2 = 50,0
+		font-family = "Arial"
+		font-size = 8
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #737790
+		is-disabled = true
+		saved-params = "is-checked"
+		text = "Guild Info"
+		command = "guildInfo"
+		is-checked = true
+		group = "UI"
+		button-type = pushbox
+	elem "members"
+		type = BUTTON
+		pos = 80,0
+		size = 80x20
+		anchor1 = 50,0
+		anchor2 = 100,0
+		font-family = "Arial"
+		font-size = 8
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #737790
+		is-disabled = true
+		saved-params = "is-checked"
+		text = "Members"
+		command = "guildRoster"
+		group = "UI"
+		button-type = pushbox
+
+window "login"
+	elem "login"
+		type = MAIN
+		pos = 291,0
+		size = 200x50
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		transparent-color = #000000
+	elem "online"
+		type = OUTPUT
+		pos = 0,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "max-lines"
+
+window "main"
+	elem "main"
+		type = MAIN
+		pos = 291,0
+		size = 900x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-default = true
+		saved-params = ""
+		on-size = "WindowResize"
+		statusbar = false
+		icon = 'sovlog2.dmi'
+		macro = "macro"
+	elem "child"
+		type = CHILD
+		pos = 0,0
+		size = 900x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #1c1c1c
+		saved-params = ""
+		left = "map"
+		right = "sidepanel"
+		is-vert = true
+		splitter = 65
+		lock = right
+	elem "Area"
+		type = LABEL
+		pos = 400,0
+		size = 180x32
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 12
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		border = line
+		saved-params = ""
+		text = ""
+	elem "Leave"
+		type = BUTTON
+		pos = 876,1
+		size = 24x16
+		anchor1 = 100,0
+		anchor2 = 100,0
+		font-family = "Verdana"
+		font-size = 11
+		font-style = "bold"
+		text-color = #c11313
+		background-color = #292929
+		is-visible = false
+		border = line
+		saved-params = "is-checked"
+		text = "X"
+		command = "ExitGame"
+		is-flat = true
+	elem "Edit"
+		type = BUTTON
+		pos = 0,180
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Edit"
+		command = "Edit"
+	elem "Teleport"
+		type = BUTTON
+		pos = 0,160
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Teleport"
+		command = "TeleportMOB"
+	elem "PDO2"
+		type = BUTTON
+		pos = 276,0
+		size = 76x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Perm Death Off"
+		command = "PermanentDeathOff"
+	elem "PDO"
+		type = BUTTON
+		pos = 200,0
+		size = 76x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Perm Death On"
+		command = "PermanentDeathOn"
+	elem "SItem"
+		type = BUTTON
+		pos = 60,60
+		size = 64x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Spawn Item"
+		command = "SpawnItem"
+	elem "SCreature"
+		type = BUTTON
+		pos = 60,40
+		size = 64x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Spawn Mob"
+		command = "SpawnCreature"
+	elem "Summon"
+		type = BUTTON
+		pos = 0,60
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Summon"
+		command = "Summon"
+	elem "Fly"
+		type = BUTTON
+		pos = 0,120
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Fly"
+		command = "Fly"
+	elem "RMod"
+		type = BUTTON
+		pos = 60,20
+		size = 64x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Remove Mod"
+		command = "RemoveModerator"
+	elem "AMod"
+		type = BUTTON
+		pos = 0,100
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Add Mod"
+		command = "AddModerator"
+	elem "RServer"
+		type = BUTTON
+		pos = 124,0
+		size = 76x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Rename Server"
+		command = "RenameServer"
+	elem "FFire"
+		type = BUTTON
+		pos = 60,0
+		size = 64x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Friendly Fire"
+		command = "FriendlyFireToggle"
+	elem "Reboot"
+		type = BUTTON
+		pos = 0,80
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Reboot"
+		command = "Reboot"
+	elem "LevelUp"
+		type = BUTTON
+		pos = 0,140
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Level Up"
+		command = "LevelUp"
+	elem "UnBan"
+		type = BUTTON
+		pos = 0,40
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "UnBan"
+		command = "Unban"
+	elem "Ban"
+		type = BUTTON
+		pos = 0,20
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Ban"
+		command = "Ban"
+	elem "Boot"
+		type = BUTTON
+		pos = 0,0
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #191f3e
+		is-visible = false
+		saved-params = "is-checked"
+		text = "Boot"
+		command = "Boot"
+
+window "map"
+	elem "map"
+		type = MAIN
+		pos = 0,0
+		size = 1906x1066
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = ""
+		on-size = "WindowResize"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "map"
+		type = MAP
+		pos = 0,0
+		size = 3186x1666
+		anchor1 = 0,0
+		anchor2 = 100,100
+		is-default = true
+		border = line
+		saved-params = ""
+		on-size = "WindowResize"
+		icon-size = 32
+		letterbox = false
+
+window "minimap window"
+	elem "minimap window"
+		type = MAIN
+		pos = 291,0
+		size = 350x350
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+	elem "minimap"
+		type = MAP
+		pos = -8,0
+		size = 352x352
+		anchor1 = 0,0
+		anchor2 = 98,100
+		text-color = #000000
+		border = sunken
+		saved-params = "icon-size"
+
+window "mod"
+	elem "mod"
+		type = MAIN
+		pos = 291,0
+		size = 152x104
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+		macro = "macros"
+		on-close = "AdminMenu"
+	elem "button4"
+		type = BUTTON
+		pos = 80,8
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = "reboot"
+		command = "MReboot"
+	elem "button7"
+		type = BUTTON
+		pos = 80,72
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = "return"
+		command = "AdminReturn"
+	elem "button6"
+		type = BUTTON
+		pos = 8,72
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = "summon"
+		command = "AdminSummon"
+	elem "button3"
+		type = BUTTON
+		pos = 80,40
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = "unban"
+		command = "AdminUnban"
+	elem "button2"
+		type = BUTTON
+		pos = 8,40
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = "ban"
+		command = "AdminBan"
+	elem "button1"
+		type = BUTTON
+		pos = 8,8
+		size = 60x20
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "is-checked"
+		text = "boot"
+		command = "AdminBoot"
+
+window "ooc_output"
+	elem "ooc_output"
+		type = MAIN
+		pos = 291,0
+		size = 160x176
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #000000
+		drop-zone = true
+		saved-params = ""
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		macro = "macros"
+	elem "toggleChat"
+		type = BUTTON
+		pos = 104,156
+		size = 56x20
+		anchor1 = 100,100
+		anchor2 = -1,-1
+		font-size = 8
+		font-style = "bold"
+		text-color = #ffffff
+		background-color = #000000
+		saved-params = "is-checked"
+		text = "OOC"
+		command = ""
+		is-flat = true
+		is-checked = true
+	elem "input"
+		type = INPUT
+		pos = 0,156
+		size = 104x20
+		anchor1 = 0,100
+		anchor2 = 100,100
+		font-family = "Arial"
+		font-size = 8
+		text-color = #ffffff
+		background-color = #000000
+		border = sunken
+		saved-params = ""
+		command = "ooc"
+	elem "output"
+		type = OUTPUT
+		pos = 0,16
+		size = 160x138
+		anchor1 = 0,0
+		anchor2 = 100,100
+		text-color = #ffffff
+		background-color = #000000
+		is-default = true
+		saved-params = ""
+	elem "Leave"
+		type = BUTTON
+		pos = 136,1
+		size = 24x16
+		anchor1 = 100,0
+		anchor2 = 100,0
+		font-family = "Verdana"
+		font-size = 11
+		font-style = "bold"
+		text-color = #c11313
+		background-color = #292929
+		border = line
+		saved-params = "is-checked"
+		text = "X"
+		command = "ExitGame"
+		is-flat = true
+
+window "ooc_output_old"
+	elem "ooc_output_old"
+		type = MAIN
+		pos = 291,0
+		size = 160x264
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "child"
+		type = CHILD
+		pos = 0,0
+		size = 160x264
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #111111
+		saved-params = "splitter"
+		left = "stats"
+		right = "ooc_output"
+		is-vert = false
+		splitter = 30
+		lock = left
+
+window "output"
+	elem "output"
+		type = MAIN
+		pos = 291,0
+		size = 160x264
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+	elem "child"
+		type = CHILD
+		pos = 0,0
+		size = 160x264
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #333f7d
+		saved-params = "splitter"
+		right = "chat"
+		is-vert = false
+		splitter = 30
+		lock = left
+
+window "rpspy"
+	elem "rpspy"
+		type = MAIN
+		pos = 291,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #111111
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Roleplay Spy - Admin Panel"
+		statusbar = false
+	elem "output2"
+		type = OUTPUT
+		pos = 0,0
+		size = 640x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		text-color = #ffffff
+		background-color = #080808
+		saved-params = "max-lines"
+
+window "sidepanel"
+	elem "sidepanel"
+		type = MAIN
+		pos = 291,0
+		size = 160x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		background-color = #272525
+		saved-params = ""
+		on-size = "Splitter"
+		titlebar = false
+		statusbar = false
+		can-close = false
+		can-minimize = false
+		can-resize = false
+		is-pane = true
+		macro = "macros"
+	elem "social"
+		type = CHILD
+		pos = 0,0
+		size = 160x480
+		anchor1 = 0,0
+		anchor2 = 100,100
+		background-color = #1a1818
+		saved-params = ""
+		left = "ooc_output"
+		right = "output"
+		is-vert = false
+		splitter = 100
+		lock = left
+
+window "spellinfo"
+	elem "spellinfo"
+		type = MAIN
+		pos = 281,0
+		size = 730x256
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		is-visible = false
+		saved-params = "pos;size;is-minimized;is-maximized"
+		titlebar = false
+		statusbar = false
+		can-minimize = false
+		can-resize = false
+		transparent-color = #000000
+		alpha = 135
+
+window "stats"
+	elem "stats"
+		type = MAIN
+		pos = 291,0
+		size = 208x190
+		anchor1 = -1,-1
+		anchor2 = -1,-1
+		saved-params = "pos;size;is-minimized;is-maximized"
+	elem "stat"
+		type = INFO
+		pos = 0,0
+		size = 206x190
+		anchor1 = 0,0
+		anchor2 = 99,100
+		text-color = #ffffff
+		background-color = #111111
+		is-visible = false
+		is-disabled = true
+		saved-params = ""
+		tab-text-color = #ffffff
+		tab-background-color = #111111
+
