@@ -75,6 +75,18 @@ obj/overlay/auras/EffectStarter()
 	centerAura()
 	..()*/
 
+obj/overlay/auras/proc/ScaleAura()
+	var/scalewidth = 1
+	var/scaleheight = 1
+	if(scale[1] && scale[2] && lastpowermod) // matrix scaling is focused on the icon's center already
+		scalewidth = round((((1.4 ** (scale[1] * lastpowermod)) / 8 ) + 0.825),0.25)
+		scaleheight = round((((1.4 ** (scale[2] * lastpowermod)) / 8 ) + 0.825),0.25)
+		prevscale = scale
+	var/matrix/nM = new
+	nM.Scale(scalewidth,scaleheight) // even though we want the scaling to be center-bottom (or whatever the person set it to be)
+	animate(src,transform=nM,time=5)
+	sync_overlay(src, AURA)
+
 obj/overlay/auras/proc/UpdatePowerScale()
 	if(!container || lastpowermod == container.power_percent) return
 	if(limiter <= 0 && prob(25))
@@ -102,21 +114,24 @@ obj/overlay/auras/proc/ApplyFormSettings()
 		switch(container.superform)
 			if(1)
 				if(container.ssj_mastery < 100)
-					icon = container.form1aura
-					icon_state = "SSJ"
+					replace_overlay(icon, form1aura, "SSJ")
+					//icon_state = "SSJ"
 					scale = list(1,1)
 				else
 					container.auracolor = SSJ_COLOR
 					scale = list(1,1)
 					apply_color_overlay(icon, auracolor, blend_mode="multiply", filter = container.auracolor)
+			if(1.5)
+				icon_state = "Big"
+				scale = list(1.25, 1)
 			if(2)
 				icon_state = "Big"
 				scale = list(1, 1.25)
 			if(3)
 				icon_state = "Big"
 				scale = list(1.25, 1.5)
-			if(1.5)
-				scale = list(1.25, 1)
+			apply_color_overlay(icon, auracolor, blend_mode="multiply", filter = container.auracolor)
+
 	else if(container.LSSJ)
 		lastSSJ = container.LSSJ
 		icon = container.AURA
@@ -162,13 +177,17 @@ obj/overlay/auras/kaioken
 	layer = AURA_LAYER
 	appearance_flags = KEEP_TOGETHER | PIXEL_SCALE
 	presetAura = TRUE
-	scale = list(1,1)
+	pixel_x=-16
+	pixel_y=-4
+
 
 obj/overlay/auras/aura
 	name = "Regular Aura"
 	icon = 'ShadowsAura.dmi'
+	pixel_x = -40
+	pixel_y = -8
 
-	EffectStarter()
+	starteffect()
 		scale = list(1,1)
-		centerAura("center")
+		//centerAura("center")
 		..()

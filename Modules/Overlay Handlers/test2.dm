@@ -183,12 +183,20 @@
  * @param old_overlay - The overlay to replace (can be name or reference)
  * @param new_overlay - The new overlay
  * @param name - Optional name for the new overlay
+ * @param icon_state - Optional icon_state to set on the new overlay
  * @param use_vis_contents - Use vis_contents instead of overlays
  */
-/proc/replace_overlay(mob/target, old_overlay, new_overlay, name, use_vis_contents = FALSE)
+/proc/replace_overlay(mob/target, old_overlay, new_overlay, icon_state, use_vis_contents = FALSE, name)
 	if(!target) return
 	remove_overlay(target, old_overlay, use_vis_contents)
-	add_overlay(target, new_overlay, name, use_vis_contents)
+	if(icon_state)
+		if(isimage(new_overlay))
+			var/image/img = new_overlay
+			img.icon_state = icon_state
+		else if(isobj(new_overlay))
+			var/obj/o = new_overlay
+			o.icon_state = icon_state
+	add_overlay(target, new_overlay, use_vis_contents, name)
 
 /**
  * Clears all overlays from a mob
