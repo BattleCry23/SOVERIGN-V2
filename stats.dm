@@ -657,7 +657,6 @@ mob
 					while(src.energy_exp >= 100)
 						src.energy_exp = src.energy_exp-100
 						var/growth_mult = clamp(1 + (src.PG), 1, 10) // PG gives modest scaling
-						var/rating_mult = clamp(1 + log(1 + src.rating / 50000), 1, 10) // slows over time
 						src.gains_trained_energy += (exp * mod_energy * growth_mult)
 						//src.gains_trained_energy += 1
 						src.xp_energy += 1;
@@ -886,7 +885,6 @@ mob
 						experience_pts = 20
 				if(source == "Meditation")
 					experience_pts = 5
-					var/forcegainfrommed = (exp / 10) + experience_pts
 					src.force_exp += experience_pts+(exp*multi)
 				else src.force_exp += experience_pts+(exp*multi)//(exp+multi)//(src.force/src.mod_force)
 				if(src.force_exp >= 10000) src.force_exp = 10000 //Make sure the while() stuff doesn't hang or crash, because too high a number will throw an inf loop error.
@@ -947,14 +945,6 @@ mob
 						spawn(10)
 							if(src && b)
 								src.resistance_sources -= source
-				var/experience_pts
-				switch(src.bodysize)
-					if(1)
-						experience_pts = 20
-					if(2)
-						experience_pts = 15
-					if(3)
-						experience_pts = 10
 				//Proceed with gaining the stat
 				src.resistance_exp += 15+(exp*multi)//(exp+multi)//(src.resistance/src.mod_resistance)
 				if(src.resistance_exp >= 10000) src.resistance_exp = 10000 //Make sure the while() stuff doesn't hang or crash, because too high a number will throw an inf loop error.
@@ -1015,14 +1005,6 @@ mob
 						spawn(10)
 							if(src && b)
 								src.offence_sources -= source
-				var/experience_pts
-				switch(src.bodysize)
-					if(1)
-						experience_pts = 10
-					if(2)
-						experience_pts = 15
-					if(3)
-						experience_pts = 20
 				//Proceed with gaining the stat
 				src.offence_exp += 15+(exp*multi)//(exp+multi)//(src.offence/src.mod_offence)
 				if(src.offence_exp >= 10000) src.offence_exp = 10000 //Make sure the while() stuff doesn't hang or crash, because too high a number will throw an inf loop error.
@@ -1084,14 +1066,6 @@ mob
 							if(src && b)
 								src.defence_sources -= source
 				//Proceed with gaining the stat
-				var/experience_pts
-				switch(src.bodysize)
-					if(1)
-						experience_pts = 20
-					if(2)
-						experience_pts = 15
-					if(3)
-						experience_pts = 10
 				src.defence_exp += 15+(exp*multi)//(exp+multi)//(src.defence/src.mod_defence)
 				if(src.defence_exp >= 10000) src.defence_exp = 10000 //Make sure the while() stuff doesn't hang or crash, because too high a number will throw an inf loop error.
 				if(src.xp_defence >= 10000) src.xp_defence = 10000 //Make sure the while() stuff doesn't hang or crash, because too high a number will throw an inf loop error.

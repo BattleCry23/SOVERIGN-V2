@@ -267,6 +267,23 @@ mob
 			if(O.saiyan_dna) saiyan_dna = O.saiyan_dna
 			if(O.namekian_dna) namekian_dna = O.namekian_dna
 
+			// === Check for Hybrid Race ===
+			var/dna_count = 0
+			if(alien_dna) dna_count++
+			if(makyo_dna) dna_count++
+			if(tuffle_dna) dna_count++
+			if(demon_dna) dna_count++
+			if(kai_dna) dna_count++
+			if(spirit_doll_dna) dna_count++
+			if(oni_dna) dna_count++
+			if(changeling_dna) dna_count++
+			if(saiyan_dna) dna_count++
+			if(namekian_dna) dna_count++
+			if(human_dna) dna_count++
+			if(recessive_race) dna_count++
+			if(dna_count > 1)
+				is_hybrid = 1
+
 
 			//creature_started = 1
 			offspring = 1
@@ -302,6 +319,8 @@ mob
 			// === Appearance ===
 			hair_c   = O.hair_c
 			eye_c    = O.eye_c
+			saved_hair_c = O.hair_c
+			saved_eye_c = O.eye_c
 			skin_pos = O.skin_pos
 			hair_pos = O.hair_pos
 			body_pos = O.body_pos
@@ -497,7 +516,6 @@ mob
 		switch_race(var/new_race)
 
 			var/mob/old = src
-			var/mob/newmob
 			src.loc = null
 			src.choosing_character = 0
 			src.started = 0
@@ -2940,7 +2958,7 @@ mob
 
 
 				if(src.race == "Saiyan") src.rngSaiyanClass()
-				if(src.key == "Bill Jobs")
+				if(src.key == "VOXTECH")
 					src.starting_skills(1)
 					//src.milestone_checked=1
 					//src.show_milestones()
@@ -3114,7 +3132,7 @@ mob
 				var/obj/hud/menus/info/inf = new
 				src.hud_info = inf
 				src.create_main_bars()
-				if(src.key == "Bill Jobs")
+				if(src.key == "VOXTECH")
 					src.starting_skills(1)
 					//src.milestone_checked=1
 					//src.show_milestones()
@@ -4230,7 +4248,6 @@ mob
 
 			//Reset hair for some races, since they don't have any.
 			var/obj/h = null
-			var/obj/h2 = null
 			if(target)
 				/*if(target.race == "Saiyan" && target.skin_pos == 2)
 					h = null
@@ -4242,23 +4259,19 @@ mob
 					if(age>=13) h = hairs_male[target.hair_pos]
 					else if(age<13)
 						h = kid_hairs_male[target.hair_pos]
-						h2 = hairs_male[target.hair_pos]
 
 				else if(target.race == "Namekian")
 					if(age>=13) h = hairs_male[target.hair_pos]
 					else if(age<13)
 						h = kid_hairs_male[target.hair_pos]
-						h2 = hairs_male[target.hair_pos]
 				else if(target.gen == "Male")
 					if(age>=13) h = hairs_male[target.hair_pos]
 					else if (age<13)
 						h = kid_hairs_male[target.hair_pos]
-						h2 = hairs_male[target.hair_pos]
 				else if(target.gen == "Female")
 					if(age>=13) h = hairs_female[target.hair_pos]
 					else if (age<13)
 						h = kid_hairs_female[target.hair_pos]
-						h2 = hairs_female[target.hair_pos]
 
 
 			var/icon/i_race
@@ -4720,11 +4733,16 @@ mob
 							i_age_race1 = 'NewKidNamekian1.dmi'
 							i_age_race2 = 'NewNamekianAdult1.dmi'
 
-				//Android icon creation
+			//Android icon creation
 				if(target.race == "Saiyan")
 					target.has_hair = 1
-					i_horn = 'SaiyanTailBrown.dmi'
-					//i_horn = 'SaiyanTailBlack.dmi'
+					if(target.is_hybrid)
+						i_horn = new /obj/overlay/tails/saiyan/colorable_tail
+						color_overlay(i_horn, target.hair_c)
+					else
+						i_horn = new /obj/overlay/tails/saiyan/brown_tail
+					add_overlay(target, i_horn)
+
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
 							if(age>=13||age==null||age==1||age==21)
@@ -5024,11 +5042,11 @@ mob
 
 					// Remove only previous hair safely
 					if(target.hair)
-						target.overlays -= target.hair
+						remove_overlay(target, target.hair)
 
 					//target.hair = new_hair
 					if(target.started == 0 )target.overlays = null
-					target.overlays += target.hair
+					add_overlay(target, target.hair)
 					target.vis_contents += E_hair
 
 
@@ -5045,23 +5063,19 @@ mob
 
 			//Do eye color next
 			if(target.eyes)
-				target.vis_contents -= target.eyes
-				target.eyes = null
+				remove_overlay(target, eyes)
+			target.eyes = null
 			if(target.eyes_white)
-				target.vis_contents -= target.eyes_white
-				target.eyes_white = null
-			var/i_white = 'eye_whites.dmi'
-			var/i_iris = 'eye_pupils.dmi'
-			if(target.age<13 && target.age >3.9) i_white = 'eye_whites_kid.dmi'
-			if(target.age<13 && target.age >3.9) i_iris = 'eye_pupils_kid.dmi'
+				remove_overlay(target, eyes_white)
+			target.eyes_white = null
+			var/i_white = new /obj/overlay/sclera
+			var/i_iris = new /obj/overlay/eyes_iris
+			if(target.age<13 && target.age >3.9)
+				i_white = new /obj/overlay/sclera/kid
+				i_iris = new /obj/overlay/eyes_iris/kid
 			/*if(target.race == "Android" && target.skin_pos == 1)
 				i_white = 'humanoid_eyes_iris_android.dmi'
 				i_iris = 'humanoid_eyes_iris_android.dmi'*/
-			if(target.race == "Oni")
-				i_white = 'eye_whites.dmi'
-				i_iris = 'eye_pupils.dmi'
-				if(target.age<13 && target.age >3.9) i_white = 'eye_whites_kid.dmi'
-				if(target.age<13 && target.age >3.9) i_iris = 'eye_pupils_kid.dmi'
 			var/icon/P_white = icon(i_white,"",SOUTH,1,0)
 			var/icon/P_eyecolor = icon(i_iris,"",SOUTH,1,0)
 			if(target.has_eyes)
@@ -5072,21 +5086,23 @@ mob
 
 				if(proceed_eyes)
 					var/has_white = 1
-					//if(target.race == "Android" && target.skin_pos == 1) has_white = 0
 					if(has_white)
 						P_white.Scale(128,128)
 						I.Blend(P_white,ICON_OVERLAY)
 
 					P_eyecolor.Scale(128,128)
+					if(target.race == "Saiyan" || (target.saiyan_dna && !target.is_hybrid))
+						target.eye_c = rgb(0,0,0)
 					if(target.eye_c) P_eyecolor.Blend(target.eye_c)
 					else P_eyecolor.Blend(rgb(0,0,155))
 					I.Blend(P_eyecolor,ICON_OVERLAY)
+					target.saved_eye_c = target.eye_c
 
 					if(has_white)
 						var/obj/eye_white = new
 						eye_white.icon = i_white
-						eye_white.layer = 10
-						eye_white.vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_ICON_STATE// | VIS_INHERIT_ID
+						eye_white.layer = eye_white.layer
+						eye_white.vis_flags = eye_white.vis_flags
 						if(target.age>=13)
 							target.eyes_white = eye_white
 							target.vis_contents += target.eyes_white
@@ -5100,21 +5116,21 @@ mob
 					if(target.eye_c) eye.icon *= eye_c
 						//eye.Blend(target.eye_c)
 					eye_iris.icon = eye
-					eye_iris.layer = 11
-					eye_iris.vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_ICON_STATE// | VIS_INHERIT_ID // | VIS_INHERIT_DIR// | VIS_INHERIT_LAYER
+					eye_iris.layer = eye_iris.layer
+					eye_iris.vis_flags = eye_iris.vis_flags
 					target.eyes = eye_iris
 					if(target.age>=13)
 						target.eyes.pixel_x = 0
 						target.eyes_white.pixel_y = 0
 						target.vis_contents += target.eyes_white
 						target.vis_contents += target.eyes
-						target.overlays += target.eyes_white
-						target.overlays += target.eyes
+						add_overlays(target, list(target.eyes_white, target.eyes))
+						//target.overlays += target.eyes
 					if(target.age<13)
 						target.vis_contents += target.eyes_white
 						target.vis_contents += target.eyes
-						target.overlays += target.eyes_white
-						target.overlays += target.eyes
+						add_overlays(target, list(target.eyes_white, target.eyes))
+						//target.overlays += target.eyes
 
 					//target.overlays += P_eyecolor
 
@@ -5143,8 +5159,7 @@ mob
 				var/icon/hrn = icon(hrn_chosen.icon)
 				horn.icon = hrn
 				//horn.pixel_x = -8
-				if(target.race == "Oni") horn.layer = 25
-				if(target.race == "Saiyan") horn.layer = 1
+				horn.layer = hrn_chosen.layer
 			//	horn.plane=35
 				race.Shift(EAST,8)
 				horns.Blend(race,ICON_OVERLAY)

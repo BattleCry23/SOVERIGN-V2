@@ -206,7 +206,6 @@ mob
 				//src.hud_liquid = null
 				src.particles = null //Keep this for a while, I think saving them makes the player crash.
 
-				var/list/screen_mobs = list()
 				if(src && src.client)
 					for(var/mob/m in src.client.screen)
 						src.client.screen -= m
@@ -458,22 +457,22 @@ mob
 			if(src.LOYear < year)
 				src.AdjustAgeByYearMonth()*/
 		/*calculate_offline_gains()
-			if(src.key=="Bill Jobs") src<<"YOUR LOG OUT TIME: [logout_time]"
+			if(src.key=="VOXTECH") src<<"YOUR LOG OUT TIME: [logout_time]"
 			if(logout_time > WorldTime)
 				logout_time = WorldTime // Safety clamp
-				if(src.key=="Bill Jobs") src<<"YOUR LOG OUT TIME: [logout_time] - Fixed"
+				if(src.key=="VOXTECH") src<<"YOUR LOG OUT TIME: [logout_time] - Fixed"
 
 			var/ticks_gone = (WorldTime - logout_time)
 			var/minutes_logged_off = ticks_gone / 300 // 600 ticks = 1 real minute
-			if(src.key=="Bill Jobs") src<<"Ticks Gone: [ticks_gone]"
-			if(src.key=="Bill Jobs") src<<"Minutes logged off: [minutes_logged_off] - Fixed"
+			if(src.key=="VOXTECH") src<<"Ticks Gone: [ticks_gone]"
+			if(src.key=="VOXTECH") src<<"Minutes logged off: [minutes_logged_off] - Fixed"
 			if(minutes_logged_off >= 2)
 				// 6 minutes gain per hour
 				var/gain_per_hour = 5
 				var/hours_logged_off = minutes_logged_off / 60
 				var/gains_minutes = hours_logged_off * gain_per_hour
-				if(src.key=="Bill Jobs") src<<"Hours logged off: [hours_logged_off] - Fixed"
-				if(src.key=="Bill Jobs") src<<"Minutes of Gains: [gains_minutes] - Fixed"
+				if(src.key=="VOXTECH") src<<"Hours logged off: [hours_logged_off] - Fixed"
+				if(src.key=="VOXTECH") src<<"Minutes of Gains: [gains_minutes] - Fixed"
 				offline_gains += round(gains_minutes, 0.1)
 				logout_time = WorldTime
 
@@ -485,7 +484,7 @@ mob
 			if(src.LOYear < year)
 				src.AdjustAgeByYearMonth()
 
-			if(src.key=="Bill Jobs")src<<"THE WORLD TIME: [WorldTime]"
+			if(src.key=="VOXTECH")src<<"THE WORLD TIME: [WorldTime]"
 			if(src.offline_gains >= 0.1)
 				src.set_alert("Due to inactivity you have [round(src.offline_gains, 0.01)] minute(s) of accelerated gains.",'alert.dmi',"alert")
 				src<<"Due to inactivity you have [round(src.offline_gains, 0.01)] minute(s) of accelerated gains."
@@ -498,40 +497,40 @@ mob
 				src.client.screen += src.hud_accelerator*/
 
 		calculate_offline_gains()
-			if(src.key == "Bill Jobs") src << "YOUR LOG OUT TIME: [logout_time]"
+			if(src.key == "VOXTECH") src << "YOUR LOG OUT TIME: [logout_time]"
 
 			// Reject bad legacy data immediately
 			if(!isnum(logout_time) || logout_time <= 0)
-			logout_time = WorldTime
-			if(src.key == "Bill Jobs") src << "Invalid logout_time detected. Resetting to [logout_time]"
-			return
+				logout_time = WorldTime
+				if(src.key == "VOXTECH") src << "Invalid logout_time detected. Resetting to [logout_time]"
+				return
 
 			// Future timestamp safety clamp
 			if(logout_time > WorldTime)
-			logout_time = WorldTime
-			if(src.key == "Bill Jobs") src << "Logout time was ahead of WorldTime. Fixed to [logout_time]"
-			return
+				logout_time = WorldTime
+				if(src.key == "VOXTECH") src << "Logout time was ahead of WorldTime. Fixed to [logout_time]"
+				return
 
 			var/ticks_gone = WorldTime - logout_time
 
 			// If WorldTime is standard BYOND time, use 600 ticks = 1 minute
 			var/minutes_logged_off = ticks_gone / 600
 
-			if(src.key == "Bill Jobs") src << "Ticks Gone: [ticks_gone]"
-			if(src.key == "Bill Jobs") src << "Minutes logged off: [minutes_logged_off]"
+			if(src.key == "VOXTECH") src << "Ticks Gone: [ticks_gone]"
+			if(src.key == "VOXTECH") src << "Minutes logged off: [minutes_logged_off]"
 
 			// Always advance the marker so bad state does not repeat forever
 			logout_time = WorldTime
 
 			if(minutes_logged_off < 2)
-			return
+				return
 
 			var/gain_per_hour = 5
 			var/hours_logged_off = minutes_logged_off / 60
 			var/gains_minutes = hours_logged_off * gain_per_hour
 
-			if(src.key == "Bill Jobs") src << "Hours logged off: [hours_logged_off]"
-			if(src.key == "Bill Jobs") src << "Minutes of Gains: [gains_minutes]"
+			if(src.key == "VOXTECH") src << "Hours logged off: [hours_logged_off]"
+			if(src.key == "VOXTECH") src << "Minutes of Gains: [gains_minutes]"
 
 			// Optional cap to protect against legacy/migrated save explosions
 			gains_minutes = min(gains_minutes, 24) // example cap
@@ -539,7 +538,7 @@ mob
 			offline_gains += round(gains_minutes, 0.1)
 
 			if(offline_gains < 0.04)
-			offline_gains = 0
+				offline_gains = 0
 
 
 

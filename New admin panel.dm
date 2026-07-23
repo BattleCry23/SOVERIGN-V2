@@ -72,7 +72,6 @@
 /mob/proc/DeleteExistingSkills()
     set background = 1
     //set waitfor = 0
-    var/list/rebuild = list()
     src.disable_skills()
 
     src.skill_wrestle = null
@@ -508,7 +507,7 @@
 							world.log<<"[m] Deleted for Purge(LAG)"
 							del(m)
 
-				    world << "<b>World Refreshed! ([count] misc. deleted)</b>"
+					world << "<b>World Refreshed! ([count] misc. deleted)</b>"
 
 				if("Everything")
 					world<<"<b>World Refreshing..</b>"
@@ -1595,7 +1594,7 @@
 		// OBJECTS / CREATION
 		// =========================================================
 		if("Create_Custom_Icon_Object")
-			var/obj/items/custom_icon_object/O = new /obj/items/custom_icon_object(src.loc)
+			new /obj/items/custom_icon_object(src.loc)
 			src << "Created a Custom Icon Object at your location. Right-click it while in your inventory to customize."
 
 

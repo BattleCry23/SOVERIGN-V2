@@ -280,24 +280,24 @@ mob
 										usr.left_click_function = null
 										usr.left_click_ref = null
 										return
-								if(istype(s,/obj/skills/Study/) && usr.key != "Bill Jobs")
+								if(istype(s,/obj/skills/Study/) && usr.key != "VOXTECH")
 									usr<<output("You cannot teach people to study.","actionoutput")
 									return
-								if(istype(s,/obj/skills/Hone/) && usr.key != "Bill Jobs")
+								if(istype(s,/obj/skills/Hone/) && usr.key != "VOXTECH")
 									usr<<output("You cannot teach people to hone.","actionoutput")
 									return
-								if(istype(s,/obj/skills/Research/) && usr.key != "Bill Jobs")
+								if(istype(s,/obj/skills/Research/) && usr.key != "VOXTECH")
 									usr<<output("You cannot teach people to study.","actionoutput")
 									return
-								if(istype(s,/obj/skills/Harness/) && usr.key != "Bill Jobs")
+								if(istype(s,/obj/skills/Harness/) && usr.key != "VOXTECH")
 									usr<<output("You cannot teach people to study.","actionoutput")
 									return
-								if(istype(s,/obj/skills/Expand/) && usr.key != "Bill Jobs" )
+								if(istype(s,/obj/skills/Expand/) && usr.key != "VOXTECH" )
 									if(src.race == "Changeling" || src.race == "Saiyan" || src.race == "Human")
-									usr<<output("They cannot learn to physically expand.","actionoutput")
-									return
-								if(istype(s,/obj/skills/Create_Namekian_Dragonballs/) && usr.key != "Bill Jobs")
-									if(src.race != "Namekian")
+										usr<<output("They cannot learn to physically expand.","actionoutput")
+										return
+							if(istype(s,/obj/skills/Create_Namekian_Dragonballs/) && usr.key != "VOXTECH")
+								if(src.race != "Namekian")
 									usr<<output("They cannot learn to physically create namekian dragonballs.","actionoutput")
 									return
 							//	if(winget(src,"confirm","is-visible") == "false")

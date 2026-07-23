@@ -11410,8 +11410,6 @@ obj
 						var/hps = 1
 						var/hps_max = 1
 						var/hp_percent = 0
-						var/G = "male"
-						if(player.gen == "Female") G = "female"
 
 						//Color the head first
 						var/obj/body_related/left_arm = src.body[1]
@@ -13700,13 +13698,6 @@ obj
 				var/genetics_y
 				var/tech_y
 				New()
-					spawn(10)
-						if(src && src.type == /obj/hud/menus/tech_background)
-							if(ismob(src.loc))
-								var/mob/m = src.loc
-								//src.fix_tech_alignment(m)
-								//m.tech_xp_update(1)
-						//	src.populate_tech_tree()
 					return
 				proc
 					update_rsc(var/mob/m)
@@ -13714,7 +13705,6 @@ obj
 						src.rsc.maptext = ""
 					show_tech_costs(var/mob/m, var/obj/items/tech/w)
 						var/efficiency = m.efficiency_skill
-						var/discount_percent = round(calculate_efficiency_discount(efficiency) * 100, 0.1)
 						var/stone = get_discounted_cost(w.stone_cost, efficiency)
 						var/copper = get_discounted_cost(w.copper_cost, efficiency)
 						var/coal = get_discounted_cost(w.coal_cost, efficiency)
@@ -13730,14 +13720,8 @@ obj
 						if(w.titanium_cost<=0) titanium=0
 						if(w.mystille_cost<=0) mystille=0
 						var/obj/I = m.hud_tech.txt
-						var/power_needed = ""
-						var/power_produced = ""
-						var/can_upgrade = "No"
 						var/can_move = "Yes"
 						if(w.bolted > 1) can_move = "No"
-						if(w.tech_upgradable > 0) can_upgrade = "Yes"
-						if(w.uses > 0) power_needed = "Power Requirement: [w.uses]\n\n"
-						if(w.generates > 0) power_produced = "Power Generated: [w.generates]\n\n"
 						if(!I)
 							winset(m, "tech.label_cost",
 								"text=\"Needed Minerals: <text align=right valign=top> Stone: [stone]\nCopper: [copper]\nCoal: [coal]\nSilver: [silver]\nGold: [gold]\nTitanium: [titanium]\nMystille: [mystille]\n\n<text align=left valign=top>\"")
@@ -13746,14 +13730,8 @@ obj
 
 					set_tech_desc(var/mob/m,var/obj/items/itm)
 						var/obj/I = m.hud_tech.txt
-						var/power_needed = ""
-						var/power_produced = ""
-						var/can_upgrade = "No"
 						var/can_move = "Yes"
 						if(itm.bolted > 1) can_move = "No"
-						if(itm.tech_upgradable > 0) can_upgrade = "Yes"
-						if(itm.uses > 0) power_needed = "Power Requirement: [src.uses]\n\n"
-						if(itm.generates > 0) power_produced = "Power Generated: [src.generates]\n\n"
 						I.maptext = "[css_outline]<font size = 1><text align=center valign=top>[itm.name]<text align=left valign=top>\n\nNeeded Minerals: <text align=right valign=top> Stone: [itm.stone_cost]\nCopper: [itm.copper_cost]\nCoal: [itm.coal_cost]\nSilver: [itm.silver_cost]\nGold: [itm.gold_cost]\nTitanium: [itm.titanium_cost]\nMystille: [itm.mystille_cost]\n\n<text align=left valign=top>Tech Tree: [itm.tech_tree]\n\nMoveable: [can_move]\n\n[itm.desc]"
 
 					fix_tech_alignment(var/mob/m)
@@ -18810,9 +18788,6 @@ obj
 						src.occupation_info.maptext_width = 1000
 						//if(src.offline_time) src.offlinetime_info.maptext = "[css_outline]<font size = 1><left>Occupation: [player.occupation]"
 					mods(var/mob/player)
-						//First set vars for injuries
-						var/injury_c = "green>"
-
 						spawn(3)
 							if(src && src.loc)
 								if(src.tab_selected == "stats")
@@ -18924,9 +18899,6 @@ obj
 							src.player_info(player)
 
 							if(src.tab_selected == "survival")
-								var/pix_neg = 100
-								var/pix = 100
-
 								var/matrix/m_p = matrix()
 								m_p.Scale((player.toxicity/200)*100,1)
 								m_p.Translate(src.bar_toxicity.hud_x+round(((player.toxicity/200)*100)/2),src.bar_toxicity.hud_y)

@@ -367,5 +367,5 @@ SovereignLand
 var/list
 	PlanetaryHubs=list()
 var/list
-	StaffTeam=list("Bill Jobs","CaRnAgE cRaVeR","Roxas57","Symbiotic Nightmares","Alcryst","Jaja9090","ScrubwitSoapz", "Shadowbear22","KinglyAura")
-	CodedStaff=list("Bill Jobs","CaRnAgE cRaVeR","Roxas57","Symbiotic Nightmares","Alcryst","Jaja9090","ScrubwitSoapz", "Shadowbear22")
+	StaffTeam=list("VOXTECH")
+	CodedStaff=list("VOXTECH")

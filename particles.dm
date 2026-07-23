@@ -397,7 +397,7 @@ obj/effects/Smoke1
 		var/I = pick(1,2,3)
 		src.icon_state = "[I]"
 		src.Smoke()
-		spawn(rand(20,25)) if(src) { src.destory ; src.loc=null }
+		spawn(rand(20,25)) if(src) src.destroy()
 	proc/Smoke()
 		set waitfor = FALSE
 		if(src)

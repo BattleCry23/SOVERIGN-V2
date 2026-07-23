@@ -190,7 +190,7 @@ obj/DamagedTurf
 	icon_state="dirt3"
 	New()
 		..()
-		spawn(rand(200,215))if(src) { src.destory ; src.loc=null }
+		spawn(rand(200,215))if(src) src.destroy()
 obj
 	//biome //placed inside players lists and activated once they step foot on this planet.
 	/*
@@ -1628,8 +1628,7 @@ obj
 					if(src)
 						if(src.attached) src.attached.overlays -= src
 						//del(src)
-						src.destory
-						src.loc=null
+						src.destroy()
 		shadow_large
 			icon = 'fx_shadow_large.dmi'
 			icon_state = "large"
@@ -1863,7 +1862,7 @@ obj
 			plane=29
 			New()
 				spawn(4)
-					if(src) { src.destory ; src.loc=null }
+					if(src) src.destroy()
 		speed_shockwave
 			icon = 'fx_speed_shockwave.dmi'
 			layer = 100
@@ -2008,6 +2007,7 @@ obj
 			layer = 20
 			appearance_flags = KEEP_APART
 			pixel_x=-16
+			pixel_y=-4
 		elec_mystic
 			icon = 'Electric_Mystic.dmi'
 			layer = 20
@@ -2175,7 +2175,7 @@ obj
 			New()
 				..()
 				spawn(2500)
-					if(src) { src.destory ; src.loc=null }
+					if(src) src.destroy()
 						//del(src)
 			MouseEntered(location,control,params)
 				usr.mouse_over = src
@@ -3190,14 +3190,8 @@ obj
 
 							if(usr.hud_tech)
 								var/obj/I = usr.hud_tech.txt
-								var/power_needed = ""
-								var/power_produced = ""
-								var/can_upgrade = "No"
 								var/can_move = "Yes"
 								if(src.bolted > 1) can_move = "No"
-								if(src.tech_upgradable > 0) can_upgrade = "Yes"
-								if(src.uses > 0) power_needed = "Power Requirement: [src.uses]\n\n"
-								if(src.generates > 0) power_produced = "Power Generated: [src.generates]\n\n"
 								I.maptext = "[css_outline]<font size = 1><text align=center valign=top>[src.name]<text align=left valign=top>\n\nNeeded Minerals: <text align=right valign=top> Stone: [src.stone_cost]\nCopper: [src.copper_cost]\nCoal: [src.coal_cost]\nSilver: [src.silver_cost]\nGold: [src.gold_cost]\nTitanium: [src.titanium_cost]\nMystille: [src.mystille_cost]\n\n<text align=left valign=top>Tech Tree: [src.tech_tree]\n\nMoveable: [can_move]\n\n[src.desc]"
 								//winset(usr,"tech.label_img","image=\ref[Z]")
 							//winshow(usr,"tech_panes",0)
@@ -4818,7 +4812,6 @@ obj
 							return
 						else
 							var/obj/h = null
-							var/obj/h2 = null
 							var/list/adult_list = list("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Nach","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Vomi","Android 18","Android 17")
 							var/list/kid_list = list("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Android 18","Android 17")
 							if(m.age>=13)
@@ -4832,133 +4825,111 @@ obj
 										if(m.age>=13) h = hairs_male[1]
 										else if(m.age<13)
 											h = kid_hairs_male[1]
-											h2 = hairs_male[1]
 										m.hair_pos=1
 									if("Vegeta")
 										if(m.age>=13) h = hairs_male[2]
 										else if(m.age<13)
 											h = kid_hairs_male[2]
-											h2 = hairs_male[2]
 										m.hair_pos=2
 									if("Yamcha")
 										if(m.age>=13) h = hairs_male[3]
 										else if(m.age<13)
 											h = kid_hairs_male[3]
-											h2 = hairs_male[3]
 										m.hair_pos=3
 									if("Uub")
 										if(m.age>=13) h = hairs_male[4]
 										else if(m.age<13)
 											h = kid_hairs_male[4]
-											h2 = hairs_male[4]
 										m.hair_pos=4
 
 									if("Long")
 										if(m.age>=13) h = hairs_male[5]
 										else if(m.age<13)
 											h = kid_hairs_male[5]
-											h2 = hairs_male[5]
 										m.hair_pos=5
 									if("Afro")
 										if(m.age>=13) h = hairs_male[6]
 										else if(m.age<13)
 											h = kid_hairs_male[6]
-											h2 = hairs_male[6]
 										m.hair_pos=6
 									if("Kidd")
 										if(m.age>=13) h = hairs_male[7]
 										else if(m.age<13)
 											h = kid_hairs_male[7]
-											h2 = hairs_male[7]
 										m.hair_pos=7
 									if("Raditz")
 										if(m.age>=13) h = hairs_male[8]
 										else if(m.age<13)
 											h = kid_hairs_male[8]
-											h2 = hairs_male[8]
 										m.hair_pos=8
 									if("Muse")
 										if(m.age>=13) h = hairs_male[9]
 										else if(m.age<13)
 											h = kid_hairs_male[9]
-											h2 = hairs_male[9]
 										m.hair_pos=9
 									if("Goten")
 										if(m.age>=13) h = hairs_male[10]
 										else if(m.age<13)
 											h = kid_hairs_male[10]
-											h2 = hairs_male[10]
 										m.hair_pos=10
 									if("Short")
 										if(m.age>=13) h = hairs_male[11]
 										else if(m.age<13)
 											h = kid_hairs_male[11]
-											h2 = hairs_male[11]
 										m.hair_pos=11
 									if("Spikey")
 										if(m.age>=13) h = hairs_male[13]
 										else if(m.age<13)
 											h = kid_hairs_male[13]
-											h2 = hairs_male[13]
 										m.hair_pos=13
 									if("Nach")
 										if(m.age>=13) h = hairs_male[14]
 										else if(m.age<13)
 											h = kid_hairs_male[14]
-											h2 = hairs_male[14]
 										m.hair_pos=14
 									if("Stylish Long")
 										if(m.age>=13) h = hairs_male[15]
 										else if(m.age<13)
 											h = kid_hairs_male[15]
-											h2 = hairs_male[15]
 										m.hair_pos=15
 									if("Yamcha GT")
 										if(m.age>=13) h = hairs_male[12]
 										else if(m.age<13)
 											h = kid_hairs_male[12]
-											h2 = hairs_male[12]
 										usr.hair_pos=12
 									if("Kale")
 										if(m.age>=13) h = hairs_female[1]
 										else if(m.age<13)
 											h = kid_hairs_female[1]
-											h2 = hairs_female[1]
 										m.hair_pos=1
 									if("Female 1")
 										if(m.age>=13) h = hairs_female[3]
 										else if(m.age<13)
 											h = kid_hairs_female[3]
-											h2 = hairs_female[3]
 										m.hair_pos=3
 									if("Female 2")
 										if(m.age>=13) h = hairs_female[2]
 										else if(m.age<13)
 											h = kid_hairs_female[2]
-											h2 = hairs_female[2]
 										m.hair_pos=2
 									if("Caulifa")
 										if(m.age>=13) h = hairs_female[9]
 										else if(m.age<13)
 											h = kid_hairs_female[4]
-											h2 = hairs_female[9]
 										usr.hair_pos=9
 									if("Vomi")
 										h = hairs_male[16]
-										h2 = hairs_male[16]
 										m.hair_pos=16
 
 									if("Android 17")
 										if(m.age>=13) h = hairs_female[10]
 										else if(m.age<13)
 											h = kid_hairs_female[5]
-											h2 = hairs_female[10]
 										//usr.hair_pos=17
 									if("Android 18")
 										if(m.age>=13) h = hairs_female[11]
 										else if(m.age<13)
 											h = kid_hairs_female[6]
-											h2 = hairs_female[11]
 										//usr.hair_pos=18
 							else if(m.age<13 && m.age>3.9)
 								switch(input("Pick a hairstyle.") in kid_list)//list ("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Nach","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Android 18","Android 17"))
@@ -4971,124 +4942,104 @@ obj
 										if(m.age>=13) h = hairs_male[1]
 										else if(m.age<13)
 											h = kid_hairs_male[1]
-											h2 = hairs_male[1]
 										m.hair_pos=1
 									if("Vegeta")
 										if(m.age>=13) h = hairs_male[2]
 										else if(m.age<13)
 											h = kid_hairs_male[2]
-											h2 = hairs_male[2]
 										m.hair_pos=2
 									if("Yamcha")
 										if(m.age>=13) h = hairs_male[3]
 										else if(m.age<13)
 											h = kid_hairs_male[3]
-											h2 = hairs_male[3]
 										m.hair_pos=3
 									if("Uub")
 										if(m.age>=13) h = hairs_male[4]
 										else if(m.age<13)
 											h = kid_hairs_male[4]
-											h2 = hairs_male[4]
 										m.hair_pos=4
 
 									if("Long")
 										if(m.age>=13) h = hairs_male[5]
 										else if(m.age<13)
 											h = kid_hairs_male[5]
-											h2 = hairs_male[5]
 										m.hair_pos=5
 									if("Afro")
 										if(m.age>=13) h = hairs_male[6]
 										else if(m.age<13)
 											h = kid_hairs_male[6]
-											h2 = hairs_male[6]
 										m.hair_pos=6
 									if("Kidd")
 										if(m.age>=13) h = hairs_male[7]
 										else if(m.age<13)
 											h = kid_hairs_male[7]
-											h2 = hairs_male[7]
 										m.hair_pos=7
 									if("Raditz")
 										if(m.age>=13) h = hairs_male[8]
 										else if(m.age<13)
 											h = kid_hairs_male[8]
-											h2 = hairs_male[8]
 										m.hair_pos=8
 									if("Muse")
 										if(usr.age>=13) h = hairs_male[9]
 										else if(usr.age<13)
 											h = kid_hairs_male[9]
-											h2 = hairs_male[9]
 										m.hair_pos=9
 									if("Goten")
 										if(m.age>=13) h = hairs_male[10]
 										else if(m.age<13)
 											h = kid_hairs_male[10]
-											h2 = hairs_male[10]
 										m.hair_pos=10
 									if("Short")
 										if(m.age>=13) h = hairs_male[11]
 										else if(m.age<13)
 											h = kid_hairs_male[11]
-											h2 = hairs_male[11]
 										m.hair_pos=11
 									if("Spikey")
 										if(m.age>=13) h = hairs_male[13]
 										else if(m.age<13)
 											h = kid_hairs_male[13]
-											h2 = hairs_male[13]
 										m.hair_pos=13
 
 									if("Stylish Long")
 										if(m.age>=13) h = hairs_male[15]
 										else if(m.age<13)
 											h = kid_hairs_male[15]
-											h2 = hairs_male[15]
 										m.hair_pos=15
 									if("Yamcha GT")
 										if(m.age>=13) h = hairs_male[12]
 										else if(m.age<13)
 											h = kid_hairs_male[12]
-											h2 = hairs_male[12]
 										m.hair_pos=12
 									if("Kale")
 										if(m.age>=13) h = hairs_female[1]
 										else if(m.age<13)
 											h = kid_hairs_female[1]
-											h2 = hairs_female[1]
 										m.hair_pos=1
 									if("Female 1")
 										if(m.age>=13) h = hairs_female[3]
 										else if(m.age<13)
 											h = kid_hairs_female[3]
-											h2 = hairs_female[3]
 										m.hair_pos=3
 									if("Female 2")
 										if(m.age>=13) h = hairs_female[2]
 										else if(m.age<13)
 											h = kid_hairs_female[2]
-											h2 = hairs_female[2]
 										m.hair_pos=2
 									if("Caulifa")
 										if(m.age>=13) h = hairs_female[9]
 										else if(m.age<13)
 											h = kid_hairs_female[4]
-											h2 = hairs_female[9]
 										m.hair_pos=9
 
 									if("Android 17")
 										if(m.age>=13) h = hairs_female[10]
 										else if(m.age<13)
 											h = kid_hairs_female[5]
-											h2 = hairs_female[10]
 										//usr.hair_pos=17
 									if("Android 18")
 										if(m.age>=13) h = hairs_female[11]
 										else if(m.age<13)
 											h = kid_hairs_female[6]
-											h2 = hairs_female[11]
 										//usr.hair_pos=18
 
 							if(m && usr.has_hair >= 1)
@@ -6172,7 +6123,7 @@ obj
 						abduct_loop()
 
 					spawn(lifetime)
-						if(src) { src.destory ; src.loc=null }
+						if(src) src.destroy()
 
 				proc/pulse_effect()
 					while(src)
@@ -12842,8 +12793,7 @@ obj
 							sleep(6)
 							for(var/obj/x in shard_bits)
 								x.layer = initial(x.layer)
-							src.destory
-							src.loc=null
+							src.destroy()
 		plants
 			hp = 100
 			dust = 0
@@ -13676,7 +13626,7 @@ obj
 									animate(pixel_y = -8,pixel_x = 0,time = 2)
 									h -= 1
 							sleep(10)
-							if(src) { src.destory ; src.loc=null }
+							if(src) src.destroy()
 			crashed_space_pod
 				name = "Crashed Space Pod"
 				icon = 'Artifacts.dmi'
@@ -14000,7 +13950,7 @@ obj
 										if(src.icon_state == "psi cache1")
 											usr.dark_matter += src.resources;
 											//usr.rsc_nums("<font color = green>+[Commas(src.resources)] dark matter energy")
-										if(src.icon_state == "psi cache2")
+										//if(src.icon_state == "psi cache2")
 											//usr.psionic_power_base += src.resources;
 											//usr.rsc_nums("<font color = green>+[Commas(src.resources)] psionic power")
 										if(src.icon_state == "psi cache3")
@@ -17645,7 +17595,7 @@ obj
 
 					begin_free_travel(mob/m)
 						if(!m) return
-						m.stunned+1
+						m.stunned+=1
 						src.pilot = m
 						pilot.alpha = 0
 						src.icon_state="Flight"
@@ -17793,7 +17743,6 @@ obj
 
 					install_gravitron(var/mob/m,var/obj/items/tech/Gravitron/o)
 						var/afford=1
-						var/has_all_materials = 1
 						var/titanium_cost = src.titanium_cost //* val_multi
 						var/mystille_cost = src.mystille_cost //* val_multi
 						var/coal_cost = src.coal_cost //* val_multi
@@ -17813,13 +17762,13 @@ obj
 						for (var/material in required_metals)
 							var/required_amount = required_metals[material]
 							if (required_amount > 0) // Skip if no cost for this material
-							var/inventory_amount = m.count_material(material)
-							if (inventory_amount < required_amount)
-								afford=0
-								m << "You lack the required [material]! Needed: [required_amount], You have: [inventory_amount]."
-								m.set_alert("You lack the required [material] needed: [required_amount], You have: [inventory_amount]",'alert.dmi',"alert")
-								//m.create_chat_entry("alerts","You lack the required [material] needed: [required_amount], You have: [inventory_amount]")
-								break
+								var/inventory_amount = m.count_material(material)
+								if (inventory_amount < required_amount)
+									afford=0
+									m << "You lack the required [material]! Needed: [required_amount], You have: [inventory_amount]."
+									m.set_alert("You lack the required [material] needed: [required_amount], You have: [inventory_amount]",'alert.dmi',"alert")
+									//m.create_chat_entry("alerts","You lack the required [material] needed: [required_amount], You have: [inventory_amount]")
+									break
 						/*if(m.key in StaffTeam)
 							m.set_alert("Admin Pass: [o] created!",'alert.dmi',"alert")
 						//	m.create_chat_entry("alerts","Admin Pass: [o] created!")
@@ -20502,7 +20451,7 @@ obj
 									src.name = "[src.name] ([src.weight]kg)"
 									src.desc_extra = "- [src.weight]kg weights\n\n"
 									src.spawned = 1
-									src.standby
+									src.standby = 1
 				kid_ankle_bands
 					icon = 'item_weights_ankle_kid.dmi'
 					icon_state = ""
@@ -21029,7 +20978,6 @@ obj
 									src.density_factor = 2
 						else if(src.loc)
 							if(ismob(usr))
-								var/mob/m = usr
 								if(src.ship_ref.locked == 1) return
 								src.icon_state = "Opening"
 								src.density_factor = 0
@@ -21481,8 +21429,7 @@ obj
 						spawn(6000)
 							if(src && isturf(src.loc))
 								view(10,src)<<output("The water purifier has decayed!","actionoutput")
-								src.destory
-								src.loc=null
+								src.destroy()
 
 				Click(location,control,params)
 					..()
@@ -21822,7 +21769,7 @@ obj
 				proc
 					activate(var/mob/m,var/obj/items/tech/drainers/Witch_Pot/i)
 						if(!i in m)
-							uihkh
+							return
 					use(var/mob/m,var/obj/items/tech/drainers/Witch_Pot/i)
 						if(i in m)
 							m.drop(i)

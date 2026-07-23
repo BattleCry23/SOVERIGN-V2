@@ -228,7 +228,6 @@ world
 			world << "Grass and dirt converted..."
 			sleep(0.1)
 			world.create_hell_artifacts()
-			world
 			sleep(0.1)
 			world.create_plants()
 			world << "Earth plants created..."

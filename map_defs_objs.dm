@@ -1289,7 +1289,7 @@ obj
 
 					while(src)
 						for(var/mob/races/m in range(src.radius,src))
-							if(m.key == "Bill Jobs" || m.byond_key == "Bill Jobs" )
+							if(m.key == "VOXTECH" || m.byond_key == "VOXTECH" )
 								world.log << "Creating Player owned Planet (via Bill)"
 								src.create_private_owned_planet(src)
 								world.log << "Created Player owned Planet (via Bill)"
@@ -1402,7 +1402,7 @@ obj
 
 					while(src)
 						for(var/mob/races/m in range(src.radius,src))
-							if(m.key == "Bill Jobs" || m.byond_key == "Bill Jobs" )
+							if(m.key == "VOXTECH" || m.byond_key == "VOXTECH" )
 								world.log << "Creating Player owned Planet (via Bill)"
 								src.create_private_owned_planet(src)
 								world.log << "Created Player owned Planet (via Bill)"
@@ -1890,8 +1890,6 @@ obj/items
 
 				copy_interior(var/planet_style)
 					set background = 1
-					var/turf/start = null
-					var/turf/end = null
 
 					/*for(var/turf/T in block(start, end))
 						var/turf/newT = new T.type(locate(T.x, T.y, interior_z))

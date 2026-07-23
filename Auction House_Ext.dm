@@ -329,7 +329,7 @@ obj/auction_storage
 			auction_item.desc = I.desc
 			I.stacks -= quantity
 			if(I.stack_display)
-			I.stack_display.maptext = "[css_outline]<font size=1><text align=right valign=bottom>[I.stacks]"
+				I.stack_display.maptext = "[css_outline]<font size=1><text align=right valign=bottom>[I.stacks]"
 		else
 			auction_item = I
 			if(I.slot)

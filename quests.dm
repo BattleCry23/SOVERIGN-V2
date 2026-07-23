@@ -231,12 +231,10 @@ obj
 			quest_set_bodypart(var/mob/m)
 				if(src.setup_part == null)
 					if(m.race == "Demon" || m.race == "Kai") return
-					var/obj/section = pick(m.bodyparts)
 					//var/obj/part = pick(section.contents)
 					//src.info_name = "Level [part]"
 				//	src.txt_title = "Level [part]"
-					var/col = "<font color = green>Now<font color = white>"
-					if(src.available-global.year > 0) col = "<font color = yellow>[round(src.available-global.year,0.1)] Years<font color = white>"
+				//	col = "<font color = yellow>[round(src.available-global.year,0.1)] Years<font color = white>"
 				//	src.txt = "[src.txt_reward]\n\nQuest Available: [col]\n\nLevel [part]"
 					//src.setup_part = part.type
 			quest_increase_rewards()

@@ -1598,7 +1598,6 @@ mob
 
 			//var/speaker_name = speaker.get_strangername(speaker)
 			var/speaker_color = usr.text_color_ic ? usr.text_color_ic : "#FFFFFF"
-			var/log_entry = "[usr]([usr.key]): [msg]"
 
 			//spawn() usr.save_chat_log(msg, 0)
 
@@ -1619,7 +1618,6 @@ mob
 					hearing += usr
 
 				for (var/mob/M in hearing)
-					var/html = "<font size=2.5><font color=[lowertext(usr.client.admin_color)]>[usr.client.admin_name] [msg]"
 					M << output("<IMG CLASS=image SRC=\ref[speaker_avatar] STYLE='width:34px; height:34px;'><font color=[lowertext(usr.client.admin_color)]>[usr.client.admin_name]<IMG CLASS=image SRC=\ref[B.icon] STYLE='width:32px; height:32px;' ICONSTATE='' ICONFRAME=1> [msg]", "actionoutput")
 					spawn(1) M.saveToLog("[usr]([key]): [msg]\n")
 
@@ -1639,7 +1637,7 @@ mob
 					var/Hear = 1
 					if(M.critical_hearing) Hear = 0
 					if(findtext(msg,"(")) Hear = 1
-					//if(M.key == "Bill Jobs") M.known_people -= M.fullname
+					//if(M.key == "VOXTECH") M.known_people -= M.fullname
 					if(learned_name && !(speaker.real_name in M.known_people))
 
 						M.known_people += speaker.real_name
@@ -1650,7 +1648,6 @@ mob
 						if(M.client.admin_mode)
 							M << output("<IMG CLASS=image SRC=\ref[speaker_avatar] STYLE='width:32px; height:32px;'>(A.M)<font color=[speaker_color]>[M.get_strangername(speaker)] [msg]","actionoutput")
 						else
-							var/html = "<font size=2.5><font color=[speaker_color]>[M.get_strangername(speaker)] [msg]"
 							M << output("<IMG CLASS=image SRC=\ref[speaker_avatar] STYLE='width:32px; height:32px;' ICONSTATE='' ICONDIR=SOUTH ICONFRAME=2'><font color=[speaker_color]>[M.get_strangername(usr)] [usr.ICText(msg, usr)]","actionoutput")
 
 						//M << output(html, "actionoutput")

@@ -416,19 +416,12 @@ proc/export_limb_icon(var/mob/m, var/which_limb)
 	var/icon/full_icon = new(m.icon)
 	var/icon/icon_out = new()
 
-	var/list/coords = list(
+	var/list/coords = alist(  // USED FOR BYOND VERSIONS 516+
 		SOUTH = list("Right Arm" = list(22,9,26,17), "Left Arm" = list(9,16,12,9), "Right Leg" = list(19,1,24,8), "Left Leg" = list(9,1,14,8)),
 		EAST  = list("Right Arm" = list(23,9,27,17), "Left Arm" = list(6,16,10,9), "Right Leg" = list(20,1,25,8), "Left Leg" = list(8,1,13,8)),
 		NORTH = list("Right Arm" = list(22,10,26,17), "Left Arm" = list(9,16,12,9), "Right Leg" = list(19,1,24,8), "Left Leg" = list(9,1,14,8)),
 		WEST  = list("Right Arm" = list(21,9,25,17), "Left Arm" = list(6,9,10,17), "Right Leg" = list(18,1,23,8), "Left Leg" = list(10,1,15,8))
 	)
-
-	/*var/list/coords = alist(  // USED FOR BYOND VERSIONS 516+
-		SOUTH = list("Right Arm" = list(22,9,26,17), "Left Arm" = list(9,16,12,9), "Right Leg" = list(19,1,24,8), "Left Leg" = list(9,1,14,8)),
-		EAST  = list("Right Arm" = list(23,9,27,17), "Left Arm" = list(6,16,10,9), "Right Leg" = list(20,1,25,8), "Left Leg" = list(8,1,13,8)),
-		NORTH = list("Right Arm" = list(22,10,26,17), "Left Arm" = list(9,16,12,9), "Right Leg" = list(19,1,24,8), "Left Leg" = list(9,1,14,8)),
-		WEST  = list("Right Arm" = list(21,9,25,17), "Left Arm" = list(6,9,10,17), "Right Leg" = list(18,1,23,8), "Left Leg" = list(10,1,15,8))
-	)*/
 	for(var/state in full_icon.IconStates())
 	//	world << "⚙️ Processing state: [state]"
 		var/icon/new_state = new()
@@ -2348,13 +2341,12 @@ proc/attempt_spawn_chest(var/mob/m, var/turf/t)
         return
 
 proc/spawn_chest(var/mob/m, var/turf/t, var/tier)
-    var/obj/items/misc/bronze_chest/C
     if(tier == "Bronze")
-        C = new /obj/items/misc/bronze_chest(t)
+        new /obj/items/misc/bronze_chest(t)
     else if(tier == "Silver")
-        C = new /obj/items/misc/silver_chest(t)
+        new /obj/items/misc/silver_chest(t)
     else if(tier == "Gold")
-        C = new /obj/items/misc/gold_chest(t)
+        new /obj/items/misc/gold_chest(t)
 
     m << "<b>You found a Treasure Chest!</b>"
     m.set_alert("Treasure Found!", 'alert.dmi', "alert")

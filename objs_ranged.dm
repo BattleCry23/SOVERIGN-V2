@@ -263,7 +263,7 @@ obj
 				if(src)
 					//src.invisibility=0
 
-					spawn(rand(20,50))if(src) { src.destory ; src.loc=null }
+					spawn(rand(20,50))if(src) src.destroy()
 
 			/* Crossed(mob/races/A)
 				if(A)

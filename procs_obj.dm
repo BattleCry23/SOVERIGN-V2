@@ -151,7 +151,7 @@ obj
 						if(src) src.loc = null
 		del_obj(var/time)
 			spawn(time)
-				if(src) { src.destory ; src.loc=null }
+				if(src) src.destroy()
 		remove_obj(var/time)
 			spawn(time)
 				if(src) src.loc = null
@@ -381,7 +381,7 @@ obj
 				src.stacks--
 
 				if(src.stack_display)
-				src.stack_display.maptext = "[css_outline]<font size=1><text align=right valign=bottom>[src.stacks]"
+					src.stack_display.maptext = "[css_outline]<font size=1><text align=right valign=bottom>[src.stacks]"
 
 				var/obj/new_item = new src.cooked_type(m.loc)
 				if(!istype(new_item,/obj/items/consumables/water/water_bottle_dirty)) new_item.color = rgb(165,72,62)
@@ -396,7 +396,6 @@ obj
 			    // Transform this object into cooked
 
 				var/typepath = src.cooked_type
-				var/old_slot = src.slot
 
 				var/obj/new_item = new typepath(m.loc)
 
@@ -546,7 +545,6 @@ obj
 		handle_cooked_food_adding(var/obj/i, var/mob/target_user)
 			var/found_stack = 0
 			var/overflow = 0
-			var/base_name = "[i.name]"
 
 			//If this item stacks, search for another stack of the same item and fuse them
 			if(i.stacks > -1)

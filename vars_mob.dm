@@ -63,6 +63,8 @@
         changeling_dna
         saiyan_dna
         namekian_dna
+        human_dna
+        is_hybrid
 
 
 //Main vars
@@ -412,6 +414,8 @@ mob
 		kai_dna = 0
 		oni_dna = 0
 		half_god_dna = 0
+
+		is_hybrid = 0//if you have more than one DNA, this is set to 1. This is used for some special cases.
 
 		//Save info
 		SAVEFILE_VERSION = 0;
@@ -1125,6 +1129,11 @@ mob
 		eye_c = null
 		skin_c = null
 		hair_c = null
+		tail_c = null
+		saved_hair_c = null //for extra backup
+		saved_skin_c = null //for extra backup
+		saved_eye_c = null //for extra backup
+		saved_tail_c = null //for extra backup
 		tmp/paperdoll_shown = 0
 		hair_pos = 15
 		ear_pos = 1

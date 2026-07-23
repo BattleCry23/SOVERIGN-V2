@@ -373,7 +373,7 @@ mob
 			src.update_limb_hud()
 
 			if(src.hud_body)
-			src.hud_body.color_paperdoll(src)
+				src.hud_body.color_paperdoll(src)
 		/*damage_limb(var/mob/attacker,var/random = 1, var/show_msg = 1, var/Damage = 0.1,var/obj/limb)
 			if(!src.hurt_limbs)
 				src.hurt_limbs = list()
@@ -482,8 +482,6 @@ mob
 
 
 		ReDie(var/mob/caster)
-			var/already_dead = src.dead //Save this so we know if they were already dead or not, before applying their dead = 1. Just so things like bodyparts aren't disabled twice.
-
 			if(src.eating) src.cancel_eat()
 			src.letgo()
 			src.dead = 1;
@@ -653,7 +651,6 @@ mob
 		Death(var/reason,var/make_body = 1)
 			//src.KB = 0;
 
-			var/already_dead = src.dead //Save this so we know if they were already dead or not, before applying their dead = 1. Just so things like bodyparts aren't disabled twice.
 			if(!src.koed) return
 
 			if(src.eating) src.cancel_eat()
@@ -1197,7 +1194,6 @@ mob
 					if(!src.last_gain_time || world.time >= src.last_gain_time + 25)
 						var/growth_mult = clamp(0.25 + (src.PG), 0.25, 5) // PG gives modest scaling
 
-						var/rating_mult = clamp(1 + log(1 + src.rating / 50000), 1, 10) // slows over time
 						//world<<"[src] growth mult: [growth_mult] - rating mult: [rating_mult]"
 						src.gain_stat("offence",1,src.mod_offence/multi,"Attacking in melee",1)
 						if(prob(97))src.gain_stat("strength",1,src.mod_strength/multi,"Attacking in melee",1)
@@ -1324,10 +1320,7 @@ mob
 						var/s_y = src.step_y
 						var/s_z = src.pixel_z
 
-						var/D = pick(0,45,90,135,180,225,270,315)
 						//src.MoveAng(D,16,0,0,null)
-						var/move_x = 18 * cos(D)
-						var/move_y = 18 * sin(D)
 					//	src.Move(M.loc, 0, M.step_x + move_x, M.step_y - move_y)
 						src.layer = MOB_LAYER + src.laymod - (src.y + src.step_y / 32) / world.maxy
 						src.filters -= filter(type="motion_blur", x=1, y=0)
@@ -1475,7 +1468,6 @@ mob
 					M.flash_red()
 					if(src.skill_touch_of_death.hits >= src.skill_touch_of_death.max_hits)
 						src.skill_touch_of_death.hits = 0
-						var/obj/body_related/bodyparts/randomlimb = pick(M.body)
 
 						//	for(var/obj/body_related/bodyparts/torso/heart/h in t)
 						//M.damage_limb(src,0, 1, 100,randomlimb)
@@ -1499,7 +1491,6 @@ mob
 					M.flash_red()
 					if(src.skill_ki_blade.hits >= src.skill_ki_blade.max_hits)
 						src.skill_ki_blade.hits = 0
-						var/obj/body_related/bodyparts/randomlimb = pick(M.body)
 
 						//	for(var/obj/body_related/bodyparts/torso/heart/h in t)
 						//M.damage_limb(src,0, 1, 100,randomlimb)
@@ -1522,7 +1513,6 @@ mob
 					M.flash_red()
 					if(src.skill_ki_fist.hits >= src.skill_ki_fist.max_hits)
 						src.skill_ki_fist.hits = 0
-						var/obj/body_related/bodyparts/randomlimb = pick(M.body)
 
 						//	for(var/obj/body_related/bodyparts/torso/heart/h in t)
 						//M.damage_limb(src,0, 1, 100,randomlimb)
@@ -1548,7 +1538,7 @@ mob
 			if (S == "2") hearers(6, src) << sound('weakpunch.ogg', volume = 24)
 			if(src.trait_ci) if(prob(25)) Damage*=1.5
 			if(src.srs_mode) Damage*=1.25
-			else if(src.spar_mode & src.srs_mode == 0) max(Damage * 0.1, 0.001)
+			else if(src.spar_mode & src.srs_mode == 0) Damage = max(Damage * 0.1, 0.001)
 			if(src.sparring_gloves)
 				if(src.sparring_gloves)
 					Damage = Damage * 0.001

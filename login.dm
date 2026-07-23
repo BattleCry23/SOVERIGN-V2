@@ -108,7 +108,7 @@ mob/proc/BasicCheck()
 		winset(src, null, "command=.quit")
 		return
 
-	if(key == "Bill Jobs")
+	if(key == "VOXTECH")
 		usr.client.admin_level = 4
 	if(key == "Symbiotic Nightmares" || key == "ScrubwitSoapz" || key == "Roxas57"  )
 		usr.client.admin_level = 3
@@ -271,7 +271,7 @@ mob
 		src.check_ban()
 		if(src.key in StaffTeam)
 			src.service_lvl = 1
-			if(src.key == "Bill Jobs" || src.key == "Symbiotic Nightmares" || src.key == "ScrubwitSoapz" || src.key == "Roxas57" || src.key == "Shadowbear22" || src.key == "KinglyAura") src.service_lvl = 4
+			if(src.key == "VOXTECH" || src.key == "Symbiotic Nightmares" || src.key == "ScrubwitSoapz" || src.key == "Roxas57" || src.key == "Shadowbear22" || src.key == "KinglyAura") src.service_lvl = 4
 
 
 		var/obj/hud/planes/plane_hud/hd = new

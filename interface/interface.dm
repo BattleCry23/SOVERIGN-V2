@@ -183,12 +183,6 @@ client
 				//nx = round(map_x / world.icon_size)
 				//ny = round(map_y / world.icon_size)
 			if(!ShouldScaleUI())
-				var/split = findtext(map_size, "x")
-
-				if(split)
-					var/w = text2num(copytext(map_size, 1, split))
-					var/h = text2num(copytext(map_size, split + 1))
-					//src.mob<<"Resolution Scaled from([w]x[h])"
 				//view = "18x15"
 				view = "[BASE_VIEW_X]x[BASE_VIEW_Y]"
 				eye = mob
@@ -424,7 +418,6 @@ HUD/proc/Rescale_HUD(var/mob/m)
 		h.plane=29
 		var/matched = FALSE
 		var/growth_rate = 1.3
-		var/growth_time = 1
 		switch(h.name)
 			if("Left Arm", "leftarm", "left_arm")
 				animate(h)
@@ -548,8 +541,6 @@ client/proc/ShouldScaleUI()
 
    // if(!w || !h) return FALSE
 
-    var/tile_x = round(w / 36,1) //world.icon_size
-    var/tile_y = round(h / 36,1) //world.icon_size
     if(w < BASE_WIDTH && h < BASE_HEIGHT)
         return FALSE
     //if(tile_x < BASE_VIEW_X-12 || tile_y < BASE_VIEW_Y)

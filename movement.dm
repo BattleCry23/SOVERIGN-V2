@@ -641,12 +641,11 @@ atom/movable
 									if(b.ki_owner.npc)
 										if(M.dead==0)
 											if(prob(25))
-											var/killer = null
-											if(b) killer = b.ki_owner
-											if(M)
-												M.Death("[killer]",0)
-												b.ki_owner.killprompt=0
-												b.ki_owner.
+												var/killer = null
+												if(b) killer = b.ki_owner
+												if(M)
+													M.Death("[killer]",0)
+													b.ki_owner.killprompt=0
 									else if(b.ki_owner.srs_mode==0 && b.ki_owner.spar_mode==1 || b.ki_owner.srs_mode == 1 && b.ki_owner.spar_mode==0)
 										switch(alert(b.ki_owner,"Are you sure you want to kill [M]?","","No","Yes","Cancel"))
 											if("Yes")

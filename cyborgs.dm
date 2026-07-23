@@ -15,7 +15,6 @@ obj/items/tech/
 		act_drop = /obj/items/tech/cybernetic_part/proc/drop
 		proc/drop(var/mob/m,var/obj/items/tech/cybernetic_part/i)
 			if(i in m.accessing)
-				var/mob/x = m.accessing
 				//Remove first
 			//	i.icon_state = ""
 				i.layer = 3

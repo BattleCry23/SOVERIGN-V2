@@ -3968,7 +3968,6 @@ obj
 							var/power_multiplier
 							var/custom_color
 						//	var/fistside
-							var/chant
 							var/datum/custom_stance/customstance
 							var/stancename
 							//Beam stages
@@ -3982,7 +3981,6 @@ obj
 								power_multiplier = customstance.power
 								//custom_color = customstance.color
 								//fistside = custombeam.side
-								chant = customstance.chant
 								stancename = customstance.name
 
 								src.power_boost = power_multiplier
@@ -5625,7 +5623,7 @@ obj
 
 					// --- Mutations ---
 					O.mutation_types = list()
-					var/mutations/Mutator = new /mutations()
+					new /mutations()
 					var/list/MutationList = list()
 					// Build the mutation list once to avoid redundancy
 					switch(rand(1,5))
@@ -5880,7 +5878,7 @@ obj
 
 					// --- Mutations ---
 					O.mutation_types = list()
-					var/mutations/Mutator = new /mutations()
+					new /mutations()
 					var/list/MutationList = list()
 					// Build the mutation list once to avoid redundancy
 					switch(rand(1,5))
@@ -6502,7 +6500,6 @@ obj
 									b.go()
 									if(!src.last_gain_time || world.time >= src.last_gain_time + src.gain_cd)
 										var/growth_mult = clamp(0.25 + (m.PG), 0.25, 5) // PG gives modest scaling
-										var/rating_mult = clamp(1 + log(1 + m.rating / 50000), 1, 10) // slows over time
 										m.gain_stat("rating",1,growth_mult,"From Charge Blast skill")
 										m.gain_stat("force",1,m.mod_force,"From Charge Blast skill")
 										if(prob(50))m.gain_stat("energy",1,(m.mod_energy/1*0.125),"From Charge Blast skill")
@@ -7611,7 +7608,6 @@ obj
 									b.go()
 									if(!src.last_gain_time || world.time >= src.last_gain_time + src.gain_cd)
 										var/growth_mult = clamp(0.25 + (m.PG), 0.25, 5) // PG gives modest scaling
-										var/rating_mult = clamp(1 + log(1 + m.rating / 50000), 1, 10) // slows over time
 										m.gain_stat("rating",1,growth_mult,"From Blast skill")
 										m.gain_stat("force",1,(m.mod_force*0.0125),"From Blast skill")
 										if(prob(25))m.gain_stat("power",1,(m.mod_psionic_power*0.0125),"From Blast skill")
@@ -9884,8 +9880,6 @@ obj
 					//	m.vis_contents -= m.eyes
 						if(m.eyes)
 							m.eyes = m.eyes_copy
-							var/proceed = 1
-							if(m.skill_active_meditation && m.skill_active_meditation.active) proceed = 0
 						//	if(proceed)
 						//		m.vis_contents += m.eyes_white
 							//	m.vis_contents += m.eyes
@@ -10263,8 +10257,6 @@ obj
 					//	m.vis_contents -= m.eyes
 						if(m.eyes)
 							m.eyes = m.eyes_copy
-							var/proceed = 1
-							if(m.skill_active_meditation && m.skill_active_meditation.active) proceed = 0
 						//	if(proceed)
 						//		m.vis_contents += m.eyes_white
 							//	m.vis_contents += m.eyes
@@ -10644,8 +10636,6 @@ obj
 					//	m.vis_contents -= m.eyes
 						if(m.eyes)
 							m.eyes = m.eyes_copy
-							var/proceed = 1
-							if(m.skill_active_meditation && m.skill_active_meditation.active) proceed = 0
 						//	if(proceed)
 						//		m.vis_contents += m.eyes_white
 							//	m.vis_contents += m.eyes
@@ -10680,8 +10670,6 @@ obj
 						if(m.eyes)
 							if(m.race == "Kai") m.eyes = global.eyes_focus_celestial
 							else m.eyes = global.eyes_focus
-							var/proceed = 1
-							if(m.skill_active_meditation && m.skill_active_meditation.active) proceed = 0
 						//	if(proceed)
 							//	m.vis_contents += m.eyes_white
 						//		m.vis_contents += m.eyes
@@ -12018,8 +12006,8 @@ obj
 						while(src)
 							if(pre_cooldown>=5 && prob(1))
 								switch(rand(1,3))
-								if(1)
-									pre_cooldown --
+									if(1)
+										pre_cooldown --
 
 							if(src.active)
 								var/mob/m = null
@@ -12192,8 +12180,8 @@ obj
 						while(src)
 							if(pre_cooldown>=5 && prob(1))
 								switch(rand(1,3))
-								if(1)
-									pre_cooldown --
+									if(1)
+										pre_cooldown --
 							if(src.active)
 								var/mob/m = null
 								if(ismob(src.loc))
@@ -13174,7 +13162,6 @@ obj
 
 								if(P.psionic_power>0)
 									if(P.z==m.z)
-										var/powersense = round((P.psionic_power/m.psionic_power)*100)
 										var/list/Powers=new
 										Powers += P.RecentScan
 										var/Power_Window=""
@@ -13977,7 +13964,6 @@ obj
 					if(src.disable_sleep) return
 					spawn(10)
 						while(src)
-							var/spd = 22
 							if(ismob(src.loc))
 								var/mob/m = src.loc
 								if(src.active)
@@ -13990,7 +13976,6 @@ obj
 									//if(m.race == "Celestial") N = 20
 									if(!src.last_gain_time || world.time >= src.last_gain_time + src.gain_cd)
 										var/growth_mult = clamp(0.25 + (m.PG), 0.25, 5) // PG gives modest scaling
-										var/rating_mult = clamp(1 + log(1 + m.rating / 50000), 1, 10) // slows over time
 										m.gain_stat("rating",1,growth_mult,"Self Train")
 										m.gain_stat("power",1,m.mod_psionic_power*0.125,"Self Train")
 										m.gain_stat("energy",1,m.mod_energy*0.125,"Self Train")
@@ -14160,11 +14145,9 @@ obj
 					if(src.disable_sleep) return
 					spawn(10)
 						while(src)
-							var/spd = 20
 							if(ismob(src.loc))
 								var/mob/m = src.loc
 								var/exp = m.mod_tech_potential
-								var/htt_multiplier
 								if(src.active)
 									m.icon_state = "Meditate"
 									//m.check_quest("gen_meditate",1,1,1)
@@ -14192,15 +14175,6 @@ obj
 										//Intelligence gain start
 										if(m.skill_study && m.skill_study.active)
 											exp = m.mod_tech_potential
-											spd = 18
-											htt_multiplier = 2
-											//src.create_chat_entry("local","Pre: [htt_multiplier] - HTT (Current HTT: [src.HTT])",0,1)
-											if(m.HTT >=215)
-												htt_multiplier = 4
-											if(m.HTT < 125)
-												htt_multiplier = 1
-											//	multi = 1 // Below 100 HTT? No gains at all.
-											//src.create_chat_entry("local","Post: [htt_multiplier] - HTT (Current HTT: [src.HTT])",0,1)
 											if(m.cycle_free_time)
 												if(!cftglobal) m.cycle_free_time -= 0.015
 												if(m.cycle_free_time <= -0.1 || m.cycle_free_time <= -0.1 )
@@ -14243,15 +14217,6 @@ obj
 
 										if(m.skill_hone && m.skill_hone.active)
 											exp = m.mod_arcane_potential
-											spd = 18
-											htt_multiplier = 2
-											//src.create_chat_entry("local","Pre: [htt_multiplier] - HTT (Current HTT: [src.HTT])",0,1)
-											if(m.HTT >=215)
-												htt_multiplier = 4
-											if(m.HTT < 125)
-												htt_multiplier = 1
-											//	multi = 1 // Below 100 HTT? No gains at all.
-											//src.create_chat_entry("local","Post: [htt_multiplier] - HTT (Current HTT: [src.HTT])",0,1)
 											if(m.cycle_free_time)
 												if(!cftglobal)m.cycle_free_time -= 0.015
 												if(m.cycle_free_time <= -0.1 || m.cycle_free_time <= -0.1 )
@@ -14321,9 +14286,7 @@ obj
 											if(!m.skill_study || m.skill_study.active == 0)
 
 												var/N = 1
-												spd = 30
 												var/growth_mult = clamp(0.25 + (m.PG), 0.25, 5) // PG gives modest scaling
-												var/rating_mult = clamp(1 + log(1 + m.rating / 50000), 1, 10) // slows over time
 												//if(m.race == "Celestial") N = 20
 												m.gain_stat("rating",1,growth_mult,"Meditation")
 												//m.gain_stat("power",1,N,"Meditation")
@@ -15477,11 +15440,6 @@ obj
 					if(m.koed) return
 					params = params2list(params)
 					winset(m,"map.map","focus=true")
-					var/dir = null
-					if(params["left"] || m.mouse_dir == "left")
-						dir = "left"
-					if(params["right"])
-						dir = "right"
 		Control_Rampage
 			icon_state = "rampage off"
 			info_energy_cost = 1
@@ -15530,11 +15488,6 @@ obj
 					if(m.koed) return
 					params = params2list(params)
 					winset(m,"map.map","focus=true")
-					var/dir = null
-					if(params["left"] || m.mouse_dir == "left")
-						dir = "left"
-					if(params["right"])
-						dir = "right"
 		Look_At_Moon
 			icon_state = "shieldeyes off"
 			info_energy_cost = 1
@@ -16567,7 +16520,7 @@ mob
 				teacher.client.screen -= bar_inner
 				teacher.stunned -= 1
 				teacher.stunned_pending -= 1
-				if(s && !teacher.key == "Bill Jobs") s.teach_cd = year+1
+				if(s && !teacher.key == "VOXTECH") s.teach_cd = year+1
 
 		reset_alerts() //For when player logs out, grab all their alerts in their screen and reset them, otherwise the alerts will be in perma-limbo.
 			if(src.client)

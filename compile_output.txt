@@ -1,0 +1,130 @@
+DM compiler version 516.1685
+loading Secret Project.dme
+loading interface - Copy.dmf
+procs_atoms.dm:419:error: list: numbers are not allowed as associative list keys except in alist()
+procs_atoms.dm:2351:warning (unused_var): C: variable defined but not used
+newhud.dm:11413:warning (unused_var): G: variable defined but not used
+newhud.dm:13706:warning (unused_var): m: variable defined but not used
+newhud.dm:13717:warning (unused_var): discount_percent: variable defined but not used
+newhud.dm:13733:warning (unused_var): power_needed: variable defined but not used
+newhud.dm:13734:warning (unused_var): power_produced: variable defined but not used
+newhud.dm:13735:warning (unused_var): can_upgrade: variable defined but not used
+newhud.dm:13749:warning (unused_var): power_needed: variable defined but not used
+newhud.dm:13750:warning (unused_var): power_produced: variable defined but not used
+newhud.dm:13751:warning (unused_var): can_upgrade: variable defined but not used
+newhud.dm:18814:warning (unused_var): injury_c: variable defined but not used
+newhud.dm:18927:warning (unused_var): pix_neg: variable defined but not used
+newhud.dm:18928:warning (unused_var): pix: variable defined but not used
+objs.dm:17648:warning (no_effect): +: statement has no effect
+objs.dm:17815:warning (no_effect): if: if statement has no effect
+objs.dm:17796:warning (unused_var): has_all_materials: variable defined but not used
+objs.dm:21825:warning (unused_label): uihkh: unused label
+map_defs_objs.dm:1893:warning (unused_var): start: variable defined but not used
+map_defs_objs.dm:1894:warning (unused_var): end: variable defined but not used
+objs.dm:4821:warning (unused_var): h2: variable defined but not used
+objs.dm:6175:warning (unused_label): src: unused label
+objs.dm:6175:warning (unused_label): destory: unused label
+objs.dm:12845:warning (unused_label): src: unused label
+objs.dm:12845:warning (unused_label): destory: unused label
+objs.dm:13679:warning (unused_label): src: unused label
+objs.dm:13679:warning (unused_label): destory: unused label
+objs.dm:14003:warning (no_effect): if: if statement has no effect
+objs.dm:1631:warning (unused_label): src: unused label
+objs.dm:1631:warning (unused_label): destory: unused label
+objs.dm:1866:warning (unused_label): src: unused label
+objs.dm:1866:warning (unused_label): destory: unused label
+particles.dm:400:warning (unused_label): src: unused label
+particles.dm:400:warning (unused_label): destory: unused label
+skills.dm:3971:warning (unused_var): chant: variable defined but not used
+skills.dm:5628:warning (unused_var): Mutator: variable defined but not used
+skills.dm:5883:warning (unused_var): Mutator: variable defined but not used
+skills.dm:6505:warning (unused_var): rating_mult: variable defined but not used
+skills.dm:9887:warning (unused_var): proceed: variable defined but not used
+skills.dm:10266:warning (unused_var): proceed: variable defined but not used
+skills.dm:10647:warning (unused_var): proceed: variable defined but not used
+skills.dm:10683:warning (unused_var): proceed: variable defined but not used
+skills.dm:12021:warning (empty_switch): : empty switch statement
+skills.dm:12195:warning (empty_switch): : empty switch statement
+skills.dm:13177:warning (unused_var): powersense: variable defined but not used
+skills.dm:13980:warning (unused_var): spd: variable defined but not used
+skills.dm:13993:warning (unused_var): rating_mult: variable defined but not used
+skills.dm:14163:warning (unused_var): spd: variable defined but not used
+skills.dm:14167:warning (unused_var): htt_multiplier: variable defined but not used
+skills.dm:14326:warning (unused_var): rating_mult: variable defined but not used
+skills.dm:15480:warning (unused_var): dir: variable defined but not used
+skills.dm:15533:warning (unused_var): dir: variable defined but not used
+procs_obj.dm:154:warning (unused_label): src: unused label
+procs_obj.dm:154:warning (unused_label): destory: unused label
+procs_obj.dm:383:warning (no_effect): if: if statement has no effect
+procs_obj.dm:399:warning (unused_var): old_slot: variable defined but not used
+procs_obj.dm:549:warning (unused_var): base_name: variable defined but not used
+objs.dm:193:warning (unused_label): src: unused label
+objs.dm:193:warning (unused_label): destory: unused label
+objs.dm:2178:warning (unused_label): src: unused label
+objs.dm:2178:warning (unused_label): destory: unused label
+objs_ranged.dm:266:warning (unused_label): src: unused label
+objs_ranged.dm:266:warning (unused_label): destory: unused label
+quests.dm:234:warning (unused_var): section: variable defined but not used
+quests.dm:238:warning (unused_var): col: variable defined but not used
+Auction House_Ext.dm:331:warning (no_effect): if: if statement has no effect
+WORLD BOSS.dm:206:warning (unused_var): roll_type: variable defined but not used
+combat_melee.dm:375:warning (no_effect): if: if statement has no effect
+New admin panel.dm:75:warning (unused_var): rebuild: variable defined but not used
+New admin panel.dm:511:warning (no_effect): : statement has no effect
+New admin panel.dm:1598:warning (unused_var): O: variable defined but not used
+new char.dm:500:warning (unused_var): newmob: variable defined but not used
+procs_mob.dm:2079:warning (unused_var): saved_icon: variable defined but not used
+procs_mob.dm:7691:warning (unused_var): StanceChant: variable defined but not used
+procs_mob.dm:7692:warning (unused_var): hasStanceChant: variable defined but not used
+save_players.dm:209:warning (unused_var): screen_mobs: variable defined but not used
+save_players.dm:504:warning (no_effect): if: if statement has no effect
+save_players.dm:510:warning (no_effect): if: if statement has no effect
+save_players.dm:526:warning (no_effect): if: if statement has no effect
+save_players.dm:541:warning (no_effect): if: if statement has no effect
+stats.dm:660:warning (unused_var): rating_mult: variable defined but not used
+stats.dm:889:warning (unused_var): forcegainfrommed: variable defined but not used
+stats.dm:950:warning (unused_var): experience_pts: variable defined but not used
+stats.dm:1018:warning (unused_var): experience_pts: variable defined but not used
+stats.dm:1087:warning (unused_var): experience_pts: variable defined but not used
+communication.dm:1601:warning (unused_var): log_entry: variable defined but not used
+communication.dm:1622:warning (unused_var): html: variable defined but not used
+communication.dm:1653:warning (unused_var): html: variable defined but not used
+WORLD BOSS.dm:677:warning (unused_var): pix_y: variable defined but not used
+WORLD BOSS.dm:994:warning (unused_var): pix_y: variable defined but not used
+WORLD BOSS.dm:1096:warning (unused_var): pix_y: variable defined but not used
+WORLD BOSS.dm:1199:warning (unused_var): pix_y: variable defined but not used
+save_turfs.dm:231:warning (unused_label): world: unused label
+interface\interface.dm:189:warning (unused_var): w: variable defined but not used
+interface\interface.dm:190:warning (unused_var): h: variable defined but not used
+interface\interface.dm:551:warning (unused_var): tile_x: variable defined but not used
+interface\interface.dm:552:warning (unused_var): tile_y: variable defined but not used
+interface\interface.dm:427:warning (unused_var): growth_time: variable defined but not used
+movement.dm:643:warning (no_effect): if: if statement has no effect
+movement.dm:649:warning (unused_label): b: unused label
+movement.dm:649:warning (unused_label): ki_owner: unused label
+cyborgs.dm:18:warning (unused_var): x: variable defined but not used
+objs.dm:20505:warning (unused_label): src: unused label
+objs.dm:20505:warning (unused_label): standby: unused label
+objs.dm:21032:warning (unused_var): m: variable defined but not used
+objs.dm:21484:warning (unused_label): src: unused label
+objs.dm:21484:warning (unused_label): destory: unused label
+objs.dm:3193:warning (unused_var): power_needed: variable defined but not used
+objs.dm:3194:warning (unused_var): power_produced: variable defined but not used
+objs.dm:3195:warning (unused_var): can_upgrade: variable defined but not used
+skills.dm:7614:warning (unused_var): rating_mult: variable defined but not used
+combat_melee.dm:485:warning (unused_var): already_dead: variable defined but not used
+combat_melee.dm:656:warning (unused_var): already_dead: variable defined but not used
+combat_melee.dm:1551:warning (no_effect): max: statement has no effect
+combat_melee.dm:1200:warning (unused_var): rating_mult: variable defined but not used
+combat_melee.dm:1329:warning (unused_var): move_x: variable defined but not used
+combat_melee.dm:1330:warning (unused_var): move_y: variable defined but not used
+combat_melee.dm:1478:warning (unused_var): randomlimb: variable defined but not used
+combat_melee.dm:1502:warning (unused_var): randomlimb: variable defined but not used
+combat_melee.dm:1525:warning (unused_var): randomlimb: variable defined but not used
+new char.dm:4233:warning (unused_var): h2: variable defined but not used
+procs_mob.dm:2554:warning (no_effect): if: if statement has no effect
+procs_mob.dm:2496:warning (unused_label): i: unused label
+click_mob.dm:296:warning (no_effect): if: if statement has no effect
+click_mob.dm:300:warning (no_effect): if: if statement has no effect
+Secret Project.dmb - 1 error, 124 warnings (7/22/26 8:19 pm)
+Total time: 0:03

@@ -203,18 +203,15 @@ world/proc/WorldBossDailyScheduler()
 
 	var/winner_ckey = null
 	var/winning_roll = 0
-	var/roll_type = null
 
 	// 1) NEED always wins over GREED
 	if(need.len)
-		roll_type = "Need"
 		for(var/ck in need)
 			if(need[ck] > winning_roll)
 				winning_roll = need[ck]
 				winner_ckey = ck
 
 	else if(greed.len)
-		roll_type = "Greed"
 		for(var/ck in greed)
 			if(greed[ck] > winning_roll)
 				winning_roll = greed[ck]
@@ -674,7 +671,6 @@ mob/NPC/WorldBoss
 
 		New()
 			..()
-			var/pix_y = 0
 			// You can set stats however your system expects.
 			// Using your style:
 			set_stats(33,3333,33,100,33,100,50,50)
@@ -991,7 +987,6 @@ mob/NPC/WorldBoss
 
 		New()
 			..()
-			var/pix_y = 0
 			set_stats(33,3333,33,100,33,100,50,50)
 			psionic_power = 1500 * year
 			energy = 999999999
@@ -1093,7 +1088,6 @@ mob/NPC/WorldBoss
 
 		New()
 			..()
-			var/pix_y = 0
 			set_stats(33,3333,33,100,33,100,50,50)
 			psionic_power = 1500 * year
 			energy = 999999999
@@ -1196,7 +1190,6 @@ mob/NPC/WorldBoss
 
 		New()
 			..()
-			var/pix_y = 0
 			set_stats(33,3333,33,100,33,100,50,50)
 			psionic_power = 1500 * year
 			energy = 999999999

@@ -1,3 +1,69 @@
+var/const
+	HAIR_LAYER = 5
+	ARMOUR_LAYER = 6
+	EQUIPMENT_LAYER = 7
+	EYES_IRIS_LAYER = 8
+	EYES_PUPILS_LAYER = 9
+	EXTRA_LAYER = 9.5
+	AURA_LAYER = 10
+
+obj/overlay
+	//parent_type = /obj //figure out how to undo this, buffs are already moved, but overlays need to have their parent_type changed.
+	//layer = 5
+	layer = MOB_LAYER
+	//IsntAItem=1
+	//canGrab = 0
+	mouse_opacity = 0
+	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_LAYER | VIS_INHERIT_ID | VIS_INHERIT_ICON
+	var
+		ID=1 //important, when you remove shit, you compare IDs.
+		mob/container //mind as well use the same variables from buff.dm - makes it more consistant and future coders can use "container" for all datum-based frameworks.
+		SUBID=1
+		pastSelf
+		temporary=FALSE //will this aura remain on duplications, be left on resets, and etc?
+		o_px=0
+		o_py=0
+
+	proc/starteffect()
+		if(!container)
+			return
+		if(ismob(container))
+			container.vis_contents |= src
+		else if(isobj(container))
+			container.overlays += src
+
+	proc/effectloop()
+		if(!container)
+			return
+		pixel_x = container.pixel_x + o_px
+		pixel_y = container.pixel_y + o_py
+
+	proc/endeffect()
+		if(container)
+			remove_overlay(container, src)
+		del(src)
+
+	proc/fasteffectend()
+		if(container)
+			remove_overlays_fast(container, src)
+		del(src)
+
+//this essentials handles how hair overlays work, the previous version handled hair overlays as a single overlay that changed its icon and color, but this version handles each hair as a separate overlay, which allows for more customization and less issues with things like the ssj hair not updating properly when changing colors or something like that. It also allows for things like the ssj2 hair to be added without needing to change the ssj1 hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the ssj3 hair to be added without needing to change the ssj1 or ssj2 hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the ssj4 hair to be added without needing to change the ssj1, ssj2, or ssj3 hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the lssj hair to be added without needing to change the ssj1, ssj2, ssj3, or ssj4 hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the rlssj hair to be added without needing to change the ssj1, ssj2, ssj3, ssj4, or lssj hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the ussj hair to be added without needing to change the ssj1, ssj2, ssj3, ssj4, lssj, or rlssj hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the mastered ssj1 hair to be added without needing to change the ssj1, ssj2, ssj3, ssj4, lssj, rlssj, or ussj hair's icon or color, which is something that was an issue with the previous version.
+obj/overlay/hairs
+	//plane = HAIR_LAYER
+	layer = HAIR_LAYER
+	appearance_flags = PIXEL_SCALE
+	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_LAYER | VIS_INHERIT_ID | VIS_INHERIT_ICON
+	name = "hair"
+	transform = null
+	ID = 3
+	var
+		tmp/gdkid = 0
+		prevgdki = 0//this is for hair changes pretaining to future use of godki, but it can also be used for other things like the ssj2 hair or something like that if I decide to add it in the future.
+
+		rssjed = 0
+		lssjed = 0
+		wrathed = 0//this is for wrathful state, the plan is to use the ssj hairs but turn it black sort of like Giji.
 /*
 :Tech vars:.
 	- Setting has_subtech = 1 will force the tech, when displayed inside the "Build Tech", to show a plus(+)

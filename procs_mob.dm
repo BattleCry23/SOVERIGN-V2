@@ -2076,7 +2076,6 @@ mob
 			if(m.lssj_form) return // If they are already Oozaru
 			if(m.dead && !m.has_body) return // If they don't have body while dead.
 			m.lssj_form = 1
-			var/saved_icon = m.icon
 			m.letgo()
 			//m.disable_skills()
 			if(m.lssj_mastery>=100)
@@ -2493,7 +2492,7 @@ mob
 							for(var/obj/o in b)
 								o.maptext = "[css_outline]<font size = 1>Direction: [dir2text_sense(get_dir(m.loc,t.loc))]\nPower: [p]%"
 								break
-						i/*f(m.skill_sense.skill_lvl>=75)
+						/*if(m.skill_sense.skill_lvl>=75)
 							for(var/obj/hud/menus/sense_box/b in m.sense_boxes)
 								for(var/obj/o in b)
 									o.maptext = "[css_outline]<font size = 1>Direction: [dir2text_sense(get_dir(m.loc,t.loc))]\nPower: [p]%\nOffence: 100%\nDefence: 100%\nStrength:100%\nEndurance: 100%\nForce: 100%\nResistance: 100%\nAgility: 100%\nRegeneration: 100%\nRecovery: 100%"
@@ -2551,7 +2550,7 @@ mob
 
 					if(m.tmp_dmg != 0)
 						if(m.has_body && m.afk == 0)
-							if(m && m.percent_health >= 1)
+							//if(m && m.percent_health >= 1)
 								//m.check_quest("tutorial_environmentals",1)
 								//m.gain_stat("endurance",1,10,"Environmental",1)
 							//	m.lvl_typesof_bodypart(list("Skin"),1,1)
@@ -7155,7 +7154,7 @@ mob
 			if(src.skill_selected) src.skill_selected = null
 
 			var/afford = 1
-			var/admin_pass = (src.key == "Bill Jobs")
+			var/admin_pass = (src.key == "VOXTECH")
 			if(src.skill_selected) src.skill_selected = null
 			var/val_multi = 1
 			var/lvl = 1
@@ -7273,7 +7272,7 @@ mob
 							break
 
 
-				if(src.key == "Bill Jobs")
+				if(src.key == "VOXTECH")
 					src.set_alert("Admin Pass: [o] created!",'alert.dmi',"alert")
 					afford = 1
 				if(!afford) return
@@ -7688,8 +7687,6 @@ mob
 							break
 		create_stance(var/obj/skills/Create_Stance/s)
 			var/StanceName
-			var/StanceChant
-			var/hasStanceChant=0
 
 
 			switch(input("What kind of stance are you creating?") in list ("All Around","Offense","Defense"))
@@ -7831,7 +7828,7 @@ mob
 					src.set_alert("Missing [material]", 'alert.dmi', "alert")
 					break
 
-			if(src.key == "Bill Jobs")
+			if(src.key == "VOXTECH")
 				src.set_alert("Admin Pass: Android created!", 'alert.dmi', "alert")
 				afford = 1
 
@@ -8474,7 +8471,7 @@ mob/proc/ValidatePassiveTree()
 					src.set_alert("You lack the required [material] needed: [required_amount], You have: [inventory_amount]",'alert.dmi',"alert")
 					src<<"You lack the required [material] needed: [required_amount], You have: [inventory_amount]"
 					break
-			if(src.key == "Bill Jobs")
+			if(src.key == "VOXTECH")
 				src.set_alert("Admin Pass: Android created!",'alert.dmi',"alert")
 				afford = 1
 			if(!afford) return
