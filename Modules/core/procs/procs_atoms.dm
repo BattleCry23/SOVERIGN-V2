@@ -312,7 +312,7 @@ mob/proc/maim_limb(var/obj/body_related/bodyparts/L, var/mob/attacker)
     spawn_dropped_limb(L, src)
 
     src.body -= L
-    del(L)
+    qdel(L)
 
     src.update_limb_hud()
 
@@ -541,7 +541,7 @@ proc/remove_limb_mask(var/mob/m, var/which_limb)
 	for(var/obj/o in m.overlays)
 		if(o && o.render_target == render_id)
 			m.overlays -= o
-			del(o)
+			qdel(o)
 
 	// 🔹 Remove matching filters
 	for(var/f in m.filters)
@@ -1148,7 +1148,7 @@ world/proc/load_world_time()
 proc/Clean_Unused_Objects()
     for(var/obj/o in world)
         if(o.contents.len == 0 && !o.loc)
-            del(o)
+            qdel(o)
     sleep(10)  // Run every 10 seconds
     spawn(10) Clean_Unused_Objects()
 
@@ -2135,7 +2135,7 @@ atom/movable
 				shad.bolted = 2
 				shad.hp = 1.#INF
 				src.shadow = shad
-				del(I)
+				qdel(I)
 		reset_tk()
 			src.filters -= filter(type="drop_shadow", x=0, y=0, size=5, offset=0, color=rgb(102,0,204))
 			src.tk = 0

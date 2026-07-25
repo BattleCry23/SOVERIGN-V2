@@ -510,7 +510,7 @@ atom/movable
 				if(src) src.shudders = 1;
 
 		//Code for when a beam hits an obj or mob.
-		if(istype(o,/obj/ranged/checker))
+		if(istype(o,(/obj/ranged/checker)))
 			if(src.density || src.density_factor > 0)
 				var/obj/ranged/checker/b = o
 				if(b && b.origin)
@@ -541,25 +541,26 @@ atom/movable
 								M.target = b.origin
 								var/mob/NPC/WorldBoss/N = M
 								N.boss_idle_ai()
-						if(M.koed && b.ki_owner.killprompt==0)
-							b.ki_owner.killprompt=1
+						var/mob/beam_attacker = b.ki_owner
+						if(M.koed && beam_attacker && beam_attacker.killprompt==0)
+							beam_attacker.killprompt=1
 							var/mob/killer = null
-							if(b) killer = b.ki_owner
-							if(b.ki_owner.srs_mode==0 && b.ki_owner.spar_mode==1 || b.ki_owner.srs_mode == 1 && b.ki_owner.spar_mode==0)
-								switch(alert(b.ki_owner,"Are you sure you want to kill [M]?","","No","Yes","Cancel"))
+							if(beam_attacker) killer = beam_attacker
+							if(beam_attacker.srs_mode==0 && beam_attacker.spar_mode==1 || beam_attacker.srs_mode == 1 && beam_attacker.spar_mode==0)
+								switch(alert(beam_attacker,"Are you sure you want to kill [M]?","","No","Yes","Cancel"))
 									if("Yes")
 										if(M)
 											if(M.dead==0)
 												M.Death("[killer]",0)
-												b.ki_owner.killprompt=0
-							else if(b.ki_owner.srs_mode == 1 &&  b.ki_owner.spar_mode == 1)
+												beam_attacker.killprompt=0
+							else if(beam_attacker.srs_mode == 1 &&  beam_attacker.spar_mode == 1)
 								if(M)
 									if(M.dead==0)
 										M.Death("[killer]",0)
-										b.ki_owner.killprompt=0
+										beam_attacker.killprompt=0
 						else if(M.percent_health <= 0)
 							M.KO()
-						if(b.ki_owner.killprompt == 1) b.ki_owner.killprompt = 0
+						if(beam_attacker && beam_attacker.killprompt == 1) beam_attacker.killprompt = 0
 					else if(src.immune_dmg == 0)
 						src.hp -= 10
 						if(src.hp <= 0)
@@ -582,9 +583,26 @@ atom/movable
 							src.destroy()
 
 				if(o) o.loc = null
+		//Code for when a beam hits another beam
+		else if(istype(o,/obj/ranged/) && istype(src,/obj/ranged/))
+			var/obj/ranged/other_beam = o
+			var/obj/ranged/this_beam = src
+			if(other_beam.fired && this_beam.fired)
+				if(other_beam.ki_owner != this_beam.ki_owner)
+					var/this_power = this_beam.ki_power * this_beam.ki_force
+					var/other_power = other_beam.ki_power * other_beam.ki_force
+					if(this_power > other_power)
+						other_beam.destroy()
+					else if(other_power > this_power)
+						this_beam.destroy()
+					else
+						other_beam.destroy()
+						this_beam.destroy()
+					return
 		//Code for when a blast or charge hits a obj or mob.
 		else if(istype(o,/obj/ranged/))
 			var/obj/ranged/b = o
+			var/mob/ranged_attacker = b.ki_owner
 			if(b.fired)// && b.ki_owner.active_attack) // || b.ki_owner.current_attack) //Check if the owner of this attack has an active/current attack set
 				if(src.density || src.density_factor > 0)
 					if(src.ki_owner != b.ki_owner && src != b.ki_owner)
@@ -616,61 +634,61 @@ atom/movable
 								var/obj/body_related/bodyparts/randomlimb = null
 								for(var/obj/body_related/bodyparts/t in M.body)
 									randomlimb = pick(t)
-								if(b.ki_owner.srs_mode || b.ki_owner.lethal_mode) M.damage_limb(b.ki_owner,1, 1, Damage, randomlimb)
+								if(ranged_attacker && (ranged_attacker.srs_mode || ranged_attacker.lethal_mode)) M.damage_limb(ranged_attacker,1, 1, Damage, randomlimb)
 								if(Damage > 0) M.percent_health -= Damage
 								if(prob(50))M.gain_stat("resistance",1,(M.mod_resistance*0.25),"Attacked by skill",1)
 							//	M.gain_stat("defence",1,10,"Defending from ranged",1)
 								//M.gain_stat("power",1,1,"Attacked by skill",1)
-								if(b.ki_owner)
-									if(!M.remembers_force.Find(b.ki_owner.id)) M.remembers_force += b.ki_owner.id
-									if(!b.ki_owner.remembers_resistance.Find(M.id)) b.ki_owner.remembers_resistance += M.id
+								if(ranged_attacker)
+									if(!M.remembers_force.Find(ranged_attacker.id)) M.remembers_force += ranged_attacker.id
+									if(!ranged_attacker.remembers_resistance.Find(M.id)) ranged_attacker.remembers_resistance += M.id
 								//	b.ki_owner.gain_stat("force",1,10,"Using skill",1)
 								//	b.ki_owner.gain_stat("offence",1,10,"Attacking ranged",1)
 									if(!M.client && !M.target)
 										if(M.npc)
-											M.target = b.ki_owner
+											M.target = ranged_attacker
 											var/mob/NPC/N = M
 											N.npc_ai()
 										else if(M.boss)
-											M.target = b.ki_owner
+											M.target = ranged_attacker
 											var/mob/NPC/WorldBoss/N = M
 											N.boss_idle_ai()
 
-								if(M.koed && b.ki_owner.killprompt==0)
-									b.ki_owner.killprompt=1
-									if(b.ki_owner.npc)
+								if(M.koed && ranged_attacker && ranged_attacker.killprompt==0)
+									ranged_attacker.killprompt=1
+									if(ranged_attacker.npc)
 										if(M.dead==0)
 											if(prob(25))
 												var/killer = null
-												if(b) killer = b.ki_owner
+												if(ranged_attacker) killer = ranged_attacker
 												if(M)
 													M.Death("[killer]",0)
-													b.ki_owner.killprompt=0
-									else if(b.ki_owner.srs_mode==0 && b.ki_owner.spar_mode==1 || b.ki_owner.srs_mode == 1 && b.ki_owner.spar_mode==0)
-										switch(alert(b.ki_owner,"Are you sure you want to kill [M]?","","No","Yes","Cancel"))
+											ranged_attacker.killprompt=0
+									else if(ranged_attacker.srs_mode==0 && ranged_attacker.spar_mode==1 || ranged_attacker.srs_mode == 1 && ranged_attacker.spar_mode==0)
+										switch(alert(ranged_attacker,"Are you sure you want to kill [M]?","","No","Yes","Cancel"))
 											if("Yes")
 												if(M.dead==0)
 													var/killer = null
-													if(b) killer = b.ki_owner
+													if(ranged_attacker) killer = ranged_attacker
 													if(M)
 														M.Death("[killer]",0)
-														b.ki_owner.killprompt=0
-									else if(b.ki_owner.srs_mode == 1 &&  b.ki_owner.spar_mode == 1)
+														ranged_attacker.killprompt=0
+									else if(ranged_attacker.srs_mode == 1 &&  ranged_attacker.spar_mode == 1)
 										if(M.dead==0)
 											var/killer = null
-											if(b) killer = b.ki_owner
+											if(ranged_attacker) killer = ranged_attacker
 											if(M)
 												M.Death("[killer]",0)
-												b.ki_owner.killprompt=0
+												ranged_attacker.killprompt=0
 								else if(M.percent_health <= 0)
-									if(b.ki_owner.boss)
-										var/turf/safe = FindSafeBossRespawn(b.ki_owner)
+									if(ranged_attacker && ranged_attacker.boss)
+										var/turf/safe = FindSafeBossRespawn(ranged_attacker)
 										if(safe)
 											M<<output("You managed to make it to safety before being killed.","actionoutput")
 											M.loc = safe
 									M.KO()
 
-							if(b.ki_owner.killprompt == 1) b.ki_owner.killprompt = 0
+							if(ranged_attacker && ranged_attacker.killprompt == 1) ranged_attacker.killprompt = 0
 						if(istype(src,/obj/ranged/)) //b hits src, which is another blast.
 							var/obj/ranged/r = src;
 							var/obj/ranged/enemy_ball = r.ki_owner.active_attack
@@ -688,10 +706,10 @@ atom/movable
 							for(var/mob/M in view(c_l,src.loc))
 
 								var/Damage=((b.ki_force*b.force_usage)*(b.ki_power))/(M.resistance*M.psionic_power)
-								var/mob/attacker = b.ki_owner
+								var/mob/explosion_attacker = b.ki_owner
 								var/dd = get_dir(src.loc,M)
 								spawn(1)
-									if(M && M != src && M != attacker)
+									if(M && M != src && M != explosion_attacker)
 										//Make anyone near the explosion take half the damage of the attack, and knock them back.
 										if(Damage > 0)
 											Damage/=2
@@ -700,17 +718,17 @@ atom/movable
 										if(prob(50))M.gain_stat("resistance",1,(M.mod_resistance*0.5),"Attacked by skill",1)
 									//	M.gain_stat("defence",1,10,"Defending from ranged",1)
 										//M.gain_stat("power",1,1,"Attacked by skill",1)
-										if(attacker)
+										if(explosion_attacker)
 											//attacker.gain_stat("force",1,10,"Using skill",1)
 											//attacker.gain_stat("offence",1,10,"Attacking ranged",1)
 											if(!M.client && !M.target)
 												if(M.npc)
-													M.target = attacker
+													M.target = explosion_attacker
 													var/mob/NPC/N = M
 													N.npc_ai()
 												else
 													if(M.boss)
-														M.target = attacker
+														M.target = explosion_attacker
 														var/mob/NPC/WorldBoss/N = M
 														N.boss_idle_ai()
 

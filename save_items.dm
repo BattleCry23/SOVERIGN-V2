@@ -18,7 +18,7 @@ world
 			//Wipe all the default map items so the saved ones can be loaded in sucessfully without duping.
 			for(var/obj/items/I in world)
 				if(isturf(I.loc))
-					del(I)
+					qdel(I)
 		Save_objs()
 			set background =1
 			var/savefile/S = new("saves/world/items.sav")

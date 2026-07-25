@@ -242,7 +242,7 @@ obj
 											var/obj/items/consumables/water/water_bottle_dirty/wb = new/obj/items/consumables/water/water_bottle_dirty(m.loc)
 											wb.stacks = (src.stacks)
 											m.pickup(wb,0)
-											del(src)
+											qdel(src)
 								if(src.expiration_cycle == 0 && src)
 									if(ismob(src.loc))
 										var/mob/m = src.loc
@@ -299,7 +299,7 @@ obj
 				if (prob(50))
 					m.culinaryxp += m.mod_culinary
 				if(src.stacks <=0)
-					if(src) del(src)
+					if(src) qdel(src)
 			// Refresh inventory
 				if (m.hud_inv)
 					m.refresh_inv()
@@ -1161,3 +1161,4 @@ obj
 					animate(o, pixel_y = pixel_y_down, time = 3)
 				//CHECK_TICK
 				sleep(3)
+

@@ -135,7 +135,7 @@ world/proc/WeeklyRoleplayScheduler()
 	proc/StopDay()
 		active_today = 0
 		if(current)
-			del(current)
+			qdel(current)
 			current = null
 
 // ------------------------------------------------------------

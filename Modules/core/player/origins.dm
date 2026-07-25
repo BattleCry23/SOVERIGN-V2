@@ -406,7 +406,7 @@ mutations
 			if(target.rerolling==1)
 				target.mutations=null
 				for(var/mutations/S in target)
-					del(S)
+					qdel(S)
 			var/mutations/MutationType = pick(mutations)  // Randomly pick a mutation type
 			var/mutations/MutationType_staged = pick(mutations) //Random pick 2
 			var/mutations/MutationInstance

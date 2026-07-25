@@ -25684,7 +25684,7 @@ obj
 						b.density_factor = 1
 						b.loc = src.loc
 						src.shockwave_huge()
-						del(o)
+						qdel(o)
 				Click()
 					if(src.icon_state != "overlay") src.Activate()
 				/*

@@ -3503,7 +3503,7 @@ mob
 			winset(src,"map.map","focus=true")
 		rebuild_menus()
 			if(src.hud_stats)
-				del(src.hud_stats)
+				qdel(src.hud_stats)
 				src.hud_stats = null
 			var/obj/hud/menus/core_stats_background/bg = new
 			src.hud_stats = bg
@@ -3512,7 +3512,7 @@ mob
 
 
 			if(src.hud_inv)
-				del(src.hud_inv)
+				qdel(src.hud_inv)
 				src.hud_inv = null
 			var/obj/hud/menus/inventory_background/inv = new
 			src.hud_inv = inv
@@ -3521,7 +3521,7 @@ mob
 
 
 			if(src.hud_tech)
-				del(src.hud_tech)
+				qdel(src.hud_tech)
 				src.hud_tech = null
 			var/obj/hud/menus/tech_background/tech = new
 			src.hud_tech = tech
@@ -3530,7 +3530,7 @@ mob
 
 
 			if(src.hud_unlocks)
-				del(src.hud_unlocks)
+				qdel(src.hud_unlocks)
 				src.hud_unlocks = null
 			var/obj/hud/menus/unlocks_background/unlocks = new
 			src.hud_unlocks = unlocks
@@ -3539,7 +3539,7 @@ mob
 
 
 			if(src.hud_opt)
-				del(src.hud_opt)
+				qdel(src.hud_opt)
 				src.hud_opt = null
 			var/obj/hud/menus/options_background/opt = new
 			src.hud_opt = opt
@@ -3548,7 +3548,7 @@ mob
 
 
 			if(src.hud_skills)
-				del(src.hud_skills)
+				qdel(src.hud_skills)
 				src.hud_skills = null
 			var/obj/hud/menus/skills_background/skl = new
 			src.hud_skills = skl
@@ -3557,7 +3557,7 @@ mob
 
 
 			if(src.hud_body)
-				del(src.hud_body)
+				qdel(src.hud_body)
 				src.hud_body = null
 			var/obj/hud/menus/bodyparts_background/bp = new
 			src.hud_body = bp
@@ -3569,7 +3569,7 @@ mob
 
 
 			if(src.hud_contacts)
-				del(src.hud_contacts)
+				qdel(src.hud_contacts)
 				src.hud_contacts = null
 			var/obj/hud/menus/contacts_background/cb = new
 			src.hud_contacts = cb
@@ -3578,7 +3578,7 @@ mob
 
 
 			if(src.hud_build)
-				del(src.hud_build)
+				qdel(src.hud_build)
 				src.hud_build = null
 			var/obj/hud/menus/build_background/bb = new
 			src.hud_build = bb
@@ -3587,7 +3587,7 @@ mob
 
 
 			if(src.hud_help)
-				del(src.hud_help)
+				qdel(src.hud_help)
 				src.hud_help = null
 			var/obj/hud/menus/help_background/h = new
 			src.hud_help = h

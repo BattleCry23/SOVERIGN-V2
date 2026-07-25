@@ -46,7 +46,7 @@ mob/proc/open_wool_ui(obj/items/wool/w)
         html += "<a href='byond://?src=\ref[src];craft=[name]'>Create</a>"
         html += "</div>"
 
-        del(temp)
+        qdel(temp)
 
     html += "</div>"
     html += "<hr>"
@@ -86,12 +86,12 @@ mob/proc/migrate_body_system()
     if(src.body)
         for(var/obj/O in src.body)
             if(!istype(O, /obj/body_related/bodyparts))
-                del(O)
+                qdel(O)
 
     // 2. Remove legacy bodyparts list completely
     if(src.bodyparts)
         for(var/obj/O in src.bodyparts)
-            del(O)
+            qdel(O)
         src.bodyparts = null
 
     // 3. Reset body list
@@ -172,7 +172,7 @@ mob/proc/craft_from_wool(var/name)
     else
         var/newcolor = input(src, "Choose a color") as color
         if(!newcolor)
-            del(item)
+            qdel(item)
             return
 
          // If NOT black, apply color
@@ -8238,7 +8238,7 @@ proc/ScouterUpdate(var/mob/ScannerOwner,var/mob/ScannerTarget,var/obj/items/tech
 		SaveUsable.AllowedScan=1
 mob/proc/DestroyScouter(mob/ScannerOwner,obj/items/tech/Scouters/X)
 	ScannerOwner.scouter_crushes += 1
-	ScannerOwner.overlays-=X.icon
+	remove_overlays(ScannerOwner,X.icon)
 	X.remove_item_from_inventory(ScannerOwner,X)
 	//X.suffix=null
 	//X.loc=null

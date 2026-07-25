@@ -61,7 +61,7 @@ obj/overlay
 
     tails
         name = "Saiyan Tail"
-        layer = HAIR_LAYER + 1
+        layer = MOB_LAYER + 3.5
         density_factor = 0
         appearance_flags = KEEP_TOGETHER | PIXEL_SCALE
         vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_LAYER | VIS_INHERIT_ID | VIS_INHERIT_ICON

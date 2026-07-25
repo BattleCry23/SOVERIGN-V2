@@ -251,7 +251,7 @@ proc/Cyberize_AttemptReviveFromCorpse(mob/operator,obj/items/misc/body/C)
     operator << "You restored [target] through cyberization."
     target << "You have been revived as a cybernetic being."
 
-    del(C)
+    qdel(C)
 obj/skills
 	Destructo_Disk
 		Click(location,control,params)
@@ -323,7 +323,7 @@ obj/skills/Destructo_Disk
                 m.icon_state = m.state()
 
             if(ray)
-                del(ray)
+                qdel(ray)
 
             if(b)
                 if(do_shrink)
@@ -331,9 +331,9 @@ obj/skills/Destructo_Disk
                     M.Scale(0,0)
                     animate(b, transform = M, time = 10)
                     spawn(10)
-                        if(b) del(b)
+                        if(b) qdel(b)
                 else
-                    del(b)
+                    qdel(b)
 
         // ------------------------------------------------------------
         // Hardened activate

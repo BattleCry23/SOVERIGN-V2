@@ -1268,7 +1268,7 @@ mob
 				usr.open_menus.Remove(".open_tech")
 				if(usr.build_mouse)
 					usr.client.images -= usr.build_mouse
-					del(usr.build_mouse)
+					qdel(usr.build_mouse)
 				usr.build_tech = null
 			else
 				//winshow(usr,"tech_panes",1)

@@ -35,7 +35,7 @@
 								src.beingcooked=0
 								usr.waiting=0
 								if(Choice.Amount<=0||Choice.Amount<=-0)
-									del(Choice)
+									qdel(Choice)
 							var/CEGain=0
 							if(prob(5))
 								usr.CEAdd += usr.ratingmultiplier*0.002
@@ -180,7 +180,7 @@
 							F.Cooked=1
 							F.Move(usr)
 							if(Choice.Amount<=0)
-								del(Choice)
+								qdel(Choice)
 
 							if(prob(90))
 								usr.Chef_XP+=0.8*usr.ratingmultiplier*usr.CEAdd*Admin_Int_Setting
@@ -215,9 +215,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Steak/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -250,9 +250,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Leg_Meat/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -285,9 +285,9 @@
 													if(P.Amount>=1)
 														var/obj/items/Food/Eatable/Salad/SS=new
 														R.Amount-=2
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=1
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -316,7 +316,7 @@
 										if(R.Amount>=2)
 											var/obj/items/Food/Eatable/Scrambled_Egg/SS=new
 											R.Amount-=2
-											if(R.Amount<=0) del(R)
+											if(R.Amount<=0) qdel(R)
 											usr.contents+=SS
 											if(prob(!50))
 												usr.CEAdd += usr.ratingmultiplier*0.002
@@ -353,13 +353,13 @@
 																			if(E.Amount>=4)
 																				var/obj/items/Food/Cookable/Apple_Pie/SS=new
 																				R.Amount-=2
-																				if(R.Amount<=0) del(R)
+																				if(R.Amount<=0) qdel(R)
 																				P.Amount-=1
-																				if(P.Amount<=0) del(P)
+																				if(P.Amount<=0) qdel(P)
 																				W.Amount-=4
-																				if(W.Amount<=0) del(W)
+																				if(W.Amount<=0) qdel(W)
 																				E.Amount-=4
-																				if(E.Amount<=0) del(E)
+																				if(E.Amount<=0) qdel(E)
 																				usr.contents+=SS
 																				if(prob(!50))
 																					usr.CEAdd += usr.ratingmultiplier*0.002
@@ -415,15 +415,15 @@
 																						if(RR.Amount>=1)
 																							var/obj/items/Food/Cookable/Raw_Fish_Soup/SS=new
 																							R.Amount-=2
-																							if(R.Amount<=0) del(R)
+																							if(R.Amount<=0) qdel(R)
 																							P.Amount-=2
-																							if(P.Amount<=0) del(P)
+																							if(P.Amount<=0) qdel(P)
 																							W.Amount-=2
-																							if(W.Amount<=0) del(W)
+																							if(W.Amount<=0) qdel(W)
 																							usr.purifiedwaters-=4
-																							if(usr.purifiedwaters<=0) del(WW)
+																							if(usr.purifiedwaters<=0) qdel(WW)
 																							RR.Amount-=1
-																							if(RR.Amount<=0) del(RR)
+																							if(RR.Amount<=0) qdel(RR)
 																							usr.contents+=SS
 																							if(prob(!50))
 																								usr.CEAdd += usr.ratingmultiplier*0.002
@@ -477,11 +477,11 @@
 																if(W.Amount>=1)
 																	var/obj/items/Food/Cookable/Raw_Meat_Soup/SS=new
 																	R.Amount-=4
-																	if(R.Amount<=0) del(R)
+																	if(R.Amount<=0) qdel(R)
 																	P.Amount-=2
-																	if(P.Amount<=0) del(P)
+																	if(P.Amount<=0) qdel(P)
 																	W.Amount-=1
-																	if(W.Amount<=0) del(W)
+																	if(W.Amount<=0) qdel(W)
 																	usr.contents+=SS
 																	if(prob(!50))
 																		usr.CEAdd += usr.ratingmultiplier*0.002
@@ -515,7 +515,7 @@
 										if(R.Amount>=2)
 											var/obj/items/Food/Eatable/French_Fries/SS=new
 											R.Amount-=2
-											if(R.Amount<=0) del(R)
+											if(R.Amount<=0) qdel(R)
 											usr.contents+=SS
 											if(prob(!50))
 												usr.CEAdd += usr.ratingmultiplier*0.002
@@ -553,15 +553,15 @@
 																					if(RR.Amount>=1)
 																						var/obj/items/Food/Cookable/Raw_Meat_Soup/SS=new
 																						R.Amount-=2
-																						if(R.Amount<=0) del(R)
+																						if(R.Amount<=0) qdel(R)
 																						P.Amount-=2
-																						if(P.Amount<=0) del(P)
+																						if(P.Amount<=0) qdel(P)
 																						W.Amount-=2
-																						if(W.Amount<=0) del(W)
+																						if(W.Amount<=0) qdel(W)
 																						usr.purifiedwaters-=4
-																						if(usr.purifiedwaters<=0) del(WW)
+																						if(usr.purifiedwaters<=0) qdel(WW)
 																						RR.Amount-=1
-																						if(RR.Amount<=0) del(RR)
+																						if(RR.Amount<=0) qdel(RR)
 																						usr.contents+=SS
 																						if(prob(!50))
 																							usr.CEAdd += usr.ratingmultiplier*0.002
@@ -617,13 +617,13 @@
 																			if(usr.purifiedwaters>=4)
 																				var/obj/items/Food/Cookable/Raw_Soup/SS=new
 																				R.Amount-=2
-																				if(R.Amount<=0) del(R)
+																				if(R.Amount<=0) qdel(R)
 																				P.Amount-=2
-																				if(P.Amount<=0) del(P)
+																				if(P.Amount<=0) qdel(P)
 																				W.Amount-=2
-																				if(W.Amount<=0) del(W)
+																				if(W.Amount<=0) qdel(W)
 																				usr.purifiedwaters-=4
-																				if(usr.purifiedwaters<=0) del(WW)
+																				if(usr.purifiedwaters<=0) qdel(WW)
 
 																				usr.contents+=SS
 																				if(prob(!50))
@@ -672,11 +672,11 @@
 																if(W.Amount>=2)
 																	var/obj/items/Food/Cookable/Pizza/SS=new
 																	R.Amount-=1
-																	if(R.Amount<=0) del(R)
+																	if(R.Amount<=0) qdel(R)
 																	P.Amount-=2
-																	if(P.Amount<=0) del(P)
+																	if(P.Amount<=0) qdel(P)
 																	W.Amount-=2
-																	if(W.Amount<=0) del(W)
+																	if(W.Amount<=0) qdel(W)
 																	usr.contents+=SS
 																	if(prob(!50))
 																		usr.CEAdd += usr.ratingmultiplier*0.002
@@ -714,9 +714,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Steak/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -749,9 +749,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Leg_Meat/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -784,9 +784,9 @@
 													if(P.Amount>=1)
 														var/obj/items/Food/Eatable/Salad/SS=new
 														R.Amount-=2
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=1
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -827,13 +827,13 @@
 																			if(B.Amount>=2)
 																				var/obj/items/Food/Eatable/Salad/SS=new
 																				R.Amount-=1
-																				if(R.Amount<=0) del(R)
+																				if(R.Amount<=0) qdel(R)
 																				P.Amount-=1
-																				if(P.Amount<=0) del(P)
+																				if(P.Amount<=0) qdel(P)
 																				A.Amount-=2
-																				if(A.Amount<=0) del(A)
+																				if(A.Amount<=0) qdel(A)
 																				B.Amount-=2
-																				if(B.Amount<=0) del(B)
+																				if(B.Amount<=0) qdel(B)
 																				usr.contents+=SS
 																				if(prob(!50))
 																					usr.CEAdd += usr.ratingmultiplier*0.002
@@ -874,7 +874,7 @@
 										if(R.Amount>=2)
 											var/obj/items/Food/Eatable/Scrambled_Egg/SS=new
 											R.Amount-=2
-											if(R.Amount<=0) del(R)
+											if(R.Amount<=0) qdel(R)
 											usr.contents+=SS
 											if(prob(!50))
 												usr.CEAdd += usr.ratingmultiplier*0.002
@@ -907,11 +907,11 @@
 																if(W.Amount>=1)
 																	var/obj/items/Food/Cookable/Raw_Meat_Soup/SS=new
 																	R.Amount-=4
-																	if(R.Amount<=0) del(R)
+																	if(R.Amount<=0) qdel(R)
 																	P.Amount-=2
-																	if(P.Amount<=0) del(P)
+																	if(P.Amount<=0) qdel(P)
 																	W.Amount-=1
-																	if(W.Amount<=0) del(W)
+																	if(W.Amount<=0) qdel(W)
 																	usr.contents+=SS
 																	if(prob(!50))
 																		usr.CEAdd += usr.ratingmultiplier*0.002
@@ -945,7 +945,7 @@
 										if(R.Amount>=2)
 											var/obj/items/Food/Eatable/French_Fries/SS=new
 											R.Amount-=2
-											if(R.Amount<=0) del(R)
+											if(R.Amount<=0) qdel(R)
 											usr.contents+=SS
 											if(prob(!50))
 												usr.CEAdd += usr.ratingmultiplier*0.002
@@ -984,15 +984,15 @@
 																						if(RR.Amount>=1)
 																							var/obj/items/Food/Cookable/Raw_Meat_Soup/SS=new
 																							R.Amount-=2
-																							if(R.Amount<=0) del(R)
+																							if(R.Amount<=0) qdel(R)
 																							P.Amount-=2
-																							if(P.Amount<=0) del(P)
+																							if(P.Amount<=0) qdel(P)
 																							W.Amount-=2
-																							if(W.Amount<=0) del(W)
+																							if(W.Amount<=0) qdel(W)
 																							usr.purifiedwaters-=4
-																							if(usr.purifiedwaters<=0) del(WW)
+																							if(usr.purifiedwaters<=0) qdel(WW)
 																							RR.Amount-=1
-																							if(RR.Amount<=0) del(RR)
+																							if(RR.Amount<=0) qdel(RR)
 																							usr.contents+=SS
 																							if(prob(!50))
 																								usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1050,13 +1050,13 @@
 																			if(usr.purifiedwaters>=4)
 																				var/obj/items/Food/Cookable/Raw_Soup/SS=new
 																				R.Amount-=2
-																				if(R.Amount<=0) del(R)
+																				if(R.Amount<=0) qdel(R)
 																				P.Amount-=2
-																				if(P.Amount<=0) del(P)
+																				if(P.Amount<=0) qdel(P)
 																				W.Amount-=2
-																				if(W.Amount<=0) del(W)
+																				if(W.Amount<=0) qdel(W)
 																				usr.purifiedwaters-=4
-																				if(usr.purifiedwaters<=0) del(WW)
+																				if(usr.purifiedwaters<=0) qdel(WW)
 																				usr.contents+=SS
 																				if(prob(!50))
 																					usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1104,11 +1104,11 @@
 																if(W.Amount>=2)
 																	var/obj/items/Food/Cookable/Pizza/SS=new
 																	R.Amount-=1
-																	if(R.Amount<=0) del(R)
+																	if(R.Amount<=0) qdel(R)
 																	P.Amount-=2
-																	if(P.Amount<=0) del(P)
+																	if(P.Amount<=0) qdel(P)
 																	W.Amount-=2
-																	if(W.Amount<=0) del(W)
+																	if(W.Amount<=0) qdel(W)
 																	usr.contents+=SS
 																	if(prob(!50))
 																		usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1146,9 +1146,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Steak/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1181,9 +1181,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Leg_Meat/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1216,9 +1216,9 @@
 													if(P.Amount>=1)
 														var/obj/items/Food/Eatable/Salad/SS=new
 														R.Amount-=2
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=1
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1257,13 +1257,13 @@
 																	if(A.Amount>=2||B.Amount>=2)
 																		var/obj/items/Food/Eatable/Salad/SS=new
 																		R.Amount-=1
-																		if(R.Amount<=0) del(R)
+																		if(R.Amount<=0) qdel(R)
 																		P.Amount-=1
-																		if(P.Amount<=0) del(P)
+																		if(P.Amount<=0) qdel(P)
 																		A.Amount-=2
-																		if(A.Amount<=0) del(A)
+																		if(A.Amount<=0) qdel(A)
 																		B.Amount-=2
-																		if(B.Amount<=0) del(B)
+																		if(B.Amount<=0) qdel(B)
 																		usr.contents+=SS
 																		if(prob(!50))
 																			usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1298,7 +1298,7 @@
 										if(R.Amount>=2)
 											var/obj/items/Food/Eatable/Scrambled_Egg/SS=new
 											R.Amount-=2
-											if(R.Amount<=0) del(R)
+											if(R.Amount<=0) qdel(R)
 											usr.contents+=SS
 											if(prob(!50))
 												usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1335,13 +1335,13 @@
 																			if(usr.purifiedwaters>=4)
 																				var/obj/items/Food/Cookable/Raw_Soup/SS=new
 																				R.Amount-=2
-																				if(R.Amount<=0) del(R)
+																				if(R.Amount<=0) qdel(R)
 																				P.Amount-=2
-																				if(P.Amount<=0) del(P)
+																				if(P.Amount<=0) qdel(P)
 																				W.Amount-=2
-																				if(W.Amount<=0) del(W)
+																				if(W.Amount<=0) qdel(W)
 																				usr.purifiedwaters-=4
-																				if(usr.purifiedwaters<=0) del(WW)
+																				if(usr.purifiedwaters<=0) qdel(WW)
 																				usr.contents+=SS
 																				if(prob(!50))
 																					usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1389,11 +1389,11 @@
 																if(W.Amount>=2)
 																	var/obj/items/Food/Cookable/Pizza/SS=new
 																	R.Amount-=1
-																	if(R.Amount<=0) del(R)
+																	if(R.Amount<=0) qdel(R)
 																	P.Amount-=2
-																	if(P.Amount<=0) del(P)
+																	if(P.Amount<=0) qdel(P)
 																	W.Amount-=2
-																	if(W.Amount<=0) del(W)
+																	if(W.Amount<=0) qdel(W)
 																	usr.contents+=SS
 																	if(prob(!50))
 																		usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1431,9 +1431,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Steak/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1466,9 +1466,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Leg_Meat/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1501,9 +1501,9 @@
 													if(P.Amount>=1)
 														var/obj/items/Food/Eatable/Salad/SS=new
 														R.Amount-=2
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=1
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1544,13 +1544,13 @@
 																			if(B.Amount>=2)
 																				var/obj/items/Food/Eatable/Salad/SS=new
 																				R.Amount-=1
-																				if(R.Amount<=0) del(R)
+																				if(R.Amount<=0) qdel(R)
 																				P.Amount-=1
-																				if(P.Amount<=0) del(P)
+																				if(P.Amount<=0) qdel(P)
 																				A.Amount-=2
-																				if(A.Amount<=0) del(A)
+																				if(A.Amount<=0) qdel(A)
 																				B.Amount-=2
-																				if(B.Amount<=0) del(B)
+																				if(B.Amount<=0) qdel(B)
 																				usr.contents+=SS
 																				if(prob(!50))
 																					usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1591,7 +1591,7 @@
 										if(R.Amount>=2)
 											var/obj/items/Food/Eatable/Scrambled_Egg/SS=new
 											R.Amount-=2
-											if(R.Amount<=0) del(R)
+											if(R.Amount<=0) qdel(R)
 											usr.contents+=SS
 											if(prob(!50))
 												usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1624,11 +1624,11 @@
 																if(W.Amount>=2)
 																	var/obj/items/Food/Cookable/Pizza/SS=new
 																	R.Amount-=1
-																	if(R.Amount<=0) del(R)
+																	if(R.Amount<=0) qdel(R)
 																	P.Amount-=2
-																	if(P.Amount<=0) del(P)
+																	if(P.Amount<=0) qdel(P)
 																	W.Amount-=2
-																	if(W.Amount<=0) del(W)
+																	if(W.Amount<=0) qdel(W)
 																	usr.contents+=SS
 																	if(prob(!50))
 																		usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1666,9 +1666,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Steak/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1701,9 +1701,9 @@
 													if(P.Amount>=2)
 														var/obj/items/Food/Cookable/Raw_Seasoned_Leg_Meat/SS=new
 														R.Amount-=1
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=2
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1736,9 +1736,9 @@
 													if(P.Amount>=1)
 														var/obj/items/Food/Eatable/Salad/SS=new
 														R.Amount-=2
-														if(R.Amount<=0) del(R)
+														if(R.Amount<=0) qdel(R)
 														P.Amount-=1
-														if(P.Amount<=0) del(P)
+														if(P.Amount<=0) qdel(P)
 														usr.contents+=SS
 														if(prob(!50))
 															usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1779,13 +1779,13 @@
 																			if(B.Amount>=2)
 																				var/obj/items/Food/Eatable/Salad/SS=new
 																				R.Amount-=1
-																				if(R.Amount<=0) del(R)
+																				if(R.Amount<=0) qdel(R)
 																				P.Amount-=1
-																				if(P.Amount<=0) del(P)
+																				if(P.Amount<=0) qdel(P)
 																				A.Amount-=2
-																				if(A.Amount<=0) del(A)
+																				if(A.Amount<=0) qdel(A)
 																				B.Amount-=2
-																				if(B.Amount<=0) del(B)
+																				if(B.Amount<=0) qdel(B)
 																				usr.contents+=SS
 																				if(prob(!50))
 																					usr.CEAdd += usr.ratingmultiplier*0.002
@@ -1826,7 +1826,7 @@
 										if(R.Amount>=2)
 											var/obj/items/Food/Eatable/Scrambled_Egg/SS=new
 											R.Amount-=2
-											if(R.Amount<=0) del(R)
+											if(R.Amount<=0) qdel(R)
 											usr.contents+=SS
 											if(prob(!50))
 												usr.CEAdd += usr.ratingmultiplier*0.002

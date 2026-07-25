@@ -636,8 +636,8 @@ mob/proc/copy_mob_genetics(var/mob/og,var/copy_mods = 0,var/copy_stats = 0,var/c
 			//Clear original bodyparts.
 			for(var/obj/b in src.bodyparts)
 				for(var/obj/p in b)
-					del(p)
-				del(b)
+					qdel(p)
+				qdel(b)
 
 			src.bodyparts = list()
 
@@ -843,8 +843,8 @@ mob/proc/copy_mob_genetics(var/mob/og,var/copy_mods = 0,var/copy_stats = 0,var/c
 			//Clear original bodyparts.
 			for(var/obj/b in src.bodyparts)
 				for(var/obj/p in b)
-					del(p)
-				del(b)
+					qdel(p)
+				qdel(b)
 
 			src.bodyparts = list()
 
@@ -870,6 +870,7 @@ mob/proc/copy_mob_genetics(var/mob/og,var/copy_mods = 0,var/copy_stats = 0,var/c
 					new_p.level = p.level
 					new_p.part_exp_num = p.part_exp_num
 					new_p.infused_divine = p.infused_divine
+
 mob/proc/give_divine_seed(var/levels = 1)
 	for(var/obj/body_related/bodyparts/torso/t in src.bodyparts)
 		var/obj/body_related/bodyparts/torso/heart/o = new(t)

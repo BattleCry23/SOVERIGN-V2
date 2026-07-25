@@ -1843,7 +1843,7 @@ obj
 												o.pixel_y = rand(-64,64)
 												animate(o,pixel_x = 0, pixel_y = 0, alpha = 0, time = 10)
 												spawn(10)
-													if(o) del(o)
+													if(o) qdel(o)
 
 												if(m.koed || m.meditating)
 													call(src.act)(m,src)
@@ -3591,9 +3591,9 @@ obj
 								if(size <= 0)
 									size = 0;
 									if(ray) ray.loc = null
-									del(beam)
-									del(ball)
-									del(ball_hit)
+									qdel(beam)
+									qdel(ball)
+									qdel(ball_hit)
 									checker.origin = null
 									checker.loc = null
 									//del(checker)
@@ -4420,7 +4420,7 @@ obj
 							if(m.koed || m.stunned || m.meditating) stop = 1
 							if(m.active_attack == null) stop = 1
 							if(stop)
-								del(beam)
+								qdel(beam)
 								checker.origin = null
 								checker.loc = null
 								m.icon_state = m.state()
@@ -4625,7 +4625,7 @@ obj
 								return
 							sleep(0.1)
 						m.overlays -= eyes
-						del(eyes)
+						qdel(eyes)
 			New()
 				..()
 				category = list("Force","Offence")
@@ -4809,9 +4809,9 @@ obj
 					if(size <= 0)
 						size = 0;
 						if(ray) ray.loc = null
-						del(beam)
-						del(ball)
-						del(ball_hit)
+						qdel(beam)
+						qdel(ball)
+						qdel(ball_hit)
 						checker.origin = null
 						checker.loc = null
 						//del(checker)
@@ -5180,7 +5180,7 @@ obj
 											spawn(10)
 												if(b)
 													go = 0
-													del(b)
+													qdel(b)
 									var/e = ((1/m.mod_recovery)+(1/src.skill_lvl)*b.charge_lvl)
 									if(m.mouse_saved_loc)
 										if(b.fired)
@@ -8575,7 +8575,7 @@ obj
 									o.pixel_y = rand(-64,64)
 									animate(o,pixel_x = 0, pixel_y = 0, alpha = 0, time = 10)
 									spawn(10)
-										if(o) del(o)
+										if(o) qdel(o)
 
 									if(m.koed || m.meditating)
 										call(src.act)(m,src)
@@ -10165,7 +10165,7 @@ obj
 												o.pixel_y = rand(-64,64)
 												animate(o,pixel_x = 0, pixel_y = 0, alpha = 0, time = 10)
 												spawn(10)
-													if(o) del(o)
+													if(o) qdel(o)
 
 												if(m.koed || m.meditating)
 													call(src.act)(m,src)
@@ -10535,7 +10535,7 @@ obj
 												o.pixel_y = rand(-64,64)
 												animate(o,pixel_x = 0, pixel_y = 0, alpha = 0, time = 10)
 												spawn(10)
-													if(o) del(o)
+													if(o) qdel(o)
 
 												if(m.koed || m.meditating)
 													call(src.act)(m,src)
@@ -10926,7 +10926,7 @@ obj
 												o.pixel_y = rand(-64,64)
 												animate(o,pixel_x = 0, pixel_y = 0, alpha = 0, time = 10)
 												spawn(10)
-													if(o) del(o)
+													if(o) qdel(o)
 
 												if(m.koed || m.meditating)
 													call(src.act)(m,src)

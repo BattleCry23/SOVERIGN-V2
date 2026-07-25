@@ -41,12 +41,12 @@ obj/overlay
 	proc/endeffect()
 		if(container)
 			remove_overlay(container, src)
-		del(src)
+		qdel(src)
 
 	proc/fasteffectend()
 		if(container)
 			remove_overlays_fast(container, src)
-		del(src)
+		qdel(src)
 
 //this essentials handles how hair overlays work, the previous version handled hair overlays as a single overlay that changed its icon and color, but this version handles each hair as a separate overlay, which allows for more customization and less issues with things like the ssj hair not updating properly when changing colors or something like that. It also allows for things like the ssj2 hair to be added without needing to change the ssj1 hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the ssj3 hair to be added without needing to change the ssj1 or ssj2 hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the ssj4 hair to be added without needing to change the ssj1, ssj2, or ssj3 hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the lssj hair to be added without needing to change the ssj1, ssj2, ssj3, or ssj4 hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the rlssj hair to be added without needing to change the ssj1, ssj2, ssj3, ssj4, or lssj hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the ussj hair to be added without needing to change the ssj1, ssj2, ssj3, ssj4, lssj, or rlssj hair's icon or color, which is something that was an issue with the previous version. It also allows for things like the mastered ssj1 hair to be added without needing to change the ssj1, ssj2, ssj3, ssj4, lssj, rlssj, or ussj hair's icon or color, which is something that was an issue with the previous version.
 obj/overlay/hairs
@@ -216,7 +216,7 @@ obj
 					if(src.hashadow) src.create_shadow()
 			..()
 		Del()
-			if(src.shadow) del(src.shadow)
+			if(src.shadow) qdel(src.shadow)
 			..()
 	var
 		// for cyborgs

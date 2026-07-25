@@ -142,7 +142,7 @@
     // delete real skills
     for(var/obj/skills/S in src)
 
-        del(S)
+        qdel(S)
         sleep(world.tick_lag) // spreads load
 
     sleep(2) // let BYOND clean refs
@@ -151,7 +151,7 @@
 
     // rebuild HUD
     if(src.hud_skills)
-        del(src.hud_skills)
+        qdel(src.hud_skills)
 
         sleep(world.tick_lag) // spreads load
         var/obj/hud/menus/skills_background/skl = new
@@ -187,7 +187,7 @@
     // delete real skills
     for(var/obj/skills/S in src)
         if(S.type != /obj/skills/AA_Skill_Copy)
-            del(S)
+            qdel(S)
             sleep(world.tick_lag) // spreads load
 
     sleep(2) // let BYOND clean refs
@@ -206,7 +206,7 @@
 
     // rebuild HUD
     if(src.hud_skills)
-        del(src.hud_skills)
+        qdel(src.hud_skills)
 
         sleep(world.tick_lag) // spreads load
         var/obj/hud/menus/skills_background/skl = new

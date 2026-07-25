@@ -27,7 +27,7 @@ proc/SpawnTechItem(var/mob/m, var/year, var/ultra)
 			if(findtext("[typepath]", "ship")) { continue }
 
 		tech_pool += typepath
-		del(T)
+		qdel(T)
 
 	if(!tech_pool.len)
 		SpawnZenni(m, year)
