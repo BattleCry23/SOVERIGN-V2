@@ -1,5 +1,7 @@
 var/global/MILLISECONDS = 0.01
 
+#define WAVE_COUNT 2
+
 var/global/DECISECONDS = 1 //the base unit all of these defines are scaled by, because byond uses that as a unit of measurement for some fucking reason
 
 var/global/SECONDS = 10

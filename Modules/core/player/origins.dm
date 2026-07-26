@@ -463,6 +463,18 @@ mutations
 			m.origin = src
 			m.apply_beast_gene()
 			m.has_beast_gene = src
+
+	F_Type_Mutant
+		info_name = "F-type Mutation"
+		rarity = 1
+		banned_races = list("Human","Tuffle","Namekian","Cerebroid","Android","Demon","Kai","Oni","Saiyan","Half God","Spirit Doll")
+		info = "A mutation that unlocks great potential & granting immense power at birth."
+		activate(var/mob/m)
+			src.active = 1
+			m.origin = src
+			m.f_type_mutation = src
+			m.apply_f_type_mutation()
+
 	positive
 		increased_endurance
 			info_name = "Increased Endurance"

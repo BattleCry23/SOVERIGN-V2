@@ -1,11 +1,10 @@
 var/const
 	HAIR_LAYER = 5
+	CLOTHING_LAYER = 5.5
 	ARMOUR_LAYER = 6
-	EQUIPMENT_LAYER = 7
-	EYES_IRIS_LAYER = 8
-	EYES_PUPILS_LAYER = 9
+	EQUIPMENT_LAYER = 6.5
 	EXTRA_LAYER = 9.5
-	AURA_LAYER = 10
+	AURA_LAYER = 15
 
 obj/overlay
 	//parent_type = /obj //figure out how to undo this, buffs are already moved, but overlays need to have their parent_type changed.

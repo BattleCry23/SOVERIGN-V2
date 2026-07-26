@@ -1958,7 +1958,7 @@ obj
 				needs_body = 1
 				gain_txt = "+ 15% Regeneration outside of combat\n+ 15% Recovery outside of combat"
 				New()
-					needed_parts = list(/:spine,/:heart)
+					needed_parts = list(/:spine,/obj/body_related/bodyparts/torso/heart)
 					needed_parts_ref = null
 			//MAGIC ALIEN UNIQUE
 			mimicry
@@ -1971,7 +1971,7 @@ obj
 				needs_body = 1
 				gain_txt = "+ Learn any skill by watching"
 				New()
-					needed_parts = list(/:brain,/:right_ear,/:left_eye,/:right_eye)
+					needed_parts = list(/:brain,/:right_ear,/obj/body_related/bodyparts/head/left_eye,/obj/body_related/bodyparts/head/right_eye)
 					needed_parts_ref = null
 			//TECH ALIEN UNIQUE
 			transmute
@@ -1984,7 +1984,7 @@ obj
 				needs_body = 1
 				gain_txt = "+ Convert one type of mineral into another"
 				New()
-					needed_parts = list(/:brain,/:heart)
+					needed_parts = list(/:brain,/obj/body_related/bodyparts/torso/heart)
 					needed_parts_ref = null
 			//PHYSICAL ALIEN UNIQUE
 			iron_will
@@ -2023,7 +2023,7 @@ obj
 				needs_body = 1
 				gain_txt = "+ 10% Ki Damage\n<font color=red>- 5% Ki Usage</font>"
 				New()
-					needed_parts = list(/:heart,/:spine,/:skull)
+					needed_parts = list(/obj/body_related/bodyparts/torso/heart,/:spine,/:skull)
 					needed_parts_ref = null
 			//METAMORAN UNIQUE
 			unified_ki
@@ -2036,7 +2036,7 @@ obj
 				needs_body = 1
 				gain_txt = "+ 20% Ki damage near friends."
 				New()
-					needed_parts = list(/:heart,/:torso_skin)
+					needed_parts = list(/obj/body_related/bodyparts/torso/heart,/:torso_skin)
 					needed_parts_ref = null
 			//YARDRAT UNIQUE
 			spirit_shift
@@ -2049,7 +2049,7 @@ obj
 				effect =  "Grants the ability of astral projection."
 				gain_txt = "+ Grants astral projection technique"
 				New()
-					needed_parts = list(/:left_eye,/:right_eye,/:brain)
+					needed_parts = list(/obj/body_related/bodyparts/head/left_eye,/obj/body_related/bodyparts/head/right_eye,/:brain)
 					needed_parts_ref = null
 			//SPIRIT DOLL UNIQUES
 			spirit_shield
@@ -2063,7 +2063,7 @@ obj
 				needs_body = 1
 				gain_txt = "+ Energy Shields absorb damage and convers into ki."
 				New()
-					needed_parts = list(/:brain,/:spine,/:heart,/:lungs)
+					needed_parts = list(/:brain,/:spine,/obj/body_related/bodyparts/torso/heart,/:lungs)
 					needed_parts_ref = null
 			//MAKYO UNIQUES
 			stars_favorite
@@ -2091,7 +2091,7 @@ obj
 				needs_body = 1
 				gain_txt = "Allows the user to create a set of Dragonballs on a planet with customizable wishes (based on in-game limits)"
 				New()
-					needed_parts = list(/:left_ear,/:right_ear,/:left_eye,/:right_eye,/:dragon_clan_awaken)
+					needed_parts = list(/:left_ear,/:right_ear,/obj/body_related/bodyparts/head/left_eye,/obj/body_related/bodyparts/head/right_eye,/:dragon_clan_awaken)
 					needed_parts_ref = null
 			dragon_clan_awaken
 				info_name = "Dragon Clan Awaken"
@@ -2104,7 +2104,7 @@ obj
 				needs_body = 1
 				gain_txt = "Grants the ability to unlock hidden potential in players (1-time buff)"
 				New()
-					needed_parts = list(/:brain,/:left_ear,/:right_ear,/:left_eye,/:right_eye,/:heart)
+					needed_parts = list(/:brain,/:left_ear,/:right_ear,/obj/body_related/bodyparts/head/left_eye,/obj/body_related/bodyparts/head/right_eye,/obj/body_related/bodyparts/torso/heart)
 					needed_parts_ref = null
 			//KAI UNIQUES
 			wisdom
@@ -2130,7 +2130,7 @@ obj
 				needs_body = 1
 				gain_txt = "Heal pure aligned players who are close by overtime"
 				New()
-					needed_parts = list(/:brain,/:left_ear,/:right_ear,/:heart,/:spine)
+					needed_parts = list(/:brain,/:left_ear,/:right_ear,/obj/body_related/bodyparts/torso/heart,/:spine)
 					needed_parts_ref = null
 			//DEMON UNIQUES
 			dark_pact
@@ -2146,7 +2146,7 @@ obj
 				gain_txt = "<font color = red>- 10 Max Health</font>\n<font color=green>+ 25% Recovery</font>"
 				needs_body = 1
 				New()
-					needed_parts = list(/:brain,/:left_eye,/:right_eye,/:heart)
+					needed_parts = list(/:brain,/obj/body_related/bodyparts/head/left_eye,/obj/body_related/bodyparts/head/right_eye,/obj/body_related/bodyparts/torso/heart)
 					needed_parts_ref = null
 			demonic_aura
 				info_name = "Demonic Aura"
@@ -2158,7 +2158,7 @@ obj
 				needs_body = 1
 				gain_txt = "+ Inflicts damage over time to nearby players of neutral or pure alignment."
 				New()
-					needed_parts = list(/:brain,/:left_eye,/:right_eye,/:heart,/:spine,/:skull)
+					needed_parts = list(/:brain,/obj/body_related/bodyparts/head/left_eye,/obj/body_related/bodyparts/head/right_eye,/obj/body_related/bodyparts/torso/heart,/:spine,/:skull)
 					needed_parts_ref = null
 
 			//CHANGELING UNIQUES
@@ -2173,7 +2173,7 @@ obj
 				divine_eng_gain_base = 10
 				needs_body = 1
 				New()
-					needed_parts = list(/:brain,/:spine,/:skull,/:heart)
+					needed_parts = list(/:brain,/:spine,/:skull,/obj/body_related/bodyparts/torso/heart)
 					needed_parts_ref = null
 			// SAIYANS UNIQUES
 			ape_mastery
@@ -2204,7 +2204,7 @@ obj
 				needs_body = 1
 				gain_txt = "+ 20% stat boost upon successful pull-through's."
 				New()
-					needed_parts = list(/:brain,/:heart,/:spine)
+					needed_parts = list(/:brain,/obj/body_related/bodyparts/torso/heart,/:spine)
 					needed_parts_ref = null
 			//HUMAN UNIQUE
 			third_eye
@@ -2221,7 +2221,7 @@ obj
 				divine_eng_gain_base = 100
 				needs_body = 1
 				New()
-					needed_parts = list(/:right_eye,/:left_eye,/:brain)
+					needed_parts = list(/obj/body_related/bodyparts/head/right_eye,/obj/body_related/bodyparts/head/left_eye,/:brain)
 					needed_parts_ref = null
 			resilient_hide
 				info_name = "Resilient Hide"

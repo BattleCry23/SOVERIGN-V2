@@ -229,9 +229,10 @@ mob
 				T["X"] << src.save_x
 				T["Y"] << src.save_y
 				T["Z"] << src.save_z
-				T["DokuroCoins"] << src.client.dokuro_points
-				T["MaxChildSlots"] << src.client.max_childslots
-				T["ChildSlots"] << src.client.childslots
+				if(src.client)
+					T["DokuroCoins"] << src.client.dokuro_points
+					T["MaxChildSlots"] << src.client.max_childslots
+					T["ChildSlots"] << src.client.childslots
 
 				// 2. Delete old backup
 				if(fexists(backup_path))
@@ -925,9 +926,10 @@ mob/Write(savefile/S)
 	S["X"] << save_x
 	S["Y"] << save_y
 	S["Z"] << save_z
-	S["DokuroCoins"] << src.client.dokuro_points
-	S["MaxChildSlots"] << src.client.max_childslots
-	S["ChildSlots"] << src.client.childslots
+	if(src.client)
+		S["DokuroCoins"] << src.client.dokuro_points
+		S["MaxChildSlots"] << src.client.max_childslots
+		S["ChildSlots"] << src.client.childslots
 
 
 //Overwrites the default Read() so vars can be changed based on the players save version.

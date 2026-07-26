@@ -5286,11 +5286,11 @@ mob
 					if(istype(s,/obj/skills/Dig))
 						s.active = 0
 						s.icon_state = "Explosion off"
-					//spawn call(s.act)(src,s)
+					//spawn call(s, s.act)(src,s)
 					//s.active = 0
 
 					if(s.active && s.act)
-						spawn call(s.act)(src,s)
+						spawn call(s, s.act)(src,s)
 		disable_stances(var/obj/st,var/all)
 			set background = 1
 			if(all)

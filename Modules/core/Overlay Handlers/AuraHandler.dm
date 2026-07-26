@@ -19,6 +19,11 @@ obj/overlay/auras
 		setSSJ
 		tmp/limiter = 4
 
+var/const
+	SSJ_COLOR = "#FFFF00"
+	LSSJ_COLOR = "#00FF00"
+	SSJ_MASTERED_COLOR = "#C0C0C0"
+
 mob
     var
         Over = 1
@@ -85,7 +90,7 @@ obj/overlay/auras/proc/ScaleAura()
 	var/matrix/nM = new
 	nM.Scale(scalewidth,scaleheight) // even though we want the scaling to be center-bottom (or whatever the person set it to be)
 	animate(src,transform=nM,time=5)
-	sync_overlay(src, AURA)
+	sync_overlays(src, container.AURA)
 
 obj/overlay/auras/proc/UpdatePowerScale()
 	if(!container || lastpowermod == container.power_percent) return
@@ -97,7 +102,7 @@ obj/overlay/auras/proc/UpdatePowerScale()
 
 obj/overlay/auras/proc/UpdateFormAura()
 	if(!container || container.aurabuffed) return
-	if((container.ssjform > 0 && lastSSJ != container.ssjform) || (container.LSSJ > 0 && container.LSSJ != lastSSJ))
+	if((container.superform> 0 && lastSSJ != container.superform) || (container.LSSJ > 0 && container.LSSJ != lastSSJ))
 		ApplyFormSettings()
 
 obj/overlay/auras/proc/ApplyFormSettings()
@@ -106,21 +111,21 @@ obj/overlay/auras/proc/ApplyFormSettings()
 	storedicon = null
 	
 	if(container.superform)
-		lastSSJ = container.ssjform
+		lastSSJ = container.superform
 		icon = container.AURA
 		container.auracolor = SSJ_COLOR
-		apply_color_overlay(icon, auracolor, blend_mode="multiply", filter = container.auracolor)
+		color_overlay(icon, container.auracolor, blend_mode="multiply", filter = container.auracolor)
 		
 		switch(container.superform)
 			if(1)
 				if(container.ssj_mastery < 100)
-					replace_overlay(icon, form1aura, "SSJ")
+					replace_overlay(icon, container.form1aura, "SSJ")
 					//icon_state = "SSJ"
 					scale = list(1,1)
 				else
 					container.auracolor = SSJ_COLOR
 					scale = list(1,1)
-					apply_color_overlay(icon, auracolor, blend_mode="multiply", filter = container.auracolor)
+					color_overlay(icon, container.auracolor, blend_mode="multiply", filter = container.auracolor)
 			if(1.5)
 				icon_state = "Big"
 				scale = list(1.25, 1)
@@ -130,7 +135,7 @@ obj/overlay/auras/proc/ApplyFormSettings()
 			if(3)
 				icon_state = "Big"
 				scale = list(1.25, 1.5)
-			apply_color_overlay(icon, auracolor, blend_mode="multiply", filter = container.auracolor)
+		color_overlay(icon, container.auracolor, blend_mode="multiply", filter = container.auracolor)
 
 	else if(container.LSSJ)
 		lastSSJ = container.LSSJ
@@ -146,10 +151,10 @@ obj/overlay/auras/proc/ApplyFormSettings()
 			if(3)
 				scale = list(1.25, 1.5)
 	
-	centerAura()
+	//centerAura()
 
 obj/overlay/auras/proc/ResetToNormalAura()
-	if(!container || setNJ || container.ssjform || container.LSSJ) return
+	if(!container || setNJ || container.superform || container.LSSJ) return
 	
 	lastSSJ = 0
 	setNJ = 1
@@ -157,20 +162,18 @@ obj/overlay/auras/proc/ResetToNormalAura()
 	setSSJ = 0
 	icon = container.AURA
 	storedicon = null
-	centerAura()
+	//centerAura()
 
-obj/overlay/auras/EffectorLoop()
+obj/overlay/auras/effectloop()
 	if(!presetAura)
 		UpdatePowerScale()
 		
 		if(!icon)
 			icon = container.AURA
-			centerAura()
+			//centerAura()
 		
 		UpdateFormAura()
 		ResetToNormalAura()
-	
-	..()
 
 obj/overlay/auras/kaioken
 	icon = 'KaiokenSov.dmi'
@@ -181,7 +184,7 @@ obj/overlay/auras/kaioken
 	pixel_y=-4
 
 
-obj/overlay/auras/aura
+obj/overlay/auras/regular_aura
 	name = "Regular Aura"
 	icon = 'ShadowsAura.dmi'
 	pixel_x = -40

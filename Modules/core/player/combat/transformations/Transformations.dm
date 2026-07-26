@@ -8,6 +8,14 @@ mob
 		current_transformation_boost = 0
 		obj/ssjhair
 
+		sf_mastery = 1
+		sf2_mastery = 1
+		sf3_mastery = 1
+
+		sf_drain = 2.0
+
+		ssj_form = 0
+
 		// Changeling Base Reqs
 
 		ling_sf2_req = 400000 // 50,000 Power Level
@@ -170,29 +178,42 @@ mob/proc/Transformation(var/firsttime=1,var/force=0)
 mob/proc/Apply_Transformation_Boost(var/race)
 	switch(race)
 		if("Saiyan")
-			if(transformed)
+			if(saiyan_dna)
+				if(transformed)
+					if(has_sf1 && !superform)
+						var/boost = (psionic_power * (transformation_boost1 + 7))
+						current_transformation_boost = boost
+						power_percent = (100 * (transformation_boost1 + 7))
+						ssj_form = 1
+						superform = ssj_form
+						/*if(!has_sf1) 
+							has_sf1=1*/
+						view(15,src)<<output("<b><font color=yellow>[src] has transformed into a Super Saiyan!</b></font>","actionoutput")
+						return
 
-				if(has_sf2 && superform || psionic_power_base >= saiyan_sf2_req && superform)
-					var/boost = (psionic_power * transformation_boost2)
-					current_transformation_boost = boost
-					power_percent = (100 * transformation_boost2)
-					superform=0
-					superform2=1
-					if(!has_sf2) has_sf2=1
-					view(15,src)<<output("<b><font color=yellow>[src] has transformed into Super Saiyan 2!</b></font>","actionoutput")
-					return
-				if(has_sf3 && superform2 || psionic_power_base >= saiyan_sf3_req && superform2)
-					var/boost = (psionic_power * transformation_boost3)
-					current_transformation_boost = boost
-					power_percent = (100 * transformation_boost3)
-					superform=0
-					superform2=0
-					superform3=1
-					if(!has_sf3) has_sf3=1
-					view(15,src)<<output("<b><font color=yellow>[src] has transformed into Super Saiyan 3!</b></font>","actionoutput")
-					return
+					if((has_sf2 || psionic_power_base >= saiyan_sf2_req) && superform == 1)
+						var/boost = (psionic_power * (transformation_boost2 + 14))
+						current_transformation_boost = boost
+						power_percent = (100 * (transformation_boost2 + 14))
+						ssj_form = 2
+						superform = ssj_form
+						if(!has_sf2) 
+							has_sf2=1
+						view(15,src)<<output("<b><font color=yellow>[src] has transformed into Super Saiyan 2!</b></font>","actionoutput")
+						return
 
-				if(has_sf4 && superform3 || psionic_power_base >= saiyan_sf4_req && superform3)
+					if((has_sf3 || psionic_power_base >= saiyan_sf3_req) && superform == 2)
+						var/boost = (psionic_power * (transformation_boost3 + 21))
+						current_transformation_boost = boost
+						power_percent = (100 * (transformation_boost3 + 21))
+						ssj_form = 3
+						superform = ssj_form
+						if(!has_sf3) 
+							has_sf3=1
+						view(15,src)<<output("<b><font color=yellow>[src] has transformed into Super Saiyan 3!</b></font>","actionoutput")
+						return
+
+				/*if(has_sf4 && superform3 || psionic_power_base >= saiyan_sf4_req && superform3)
 					var/boost = (psionic_power * transformation_boost4)
 					current_transformation_boost = boost
 					power_percent = (100 * transformation_boost4)
@@ -202,67 +223,88 @@ mob/proc/Apply_Transformation_Boost(var/race)
 					superform4=1
 					if(!has_sf4) has_sf4=1
 					view(15,src)<<output("<b><font color=yellow>[src] has transformed into Super Saiyan 4!</b></font>","actionoutput")
-					return
+					return*/
 
-				if(has_sf1 && !superform && !superform2 && !superform3)
-					var/boost = (psionic_power * transformation_boost1)
-					current_transformation_boost = boost
-					power_percent = (power_percent * transformation_boost1)
-					superform=1
-					view(15,src)<<output("<b><font color=yellow>[src] has transformed into a Super Saiyan!</b></font>","actionoutput")
-					return
 		if("Changeling")
 			if(transformed)
-
-				if(has_sf2 && superform || psionic_power_base >= ling_sf2_req && superform)
-					var/boost = (psionic_power * transformation_boost2)
+				if(has_sf1 && !superform)
+					var/boost = (psionic_power * (transformation_boost1 + 5))
 					current_transformation_boost = boost
-					power_percent = (100 * transformation_boost2)
-					superform=0
-					superform2=1
-					if(!has_sf2) has_sf2=1
+					power_percent = (power_percent * transformation_boost1 + 5)
+					superform = 1
+					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their second form!</b></font>","actionoutput")
+					return
+
+				if(has_sf2 && superform == 1 || psionic_power_base >= ling_sf2_req && superform == 1)
+					var/boost = (psionic_power * (transformation_boost2 + 8))
+					current_transformation_boost = boost
+					power_percent = (100 * (transformation_boost2 + 8))
+					superform = 2
+					if(!has_sf2) 
+						has_sf2=1
 					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their third form!</b></font>","actionoutput")
 					return
-				if(has_sf3 && superform2 || psionic_power_base >= ling_sf3_req && superform2)
-					var/boost = (psionic_power * transformation_boost3)
+
+				if(has_sf3 && superform == 2 || psionic_power_base >= ling_sf3_req && superform == 2)
+					var/boost = (psionic_power * (transformation_boost3 + 10))
 					current_transformation_boost = boost
-					power_percent = (100 * transformation_boost3)
-					superform=0
-					superform2=0
-					superform3=1
-					if(!has_sf3) has_sf3=1
+					power_percent = (100 * (transformation_boost3 + 10))
+					superform = 3
+					if(!has_sf3) 
+						has_sf3=1
 					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their final form!</b></font>","actionoutput")
 					return
 
 				if(race_class == "Cooler")
-					if(has_sf4 && superform3 || psionic_power_base >= ling_sf4_req && superform3)
-						var/boost = (psionic_power * transformation_boost4)
+
+					if(has_sf4 && superform == 3 || psionic_power_base >= ling_sf4_req && superform == 3)
+						var/boost = (psionic_power * (transformation_boost4 + 12))
 						current_transformation_boost = boost
-						power_percent = (100 * transformation_boost4)
-						superform=0
-						superform2=0
-						superform3=0
-						superform4=1
-						if(!has_sf4) has_sf4=1
+						power_percent = (100 * (transformation_boost4 + 12))
+						superform = 4
+						if(!has_sf4) 
+							has_sf4=1
 						view(15,src)<<output("<b><font color=yellow>[src] has transformed into their ultimate form!</b></font>","actionoutput")
 						return
-					if(has_sf5 && superform4 || psionic_power_base >= ling_sf5_req && superform4)
-						var/boost = (psionic_power * transformation_boost4)
+
+					if(has_sf5 && superform == 4 || psionic_power_base >= ling_sf5_req && superform == 4)
+						var/boost = (psionic_power * (transformation_boost4 + 14))
 						current_transformation_boost = boost
-						power_percent = (100 * transformation_boost4)
-						superform=0
-						superform2=0
-						superform3=0
-						superform4=1
-						if(!has_sf5) has_sf5=1
+						power_percent = (100 * (transformation_boost4 + 14))
+						superform = 5
+						if(!has_sf5) 
+							has_sf5=1
 						return
-				if(has_sf1 && !superform && !superform2 && !superform3)
-					var/boost = (psionic_power * transformation_boost1)
-					current_transformation_boost = boost
-					power_percent = (power_percent * transformation_boost1)
-					superform=1
-					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their second form!</b></font>","actionoutput")
-					return
+
+mob/proc/transformation_drain(var/mob/container)
+	var/transdrain = container.energy_max * 0.01
+	var/mastery = max(0, min(container.sf_mastery, 100))
+	
+	var/mastery_multi = 1 - ((mastery / 100) * 0.75)
+	
+	var/final_drain = max(1, round(transdrain * mastery_multi * container.sf_drain))
+
+	if(transformed)
+		switch(race)
+			if("Saiyan")
+				switch(superform)
+					if(1)
+						if(prob(20))
+							if(container.sf_mastery == 100)
+								container.energy -= 1
+							else
+								container.energy -= final_drain // Apply Super Saiyan 1 transformation drain
+					if(2)
+						container.sf_drain *= 2
+						if(prob(20))
+							if(sf2_mastery == 100)
+								container.energy -= final_drain // Apply Super Saiyan 2 transformation drain
+					if(3)
+						container.sf_drain *= 3
+						container.sf_drain = container.sf3_drain
+						if(prob(20))
+							container.energy -= final_drain
+	
 
 mob/proc/SSJForm_Effect()
 //	var/progress = 0;
@@ -454,9 +496,9 @@ mob/proc/SSJForm_Effect()
 		//overlays.Remove(m.hair)
 		while(amount)
 			amount-=1
-			overlays.Remove(rev)
-			overlays.Add(m.ssjhair)
-			overlays.Add(a)
+			remove_overlay(m, rev)
+			add_overlay(m, m.ssjhair)
+			add_overlay(m, a)
 			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
 			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
 			o.icon = m.icon
@@ -470,9 +512,9 @@ mob/proc/SSJForm_Effect()
 			animate(o, color = list("#000", "#000", "#000", "#fff"),time=20)
 			sleep(rand(5,20))
 			if(prob(50))
-				overlays.Remove(m.ssjhair)
-				overlays.Add(rev)
-			overlays.Remove(a)
+				remove_overlays(m, list(m.ssjhair, a))
+				add_overlay(m, rev)
+				//remove_overlay(m, a)
 
 			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
 			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
@@ -1062,7 +1104,7 @@ mob/proc/Changeling_Superform3rdForm_Effect()
 	m.stunned += 1
 	m.stunned_pending += 1
 	for(var/obj/skills/Power_Control/pc in m)
-		overlays.Remove(pc.aura)
+		remove_overlay(m, pc.aura)
 		pc.aura = a
 		pc.sfx = S
 		pc.trans2_icon = m.icon
@@ -1079,7 +1121,7 @@ mob/proc/Changeling_Superform3rdForm_Effect()
 	m.icon_state="Superform"
 	view(15,m) << ST
 	sleep(10)
-	overlays.Add(a)
+	add_overlay(m, a)
 
 
 	var/p = 44

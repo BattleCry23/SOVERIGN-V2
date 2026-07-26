@@ -510,28 +510,26 @@ atom/movable
 				if(src) src.shudders = 1;
 
 		//Code for when a beam hits an obj or mob.
-		if(istype(o,(/obj/ranged/checker)))
+		if(istype(o,/obj/ranged/checker))
 			if(src.density || src.density_factor > 0)
 				var/obj/ranged/checker/b = o
 				if(b && b.origin)
 					if(ismob(src))
 						var/mob/M = src
-						//var/Damage=(b.ki_force/2)/(M.resistance)
+						if(istype(b,/obj/items/misc/body))
+							animate(b,alpha=0,transform=matrix(0.5,0,0,0.5,0,0),time=10)
+							spawn(10)
+								if(b) qdel(b)
+							return
 						var/Damage=((b.ki_force*b.force_usage)*b.ki_power)/(M.resistance*M.psionic_power)
-						//world << "DEBUG - Beam dmg = [Damage]"
 
-						//if(M.afk == 0)
 						if(Damage > 0)
 							if(M.eating) M.cancel_eat()
 							M.percent_health -= Damage
 
-						//M.gain_stat("resistance",1,M.mod_resistance,"Attacked by skill",1)
-						//M.gain_stat("defence",1,1,"Defending from ranged",1)
-						if(b && b.origin)
+						if(b.origin)
 							if(!M.remembers_force.Find(b.origin.id)) M.remembers_force += b.origin.id
 							if(!b.origin.remembers_resistance.Find(M.id)) b.origin.remembers_resistance += M.id
-						//	b.origin.gain_stat("force",1,1,"Using skill",1)
-						//	b.origin.gain_stat("offence",1,1,"Attacking ranged",1)
 						if(!M.client && !M.target)
 							if(M.npc)
 								M.target = b.origin
@@ -542,31 +540,26 @@ atom/movable
 								var/mob/NPC/WorldBoss/N = M
 								N.boss_idle_ai()
 						var/mob/beam_attacker = b.ki_owner
-						if(M.koed && beam_attacker && beam_attacker.killprompt==0)
+						if(M.koed && beam_attacker && !beam_attacker.killprompt)
 							beam_attacker.killprompt=1
-							var/mob/killer = null
-							if(beam_attacker) killer = beam_attacker
 							if(beam_attacker.srs_mode==0 && beam_attacker.spar_mode==1 || beam_attacker.srs_mode == 1 && beam_attacker.spar_mode==0)
 								switch(alert(beam_attacker,"Are you sure you want to kill [M]?","","No","Yes","Cancel"))
 									if("Yes")
-										if(M)
-											if(M.dead==0)
-												M.Death("[killer]",0)
-												beam_attacker.killprompt=0
+										if(M && !M.dead)
+											M.Death("[beam_attacker]",0)
+											beam_attacker.killprompt=0
 							else if(beam_attacker.srs_mode == 1 &&  beam_attacker.spar_mode == 1)
-								if(M)
-									if(M.dead==0)
-										M.Death("[killer]",0)
-										beam_attacker.killprompt=0
+								if(M && !M.dead)
+									M.Death("[beam_attacker]",0)
+									beam_attacker.killprompt=0
 						else if(M.percent_health <= 0)
 							M.KO()
-						if(beam_attacker && beam_attacker.killprompt == 1) beam_attacker.killprompt = 0
+						if(beam_attacker && beam_attacker.killprompt) beam_attacker.killprompt = 0
 					else if(src.immune_dmg == 0)
 						src.hp -= 10
 						if(src.hp <= 0)
 							var/turf/t = locate(src.x,src.y+1,src.z)
 							if(t)
-								//If a cliff part is destroyed and its the lower section of a cliff, make sure to dig/adjust the cliff.
 								if(src.type == /obj/map/cliffs/c1 || src.type == /obj/map/cliffs/c2 || src.type == /obj/map/cliffs/c3)
 									for(var/obj/map/cliffs/c in t)
 										c.destroy()
@@ -584,6 +577,7 @@ atom/movable
 
 				if(o) o.loc = null
 		//Code for when a beam hits another beam
+		/*
 		else if(istype(o,/obj/ranged/) && istype(src,/obj/ranged/))
 			var/obj/ranged/other_beam = o
 			var/obj/ranged/this_beam = src
@@ -599,6 +593,7 @@ atom/movable
 						other_beam.destroy()
 						this_beam.destroy()
 					return
+		*/
 		//Code for when a blast or charge hits a obj or mob.
 		else if(istype(o,/obj/ranged/))
 			var/obj/ranged/b = o
@@ -671,6 +666,7 @@ atom/movable
 													var/killer = null
 													if(ranged_attacker) killer = ranged_attacker
 													if(M)
+														animate(M,alpha=0,transform=matrix(0.5,0,0,0.5,0,0),time=10)
 														M.Death("[killer]",0)
 														ranged_attacker.killprompt=0
 									else if(ranged_attacker.srs_mode == 1 &&  ranged_attacker.spar_mode == 1)

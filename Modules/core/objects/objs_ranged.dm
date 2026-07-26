@@ -57,6 +57,7 @@ obj
 			hasreflect = 0
 			KB = 1
 			fired = 1
+
 		beam2
 			icon = 'beam2_body.dmi'
 			icon_state = ""

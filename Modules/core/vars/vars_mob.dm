@@ -419,6 +419,9 @@ mob
 		is_hybrid = 0//if you have more than one DNA, this is set to 1. This is used for some special cases.
 		has_beast_gene = 0
 
+		f_type_mutation = 0
+		co_type_mutation = 0
+
 		//Save info
 		SAVEFILE_VERSION = 0;
 		byond_key = null

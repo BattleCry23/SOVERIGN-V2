@@ -3451,8 +3451,26 @@ obj
 							m.active_attack = src
 							src.last_activate_time = world.time
 
+							var/obj/chargeball = new
+							chargeball.icon = 'beam_charge.dmi'
+							chargeball.icon *= custom_color
+							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
+								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
+									chargeball.icon_state = "divine"
+									chargeball.plane = 2
+									break
+								else
+									chargeball.icon_state = "psionic"
+									chargeball.plane = 1
+							if(chargeball.icon_state==null||chargeball.icon_state=="") chargeball.icon_state = "psionic"
+							chargeball.pixel_x = -48
+							chargeball.pixel_y = -48
+							chargeball.transform*=0.1
+							chargeball.bolted = 2
+							chargeball.density_factor = -1
+
 							var/obj/ball = new
-							ball.icon = 'beam_charge.dmi'
+							ball.icon = 'beam_head.dmi'
 							ball.icon *= custom_color
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
@@ -3474,7 +3492,7 @@ obj
 
 
 							var/obj/ball_hit = new
-							ball_hit.icon = 'beam_charge.dmi'
+							ball_hit.icon = 'beam_hit.dmi'
 							ball_hit.icon *= custom_color
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
@@ -3528,7 +3546,7 @@ obj
 							animate(ray.filters[1],offset = 100,time = 1000, loop = -1)
 							animate(offset = 0,time = 0)
 
-							src.parts = list(ball,ball_hit,beam,checker,ray)
+							src.parts = list(chargeball,ball,ball_hit,beam,checker,ray)
 
 							var/pix_max = 0.1;
 							var/trans_max = 1;
@@ -3634,11 +3652,11 @@ obj
 
 									//world << "Beam charge size removes [removes_charging]"
 
-									ball.Move(m.loc, 0, m.step_x + move_x, m.step_y - move_y)
+									chargeball.Move(m.loc, 0, m.step_x + move_x, m.step_y - move_y)
 									if(ray && ray.loc)
-										ray.loc = ball.loc
-										ray.step_x = ball.step_x
-										ray.step_y = ball.step_y
+										ray.loc = chargeball.loc
+										ray.step_x = chargeball.step_x
+										ray.step_y = chargeball.step_y
 
 									//If the beam is canceled for any reason, force the ball and ball_hit to shrink and make the size reduce for the beam and balls.
 									if(stopping >= 1)
@@ -3648,6 +3666,10 @@ obj
 										trans_extra -= 0.034 //240/88 = 2.727. Then divided by 8, which is the steps. Equals 0.34
 
 										if(hov_dis <= 16) hov_dis = 16
+
+										var/matrix/B_C = matrix()
+										B_C.Scale(size,size)
+										chargeball.transform = B_C
 
 										var/matrix/B = matrix()
 										B.Scale(size,size)
@@ -3672,6 +3694,10 @@ obj
 										//if(size == 0.1)
 											//for(var/mob/h in view(8,m))
 												//h << sound('activate.mp3',1,0,3,100)
+										var/matrix/B_C = matrix()
+										B_C.Scale(size,size)
+										chargeball.transform = B_C
+
 										var/matrix/B = matrix()
 										B.Scale(size,size)
 										ball.transform = B
@@ -3706,14 +3732,14 @@ obj
 
 										//Create cool gathering energy effect around the main charging orb.
 										if(prob(10))
-											if(ball && isturf(ball.loc))
+											if(chargeball && isturf(chargeball.loc))
 												var/obj/orb = null
-												if(ball.icon_state == "psionic") orb = new /obj/effects/orb
-												else if(ball.icon_state == "divine") orb = new /obj/effects/orb_divine
+												if(chargeball.icon_state == "psionic") orb = new /obj/effects/orb
+												else if(chargeball.icon_state == "divine") orb = new /obj/effects/orb_divine
 												orb.icon *= custom_color
-												orb.loc = ball.loc
-												orb.step_x = ball.step_x
-												orb.step_y = ball.step_y
+												orb.loc = chargeball.loc
+												orb.step_x = chargeball.step_x
+												orb.step_y = chargeball.step_y
 												orb.pixel_x = rand(-64,64)
 												orb.pixel_y = rand(-64,64)
 												animate(orb,pixel_x = 0, pixel_y = 0, alpha = 0, time = 10)
@@ -7771,7 +7797,7 @@ obj
 					if(src.disable_sleep) return
 					if(ismob(src.loc))
 						var/mob/m = src.loc
-						var/obj/effects/aura/a = new
+						var/obj/overlay/auras/regular_aura/a = new
 						a.icon *= m.auracolor
 						if(src.skill_lvl < 25)
 							a.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
@@ -15119,7 +15145,7 @@ obj
 							s.density_factor = 0
 							s.icon +=rgb(125,125,125)
 							s.alpha = 55
-							s.bodyparts = list(new /:head, new /:torso,new /:left_arm, new /:right_arm,new /:right_leg,new /:left_leg)
+							s.bodyparts = list(new /obj/body_related/bodyparts/head, new /obj/body_related/bodyparts/torso, new /obj/body_related/bodyparts/left_arm, new /obj/body_related/bodyparts/right_arm, new /obj/body_related/bodyparts/right_leg, new /obj/body_related/bodyparts/left_leg)
 							s.dir = SOUTH
 							var/image/sel = image('select.dmi',s,null,10,pixel_y = 8)
 							sel.appearance_flags = KEEP_APART | RESET_TRANSFORM

@@ -1263,7 +1263,7 @@ mob/proc
 		if(!src) return
 		src.mod_psionic_power = decimal_rand(5, 7)
 		src.final_powerlevel_mod = 2400000
-		src.psionic_power_base += ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.00012)) * src.mod_psionic_power
+		src.psionic_power_base += ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.0012)) * src.mod_psionic_power
 
 		src.mod_rating = 1
 		src.mod_energy = decimal_rand(1.9, 2.3)
@@ -1294,7 +1294,7 @@ mob/proc
 		if(!src) return
 		src.mod_psionic_power = decimal_rand(7, 9)
 		src.final_powerlevel_mod = 3000000
-		src.psionic_power_base += ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.00015)) * src.mod_psionic_power
+		src.psionic_power_base += ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.0015)) * src.mod_psionic_power
 
 		src.mod_rating = 1
 		src.mod_energy = decimal_rand(2.3, 2.5)
@@ -1333,3 +1333,23 @@ mob/proc
 		src.mod_anger = decimal_rand(1.2, 1.4)
 		src.hidden_potential *= decimal_rand(1.3, 1.6)
 		src.PG *= 1.5
+
+	apply_f_type_mutation()
+		if(!src) return
+		src.mod_psionic_power = decimal_rand(3, 6)
+		src.final_powerlevel_mod = 1500000
+		src.psionic_power_base += ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.001)) * src.mod_psionic_power
+		src.mod_rating = 1
+		src.mod_energy = decimal_rand(1.5, 2.0)
+		src.mod_endurance = decimal_rand(1.9, 2.2)
+		src.hidden_potential *= decimal_rand(1.3, 1.5)
+		src.PG *= 2.3
+
+	apply_co_mutation()
+		if(!src) return
+		src.mod_psionic_power = decimal_rand(2, 4)
+		src.final_powerlevel_mod = 1000000
+		src.psionic_power_base += ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.001)) * src.mod_psionic_power
+		src.mod_rating = 1
+		src.mod_energy = decimal_rand(1.2, 1.4)
+		src.PG *= 1.3

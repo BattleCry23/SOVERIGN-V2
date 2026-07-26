@@ -1,4 +1,3 @@
-#define WAVE_COUNT 2
 image
 	var
 		ref = null
