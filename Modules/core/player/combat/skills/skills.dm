@@ -10020,11 +10020,15 @@ obj
 								m = src.loc
 								if(src.active)
 									var/removes = (10/m.mod_recovery) + (10/src.skill_lvl) * src.times_multi
+									var/kaiodmg = 1 + (m.skill_kaioken.skill_lvl/100) * 2
 
 									if(m.energy >= removes)
 										//m.energy-=5+((m.energy_max/5)/src.skill_lvl)/m.mod_recovery/m.mod_energy
 										//var/removes = 1 + 10 - (m.mod_recovery+m.mod_energy) - (src.skill_lvl/10)
 										m.energy -= removes
+										if(prob(25) && m.body && m.body.len)
+											var/obj/body_related/bodyparts/limb_random = pick(m.body)
+											m.damage_limb(m,1, 1, kaiodmg, limb_random)
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										if(m.meditating)

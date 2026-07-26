@@ -2633,11 +2633,6 @@ mob
 								if(prob(20)) // only sometimes
 									var/obj/body_related/bodyparts/randomlimb = pick(m.body)
 									m.damage_limb(m,1, 1, DMG, randomlimb)
-								if(m.skill_kaioken && m.skill_kaioken.active)
-									var/kaiodmg = 1 + (m.skill_kaioken.skill_lvl/100) * 2
-									if(prob(25))
-										var/obj/body_related/bodyparts/limb_random = pick(m.body)
-										m.damage_limb(m,1, 1, kaiodmg, limb_random)
 									//return
 
 							//	else m.gain_stat("strength",1,1,"High gravity")
