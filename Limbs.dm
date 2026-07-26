@@ -171,7 +171,7 @@ mob/proc
 					src.client.screen-=L
 					var/obj/Limbs/Del2/D=new/obj/Limbs/Del2
 					src.client.screen+=D
-					del(L)
+					qdel(L)
 			if(L.icon_state=="2"||L.icon_state=="2G"||L.icon_state=="2Y"||L.icon_state=="2R"||L.icon_state=="2B")
 				if(Injury_Right_Arm<=24)
 					L.icon_state="2"
@@ -187,7 +187,7 @@ mob/proc
 					src.client.screen-=L
 					var/obj/Limbs/Del2/D=new/obj/Limbs/Del2
 					src.client.screen+=D
-					del(L)
+					qdel(L)
 			if(L.icon_state=="3"||L.icon_state=="3G"||L.icon_state=="3Y"||L.icon_state=="3R"||L.icon_state=="3B")
 				if(Injury_Left_Leg<=24)
 					L.icon_state="3"
@@ -203,7 +203,7 @@ mob/proc
 					src.client.screen-=L
 					var/obj/Limbs/Del2/D=new/obj/Limbs/Del2
 					src.client.screen+=D
-					del(L)
+					qdel(L)
 			if(L.icon_state=="4"||L.icon_state=="4G"||L.icon_state=="4Y"||L.icon_state=="4R"||L.icon_state=="4B")
 				if(Injury_Right_Leg<=24)
 					L.icon_state="4"
@@ -219,7 +219,7 @@ mob/proc
 					src.client.screen-=L
 					var/obj/Limbs/Del2/D=new/obj/Limbs/Del2
 					src.client.screen+=D
-					del(L)
+					qdel(L)
 
 		sleep(5)
 		return
