@@ -188,6 +188,13 @@ mob/proc/Apply_Transformation_Boost(var/race)
 						superform = ssj_form
 						/*if(!has_sf1) 
 							has_sf1=1*/
+						mod_strength *= 1.1
+						mod_endurance *= 1.1
+						mod_force *= 1.1
+						mod_resistance *= 1.1
+						mod_offence *= 1.1
+						mod_defence *= 1.1
+						mod_agility *= 1.1
 						view(15,src)<<output("<b><font color=yellow>[src] has transformed into a Super Saiyan!</b></font>","actionoutput")
 						return
 
@@ -196,6 +203,8 @@ mob/proc/Apply_Transformation_Boost(var/race)
 						current_transformation_boost = boost
 						power_percent = (100 * (transformation_boost2 + 14))
 						ssj_form = 2
+						mod_agility = mod_agility_og * 2
+						mod_recovery *= 0.5
 						superform = ssj_form
 						if(!has_sf2) 
 							has_sf2=1
@@ -207,6 +216,7 @@ mob/proc/Apply_Transformation_Boost(var/race)
 						current_transformation_boost = boost
 						power_percent = (100 * (transformation_boost3 + 21))
 						ssj_form = 3
+						mod_recovery *= 0.75
 						superform = ssj_form
 						if(!has_sf3) 
 							has_sf3=1
@@ -232,6 +242,8 @@ mob/proc/Apply_Transformation_Boost(var/race)
 					current_transformation_boost = boost
 					power_percent = (power_percent * transformation_boost1 + 5)
 					superform = 1
+					mod_regeneration *= 0.25
+					mod_recovery *= 0.25
 					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their second form!</b></font>","actionoutput")
 					return
 
@@ -240,6 +252,8 @@ mob/proc/Apply_Transformation_Boost(var/race)
 					current_transformation_boost = boost
 					power_percent = (100 * (transformation_boost2 + 8))
 					superform = 2
+					mod_regeneration *= 0.50
+					mod_recovery *= 0.50
 					if(!has_sf2) 
 						has_sf2=1
 					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their third form!</b></font>","actionoutput")
@@ -250,6 +264,8 @@ mob/proc/Apply_Transformation_Boost(var/race)
 					current_transformation_boost = boost
 					power_percent = (100 * (transformation_boost3 + 10))
 					superform = 3
+					mod_regeneration *= 0.75
+					mod_recovery *= 0.75
 					if(!has_sf3) 
 						has_sf3=1
 					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their final form!</b></font>","actionoutput")
@@ -301,7 +317,7 @@ mob/proc/transformation_drain(var/mob/container)
 								container.energy -= final_drain // Apply Super Saiyan 2 transformation drain
 					if(3)
 						container.sf_drain *= 3
-						container.sf_drain = container.sf3_drain
+						//container.sf_drain = container.sf3_drain
 						if(prob(20))
 							container.energy -= final_drain
 	

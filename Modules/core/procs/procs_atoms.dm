@@ -1704,6 +1704,7 @@ atom
 				b.step_y += extra
 			b.transform *= 0.1
 			animate(b, transform = matrix()*1, alpha = 0, time = 3)
+		//power_wave(var/extra = 0)
 
 		lvlupwave(var/extra = 0,var/mob/m)
 			//Normal shockwave 1st

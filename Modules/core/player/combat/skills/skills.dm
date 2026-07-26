@@ -676,6 +676,35 @@ obj
 			New()
 				..()
 				category = list("Passive")
+
+		/*Energy_Control
+			icon_state = "Energy Control"
+	//		info_energy_cost = 1
+			info_mastery = 200
+			info_point_cost = 1
+			max_level = 100
+			info_buffs = "MAX LEVEL: 100"
+			info_duration = "Channeled"
+			info_name = "energy_control"
+			//teach_energy = 1000
+			hud_x = 280//264
+			hud_y = 636
+			passive_skill = 1
+			info_point_cost_type = "physical"
+			act = /obj/skills/Energy_Control/proc/activate
+			info = "Enhance your ability to control and manipulate energy. This passive improves your precision and efficiency in using energy-based abilities."
+			var/progress = 0;
+			proc/activate(var/mob/m,var/amount)
+				if(!ismob(m)) return // Prevent multiple activations
+				if(m.EC >= 100) return
+				active = 1
+				var/buff_amount = (amount* 0.05) // The amount to add
+				m.mod_energy_control += buff_amount
+				m.EC += amount
+		//		m << "[src.skill_lvl] skill lvl - Energy Control Boost Applied: x[m.mod_energy_control]+([buff_amount])"
+			New()
+				..()
+				category = list("Passive")*/
 		/*Energy_Manipulation
 			icon_state = "Energy Manipulation"
 	//		info_energy_cost = 1
@@ -7841,7 +7870,7 @@ obj
 											m.powering_up = 0
 											src.icon_state = "Profusion off"
 											src.active = 0;
-											m.overlays -= src.aura
+											remove_overlay(m, src.aura)
 											stage=0
 											m<<output("You ran out of energy.","actionoutput")
 
@@ -7862,7 +7891,7 @@ obj
 											m.powering_up = 0
 											src.icon_state = "Profusion off"
 											src.active = 0;
-											m.overlays -= src.aura
+											remove_overlay(m, src.aura)
 											stage=0
 											m<<output("You ran out of energy.","actionoutput")
 
@@ -7883,7 +7912,7 @@ obj
 											m.powering_up = 0
 											src.icon_state = "Profusion off"
 											src.active = 0;
-											m.overlays -= src.aura
+											remove_overlay(m, src.aura)
 											stage=0
 											m<<output("You ran out of energy.","actionoutput")
 
@@ -7904,7 +7933,7 @@ obj
 											m.powering_up = 0
 											src.icon_state = "Profusion off"
 											src.active = 0;
-											m.overlays -= src.aura
+											remove_overlay(m, src.aura)
 											stage=0
 											m<<output("You ran out of energy.","actionoutput")
 
@@ -7925,7 +7954,7 @@ obj
 											m.powering_up = 0
 											src.icon_state = "Profusion off"
 											src.active = 0;
-											m.overlays -= src.aura
+											remove_overlay(m, src.aura)
 											stage=0
 											m<<output("You ran out of energy.","actionoutput")
 
@@ -8007,7 +8036,7 @@ obj
 								m.powering_up = 0
 								m << output("You stop powering up.","actionoutput")
 								src.icon_state = "Profusion off"
-								m.overlays -= src.aura
+								remove_overlay(m, src.aura)
 								return
 
 							// SECOND: return power to normal if above/below 100
@@ -8016,7 +8045,7 @@ obj
 								m.shockwave()
 								m << output("You return your power to normal.","actionoutput")
 								src.icon_state = "Profusion off"
-								m.overlays -= src.aura
+								remove_overlay(m, src.aura)
 								m.powering_up = 0
 								src.active = 0
 								stage = 0
@@ -8037,7 +8066,7 @@ obj
 								m.shockwave()
 								m << output("You return your power to normal.","actionoutput")
 								src.icon_state = "Profusion off"
-								m.overlays -= src.aura
+								remove_overlay(m, src.aura)
 								m.powering_up = 0
 								src.active = 0
 								stage=0
@@ -8102,7 +8131,7 @@ obj
 								//m.power_percent = 100;
 								m << output("You begin powering up","actionoutput")
 								src.icon_state = "Profusion"
-								m.overlays += src.aura
+								add_overlay(m, src.aura)
 
 								m.shockwave()
 								sleep(2)
@@ -8161,7 +8190,7 @@ obj
 									m.powering_up = 0
 									m << output("You stop powering down.","actionoutput")
 									src.icon_state = "Profusion off"
-									m.overlays -= src.aura
+									remove_overlay(m, src.aura)
 									src.stage=0
 									m << sound(null, channel = 9)
 								//	m << sound(null, channel = 10)
@@ -9895,9 +9924,12 @@ obj
 						//m.overlays -= /obj/effects/eyes_focus
 						s.icon_state = "kaioken off"
 					//	if(m.race == "Alien") m.overlays -= /obj/effects/elec_cerebroid
-						m.overlays -= /obj/effects/aura_kaioken
+						remove_overlay(m, /obj/overlay/auras/kaioken)
 						m.med_pixel = 1
 						m.shock_chance = 0
+						m.mod_strength = m.mod_strength_og
+						m.mod_offence = m.mod_offence_og
+						m.mod_agility = m.mod_agility_og
 						s.times_multi = 1
 					//	src.controller = null
 						//m.mod_force/=1.2
@@ -9919,7 +9951,7 @@ obj
 					else
 						var/multi = input ("Kaioken x:") as num
 						if(multi>=20) multi = 20
-						if(multi<=0.1)
+						if(multi<=0.1||multi<=1)
 							multi = 0
 							return
 						s.times_multi = multi
@@ -9928,12 +9960,15 @@ obj
 						//m.buffs += "focus"
 							s.active = 1
 							s.icon_state = "kaioken"
+							m.mod_strength *= (round(s.times_multi * 0.55))
+							m.mod_offence *= (round(s.times_multi * 0.55))
+							m.mod_agility *= (round(s.times_multi * 0.55))
 							var/turf/t = m.loc
 							if(!t.liquid)
 								var/obj/effects/dust_medium/d = new
 								d.SetCenter(m)
-							m.overlays -= /obj/effects/aura_kaioken
-							m.overlays += /obj/effects/aura_kaioken
+							remove_overlay(m, /obj/overlay/auras/kaioken)
+							add_overlay(m, /obj/overlay/auras/kaioken)
 							//for(var/mob/h in view(8,m))
 								//h << sound('focus1.mp3',0,1,10,100)
 							m.shock_chance = 25

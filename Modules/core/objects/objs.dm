@@ -1223,6 +1223,28 @@ obj
 			pixel_y = -8
 			New()
 				..()
+		aura_burst
+			icon = 'ShadowAuraBurst.dmi'
+			density_factor = 0
+			density = 0
+			alpha = 150
+			plane = 0
+			layer = AURA_LAYER + 20
+			//pixel_x = -16
+			//pixel_y = -8
+			New()
+				..()
+		aura_stablized
+			icon = 'ShadowsAuraTrans.dmi'
+			density_factor = 0
+			density = 0
+			alpha = 150
+			plane = 0
+			layer = AURA_LAYER + 20
+			//pixel_x = -16
+			//pixel_y = -8
+			New()
+				..()
 		lightning_bolt_psi_temp
 			icon = 'fx_psi_lightening.dmi'
 			layer = 12

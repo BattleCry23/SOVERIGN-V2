@@ -5,6 +5,7 @@ obj/overlay/auras
 	appearance_flags = PIXEL_SCALE
 	vis_flags = VIS_INHERIT_PLANE | VIS_INHERIT_LAYER
 	ID = 5
+	//file_path = 'sprites/effects/Auras/'
 	transform = null
 	var
 		setNJ
@@ -35,7 +36,7 @@ mob
         form3aura = 'SSJ1AuraNew.dmi'
         form4aura = 'SSJ1AuraNew.dmi'
         aurabuffed = 0
-        icon/AURA = 'ShadowsAura.dmi'
+        icon/AURA = 'sprites/effects/Auras/ShadowsAura.dmi'
 
 
 /*obj/overlay/auras/proc/centerAura() // todo: convert to matrixes
@@ -118,7 +119,7 @@ obj/overlay/auras/proc/ApplyFormSettings()
 		
 		switch(container.superform)
 			if(1)
-				if(container.ssj_mastery < 100)
+				if(container.sf_mastery < 100)
 					replace_overlay(icon, container.form1aura, "SSJ")
 					//icon_state = "SSJ"
 					scale = list(1,1)
@@ -177,7 +178,8 @@ obj/overlay/auras/effectloop()
 
 obj/overlay/auras/kaioken
 	icon = 'KaiokenSov.dmi'
-	layer = AURA_LAYER
+	layer = AURA_LAYER + 20
+	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_LAYER | VIS_INHERIT_ID | VIS_INHERIT_ICON
 	appearance_flags = KEEP_TOGETHER | PIXEL_SCALE
 	presetAura = TRUE
 	pixel_x=-16
@@ -186,9 +188,13 @@ obj/overlay/auras/kaioken
 
 obj/overlay/auras/regular_aura
 	name = "Regular Aura"
-	icon = 'ShadowsAura.dmi'
-	pixel_x = -40
-	pixel_y = -8
+	layer = AURA_LAYER + 20
+	appearance_flags = KEEP_TOGETHER | PIXEL_SCALE
+	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_LAYER | VIS_INHERIT_ID | VIS_INHERIT_ICON
+	icon = 'sprites/effects/Auras/ShadowsAura.dmi'
+	alpha = 175
+	pixel_x = -42
+	pixel_y = 2
 
 	starteffect()
 		scale = list(1,1)

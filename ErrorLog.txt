@@ -5480,3 +5480,3808 @@ Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflec
 the op (/mob/races/Saiyan): disable skills()
 AuctionHouse: Saving all auction data before shutdown...
 AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 471 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: the cracked ground (419,254,10) (/turf/cracked_ground)
+  usr.loc: the cracked ground (419,274,10) (/turf/cracked_ground)
+  call stack:
+the cracked ground (419,254,10) (/turf/cracked_ground): set destroyed()
+the c2 (/obj/map/cliffs/c2): Cross(the beam checker (/obj/ranged/checker))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (419,274,10) (/turf/cracked_ground), 0, 31.4816, -645.781)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: the cracked ground (420,254,10) (/turf/cracked_ground)
+  usr.loc: the cracked ground (419,274,10) (/turf/cracked_ground)
+  call stack:
+the cracked ground (420,254,10) (/turf/cracked_ground): set destroyed()
+the c2 (/obj/map/cliffs/c2): Cross(the beam checker (/obj/ranged/checker))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (419,274,10) (/turf/cracked_ground), 0, 31.4816, -645.781)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: the cracked ground (425,262,10) (/turf/cracked_ground)
+  usr.loc: the cracked ground (425,282,10) (/turf/cracked_ground)
+  call stack:
+the cracked ground (425,262,10) (/turf/cracked_ground): set destroyed()
+the c1 (/obj/map/cliffs/c1): Cross(the beam checker (/obj/ranged/checker))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (425,282,10) (/turf/cracked_ground), 0, 12.8043, -647.775)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: the cracked ground (426,262,10) (/turf/cracked_ground)
+  usr.loc: the cracked ground (425,282,10) (/turf/cracked_ground)
+  call stack:
+the cracked ground (426,262,10) (/turf/cracked_ground): set destroyed()
+the c2 (/obj/map/cliffs/c2): Cross(the beam checker (/obj/ranged/checker))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (425,282,10) (/turf/cracked_ground), 0, 12.8043, -647.775)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: the cracked ground (430,268,10) (/turf/cracked_ground)
+  usr.loc: the cracked ground (430,281,10) (/turf/cracked_ground)
+  call stack:
+the cracked ground (430,268,10) (/turf/cracked_ground): set destroyed()
+the c2 (/obj/map/cliffs/c2): Cross(the beam checker (/obj/ranged/checker))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (430,281,10) (/turf/cracked_ground), 0, 7.40109, -417.336)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: the cracked ground (431,268,10) (/turf/cracked_ground)
+  usr.loc: the cracked ground (430,281,10) (/turf/cracked_ground)
+  call stack:
+the cracked ground (431,268,10) (/turf/cracked_ground): set destroyed()
+the c2 (/obj/map/cliffs/c2): Cross(the beam checker (/obj/ranged/checker))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (430,281,10) (/turf/cracked_ground), 0, 7.40109, -417.336)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: the cracked ground (427,262,10) (/turf/cracked_ground)
+  usr.loc: the cracked ground (427,281,10) (/turf/cracked_ground)
+  call stack:
+the cracked ground (427,262,10) (/turf/cracked_ground): set destroyed()
+the c2 (/obj/map/cliffs/c2): Cross(the beam checker (/obj/ranged/checker))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (427,281,10) (/turf/cracked_ground), 0, 2.1162, -614.825)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: the cracked ground (428,262,10) (/turf/cracked_ground)
+  usr.loc: the cracked ground (427,281,10) (/turf/cracked_ground)
+  call stack:
+the cracked ground (428,262,10) (/turf/cracked_ground): set destroyed()
+the c3 (/obj/map/cliffs/c3): Cross(the beam checker (/obj/ranged/checker))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (427,281,10) (/turf/cracked_ground), 0, 2.1162, -614.825)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: Roof (365,398,10) (/turf/buildables/roofs/roof1)
+  usr.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+Roof (365,398,10) (/turf/buildables/roofs/roof1): set destroyed()
+Roof (365,398,10) (/turf/buildables/roofs/roof1): Enter(the beam checker (/obj/ranged/checker), the cracked ground (366,398,10) (/turf/cracked_ground))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (369,397,10) (/turf/cracked_ground), 0, -98.1239, 46.199)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+runtime error: list index out of bounds
+proc name: set destroyed (/turf/proc/set_destroyed)
+  source file: Modules/core/procs/procs_turfs.dm,120
+  usr: the op (/mob/races/Saiyan)
+  src: Roof (365,399,10) (/turf/buildables/roofs/roof1)
+  usr.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+Roof (365,399,10) (/turf/buildables/roofs/roof1): set destroyed()
+Roof (365,399,10) (/turf/buildables/roofs/roof1): Enter(the beam checker (/obj/ranged/checker), the cracked ground (366,398,10) (/turf/cracked_ground))
+the beam checker (/obj/ranged/checker): Move(the cracked ground (369,397,10) (/turf/cracked_ground), 0, -98.1239, 46.199)
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan))
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: Cannot read null.skill_lvl
+proc name: start oozaru rampage (/mob/proc/start_oozaru_rampage)
+  source file: Modules/core/procs/procs_mob.dm,866
+  usr: null
+  src: the op (/mob/races/Saiyan)
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): start oozaru rampage()
+the op (/mob/races/Saiyan): oozaru enable(the op (/mob/races/Saiyan))
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15931
+  usr: (src)
+  src: the op (/mob/races/Saiyan)
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the toggle skillbar button (/obj/hud/buttons/main/toggle_skillbar_button): Click(null, "map.map", "icon-x=19;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the toggle skillbar button (/obj/hud/buttons/main/toggle_skillbar_button), null, "map.map", "icon-x=19;icon-y=18;left=1;but...")
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+Drugs Created.
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+Drugs Created.
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15938
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (369,397,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3786
+  usr: the op (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the op (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,829
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,760
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
