@@ -12908,3 +12908,3766 @@ the op (/mob/races/Saiyan): check body health()
 the op (/mob/races/Saiyan): stats()
 the op (/mob/races/Saiyan): process stats()
 the op (/mob/races/Saiyan): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15986
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (383,403,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,858
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,818
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+(Admin Log): Admin Purple healed the op
+(Admin Log): Admin Purple healed everything of the op
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,858
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,818
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,858
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,818
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the op (/mob/races/Saiyan): update limb hud()
+the op (/mob/races/Saiyan): check body health()
+the op (/mob/races/Saiyan): stats()
+the op (/mob/races/Saiyan): process stats()
+the op (/mob/races/Saiyan): process stats()
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the op (/mob/races/Saiyan): update limb hud()
+the op (/mob/races/Saiyan): check body health()
+the op (/mob/races/Saiyan): stats()
+the op (/mob/races/Saiyan): process stats()
+the op (/mob/races/Saiyan): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15986
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (383,403,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,858
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,818
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+(Admin Log): Admin Purple healed the op
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,858
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,818
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,858
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,818
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the op (/mob/races/Saiyan): update limb hud()
+the op (/mob/races/Saiyan): check body health()
+the op (/mob/races/Saiyan): stats()
+the op (/mob/races/Saiyan): process stats()
+the op (/mob/races/Saiyan): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the op login with /mob/races/Saiyan mob
+File Read(the op)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,15987
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (383,403,10) (/turf/cracked_ground)
+  call stack:
+the op (/mob/races/Saiyan): skillbar()
+the op (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the op) Loaded!
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: VOXTECH (/mob)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: VOXTECH (/mob)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,858
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,818
+  usr: VOXTECH (/mob)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: VOXTECH (/mob)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the op's Save was last saved on 26/07/2026
+DEBUG - op(VOXTECH)'s Saved character to slot 1
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,858
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,818
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Recovery Bonus (/obj/skills/Recovery_Bonus) * 0.05
+proc name: activate (/obj/skills/Recovery_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,643
+  usr: the op (/mob/races/Saiyan)
+  src: Recovery Bonus (/obj/skills/Recovery_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Recovery Bonus (/obj/skills/Recovery_Bonus): activate(the op (/mob/races/Saiyan), Recovery Bonus (/obj/skills/Recovery_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Regeneration Bonus (/obj/skills/Regeneration_Bonus) * 0.05
+proc name: activate (/obj/skills/Regeneration_Bonus/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,615
+  usr: the op (/mob/races/Saiyan)
+  src: Regeneration Bonus (/obj/skills/Regeneration_Bonus)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Regeneration Bonus (/obj/skills/Regeneration_Bonus): activate(the op (/mob/races/Saiyan), Regeneration Bonus (/obj/skills/Regeneration_Bonus))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,858
+  usr: the op (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the op (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: Undefined operation: Laceration (/obj/skills/Laceration) * 0.5
+proc name: activate (/obj/skills/Laceration/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,818
+  usr: the op (/mob/races/Saiyan)
+  src: Laceration (/obj/skills/Laceration)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Laceration (/obj/skills/Laceration): activate(the op (/mob/races/Saiyan), Laceration (/obj/skills/Laceration))
+the op (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 50 += Deflection (/obj/skills/Deflection)
+proc name: activate (/obj/skills/Deflection/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,789
+  usr: the op (/mob/races/Saiyan)
+  src: Deflection (/obj/skills/Deflection)
+  usr.loc: null
+  src.loc: the op (/mob/races/Saiyan)
+  call stack:
+Deflection (/obj/skills/Deflection): activate(the op (/mob/races/Saiyan), Deflection (/obj/skills/Deflection))
+the op (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the op (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the op (/mob/races/Saiyan): update limb hud()
+the op (/mob/races/Saiyan): check body health()
+the op (/mob/races/Saiyan): stats()
+the op (/mob/races/Saiyan): process stats()
+the op (/mob/races/Saiyan): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=19;icon-y=19;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=19;icon-y=19;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=19;icon-y=19;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=19;icon-y=19;left=1;but...")
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Changeling (/mob/races/Changeling): update looks(null)
+VOXTECH (/mob/races/Yukopian): switch race("Changeling")
+the race button ling (/obj/hud/menus/char_creation_background/race_button_ling): Click(null, "map.map", "icon-x=17;icon-y=10;left=1;but...")
+VOXTECH (/client): Click(the race button ling (/obj/hud/menus/char_creation_background/race_button_ling), null, "map.map", "icon-x=17;icon-y=10;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Changeling (/mob/races/Changeling): update looks(null)
+VOXTECH (/mob/races/Yukopian): switch race("Changeling")
+the race button ling (/obj/hud/menus/char_creation_background/race_button_ling): Click(null, "map.map", "icon-x=17;icon-y=10;left=1;but...")
+VOXTECH (/client): Click(the race button ling (/obj/hud/menus/char_creation_background/race_button_ling), null, "map.map", "icon-x=17;icon-y=10;left=1;but...")
+DEBUG - Changeling login with /mob/races/Changeling mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob/races/Changeling): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=18;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=18;icon-y=18;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob/races/Changeling): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=18;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=18;icon-y=18;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob/races/Changeling): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=18;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=18;icon-y=18;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob/races/Saiyan): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=14;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=14;icon-y=16;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob/races/Saiyan): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=14;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=14;icon-y=16;left=1;but...")
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+DEBUG - the pop's Save was last saved on 26/07/2026
+DEBUG - pop(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple healed the pop
+DEBUG - the pop's Save was last saved on 26/07/2026
+DEBUG - pop(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=15;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=15;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=15;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=15;icon-y=13;left=1;but...")
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=11;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=11;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=11;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=11;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=14;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=14;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=14;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=14;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Makyo (/mob/races/Makyo): update looks(null)
+VOXTECH (/mob/races/Yukopian): switch race("Makyo")
+the race button makyo (/obj/hud/menus/char_creation_background/race_button_makyo): Click(null, "map.map", "icon-x=21;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button makyo (/obj/hud/menus/char_creation_background/race_button_makyo), null, "map.map", "icon-x=21;icon-y=17;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Makyo login with /mob/races/Makyo mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Tuffle login with /mob/races/Tuffle mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Changeling login with /mob/races/Changeling mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Imp login with /mob/races/Imp mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Celestial login with /mob/races/Celestial mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: list index out of bounds
+proc name: update looks (/mob/proc/update_looks)
+  source file: Modules/core/player/new char.dm,5161
+DEBUG - Demon login with /mob/races/Demon mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Human login with /mob/races/Human mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - the annoying's Save was last saved on 26/07/2026
+DEBUG - annoying(VOXTECH)'s Saved character to slot 1
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 471 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+(Admin Log): Admin Purple healed the annoying
+(Admin Log): Admin Purple the annoying used ASSESS on the annoying
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+DEBUG - the annoying's Save was last saved on 27/07/2026
+DEBUG - annoying(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.tmp_dmg
+proc name: shockwave huge (/atom/proc/shockwave_huge)
+  source file: Modules/core/procs/procs_atoms.dm,1662
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=13;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=13;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=13;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=13;icon-y=14;left=1;but...")
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Imp (/mob/races/Imp): update looks(null)
+VOXTECH (/mob): switch race("Oni")
+the race button imp (/obj/hud/menus/char_creation_background/race_button_imp): Click(null, "map.map", "icon-x=17;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button imp (/obj/hud/menus/char_creation_background/race_button_imp), null, "map.map", "icon-x=17;icon-y=16;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Imp (/mob/races/Imp): update looks(null)
+VOXTECH (/mob): switch race("Oni")
+the race button imp (/obj/hud/menus/char_creation_background/race_button_imp): Click(null, "map.map", "icon-x=17;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button imp (/obj/hud/menus/char_creation_background/race_button_imp), null, "map.map", "icon-x=17;icon-y=16;left=1;but...")
+DEBUG - Imp login with /mob/races/Imp mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the bug's Save was last saved on 27/07/2026
+DEBUG - bug(VOXTECH)'s Saved character to slot 1
+DEBUG - the bug's Save was last saved on 27/07/2026
+DEBUG - bug(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Celestial (/mob/races/Celestial): update looks(null)
+VOXTECH (/mob): switch race("Kai")
+the race button celestial (/obj/hud/menus/char_creation_background/race_button_celestial): Click(null, "map.map", "icon-x=13;icon-y=19;left=1;but...")
+VOXTECH (/client): Click(the race button celestial (/obj/hud/menus/char_creation_background/race_button_celestial), null, "map.map", "icon-x=13;icon-y=19;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Celestial (/mob/races/Celestial): update looks(null)
+VOXTECH (/mob): switch race("Kai")
+the race button celestial (/obj/hud/menus/char_creation_background/race_button_celestial): Click(null, "map.map", "icon-x=13;icon-y=19;left=1;but...")
+VOXTECH (/client): Click(the race button celestial (/obj/hud/menus/char_creation_background/race_button_celestial), null, "map.map", "icon-x=13;icon-y=19;left=1;but...")
+DEBUG - Celestial login with /mob/races/Celestial mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Celestial)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Demon (/mob/races/Demon): update looks(null)
+VOXTECH (/mob/races/Celestial): switch race("Demon")
+the race button demon (/obj/hud/menus/char_creation_background/race_button_demon): Click(null, "map.map", "icon-x=16;icon-y=20;left=1;but...")
+VOXTECH (/client): Click(the race button demon (/obj/hud/menus/char_creation_background/race_button_demon), null, "map.map", "icon-x=16;icon-y=20;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Celestial)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Demon (/mob/races/Demon): update looks(null)
+VOXTECH (/mob/races/Celestial): switch race("Demon")
+the race button demon (/obj/hud/menus/char_creation_background/race_button_demon): Click(null, "map.map", "icon-x=16;icon-y=20;left=1;but...")
+VOXTECH (/client): Click(the race button demon (/obj/hud/menus/char_creation_background/race_button_demon), null, "map.map", "icon-x=16;icon-y=20;left=1;but...")
+runtime error: list index out of bounds
+proc name: update looks (/mob/proc/update_looks)
+  source file: Modules/core/player/new char.dm,5168
+  usr: VOXTECH (/mob/races/Celestial)
+  src: Demon (/mob/races/Demon)
+  usr.loc: null
+  src.loc: null
+  call stack:
+Demon (/mob/races/Demon): update looks(null)
+VOXTECH (/mob/races/Celestial): switch race("Demon")
+the race button demon (/obj/hud/menus/char_creation_background/race_button_demon): Click(null, "map.map", "icon-x=16;icon-y=20;left=1;but...")
+VOXTECH (/client): Click(the race button demon (/obj/hud/menus/char_creation_background/race_button_demon), null, "map.map", "icon-x=16;icon-y=20;left=1;but...")
+DEBUG - Demon login with /mob/races/Demon mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Demon)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Demon): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Demon)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Demon): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: list index out of bounds
+proc name: update looks (/mob/proc/update_looks)
+  source file: Modules/core/player/new char.dm,5168
+  usr: (src)
+  src: VOXTECH (/mob/races/Demon)
+  src.loc: null
+  call stack:
+VOXTECH (/mob/races/Demon): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Demon)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Demon): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Demon)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Demon): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: list index out of bounds
+proc name: update looks (/mob/proc/update_looks)
+  source file: Modules/core/player/new char.dm,5168
+  usr: (src)
+  src: VOXTECH (/mob/races/Demon)
+  src.loc: null
+  call stack:
+VOXTECH (/mob/races/Demon): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Demon)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Human (/mob/races/Human): update looks(null)
+VOXTECH (/mob/races/Demon): switch race("Human")
+the race button human (/obj/hud/menus/char_creation_background/race_button_human): Click(null, "map.map", "icon-x=13;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button human (/obj/hud/menus/char_creation_background/race_button_human), null, "map.map", "icon-x=13;icon-y=16;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Demon)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Human (/mob/races/Human): update looks(null)
+VOXTECH (/mob/races/Demon): switch race("Human")
+the race button human (/obj/hud/menus/char_creation_background/race_button_human): Click(null, "map.map", "icon-x=13;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button human (/obj/hud/menus/char_creation_background/race_button_human), null, "map.map", "icon-x=13;icon-y=16;left=1;but...")
+DEBUG - Human login with /mob/races/Human mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Human)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Demon (/mob/races/Demon): update looks(null)
+VOXTECH (/mob/races/Human): switch race("Demon")
+the race button demon (/obj/hud/menus/char_creation_background/race_button_demon): Click(null, "map.map", "icon-x=21;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the race button demon (/obj/hud/menus/char_creation_background/race_button_demon), null, "map.map", "icon-x=21;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Human)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Demon (/mob/races/Demon): update looks(null)
+VOXTECH (/mob/races/Human): switch race("Demon")
+the race button demon (/obj/hud/menus/char_creation_background/race_button_demon): Click(null, "map.map", "icon-x=21;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the race button demon (/obj/hud/menus/char_creation_background/race_button_demon), null, "map.map", "icon-x=21;icon-y=15;left=1;but...")
+runtime error: list index out of bounds
+proc name: update looks (/mob/proc/update_looks)
+  source file: Modules/core/player/new char.dm,5168
+  usr: VOXTECH (/mob/races/Human)
+  src: Demon (/mob/races/Demon)
+  usr.loc: null
+  src.loc: null
+  call stack:
+Demon (/mob/races/Demon): update looks(null)
+VOXTECH (/mob/races/Human): switch race("Demon")
+the race button demon (/obj/hud/menus/char_creation_background/race_button_demon): Click(null, "map.map", "icon-x=21;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the race button demon (/obj/hud/menus/char_creation_background/race_button_demon), null, "map.map", "icon-x=21;icon-y=15;left=1;but...")
+DEBUG - Demon login with /mob/races/Demon mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Demon)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Celestial (/mob/races/Celestial): update looks(null)
+VOXTECH (/mob/races/Demon): switch race("Kai")
+the race button celestial (/obj/hud/menus/char_creation_background/race_button_celestial): Click(null, "map.map", "icon-x=20;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button celestial (/obj/hud/menus/char_creation_background/race_button_celestial), null, "map.map", "icon-x=20;icon-y=18;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Demon)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Celestial (/mob/races/Celestial): update looks(null)
+VOXTECH (/mob/races/Demon): switch race("Kai")
+the race button celestial (/obj/hud/menus/char_creation_background/race_button_celestial): Click(null, "map.map", "icon-x=20;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button celestial (/obj/hud/menus/char_creation_background/race_button_celestial), null, "map.map", "icon-x=20;icon-y=18;left=1;but...")
+DEBUG - Celestial login with /mob/races/Celestial mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Celestial)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Imp (/mob/races/Imp): update looks(null)
+VOXTECH (/mob/races/Celestial): switch race("Oni")
+the race button imp (/obj/hud/menus/char_creation_background/race_button_imp): Click(null, "map.map", "icon-x=18;icon-y=24;left=1;but...")
+VOXTECH (/client): Click(the race button imp (/obj/hud/menus/char_creation_background/race_button_imp), null, "map.map", "icon-x=18;icon-y=24;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Imp login with /mob/races/Imp mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Changeling login with /mob/races/Changeling mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Alien login with /mob/races/Alien mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Makyo login with /mob/races/Makyo mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Spiritdoll login with /mob/races/Spiritdoll mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Tuffle login with /mob/races/Tuffle mob
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=17;icon-y=20;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=17;icon-y=20;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=17;icon-y=20;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=17;icon-y=20;left=1;but...")
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+Lvl Overlays Created.
+Furrows Created.
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Changeling (/mob/races/Changeling): update looks(null)
+VOXTECH (/mob/races/Yukopian): switch race("Changeling")
+the race button ling (/obj/hud/menus/char_creation_background/race_button_ling): Click(null, "map.map", "icon-x=20;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the race button ling (/obj/hud/menus/char_creation_background/race_button_ling), null, "map.map", "icon-x=20;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Changeling (/mob/races/Changeling): update looks(null)
+VOXTECH (/mob/races/Yukopian): switch race("Changeling")
+the race button ling (/obj/hud/menus/char_creation_background/race_button_ling): Click(null, "map.map", "icon-x=20;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the race button ling (/obj/hud/menus/char_creation_background/race_button_ling), null, "map.map", "icon-x=20;icon-y=14;left=1;but...")
+DEBUG - Changeling login with /mob/races/Changeling mob
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=9;icon-y=12;left=1;butt...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=9;icon-y=12;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=9;icon-y=12;left=1;butt...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=9;icon-y=12;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=10;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=10;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=10;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=10;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=10;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=10;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: list index out of bounds
+proc name: update looks (/mob/proc/update_looks)
+  source file: Modules/core/player/new char.dm,5168
+DEBUG - Demon login with /mob/races/Demon mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Celestial login with /mob/races/Celestial mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Tuffle login with /mob/races/Tuffle mob
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=15;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=15;icon-y=17;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=15;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=15;icon-y=17;left=1;but...")
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("- skin")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=8;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - Changeling login with /mob/races/Changeling mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Imp (/mob/races/Imp): update looks(null)
+VOXTECH (/mob): switch race("Oni")
+the race button imp (/obj/hud/menus/char_creation_background/race_button_imp): Click(null, "map.map", "icon-x=19;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button imp (/obj/hud/menus/char_creation_background/race_button_imp), null, "map.map", "icon-x=19;icon-y=16;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Imp (/mob/races/Imp): update looks(null)
+VOXTECH (/mob): switch race("Oni")
+the race button imp (/obj/hud/menus/char_creation_background/race_button_imp): Click(null, "map.map", "icon-x=19;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button imp (/obj/hud/menus/char_creation_background/race_button_imp), null, "map.map", "icon-x=19;icon-y=16;left=1;but...")
+DEBUG - Imp login with /mob/races/Imp mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Imp)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob/races/Imp): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=19;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=19;icon-y=17;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Imp)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob/races/Imp): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=19;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=19;icon-y=17;left=1;but...")
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=17;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=17;icon-y=17;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=17;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=17;icon-y=17;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=17;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=17;icon-y=17;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+DEBUG - the glitch's Save was last saved on 27/07/2026
+DEBUG - glitch(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple the glitch used ASSESS on the glitch
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 471 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+DEBUG - the glitch's Save was last saved on 27/07/2026
+DEBUG - glitch(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=10;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=10;icon-y=16;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Yukopian (/mob/races/Yukopian): update looks(null)
+VOXTECH (/mob): switch race("Namekian")
+the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian): Click(null, "map.map", "icon-x=10;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button yukopian (/obj/hud/menus/char_creation_background/race_button_yukopian), null, "map.map", "icon-x=10;icon-y=16;left=1;but...")
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Yukopian): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=9;icon-y=13;left=1;butt...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=21;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=21;icon-y=16;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=21;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=21;icon-y=16;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=21;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=21;icon-y=16;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=10;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("- body")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("- body")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("- body")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=15;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=15;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - the hmm's Save was last saved on 27/07/2026
+DEBUG - hmm(VOXTECH)'s Saved character to slot 1
+DEBUG - the hmm's Save was last saved on 27/07/2026
+DEBUG - hmm(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=11;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=11;icon-y=18;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=11;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=11;icon-y=18;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=11;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=11;icon-y=18;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+DEBUG - the bug's Save was last saved on 27/07/2026
+DEBUG - bug(VOXTECH)'s Saved character to slot 1
+DEBUG - the bug's Save was last saved on 27/07/2026
+DEBUG - bug(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the bug login with /mob/races/Saiyan mob
+File Read(the bug)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16023
+  usr: VOXTECH (/mob)
+  src: the bug (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the sand5 (149,197,10) (/turf/sands/sand5)
+  call stack:
+the bug (/mob/races/Saiyan): skillbar()
+the bug (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the bug) Loaded!
+Cybertech Created.
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the bug's Save was last saved on 27/07/2026
+DEBUG - bug(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+Loading Player(voxtech)..
+DEBUG - the bug login with /mob/races/Saiyan mob
+File Read(the bug)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16023
+  usr: VOXTECH (/mob)
+  src: the bug (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the sand5 (149,197,10) (/turf/sands/sand5)
+  call stack:
+the bug (/mob/races/Saiyan): skillbar()
+the bug (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the bug) Loaded!
+System Loading.....
+VOXTECH logs in.</font>
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 471 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+runtime error: positional parameters must precede all named args
+proc name: add filter (/proc/add_filter)
+  usr: the bug (/mob/races/Saiyan)
+  src: null
+  usr.loc: the sand5 (149,197,10) (/turf/sands/sand5)
+  call stack:
+add filter(the bug (/mob/races/Saiyan), "outline", null)
+the bug (/mob/races/Saiyan): apply c type mutation()
+/mutations/type_c (/mutations/type_c): activate(the bug (/mob/races/Saiyan))
+the bug (/mob/races/Saiyan): RunAdminCommand("Manage_Mutations")
+VOXTECH (/client): Topic("src=\\refthe%20bug;admin_cmd=M...", /list (/list))
+runtime error: invalid object type 0:0
+proc name: apply c type mutation (/mob/proc/apply_c_type_mutation)
+  source file: Modules/core/player/stats.dm,1287
+  usr: (src)
+  src: the bug (/mob/races/Saiyan)
+  src.loc: the sand5 (149,197,10) (/turf/sands/sand5)
+  call stack:
+the bug (/mob/races/Saiyan): apply c type mutation()
+/mutations/type_c (/mutations/type_c): activate(the bug (/mob/races/Saiyan))
+the bug (/mob/races/Saiyan): RunAdminCommand("Manage_Mutations")
+VOXTECH (/client): Topic("src=\\refthe%20bug;admin_cmd=M...", /list (/list))
+(Admin Log): Admin Purple the bug used ASSESS on the bug
+DEBUG - the bug's Save was last saved on 27/07/2026
+DEBUG - bug(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the bug login with /mob/races/Saiyan mob
+File Read(the bug)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16030
+  usr: VOXTECH (/mob)
+  src: the bug (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the sand5 (149,198,10) (/turf/sands/sand5)
+  call stack:
+the bug (/mob/races/Saiyan): skillbar()
+the bug (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the bug) Loaded!
+Lvl Overlays Created.
+VOXTECH logs in.</font>
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: positional parameters must precede all named args
+proc name: add filter (/proc/add_filter)
+  usr: the bug (/mob/races/Saiyan)
+  src: null
+  usr.loc: the sand5 (149,198,10) (/turf/sands/sand5)
+  call stack:
+add filter(the bug (/mob/races/Saiyan), "outline", null)
+the bug (/mob/races/Saiyan): apply c type mutation()
+/mutations/type_c (/mutations/type_c): activate(the bug (/mob/races/Saiyan))
+the bug (/mob/races/Saiyan): RunAdminCommand("Manage_Mutations")
+VOXTECH (/client): Topic("src=\\refthe%20bug;admin_cmd=M...", /list (/list))
+runtime error: invalid object type 0:0
+proc name: apply c type mutation (/mob/proc/apply_c_type_mutation)
+  source file: Modules/core/player/stats.dm,1287
+  usr: (src)
+  src: the bug (/mob/races/Saiyan)
+  src.loc: the sand5 (149,198,10) (/turf/sands/sand5)
+  call stack:
+the bug (/mob/races/Saiyan): apply c type mutation()
+/mutations/type_c (/mutations/type_c): activate(the bug (/mob/races/Saiyan))
+the bug (/mob/races/Saiyan): RunAdminCommand("Manage_Mutations")
+VOXTECH (/client): Topic("src=\\refthe%20bug;admin_cmd=M...", /list (/list))
+(Admin Log): Admin Purple the bug used ASSESS on the bug
+DEBUG - the bug's Save was last saved on 27/07/2026
+DEBUG - bug(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/sclera/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=19;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=19;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid (/obj/overlay/eyes_iris/kid), "", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=19;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=19;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=19;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=19;icon-y=13;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ body")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=11;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the eyes iris (/obj/overlay/eyes_iris), "", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=12;left=1;but...")
+DEBUG - the lol's Save was last saved on 27/07/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple used Planet Teleport
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: the lol (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: the grass (92,93,1) (/turf/grass)
+  call stack:
+/icon (/icon): New(the sclera (/obj/overlay/sclera), "", 2, 1, 0)
+the lol (/mob/races/Saiyan): update looks("body")
+the lol (/mob/races/Saiyan): apply c type mutation()
+/mutations/type_c (/mutations/type_c): activate(the lol (/mob/races/Saiyan))
+the lol (/mob/races/Saiyan): RunAdminCommand("Manage_Mutations")
+VOXTECH (/client): Topic("src=\\refthe%20lol;admin_cmd=M...", /list (/list))
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: bad icon operation
+proc name: New (/icon/New)
+runtime error: positional parameters must precede all named args
+proc name: add filter (/proc/add_filter)
+runtime error: invalid object type 0:0
+proc name: apply c type mutation (/mob/proc/apply_c_type_mutation)
+  source file: Modules/core/player/stats.dm,1288
+(Admin Log): Admin Purple the lol used ASSESS on the lol
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 471 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+(Admin Log): Admin Purple healed the lol
+DEBUG - the lol's Save was last saved on 27/07/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3815
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.

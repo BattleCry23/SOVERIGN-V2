@@ -870,17 +870,28 @@ mob
 			for(var/obj/origins/x in bg.origins_txt_holder.vis_contents)
 				bg.origins_txt_holder.vis_contents -= x
 			//Start populating the players char_creation_background with the origins
+			var/allow_beast_potential = (src.saiyan_dna || src.human_dna || src.is_hybrid)
+			var/allow_type_c = !(src.LSSJ || src.is_hybrid)
+			var/has_beast_potential = FALSE
+			for(var/obj/origins/mutations/beast_potential in src.learnable_origins)
+				has_beast_potential = TRUE
+				break
+			var/has_type_c = FALSE
+			for(var/obj/origins/mutations/type_c in src.learnable_origins)
+				has_type_c = TRUE
+				break
 			for(var/obj/origins/x in src.learnable_origins)
 				//Clear the origins when switching to another race.
 				if(bg && bg.origins_txt_holder) bg.origins_txt_holder.vis_contents -= x
 				//Now organise the origins based on if they're locked or not for that players race and apply them to the hud.
 				var/learnable = 1
-				if(src.race in x.banned_races)
+				if(src.race in x.banned_races || src.race_class in x.banned_class)
 					learnable = 0
 					//Ones not added -should- be collected by the garbage collector?
-				for(var/obj/origins/mutations/beast_potential in src.learnable_origins)
-					if(!src.saiyan_dna && !src.human_dna && !src.is_hybrid)
-						learnable = 0
+				if(has_beast_potential && !allow_beast_potential)
+					learnable = 0
+				if(has_type_c && !allow_type_c)
+					learnable = 0 // just incase the above fails somehow
 				if(learnable)
 					var/matrix/m = matrix()
 					yy -= 20
@@ -3225,10 +3236,10 @@ mob
 				//src.sight = SEE_BLACKNESS// | SEE_PIXELS
 				src.online = 1
 				if(src.eyes && src.age<13)
-					src.vis_contents -= src.eyes
-					src.vis_contents -= src.eyes_white
-					src.overlays -= src.eyes
-					src.overlays -= src.eyes_white
+					src.vis_contents -= list(src.eyes, src.eyes_white)
+					//src.vis_contents -= src.eyes_white
+					remove_overlays(src, list(src.eyes, src.eyes_white))
+					//src.overlays -= src.eyes_white
 
 			//	src<< "Checking Offspring!"
 				if(src.offspring)
@@ -3255,39 +3266,42 @@ mob
 
 			src.can_save = 1
 		//	src<< "Choosing character set to 0 "
-			var/colorz
+			var/r
+			var/g
+			var/b
 			switch(rand(1,14))
-				if(1)
-					colorz=rgb(rand(1,250),rand(1,200),rand(1,250))
+				if(1,11)
+					r = rand(1,250); g = rand(1,200); b = rand(1,250)
 				if(2)
-					colorz=rgb(rand(20,80),rand(1,200),rand(1,255))
+					r = rand(20,80); g = rand(1,200); b = rand(1,255)
 				if(3)
-					colorz=rgb(0,rand(80,200),rand(20,255))
+					r = 0; g = rand(80,200); b = rand(20,255)
 				if(4)
-					colorz=rgb(rand(1,255),rand(1,20),rand(56,175))
+					r = rand(1,255); g = rand(1,20); b = rand(56,175)
 				if(5)
-					colorz=rgb(rand(1,60),rand(1,80),rand(1,120))
+					r = rand(1,60); g = rand(1,80); b = rand(1,120)
 				if(6)
-					colorz=rgb(rand(80,155),0,rand(1,80))
+					r = rand(80,155); g = 0; b = rand(1,80)
 				if(7)
-					colorz=rgb(rand(5,253),rand(5,253),rand(5,80))
+					r = rand(5,253); g = rand(5,253); b = rand(5,80)
 				if(8)
-					colorz=rgb(rand(5,80),rand(5,253),rand(5,253))
+					r = rand(5,80); g = rand(5,253); b = rand(5,253)
 				if(9)
-					colorz=rgb(rand(5,80),rand(5,80),rand(5,80))
+					r = rand(5,80); g = rand(5,80); b = rand(5,80)
 				if(10)
-					colorz=rgb(rand(35,153),rand(65,153),rand(95,153))
-				if(11)
-					colorz=rgb(rand(1,250),rand(1,200),rand(1,250))
+					r = rand(35,153); g = rand(65,153); b = rand(95,153)
 				if(12)
-					colorz=rgb(rand(0,255),rand(200,255),rand(0,255))
+					r = rand(0,255); g = rand(200,255); b = rand(0,255)
 				if(13)
-					colorz=rgb(rand(200,255),rand(0,255),rand(0,255))
+					r = rand(200,255); g = rand(0,255); b = rand(0,255)
 				if(14)
-					colorz=rgb(rand(0,255),rand(0,255),rand(200,255))
-			src.auracolor=colorz
-			var/signaturez=rand(111111111,999999999)
-			src.signature = signaturez
+					r = rand(0,255); g = rand(0,255); b = rand(200,255)
+			// Blend toward bright highlights so random aura colors look smoother and less muddy.
+			r = round((r * 3 + rand(200,255)) / 4)
+			g = round((g * 3 + rand(190,255)) / 4)
+			b = round((b * 3 + rand(200,255)) / 4)
+			src.auracolor = rgb(r,g,b)
+			src.signature = rand(111111111,999999999)
 			/*winset(src, null, {"
 					ChatOut.is-visible      = "true";
 					ActionOutputChild.is-visible      = "true";
@@ -3355,73 +3369,43 @@ mob
 				src.hud_roleplayrank = rprank
 				src.hud_roleplayrank.rankist = src
 				src.client.screen += src.hud_roleplayrank
+			var/music_file
+			var/music_volume = 25
 			switch(z)
 				if(1)//earth
-					switch(rand(1,3))
-						if(1)
-							src <<sound('EarthMusic.ogg',1,volume=25)
-						if(2)
-							src <<sound('BulmaAndTheFrog.ogg',1,volume=25)
-						if(3)
-							src <<sound('TheSagaContinues.ogg',1,volume=25)
+					music_file = pick('EarthMusic.ogg', 'BulmaAndTheFrog.ogg', 'TheSagaContinues.ogg')
 				if(4)//namek
-					switch(rand(1,3))
-						if(1)
-							src<<sound('BulmaAndTheFrog.ogg',1,volume=25)
-						if(2)
-							src<<sound('GokusNightmare.ogg',1,volume=25)
-						if(3)
-							src<<sound('TheSagaContinues.ogg',1,volume=25)
+					music_file = pick('BulmaAndTheFrog.ogg', 'GokusNightmare.ogg', 'TheSagaContinues.ogg')
 				if(10)//vegeta
 					switch(rand(1,4))
 						if(1)
-							src<<sound('TheSagaContinues.ogg',1,volume=25)
+							music_file = 'TheSagaContinues.ogg'
 						if(2)
-							src<<sound('KingKai.ogg',1,volume=35)
+							music_file = 'KingKai.ogg'
+							music_volume = 35
 						if(3)
-							src<<sound('SnakeWay.ogg',1,volume=35)
+							music_file = 'SnakeWay.ogg'
+							music_volume = 35
 						if(4)
-							src<<sound('PowerMusic.ogg',1,volume=25)
+							music_file = 'PowerMusic.ogg'
 				if(9)//icer
-					switch(rand(1,3))
-						if(1)
-							src<<sound('PowerMusic.ogg',1,volume=25)
-						if(2)
-							src<<sound('GokusNightmare.ogg',1,volume=25)
-						if(3)
-							src<<sound('TheSagaContinues.ogg',1,volume=25)
+					music_file = pick('PowerMusic.ogg', 'GokusNightmare.ogg', 'TheSagaContinues.ogg')
 
 				if(6)//hell
 					switch(rand(1,3))
 						if(1)
-							src<<sound('HellTheme.ogg',1,volume=25)
+							music_file = 'HellTheme.ogg'
 						if(2)
-							src<<sound('FriezaBegs.ogg',1,volume=25)
-						if(2)
-							src<<sound('PowerMusic.ogg',1,volume=25)
+							music_file = 'FriezaBegs.ogg'
 				if(12)//hell
-					switch(rand(1,2))
-						if(1)
-							src<<sound('HellTheme.ogg',1,volume=25)
-						if(2)
-							src<<sound('FriezaBegs.ogg',1,volume=25)
+					music_file = pick('HellTheme.ogg', 'FriezaBegs.ogg')
 
 				if(11)//heaven
-					switch(rand(1,3))
-						if(1)
-							src<<sound('KingKai.ogg',1,volume=25)
-						if(2)
-							src<<sound('OldKaisDance.ogg',1,volume=25)
-						if(3)
-							src<<sound('BulmaAndTheFrog.ogg',1,volume=25)
+					music_file = pick('KingKai.ogg', 'OldKaisDance.ogg', 'BulmaAndTheFrog.ogg')
 				if(2)//cp
-					switch(rand(1,3))
-						if(1)
-							src<<sound('KingKai.ogg',1,volume=25)
-						if(2)
-							src<<sound('OldKaisDance.ogg',1,volume=25)
-						if(3)
-							src<<sound('BulmaAndTheFrog.ogg',1,volume=25)
+					music_file = pick('KingKai.ogg', 'OldKaisDance.ogg', 'BulmaAndTheFrog.ogg')
+			if(music_file)
+				src << sound(music_file, 1, volume = music_volume)
 			//if(src.age<=3.9) src.set_baby_icon(src)
 			src.set_shadow()
 			if(src.client)
@@ -3501,207 +3485,89 @@ mob
 			src.open_menus.Add(".open_help")
 			src.client.screen += src.hud_help
 			winset(src,"map.map","focus=true")
-		rebuild_menus()
-			if(src.hud_stats)
-				qdel(src.hud_stats)
-				src.hud_stats = null
-			var/obj/hud/menus/core_stats_background/bg = new
-			src.hud_stats = bg
-			bg.loc = src
-			bg.menu_create()
 
-
-			if(src.hud_inv)
-				qdel(src.hud_inv)
-				src.hud_inv = null
-			var/obj/hud/menus/inventory_background/inv = new
-			src.hud_inv = inv
-			inv.loc = src
-			inv.menu_create()
-
-
-			if(src.hud_tech)
-				qdel(src.hud_tech)
-				src.hud_tech = null
-			var/obj/hud/menus/tech_background/tech = new
-			src.hud_tech = tech
-			tech.loc = src
-			tech.menu_create()
-
-
-			if(src.hud_unlocks)
-				qdel(src.hud_unlocks)
-				src.hud_unlocks = null
-			var/obj/hud/menus/unlocks_background/unlocks = new
-			src.hud_unlocks = unlocks
-			unlocks.loc = src
-			unlocks.menu_create()
-
-
-			if(src.hud_opt)
-				qdel(src.hud_opt)
-				src.hud_opt = null
-			var/obj/hud/menus/options_background/opt = new
-			src.hud_opt = opt
-			opt.loc = src
-			opt.menu_create()
-
-
-			if(src.hud_skills)
-				qdel(src.hud_skills)
-				src.hud_skills = null
-			var/obj/hud/menus/skills_background/skl = new
-			src.hud_skills = skl
-			skl.loc = src
-			skl.menu_create()
-
-
-			if(src.hud_body)
-				qdel(src.hud_body)
-				src.hud_body = null
-			var/obj/hud/menus/bodyparts_background/bp = new
-			src.hud_body = bp
-			bp.loc = src
-			bp.menu_create()
-
+		refresh_hud_menu(var/menu_type, var/slot_name)
+			var/obj/existing = src.vars[slot_name]
+			if(existing)
+				qdel(existing)
+				src.vars[slot_name] = null
+			var/obj/menu = new menu_type
+			src.vars[slot_name] = menu
+			menu.loc = src
+			call(menu, "menu_create")()
+			return menu
+		setup_hud_menus()
+			var/list/menu_defs = list(
+				list(/obj/hud/menus/core_stats_background, "hud_stats"),
+				list(/obj/hud/menus/inventory_background, "hud_inv"),
+				list(/obj/hud/menus/tech_background, "hud_tech"),
+				list(/obj/hud/menus/unlocks_background, "hud_unlocks"),
+				list(/obj/hud/menus/options_background, "hud_opt"),
+				list(/obj/hud/menus/skills_background, "hud_skills")
+			)
+			for(var/list/menu_def in menu_defs)
+				src.refresh_hud_menu(menu_def[1], menu_def[2])
+			var/obj/hud/menus/bodyparts_background/bp = src.refresh_hud_menu(/obj/hud/menus/bodyparts_background, "hud_body")
 			for(var/obj/hud/menus/bodyparts_background/bodypart/lb in bp.body)
 				src.client.screen += lb
-
-
-			if(src.hud_contacts)
-				qdel(src.hud_contacts)
-				src.hud_contacts = null
-			var/obj/hud/menus/contacts_background/cb = new
-			src.hud_contacts = cb
-			cb.loc = src
-			cb.menu_create()
-
-
-			if(src.hud_build)
-				qdel(src.hud_build)
-				src.hud_build = null
-			var/obj/hud/menus/build_background/bb = new
-			src.hud_build = bb
-			bb.loc = src
-			bb.menu_create()
-
-
-			if(src.hud_help)
-				qdel(src.hud_help)
-				src.hud_help = null
-			var/obj/hud/menus/help_background/h = new
-			src.hud_help = h
-			h.loc = src
-			h.menu_create()
+			src.refresh_hud_menu(/obj/hud/menus/contacts_background, "hud_contacts")
+			src.refresh_hud_menu(/obj/hud/menus/build_background, "hud_build")
+			src.refresh_hud_menu(/obj/hud/menus/help_background, "hud_help")
+		rebuild_menus()
+			src.setup_hud_menus()
 		create_menus()
-			var/obj/hud/menus/core_stats_background/bg = new
-			src.hud_stats = bg
-			bg.loc = src
-			bg.menu_create()
-
-			var/obj/hud/menus/inventory_background/inv = new
-			src.hud_inv = inv
-			inv.loc = src
-			inv.menu_create()
-			src.hud_inv = inv
-
-			var/obj/hud/menus/tech_background/tech = new
-			src.hud_tech = tech
-			tech.loc = src
-			tech.menu_create()
-
-			var/obj/hud/menus/unlocks_background/unlocks = new
-			src.hud_unlocks = unlocks
-			unlocks.loc = src
-			unlocks.menu_create()
-
-			var/obj/hud/menus/options_background/opt = new
-			src.hud_opt = opt
-			opt.loc = src
-			opt.menu_create()
-
-			var/obj/hud/menus/skills_background/skl = new
-			src.hud_skills = skl
-			skl.loc = src
-			skl.menu_create()
+			src.setup_hud_menus()
 
 			//var/obj/hud/menus/limb_paperdoll/pd = new
 			//src.hud_paperdoll = pd
 			//pd.loc = src
 			//pd.menu_create()
 
-			var/obj/hud/menus/bodyparts_background/bp = new
-			src.hud_body = bp
-			bp.loc = src
-			bp.menu_create()
-			for(var/obj/hud/menus/bodyparts_background/bodypart/lb in bp.body)
-				src.client.screen += lb
+			// bodyparts are handled in setup_hud_menus()
 
 
-			var/obj/hud/menus/contacts_background/cb = new
-			src.hud_contacts = cb
-			cb.loc = src
-			cb.menu_create()
-
-			var/obj/hud/menus/build_background/bb = new
-			src.hud_build = bb
-			bb.loc = src
-			bb.menu_create()
+			// contacts/build/help are handled in setup_hud_menus()
 
 			//var/obj/hud/menus/chat_background/ch = new
 		//	src.hud_chat = ch
 			//ch.loc = src
 		//	ch.menu_create()
 
-			var/obj/hud/menus/help_background/h = new
-			src.hud_help = h
-			h.loc = src
-			h.menu_create()
+		grant_skill(var/skill_type, var/slot = 0)
+			var/obj/skills/skill = new skill_type
+			skill.loc = src
+			if(slot)
+				src.add_to_skillbar(skill, src.hud_skillbar[slot])
+			return skill
+		grant_skill_list(var/list/skill_types)
+			for(var/path in skill_types)
+				src.grant_skill(path)
+			return
+			
 		starting_skills(var/all = 0)
-			var/obj/skills/Meditate/m = new
-			m.loc = src
-			src.skill_meditation = m
-
-			src.add_to_skillbar(m,src.hud_skillbar[2])
-
-			var/obj/skills/Self_Train/st = new
-			st.loc = src
-			src.skill_selftrain = st
-			src.add_to_skillbar(st,src.hud_skillbar[3])
+			src.skill_meditation = src.grant_skill(/obj/skills/Meditate, 2)
+			src.skill_selftrain = src.grant_skill(/obj/skills/Self_Train, 3)
 
 
 			//var/obj/skills/Power_Control/pc = new
 			//pc.loc = src
 		//	src.skill_power_control = pc
 			//src.add_to_skillbar(pc,src.hud_skillbar[5])
-			var/obj/skills/Gather/gt = new
-			src.skill_gather = gt
-			gt.loc = src
+			src.skill_gather = src.grant_skill(/obj/skills/Gather)
 
-			var/obj/skills/Toggle_Run/rn = new
-			src.skill_run = rn
-			rn.loc = src
-			src.add_to_skillbar(rn,src.hud_skillbar[5])
+			src.skill_run = src.grant_skill(/obj/skills/Toggle_Run, 5)
 
 
-			var/obj/skills/Dig/dg = new
-			dg.loc = src
-			src.skill_dig = dg
-			src.add_to_skillbar(dg,src.hud_skillbar[4])
+			src.skill_dig = src.grant_skill(/obj/skills/Dig, 4)
 
-			var/obj/skills/Sleep/slp = new
-			slp.loc = src
+			src.grant_skill(/obj/skills/Sleep)
 
-			var/obj/skills/Attack/att = new
-			att.loc = src
-			src.add_to_skillbar(att,src.hud_skillbar[1])
+			src.grant_skill(/obj/skills/Attack, 1)
 
 
-			var/obj/skills/Study/stdy = new
-			stdy.loc = src
+			var/obj/skills/Study/stdy = src.grant_skill(/obj/skills/Study)
 
-			var/obj/skills/Research/rsrch = new
-			rsrch.loc = src
+			var/obj/skills/Research/rsrch = src.grant_skill(/obj/skills/Research)
 
 
 			if(src.race == "Tuffle" ||src.race_class == "Technician")
@@ -3711,18 +3577,11 @@ mob
 			if(src.race == "Tuffle" ||src.race_class == "Technician")
 				src.add_to_skillbar(rsrch,src.hud_skillbar[7])
 			if(src.race_class == "Wizard" ||src.race_class == "Witch" ||src.race == "Demon" ||src.race == "Kai"||src.race == "Oni"||src.race=="Spirit Doll"||src.race=="Namekian")
-				var/obj/skills/Hone/hne = new
-				hne.loc = src
-				src.add_to_skillbar(hne,src.hud_skillbar[6])
-
-				var/obj/skills/Harness/hrns = new
-				hrns.loc = src
-				src.add_to_skillbar(hrns,src.hud_skillbar[7])
+				src.grant_skill(/obj/skills/Hone, 6)
+				src.grant_skill(/obj/skills/Harness, 7)
 
 			if(src.race == "Saiyan")
-				var/obj/skills/Look_At_Moon/shde = new
-				shde.loc = src
-				src.add_to_skillbar(shde,src.hud_skillbar[6])
+				src.grant_skill(/obj/skills/Look_At_Moon, 6)
 
 
 
@@ -3731,173 +3590,61 @@ mob
 
 			if(all)
 
+				src.grant_skill_list(list(
+					/obj/skills/Flight,
+					/obj/skills/Divine_Weapon,
+					/obj/skills/Germination,
+					/obj/skills/Stunning_Blow,
+					/obj/skills/Precision,
+					/obj/skills/Dark_Petrifaction,
+					/obj/skills/Dark_Transmutation,
+					/obj/skills/Decline_Absorb,
+					/obj/skills/Soul_Absorb,
+					/obj/skills/Solar_Flare,
+					/obj/skills/Psi_Lightning,
+					/obj/skills/Psionic_Lance,
+					/obj/skills/Astral_Projection,
+					/obj/skills/Teleportation,
+					/obj/skills/Reincarnation,
+					/obj/skills/Ressurect,
+					/obj/skills/Restoration,
+					/obj/skills/Telepathy,
+					/obj/skills/Beam,
+					/obj/skills/Power_Control,
+					/obj/skills/Ki_Blade,
+					/obj/skills/Ki_Fist,
+					/obj/skills/Blast,
+					/obj/skills/Invisibility,
+					/obj/skills/Expand,
+					/obj/skills/Charge,
+					/obj/skills/Self_Destruct,
+					/obj/skills/Zanzoken,
+					/obj/skills/Split_Form,
+					/obj/skills/Telekinesis,
+					/obj/skills/Energy_Shield,
+					/obj/skills/Give_Power,
+					/obj/skills/Kaiosoku,
+					/obj/skills/Kaioken,
+					/obj/skills/Kaioenjin,
+					/obj/skills/Kaioryu,
+					/obj/skills/Destructo_Disk,
+					/obj/skills/Summon_Mage_Pot,
+					/obj/skills/Create_Energy_Drainer,
+					/obj/skills/Underworld_Portal,
+					/obj/skills/Spirit_Reprieve,
+					/obj/skills/Majinize,
+					/obj/skills/Mysticize,
+					/obj/skills/Conceive_Offspring,
+					/obj/skills/UnlockPotential,
+					/obj/skills/Create_Dragonballs,
+					/obj/skills/Create_Namekian_Dragonballs
+				))
 
-				var/obj/skills/Flight/fl = new
-				fl.loc = src
-
-				var/obj/skills/Divine_Weapon/dw = new
-				dw.loc = src
-
-				var/obj/skills/Sense/sn = new
-				sn.loc = src
+				var/obj/skills/Sense/sn = src.grant_skill(/obj/skills/Sense)
 				sn.super_sense = 1
 
-				var/obj/skills/Germination/gm = new
-				gm.loc = src
-
-				var/obj/skills/Stunning_Blow/sb = new
-				sb.loc = src
-
-				var/obj/skills/Precision/pr = new
-				pr.loc = src
-
-				var/obj/skills/Dark_Petrifaction/dp = new
-				dp.loc = src
-
-				var/obj/skills/Dark_Transmutation/dt = new
-				dt.loc = src
-
-				var/obj/skills/Decline_Absorb/da = new
-				da.loc = src
-
-				var/obj/skills/Soul_Absorb/sa = new
-				sa.loc = src
-
-				var/obj/skills/Solar_Flare/sff = new
-				sff.loc = src
-
-				//var/obj/skills/Dark_Formation/df = new
-			//	df.loc = src
-
-				var/obj/skills/Psi_Lightning/psi_l = new
-				psi_l.loc = src
-
-			//	var/obj/skills/Psi_Storm/psi_s = new
-			//	psi_s.loc = src
-
-				var/obj/skills/Psionic_Lance/pl = new
-				pl.loc = src
-
-				var/obj/skills/Astral_Projection/ap = new
-				ap.loc = src
-
-				var/obj/skills/Remote_Viewing/rm = new
+				var/obj/skills/Remote_Viewing/rm = src.grant_skill(/obj/skills/Remote_Viewing)
 				src.skill_remote_viewing = rm
-				rm.loc = src
-
-				var/obj/skills/Teleportation/tp = new
-				tp.loc = src
-
-				var/obj/skills/Reincarnation/rr = new
-				rr.loc = src
-
-				var/obj/skills/Ressurect/rv = new
-				rv.loc = src
-
-				var/obj/skills/Restoration/res = new
-				res.loc = src
-
-				var/obj/skills/Telepathy/tel = new
-				tel.loc = src
-
-				var/obj/skills/Beam/be = new
-				be.loc = src
-
-				var/obj/skills/Power_Control/pc = new
-				pc.loc = src
-
-				var/obj/skills/Ki_Blade/kb = new
-				kb.loc = src
-
-				var/obj/skills/Ki_Fist/kf = new
-				kf.loc = src
-
-				var/obj/skills/Blast/bs = new
-				bs.loc = src
-
-				var/obj/skills/Invisibility/i = new
-				i.loc = src
-
-				var/obj/skills/Expand/e = new
-				e.loc = src
-
-				var/obj/skills/Charge/ch = new
-				ch.loc = src
-
-				var/obj/skills/Self_Destruct/SD = new
-				SD.loc = src
-
-		//		var/obj/skills/Obfuscation/ob = new
-		//		ob.loc = src
-
-				var/obj/skills/Zanzoken/SP = new
-				SP.loc = src
-
-		//		var/obj/skills/Divine_Infusion/di = new
-		//		di.loc = src
-
-		//		var/obj/skills/Dark_Infusion/dark = new
-		//		dark.loc = src
-
-				var/obj/skills/Split_Form/psi_c = new
-				psi_c.loc = src
-
-				var/obj/skills/Telekinesis/tk = new
-				tk.loc = src
-
-				var/obj/skills/Energy_Shield/sh = new
-				sh.loc = src
-
-				var/obj/skills/Give_Power/gp = new
-				gp.loc = src
-
-		//		var/obj/skills/Mental_Battle/mb = new
-		//		mb.loc = src
-
-				var/obj/skills/Kaiosoku/qs = new
-				qs.loc = src
-
-				var/obj/skills/Kaioken/kk = new
-				kk.loc = src
-
-				var/obj/skills/Kaioenjin/ke = new
-				ke.loc = src
-
-				var/obj/skills/Kaioryu/kr = new
-				kr.loc = src
-
-				var/obj/skills/Destructo_Disk/dd = new
-				dd.loc = src
-
-				var/obj/skills/Summon_Mage_Pot/smg = new
-				smg.loc = src
-
-				var/obj/skills/Create_Energy_Drainer/edr = new
-				edr.loc = src
-
-				var/obj/skills/Underworld_Portal/uwp = new
-				uwp.loc = src
-
-				var/obj/skills/Spirit_Reprieve/spr = new
-				spr.loc = src
-
-				var/obj/skills/Majinize/mjnze = new
-				mjnze.loc = src
-
-				var/obj/skills/Mysticize/mystcze = new
-				mystcze.loc = src
-
-				var/obj/skills/Conceive_Offspring/co = new
-				co.loc = src
-
-				var/obj/skills/UnlockPotential/up = new
-				up.loc = src
-
-				var/obj/skills/Create_Dragonballs/cdbs = new
-				cdbs.loc = src
-
-				var/obj/skills/Create_Namekian_Dragonballs/cndbs = new
-				cndbs.loc = src
 
 			//	var/obj/skills/Evil_Containment_Wave/ew = new
 			//	ew.loc = src
@@ -3914,8 +3661,12 @@ mob
 				for(var/obj/skills/o in src)
 					src << output(o,"skills.grid_skills:[++count]")
 				winset(src, "skills.grid_skills", "cells=\"[count]\"")
+
 		tmp_lists()
 			set waitfor = 0
+			reset_shared_runtime_lists()
+
+		reset_shared_runtime_lists()
 			remembers_strength = list()
 			remembers_endurance = list()
 			remembers_agility = list()
@@ -3944,6 +3695,7 @@ mob
 			defence_sources = list()
 			regen_sources = list()
 			recov_sources = list()
+			
 		set_lists()
 			learnable_origins = list()
 			options = list()
@@ -3955,7 +3707,6 @@ mob
 			bodyparts = list()
 			RP_last = list()
 			RP_last_100 = list()
-			hurt_limbs = list()
 			hud_map = list(new /:map_loc,new /:map_cords)
 			RP_word_count = list()
 
@@ -3967,35 +3718,8 @@ mob
 			hud_sub = list(new /:button_map)
 			milestone_hud = list(new /:button_body)
 			admin_panel = list(new /:button_admin)
-			remembers_strength = list()
-			remembers_endurance = list()
-			remembers_agility = list()
-			remembers_resistance = list()
-			remembers_force = list()
-			remembers_offence = list()
-			remembers_defence = list()
-			remembers_recovery = list()
-			remembers_regeneration = list()
-
-			restedness_sources = list()
-			power_sources = list()
-			energy_sources = list()
-			divine_sources = list()
-			dark_matter_sources = list()
-			strength_sources = list()
-			endurance_sources = list()
-			resistance_sources = list()
-			agility_sources = list()
-			force_sources = list()
-			offence_sources = list()
-			defence_sources = list()
-			regen_sources = list()
-			recov_sources = list()
-
-			open_menus = list()
-			chat_see = list()
+			reset_shared_runtime_lists()
 			tk_minigame = list()
-			blips = list()
 			mobs_map = list()
 			blips_map = list()
 			mobs_map_mini = list()
@@ -4051,131 +3775,53 @@ mob
 			//Portrait nose/eyes/mouth selection
 			if(t == "+ mouth")
 				if(target)
+					var/mouth_max = 4
+					if(target.race != "Namekian" && target.gen == "Female")
+						mouth_max = 5
 					target.mouth_pos += 1
-					if(target.race == "Namekian")
-						if(target.mouth_pos >= 5) target.mouth_pos = 1
-					else if(target.race == "Demon")
-						if(target.gen == "Female")
-							if(target.mouth_pos >= 6) target.mouth_pos = 1
-						if(target.gen == "Male")
-							if(target.mouth_pos >= 5) target.mouth_pos = 1
-					else
-						if(target.gen == "Female")
-							if(target.mouth_pos >= 6) target.mouth_pos = 1
-						if(target.gen == "Male")
-							if(target.mouth_pos >= 5) target.mouth_pos = 1
+					if(target.mouth_pos > mouth_max) target.mouth_pos = 1
 			if(t == "- mouth")
 				if(target)
+					var/mouth_max = 4
+					if(target.race != "Namekian" && target.gen == "Female")
+						mouth_max = 5
 					target.mouth_pos -= 1
-					if(target.race == "Namekian")
-						if(target.mouth_pos <= 0) target.mouth_pos = 4
-					else if(target.race == "Demon")
-						if(target.gen == "Female")
-							if(target.mouth_pos <= 0) target.mouth_pos = 5
-						if(target.gen == "Male")
-							if(target.mouth_pos <= 0) target.mouth_pos = 4
-					else
-						if(target.gen == "Female")
-							if(target.mouth_pos <= 0) target.mouth_pos = 5
-						if(target.gen == "Male")
-							if(target.mouth_pos <= 0) target.mouth_pos = 4
+					if(target.mouth_pos <= 0) target.mouth_pos = mouth_max
 			if(t == "+ nose")
 				if(target)
 					target.nose_pos += 1
-					if(target.race == "Namekian")
-						if(target.nose_pos >= 4) target.nose_pos = 1
-					else if(target.race == "Demon")
-						if(target.gen == "Female")
-							if(target.nose_pos >= 4) target.nose_pos = 1
-						if(target.gen == "Male")
-							if(target.nose_pos >= 4) target.nose_pos = 1
-					else
-						if(target.gen == "Female")
-							if(target.nose_pos >= 4) target.nose_pos = 1
-						if(target.gen == "Male")
-							if(target.nose_pos >= 4) target.nose_pos = 1
+					if(target.nose_pos >= 4) target.nose_pos = 1
 			if(t == "- nose")
 				if(target)
 					target.nose_pos -= 1
-					if(target.race == "Namekian")
-						if(target.nose_pos <= 0) target.nose_pos = 2
-					else if(target.race == "Demon")
-						if(target.gen == "Female")
-							if(target.nose_pos <= 0) target.nose_pos = 2
-						if(target.gen == "Male")
-							if(target.nose_pos <= 0) target.nose_pos = 2
-					else
-						if(target.gen == "Female")
-							if(target.nose_pos <= 0) target.nose_pos = 2
-						if(target.gen == "Male")
-							if(target.nose_pos <= 0) target.nose_pos = 2
-			if(t == "skin color")
+					if(target.nose_pos <= 0) target.nose_pos = 2
+			if(t == "skin color" || t == "eye color")
 				if(target)
-					//if(target.race == "Namekian") target.eye_pos = 1
-					if(target.race == "Demon")
-						if(target.gen == "Female")
-							if(target.skin_pos == 1 || target.skin_pos == 2) target.eye_pos = 1
-							else if(target.eye_pos >= 4) target.eye_pos = 1
-						if(target.gen == "Male")
-							if(target.skin_pos == 1 || target.skin_pos == 2) target.eye_pos = 1
-							else if(target.eye_pos >= 3) target.eye_pos = 1
-					else
-						if(target.gen == "Female")
-							if(target.eye_pos >= 4) target.eye_pos = 1
-						if(target.gen == "Male")
-							if(target.eye_pos >= 3) target.eye_pos = 1
-			if(t == "eye color")
-				if(target)
-					//if(target.race == "Namekian") target.eye_pos = 1
-					if(target.race == "Demon")
-						if(target.gen == "Female")
-							if(target.skin_pos == 1 || target.skin_pos == 2) target.eye_pos = 1
-							else if(target.eye_pos >= 4) target.eye_pos = 1
-						if(target.gen == "Male")
-							if(target.skin_pos == 1 || target.skin_pos == 2) target.eye_pos = 1
-							else if(target.eye_pos >= 3) target.eye_pos = 1
-					else
-						if(target.gen == "Female")
-							if(target.eye_pos >= 4) target.eye_pos = 1
-						if(target.gen == "Male")
-							if(target.eye_pos >= 3) target.eye_pos = 1
+					var/is_female = (target.gen == "Female")
+					var/eye_limit = is_female ? 4 : 3
+					if(target.race == "Demon" && (target.skin_pos == 1 || target.skin_pos == 2))
+						target.eye_pos = 1
+					else if(target.eye_pos >= eye_limit)
+						target.eye_pos = 1
 			if(t == "+ eyes")
 				if(target)
-					//if(target.race == "Namekian") target.eye_pos = 1
-					if(target.race == "Demon")
-						target.eye_pos += 1
-						if(target.gen == "Female")
-							if(target.skin_pos == 1 || target.skin_pos == 2) target.eye_pos = 1
-							else if(target.eye_pos >= 4) target.eye_pos = 1
-						if(target.gen == "Male")
-							if(target.skin_pos == 1 || target.skin_pos == 2) target.eye_pos = 1
-							else if(target.eye_pos >= 3) target.eye_pos = 1
-					else
-						target.eye_pos += 1
-						if(target.gen == "Female")
-							if(target.eye_pos >= 4) target.eye_pos = 1
-						if(target.gen == "Male")
-							if(target.eye_pos >= 3) target.eye_pos = 1
+					var/is_female = (target.gen == "Female")
+					var/eye_limit = is_female ? 4 : 3
+					target.eye_pos += 1
+					if(target.race == "Demon" && (target.skin_pos == 1 || target.skin_pos == 2))
+						target.eye_pos = 1
+					else if(target.eye_pos >= eye_limit)
+						target.eye_pos = 1
 			if(t == "- eyes")
 				if(target)
-					//if(target.race == "Namekian") target.eye_pos = 1
-					if(target.race == "Demon")
-						target.eye_pos -= 1
-						if(target.gen == "Female")
-							if(target.skin_pos == 1 || target.skin_pos == 2) target.eye_pos = 1
-							else if(target.eye_pos <= 0) target.eye_pos = 3
-						if(target.gen == "Male")
-							if(target.skin_pos == 1 || target.skin_pos == 2) target.eye_pos = 1
-							else if(target.eye_pos <= 0) target.eye_pos = 2
-					else
-						target.eye_pos -= 1
-						if(target.gen == "Female")
-							if(target.eye_pos <= 0) target.eye_pos = 3
-						if(target.gen == "Male")
-							if(target.eye_pos <= 0) target.eye_pos = 2
+					var/is_female = (target.gen == "Female")
+					target.eye_pos -= 1
+					if(target.race == "Demon" && (target.skin_pos == 1 || target.skin_pos == 2))
+						target.eye_pos = 1
+					else if(target.eye_pos <= 0)
+						target.eye_pos = is_female ? 3 : 2
 			//Body type selection
 			var/max_body = 3
-			if(target.race == "Demon") max_body = 3
 			if(t == "+ body")
 				target.body_pos += 1
 				if(target.body_pos == max_body) target.body_pos = 1
@@ -4187,30 +3833,26 @@ mob
 			//Skin colour selection
 			var/max_skin = 4
 			if(target)
-				if(target.race == "Demon") max_skin = 6
-				else if(target.race == "Android") max_skin = 4
-				else if(target.race == "Namekian") max_skin = 5
-				else if(target.race == "Spirit Doll") max_skin = 3
-				else if(target.race == "Makyo") max_skin = 5
-				else if(target.race == "Oni") max_skin = 3
-				else if(target.race == "Changeling") max_skin = 6
-				else if(target.race == "Alien") max_skin = 9
-			if(t == "+ skin")
+				switch(target.race)
+					if("Demon", "Changeling")
+						max_skin = 6
+					if("Namekian", "Makyo")
+						max_skin = 5
+					if("Spirit Doll", "Oni")
+						max_skin = 3
+					if("Alien")
+						max_skin = 9
+			if(t == "+ skin" || t == "- skin")
+				var/skin_delta = (t == "+ skin") ? 1 : -1
 				if(clone_tank)
-					clone_tank.vat_skin += 1
+					clone_tank.vat_skin += skin_delta
 					if(clone_tank.vat_skin == max_skin) clone_tank.vat_skin = 1
+					else if(clone_tank.vat_skin == 0) clone_tank.vat_skin = max_skin-1
 
 				if(target)
-					target.skin_pos += 1
+					target.skin_pos += skin_delta
 					if(target.skin_pos == max_skin) target.skin_pos = 1
-			if(t == "- skin")
-				if(clone_tank)
-					clone_tank.vat_skin -= 1
-					if(clone_tank.vat_skin == 0) clone_tank.vat_skin = max_skin-1
-
-				if(target)
-					target.skin_pos -= 1
-					if(target.skin_pos == 0) target.skin_pos = max_skin-1
+					else if(target.skin_pos == 0) target.skin_pos = max_skin-1
 			if(t == "hair color")
 				//Handle normal hair/ear selection
 				if(target)
@@ -4258,23 +3900,11 @@ mob
 						target.overlays -= target.hair
 						target.hair = null
 						target.hair_icon = null*/
-				if(target.race == "Oni")
-					if(age>=13) h = hairs_male[target.hair_pos]
-					else if(age<13)
-						h = kid_hairs_male[target.hair_pos]
-
-				else if(target.race == "Namekian")
-					if(age>=13) h = hairs_male[target.hair_pos]
-					else if(age<13)
-						h = kid_hairs_male[target.hair_pos]
-				else if(target.gen == "Male")
-					if(age>=13) h = hairs_male[target.hair_pos]
-					else if (age<13)
-						h = kid_hairs_male[target.hair_pos]
-				else if(target.gen == "Female")
-					if(age>=13) h = hairs_female[target.hair_pos]
-					else if (age<13)
-						h = kid_hairs_female[target.hair_pos]
+				var/use_male_hair = (target.race == "Oni" || target.race == "Namekian" || target.gen == "Male")
+				if(age >= 13)
+					h = use_male_hair ? hairs_male[target.hair_pos] : hairs_female[target.hair_pos]
+				else if(age < 13)
+					h = use_male_hair ? kid_hairs_male[target.hair_pos] : kid_hairs_female[target.hair_pos]
 
 
 			var/icon/i_race
@@ -4282,18 +3912,22 @@ mob
 		//	var/icon/i_age_race2
 			var/icon/i_horn
 			var/obj/horn = new
+			var/is_adult_age = (age>=13||age==null||age==1||age==21)
+			var/is_kid_age = (age<13 && age>3.9)
+			var/is_newborn_age = (age<=0||age==0.1)
+			var/is_under4_age = (age<4||age==0.1)
 			if(target)
 				//Celestial icon creation
 
 				if(target.race == "Spirit Doll")
 					target.has_hair = 1
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'spiritdoll.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'spiritdoll_kid.dmi'
 							i_age_race2 = 'spiritdoll.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race ='human_babymale.dmi'
 							i_age_race1 = 'spiritdoll_kid.dmi'
 							i_age_race2 = 'spiritdoll.dmi'
@@ -4302,10 +3936,10 @@ mob
 					if(target.skin_pos == 2)
 						if(age>=13||age==null||age==1)
 							i_race = 'spiritdoll_tan.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'spiritdoll_kidtan.dmi'
 							i_age_race2 = 'spiritdoll_tan.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race ='human_babymale.dmi'
 							i_age_race1 = 'spiritdoll_kidtan.dmi'
 							i_age_race2 = 'spiritdoll_tan.dmi'
@@ -4316,56 +3950,56 @@ mob
 				if(target.race == "Changeling")
 					target.has_hair=0
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'Frieza_1st_form.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'Frieza_1st_form_kid.dmi'
 							i_age_race2 = 'Frieza_1st_form.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'Frieza_1st_form_kid.dmi'
 							i_age_race2 = 'Frieza_1st_form.dmi'
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = '1stFriezaBlue.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= '1stFriezaKid_Blue.dmi'
 							i_age_race2 = '1stFriezaBlue.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1= '1stFriezaKid_Blue.dmi'
 							i_age_race2 = '1stFriezaBlue.dmi'
 
 					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = '1stFriezaGreen.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= '1stFriezaKid_Green.dmi'
 							i_age_race2 = '1stFriezaGreen.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = '1stFriezaKid_Green.dmi'
 							i_age_race2 = '1stFriezaGreen.dmi'
 
 					if(target.skin_pos == 4)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = '1stFriezaOrange.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= '1stFriezaKid_Orange.dmi'
 							i_age_race2 = '1stFriezaOrange.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = '1stFriezaKid_Orange.dmi'
 							i_age_race2 = '1stFriezaOrange.dmi'
 
 					if(target.skin_pos == 5)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = '1stFriezaRed.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= '1stFriezaKid_Red.dmi'
 							i_age_race2 = '1stFriezaRed.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = '1stFriezaKid_Red.dmi'
 							i_age_race2 = '1stFriezaRed.dmi'
@@ -4377,45 +4011,45 @@ mob
 				if(target.race == "Makyo")
 					target.has_hair = 1
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'makyo.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'makyo_kid.dmi'
 							i_age_race2 = 'makyo.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'makyo_kid.dmi'
 							i_age_race2 = 'makyo.dmi'
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'makyo_red.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'makyo_kidred.dmi'
 							i_age_race2 = 'makyo_red.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'makyo_kidred.dmi'
 							i_age_race2 = 'makyo_red.dmi'
 
 					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'makyo_tan.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'makyo_kidtan.dmi'
 							i_age_race2= 'makyo_tan.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 ='makyo_kidtan.dmi'
 							i_age_race2 = 'makyo_tan.dmi'
 
 					if(target.skin_pos == 4)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'makyo_purple.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'makyo_kidpurple.dmi'
 							i_age_race2 = 'makyo_purple.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'makyo_kidpurple.dmi'
 							i_age_race2 = 'makyo_purple.dmi'
@@ -4427,23 +4061,23 @@ mob
 				if(target.race == "Kai")
 					target.has_hair = 1
 					if(target.gen == "Male")
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'humanoid_no_colour2.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'humanoid_no_colour2_kid.dmi'
 							i_age_race2 = 'humanoid_no_colour2.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'humanoid_no_colour2.dmi'
 							i_age_race2 = 'humanoid_no_colour2.dmi'
 
 					if(target.gen == "Female")
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'humanoid_no_colour_female2.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'humanoid_no_colour_female2_kid.dmi'
 							i_age_race2 = 'humanoid_no_colour_female2.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'humanoid_no_colour_female2_kid.dmi'
 							i_age_race2 = 'humanoid_no_colour_female2.dmi'
@@ -4453,35 +4087,35 @@ mob
 				if(target.race == "Alien")
 					target.has_hair = 1
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'Alien_Captin_Ginyu_Naked.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'alien_captginyu_kid.dmi'
 							i_age_race2 = 'Alien_Captin_Ginyu_Naked.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'alien_captginyu_kid.dmi'
 							i_age_race2 = 'Alien_Captin_Ginyu_Naked.dmi'
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race =  'Alien_Immecka_Naked.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'alien_immecka_kid.dmi'
 							i_age_race2 = 'Alien_Immecka_Naked.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'alien_immecka_kid.dmi'
 							i_age_race2 = 'Alien_Immecka_Naked.dmi'
 
 
 					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'Alien_Kanassa_Naked.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'alien_kanassa_kid.dmi'
 							i_age_race2 = 'Alien_Kanassa_Naked.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'alien_kanassa_kid.dmi'
 							i_age_race2 = 'Alien_Kanassa_Naked.dmi'
@@ -4489,58 +4123,58 @@ mob
 
 
 					if(target.skin_pos == 4)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race ='Alien_Kui_Naked.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'alien_kui_kid.dmi'
 							i_age_race2 = 'Alien_Kui_Naked.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'alien_kui_kid.dmi'
 							i_age_race2 = 'Alien_Kui_Naked.dmi'
 
 					if(target.skin_pos == 5)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race ='Alien_Yardrat_Naked.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'alien_yardrat_kid.dmi'
 							i_age_race2 = 'Alien_Yardrat_Naked.dmi'
-						else if(age<=0||age==0.1)
+						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'alien_yardrat_kid.dmi'
 							i_age_race2 = 'Alien_Yardrat_Naked.dmi'
 
 					if(target.skin_pos == 6)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'NewMalesWhite.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'human_male_white_kid.dmi'
 							i_age_race2 = 'NewMalesWhite.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'human_babymale.dmi'
 							i_age_race1= 'human_male_white_kid.dmi'
 							i_age_race2= 'NewMalesWhite.dmi'
 
 
 					if(target.skin_pos == 7)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'NewMalesTan.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'human_male_tan_kid.dmi'
 							i_age_race2 = 'NewMalesTan.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'human_babymale_tan.dmi'
 							i_age_race1 = 'human_male_tan_kid.dmi'
 							i_age_race2 = 'NewMalesTan.dmi'
 
 
 					if(target.skin_pos == 8)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'NewMalesBlack.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'human_male_black_kid.dmi'
 							i_age_race2 = 'NewMalesBlack.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'human_babymale_black.dmi'
 							i_age_race1 = 'human_male_black_kid.dmi'
 							i_age_race2 = 'NewMalesBlack.dmi'
@@ -4548,7 +4182,7 @@ mob
 				if(target.race == "Demon")
 					target.has_hair =1
 					target.horn_pos = 1
-					if(age>=13||age==null||age==1||age==21)
+					if(is_adult_age)
 
 						i_horn = 'Demonic Horns.dmi'
 						target.horn_pos = 1
@@ -4558,63 +4192,63 @@ mob
 
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'demon_default_male.dmi'
 							//	target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'Humanoid_Kid_Colorable.dmi'
 								i_age_race2= 'demon_default_male.dmi'
-							else if(age<4||age==0.1)
+							else if(is_under4_age)
 								i_race = 'alien_egg.dmi'
 								i_age_race1 ='Humanoid_Kid_Colorable.dmi'
 								i_age_race2 = 'demon_default_male.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'demon_male.dmi' // change to colorable skin
 								//target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'Humanoid_Kid_Colorable.dmi'
 								i_age_race2 = 'demon_male.dmi'
-							else if(age<4||age==0.1)
+							else if(is_under4_age)
 								i_race = 'alien_egg.dmi'
 								i_age_race1 = 'Humanoid_Kid_Colorable.dmi'
 								i_age_race2 = 'demon_male.dmi'
 
 
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesWhite.dmi'
 							//	target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_white_kid.dmi'
 								i_age_race2 = 'NewMalesWhite.dmi'
-							else if(age<4||age==0.1)
+							else if(is_under4_age)
 								i_race = 'human_babymale.dmi'
 								i_age_race1 = 'human_male_white_kid.dmi'
 								i_age_race2 = 'NewMalesWhite.dmi'
 
 						if(target.skin_pos == 4)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesTan.dmi'
 							//	target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_tan_kid.dmi'
 								i_age_race2 = 'NewMalesTan.dmi'
-							else if(age<4||age==0.1)
+							else if(is_under4_age)
 								i_race = 'human_babymale_tan.dmi'
 								i_age_race1 ='human_male_tan_kid.dmi'
 								i_age_race2 = 'NewMalesTan.dmi'
 
 
 						if(target.skin_pos == 5)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesBlack.dmi'
 								//target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_black_kid.dmi'
 								i_age_race2 = 'NewMalesBlack.dmi'
-							else if(age<4||age==0.1)
+							else if(is_under4_age)
 								i_race = 'human_babymale_black.dmi'
 								i_age_race1 = 'human_male_black_kid.dmi'
 								i_age_race2 = 'NewMalesBlack.dmi'
@@ -4622,39 +4256,39 @@ mob
 					if(target.gen == "Female")
 						target.has_hair = 1
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'demon_default_female.dmi'
 								//target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'humanoid_no_colour_female2_kid.dmi'
 								i_age_race2 = 'demon_default_female.dmi'
-							else if(age<4||age==0.1)
+							else if(is_under4_age)
 								i_race = 'human_babyfemale.dmi'
 								i_age_race1 = 'humanoid_no_colour_female2_kid.dmi'
 								i_age_race2 = 'demon_default_female.dmi'
 								target.has_hair = 1
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'demon_female.dmi' // Change to colorable skin
 								//target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'humanoid_no_colour_female2_kid.dmi'
 								i_age_race2 = 'demon_female.dmi'
-							else if(age<4||age==0.1)
+							else if(is_under4_age)
 								i_race = 'human_babyfemale.dmi'
 								i_age_race1 = 'humanoid_no_colour_female2_kid.dmi'
 								i_age_race2 = 'demon_female.dmi'
 								target.has_hair = 1
 
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseWhite.dmi'
 							//	target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_white_kid.dmi'
 								i_age_race2 = 'FemaleBaseWhite.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale.dmi'
 								i_age_race1 = 'human_female_white_kid.dmi'
 								i_age_race2 = 'FemaleBaseWhite.dmi'
@@ -4662,25 +4296,25 @@ mob
 
 
 						if(target.skin_pos == 4)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseTan.dmi'
 							//	target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_tan_kid.dmi'
 								i_age_race2 = 'FemaleBaseTan.dmi'
-							else if(age<4||age==0.1)
+							else if(is_under4_age)
 								i_race = 'human_babyfemale_tan.dmi'
 								i_age_race1 = 'human_female_tan_kid.dmi'
 								i_age_race2 = 'FemaleBaseTan.dmi'
 
 						if(target.skin_pos == 5)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseBlack.dmi'
 							//	target.overlays += target.body_horns
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_black_kid.dmi'
 								i_age_race2 = 'FemaleBaseBlack.dmi'
-							else if(age<4||age==0.1)
+							else if(is_under4_age)
 								i_race = 'human_babyfemale_black.dmi'
 								i_age_race1 = 'human_female_black_kid.dmi'
 
@@ -4692,46 +4326,46 @@ mob
 					if(target.horn_pos == 3) i_horn = 'horns_yukopian_03.dmi'
 					if(target.horn_pos == 4) i_horn = 'horns_yukopian_04.dmi' */
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'NewNamekianAdult4.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'NewKidNamekian4.dmi'
 							i_age_race2 = 'NewNamekianAdult4.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'namekian_egg.dmi'
 							i_age_race1 = 'NewKidNamekian4.dmi'
 							i_age_race2 = 'NewNamekianAdult4.dmi'
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'NewNamekianAdult3.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'NewKidNamekian3.dmi'
 							i_age_race2 = 'NewNamekianAdult3.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'namekian_egg.dmi'
 							i_age_race1 = 'NewKidNamekian3.dmi'
 							i_age_race2 = 'NewNamekianAdult3.dmi'
 
 
 					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'NewNamekianAdult2.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'NewKidNamekian2.dmi'
 							i_age_race2 = 'NewNamekianAdult2.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'namekian_egg.dmi'
 							i_age_race1 = 'NewKidNamekian2.dmi'
 							i_age_race2 = 'NewNamekianAdult2.dmi'
 
 					if(target.skin_pos == 4)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'NewNamekianAdult1.dmi'
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race = 'NewKidNamekian1.dmi'
 							i_age_race2 = 'NewNamekianAdult1.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'namekian_egg.dmi'
 							i_age_race1 = 'NewKidNamekian1.dmi'
 							i_age_race2 = 'NewNamekianAdult1.dmi'
@@ -4748,68 +4382,68 @@ mob
 
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesWhite.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_white_kid.dmi'
 								i_age_race2 = 'NewMalesWhite.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babymale.dmi'
 								i_age_race1 = 'human_male_white_kid.dmi'
 								i_age_race2 = 'NewMalesWhite.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesTan.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_tan_kid.dmi'
 								i_age_race2 = 'NewMalesTan.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babymale_tan.dmi'
 								i_age_race1 = 'human_male_tan_kid.dmi'
 								i_age_race2 = 'NewMalesTan.dmi'
 
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesBlack.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_black_kid.dmi'
 								i_age_race2 = 'NewMalesBlack.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babymale_black.dmi'
 								i_age_race1 = 'human_male_black_kid.dmi'
 								i_age_race2 = 'NewMalesBlack.dmi'
 
 					if(target.gen == "Female")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseWhite.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_white_kid.dmi'
 								i_age_race2 = 'FemaleBaseWhite.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale.dmi'
 								i_age_race1 = 'human_female_white_kid.dmi'
 								i_age_race2 = 'FemaleBaseWhite.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseTan.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_tan_kid.dmi'
 								i_age_race2 = 'FemaleBaseTan.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale_tan.dmi'
 								i_age_race1 = 'human_female_tan_kid.dmi'
 								i_age_race2 = 'FemaleBaseTan.dmi'
 
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseBlack.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_black_kid.dmi'
 								i_age_race2 = 'FemaleBaseBlack.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale_black.dmi'
 								i_age_race1 = 'human_female_black_kid.dmi'
 								i_age_race2 = 'FemaleBaseBlack.dmi'
@@ -4828,34 +4462,34 @@ mob
 					target.has_hair = 1
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesWhite.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_white_kid.dmi'
 								i_age_race2= 'NewMalesWhite.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babymale.dmi'
 								i_age_race1 = 'human_male_white_kid.dmi'
 								i_age_race2 = 'NewMalesWhite.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesTan.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_tan_kid.dmi'
 								i_age_race2 = 'NewMalesTan.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babymale_tan.dmi'
 								i_age_race1 = 'human_male_tan_kid.dmi'
 								i_age_race2 = 'NewMalesTan.dmi'
 
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesBlack.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_black_kid.dmi'
 								i_age_race2 = 'NewMalesBlack.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babymale_black.dmi'
 								i_age_race1 = 'human_male_black_kid.dmi'
 								i_age_race2 = 'NewMalesBlack.dmi'
@@ -4863,34 +4497,34 @@ mob
 
 					if(target.gen == "Female")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseWhite.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_white_kid.dmi'
 								i_age_race2 = 'FemaleBaseWhite.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale.dmi'
 								i_age_race1 = 'human_female_white_kid.dmi'
 								i_age_race2 = 'FemaleBaseWhite.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseTan.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_tan_kid.dmi'
 								i_age_race2 = 'FemaleBaseTan.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale_tan.dmi'
 								i_age_race1 = 'human_female_tan_kid.dmi'
 								i_age_race2 = 'FemaleBaseTan.dmi'
 
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseBlack.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_black_kid.dmi'
 								i_age_race2 = 'FemaleBaseBlack.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale_black.dmi'
 								i_age_race1 = 'human_female_black_kid.dmi'
 								i_age_race2 = 'FemaleBaseBlack.dmi'
@@ -4900,111 +4534,111 @@ mob
 					target.has_hair = 1
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesWhite.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_white_kid.dmi'
 								i_age_race2 = 'NewMalesWhite.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babymale.dmi'
 								i_age_race1 = 'human_male_white_kid.dmi'
 								i_age_race2 = 'NewMalesWhite.dmi'
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesTan.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_tan_kid.dmi'
 								i_age_race2 = 'NewMalesTan.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babymale_tan.dmi'
 								i_age_race1 = 'human_male_tan_kid.dmi'
 								i_age_race2 = 'NewMalesTan.dmi'
 
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'NewMalesBlack.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_male_black_kid.dmi'
 								i_age_race2 = 'NewMalesBlack.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babymale_black.dmi'
 								i_age_race1 ='human_male_black_kid.dmi'
 								i_age_race2 = 'NewMalesBlack.dmi'
 
 					if(target.gen == "Female")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseWhite.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_white_kid.dmi'
 								i_age_race2 = 'FemaleBaseWhite.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale.dmi'
 								i_age_race1 = 'human_female_white_kid.dmi'
 								i_age_race2 = 'FemaleBaseWhite.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseTan.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_tan_kid.dmi'
 								i_age_race2 = 'FemaleBaseTan.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale_tan.dmi'
 								i_age_race1 = 'human_female_tan_kid.dmi'
 								i_age_race2 = 'FemaleBaseTan.dmi'
 
 
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(is_adult_age)
 								i_race = 'FemaleBaseBlack.dmi'
-							else if(age<13 && age>3.9)
+							else if(is_kid_age)
 								i_race = 'human_female_black_kid.dmi'
 								i_age_race2 = 'FemaleBaseBlack.dmi'
-							else if(age<=0||age==0.1)
+							else if(is_newborn_age)
 								i_race = 'human_babyfemale_black.dmi'
 								i_age_race1 = 'human_female_black_kid.dmi'
 								i_age_race2 = 'FemaleBaseBlack.dmi'
 				//Imp icon creation
 				if(target.race == "Oni")
-					if(age>=13||age==null||age==1||age==21)
+					if(is_adult_age)
 
 						i_horn = 'OniHorns.dmi'
 					else if(age==4)
 						i_horn = 'oni_horns_kid.dmi'
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'oni_male_light.dmi'
 							//target.overlays += target.body_horns
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'oni_male_light_kid.dmi'
 							i_age_race2 = 'oni_male_light.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'oni_male_light_kid.dmi'
 							i_age_race2 = 'oni_male_light.dmi'
 						target.has_hair = 1
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'oni_male_dark.dmi'
 						//	target.overlays += target.body_horns
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'oni_male_dark_kid.dmi'
 							i_age_race2 = 'oni_male_dark.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'oni_male_dark_kid.dmi'
 							i_age_race2 = 'oni_male_dark.dmi'
 						target.has_hair = 1
 					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==1||age==21)
+						if(is_adult_age)
 							i_race = 'oni_male_light.dmi'
 						//	target.overlays += target.body_horns
-						else if(age<13 && age>3.9)
+						else if(is_kid_age)
 							i_race= 'oni_male_light_kid.dmi'
 							i_age_race2 = 'oni_male_light.dmi'
-						else if(age<4||age==0.1)
+						else if(is_under4_age)
 							i_race = 'alien_egg.dmi'
 							i_age_race1 = 'oni_male_light_kid.dmi'
 							i_age_race2 = 'oni_male_light.dmi'
@@ -5034,22 +4668,21 @@ mob
 				if(target && target.has_hair >= 1)
 					var/obj/new_hair = new h.type
 					//var/obj/new_age_hair = new h2.type
+					var/obj/old_hair = target.hair
 
 					new_hair.icon = E_hair
-					target.hair = new_hair
 				//	target.age_hair = new_age_hair
 				//	target.age_hair_icon = new_age_hair.icon
-
 
 					target.hair_icon = new_hair.icon
 
 					// Remove only previous hair safely
-					if(target.hair)
-						remove_overlay(target, target.hair)
+					if(old_hair)
+						remove_overlay(target, old_hair)
 
-					//target.hair = new_hair
+					target.hair = new_hair
 					if(target.started == 0 )target.overlays = null
-					add_overlay(target, target.hair)
+					add_overlay(target, new_hair)
 					target.vis_contents += E_hair
 
 
@@ -5088,10 +4721,9 @@ mob
 						proceed_eyes = 0
 
 				if(proceed_eyes)
-					var/has_white = 1
-					if(has_white)
-						P_white.Scale(128,128)
-						I.Blend(P_white,ICON_OVERLAY)
+					var/is_adult_eyes = (target.age >= 13)
+					P_white.Scale(128,128)
+					I.Blend(P_white,ICON_OVERLAY)
 
 					P_eyecolor.Scale(128,128)
 					if(target.race == "Saiyan" || (target.saiyan_dna && !target.is_hybrid))
@@ -5101,18 +4733,12 @@ mob
 					I.Blend(P_eyecolor,ICON_OVERLAY)
 					target.saved_eye_c = target.eye_c
 
-					if(has_white)
-						var/obj/eye_white = new
-						eye_white.icon = i_white
-						eye_white.layer = eye_white.layer
-						eye_white.vis_flags = eye_white.vis_flags
-						if(target.age>=13)
-							target.eyes_white = eye_white
-							target.vis_contents += target.eyes_white
-						if(target.age<13)
-
-							target.eyes_white = eye_white
-							target.vis_contents += target.eyes_white
+					var/obj/eye_white = new
+					eye_white.icon = i_white
+					eye_white.layer = eye_white.layer
+					eye_white.vis_flags = eye_white.vis_flags
+					target.eyes_white = eye_white
+					target.vis_contents += target.eyes_white
 					var/obj/eye_iris = new
 					eye_iris.icon = i_iris
 					var/icon/eye = new(eye_iris.icon)
@@ -5122,18 +4748,13 @@ mob
 					eye_iris.layer = eye_iris.layer
 					eye_iris.vis_flags = eye_iris.vis_flags
 					target.eyes = eye_iris
-					if(target.age>=13)
+					if(is_adult_eyes)
 						target.eyes.pixel_x = 0
 						target.eyes_white.pixel_y = 0
-						target.vis_contents += target.eyes_white
-						target.vis_contents += target.eyes
-						add_overlays(target, list(target.eyes_white, target.eyes))
-						//target.overlays += target.eyes
-					if(target.age<13)
-						target.vis_contents += target.eyes_white
-						target.vis_contents += target.eyes
-						add_overlays(target, list(target.eyes_white, target.eyes))
-						//target.overlays += target.eyes
+					target.vis_contents += target.eyes_white
+					target.vis_contents += target.eyes
+					add_overlays(target, list(target.eyes_white, target.eyes))
+					//target.overlays += target.eyes
 
 					//target.overlays += P_eyecolor
 
@@ -5187,39 +4808,25 @@ mob
 			set name = ".ages"
 			set hidden = 1
 			if(src.started) return
-			if(adjust == "+")
-				if(src.age_text == "Teen")
-					src.age_text = "Adult"
-					src.age = 21
-					src.age_soul = 21
-					src.birth_year = year-21
-				else if(src.age_text == "Adult")
-					src.age_text = "Kid"
-					src.age = 4
-					src.age_soul = 4
-					src.birth_year = year-4
-				else if(src.age_text == "Kid")
-					src.age_text = "Teen"
-					src.age = 13
-					src.age_soul = 13
-					src.birth_year = year-13
-			if(adjust == "-")
-				if(src.age_text == "Adult")
-					src.age_text = "Kid"
-					src.age = 4
-					src.age_soul = 4
-					src.birth_year = year-4
-				else if(src.age_text == "Teen")
-					src.age_text = "Adult"
-					src.age = 21
-					src.birth_year = year-21
-					src.age_soul = 21
-				else if(src.age_text == "Kid")
-					src.age_text = "Teen"
-					src.age = 13
-					src.age_soul = 13
-					src.birth_year = year-13
+			if(adjust == "+" || adjust == "-")
+				switch(src.age_text)
+					if("Teen")
+						src.age_text = "Adult"
+						src.age = 21
+						src.age_soul = 21
+						src.birth_year = year-21
+					if("Adult")
+						src.age_text = "Kid"
+						src.age = 4
+						src.age_soul = 4
+						src.birth_year = year-4
+					if("Kid")
+						src.age_text = "Teen"
+						src.age = 13
+						src.age_soul = 13
+						src.birth_year = year-13
 			winset(src,"char_creation.label_age","text=\"[src.age_text]\"")
+
 		apply_size_speed(var/mob/m)
 			set hidden =1
 			if(m.started) return
@@ -5649,46 +5256,48 @@ mob
 						//	m.mod_defence += 0.25
 							m.mod_resistance += rand(0.05,0.1)
 							m.mod_force -= rand(0.1,0.25)
-			if(m.mod_force<0.01 || m.mod_force == 0) m.mod_force = 0.1
-			if(m.mod_resistance<0.01 || m.mod_resistance == 0) m.mod_resistance = 0.1
-			if(m.mod_defence<0.01 || m.mod_defence == 0 ) m.mod_defence = 0.1
-			if(m.mod_offence<0.01 || m.mod_offence == 0) m.mod_offence = 0.1
-			if(m.mod_strength<0.01 || m.mod_strength == 0) m.mod_strength = 0.1
-			if(m.mod_endurance<0.01 || m.mod_endurance == 0 ) m.mod_endurance = 0.1
-			if(m.mod_energy<0.01 || m.mod_energy == 0 ) m.mod_energy =0.1
-			if(m.mod_regeneration<0.01 || m.mod_regeneration == 0 ) m.mod_regeneration = 0.5
-			if(m.mod_recovery <0.01 || m.mod_recovery == 0 ) m.mod_recovery = 0.5
-			if(m.mod_agility <0.01 || m.mod_agility <=-0) m.mod_agility = 0.1
+			if(m.mod_force < 0.01) m.mod_force = 0.1
+			if(m.mod_resistance < 0.01) m.mod_resistance = 0.1
+			if(m.mod_defence < 0.01) m.mod_defence = 0.1
+			if(m.mod_offence < 0.01) m.mod_offence = 0.1
+			if(m.mod_strength < 0.01) m.mod_strength = 0.1
+			if(m.mod_endurance < 0.01) m.mod_endurance = 0.1
+			if(m.mod_energy < 0.01) m.mod_energy = 0.1
+			if(m.mod_regeneration < 0.01) m.mod_regeneration = 0.5
+			if(m.mod_recovery < 0.01) m.mod_recovery = 0.5
+			if(m.mod_agility < 0.01) m.mod_agility = 0.1
 
 
-		bodysize(var/adjust as text)
+		bodysize(var/adjust as text, var/size_scale as num)
 			set name = ".bodysize"
 			set hidden = 1
 			if(src.started) return
 			if(adjust == "+")
-				if(src.bodysize == 2)
-					src.bodysize = 3
-					winset(src,"char_creation.stat_info","text=\"[text_bodysize_large]\"")
-				else if(src.bodysize == 3)
-					src.bodysize = 1
-					winset(src,"char_creation.stat_info","text=\"[text_bodysize_small]\"")
-				else if(src.bodysize == 1)
-					src.bodysize = 2
-					winset(src,"char_creation.stat_info","text=\"[text_bodysize_medium]\"")
+				src.bodysize = (src.bodysize % 3) + 1
 			if(adjust == "-")
-				if(src.bodysize == 2)
-					src.bodysize = 1
-					winset(src,"char_creation.stat_info","text=\"[text_bodysize_small]\"")
-				else if(src.bodysize == 1)
-					src.bodysize = 3
-					winset(src,"char_creation.stat_info","text=\"[text_bodysize_large]\"")
-				else if(src.bodysize == 3)
-					src.bodysize = 2
-					winset(src,"char_creation.stat_info","text=\"[text_bodysize_medium]\"")
+				src.bodysize = ((src.bodysize + 1) % 3) + 1
 
-			if(bodysize == 3) winset(src,"char_creation.label_size","text=\"Large\"")
-			if(bodysize == 2) winset(src,"char_creation.label_size","text=\"Medium\"")
-			if(bodysize == 1) winset(src,"char_creation.label_size","text=\"Small\"")
+			//var/size_scale = 1
+
+			switch(src.bodysize)
+				if(3)
+					size_scale = 1.08
+					winset(src,"char_creation.stat_info","text=\"[text_bodysize_large]\"")
+					winset(src,"char_creation.label_size","text=\"Large\"")
+				if(2)
+					size_scale = 1
+					winset(src,"char_creation.stat_info","text=\"[text_bodysize_medium]\"")
+					winset(src,"char_creation.label_size","text=\"Medium\"")
+				if(1)
+					size_scale = 0.92
+					winset(src,"char_creation.stat_info","text=\"[text_bodysize_small]\"")
+					winset(src,"char_creation.label_size","text=\"Small\"")
+
+			var/matrix/size_matrix = matrix()
+			size_matrix.Scale(size_scale, size_scale)
+			size_matrix.Translate((1 - size_scale) * 16, (1 - size_scale) * 16)
+			src.transform = size_matrix
+			
 		//Plus/Minus adjustments
 		mod_points(var/type,var/mod)
 			if(src.started) return

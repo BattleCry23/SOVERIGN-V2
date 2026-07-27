@@ -235,7 +235,6 @@ obj
 	parent_type = /obj/origins
 	//category = "Mutation"
 	banned_races = list("Android","Kai") // You can customize this per mutation if needed
-
 mob
 	var/zenkai_pool = 0        // current pool charge
 	var/max_zenkai_pool = 100  // cap; scales with endurance and willpower
@@ -377,6 +376,7 @@ mutations
 		info
 		active = 0
 		banned_races
+		banned_class
 
 	proc
 		activate(var/mob/M)
@@ -445,6 +445,7 @@ mutations
 		info_name = "C-type Mutation"
 		rarity = 1
 		banned_races = list("Human","Tuffle","Namekian","Cerebroid","Android","Demon","Kai","Oni","Changeling","Half God","Spirit Doll")
+		banned_class = list("Legendary")
 		info = "A mutation for saiyans that enchances their potential, providing unique abilities characteristic of C-type individuals. (+??????% All Attributes)"
 
 		activate(var/mob/m)
@@ -713,6 +714,7 @@ obj
 		icon = 'new_hud_char_origins.dmi'
 		icon_state = "normal"
 		var/list/banned_races = list()
+		var/list/banned_class = list()
 		var/image/sel
 		var/txt_info
 		plane = 24

@@ -9932,6 +9932,7 @@ obj
 						m.mod_strength = m.mod_strength_og
 						m.mod_offence = m.mod_offence_og
 						m.mod_agility = m.mod_agility_og
+						//m.power_percent = (m.kaioken_pl * 100)
 						s.times_multi = 1
 					//	src.controller = null
 						//m.mod_force/=1.2
@@ -9965,6 +9966,7 @@ obj
 							m.mod_strength *= (round(s.times_multi * 0.55))
 							m.mod_offence *= (round(s.times_multi * 0.55))
 							m.mod_agility *= (round(s.times_multi * 0.55))
+							m.power_percent = (m.kaioken_pl * 100)
 							var/turf/t = m.loc
 							if(!t.liquid)
 								var/obj/effects/dust_medium/d = new
@@ -10023,13 +10025,14 @@ obj
 								if(m.skill_kaioken == null) m.skill_kaioken = src
 								if(src.active)
 									var/multi = max(1, src.times_multi)
+									var/curve_multi = 1 + ((multi - 1) ** 1.25)
 									var/skill_ratio = src.skill_lvl / 100
 									if(skill_ratio < 0) skill_ratio = 0
 									if(skill_ratio > 1) skill_ratio = 1
 									var/mastery_scale = 1 + skill_ratio
 									var/recovery_term = 12 / max(0.1, m.mod_recovery)
-									var/base_drain = 6 + recovery_term + (multi * 3)
-									var/removes = base_drain * mastery_scale * multi
+									var/base_drain = 5 + recovery_term
+									var/removes = base_drain * mastery_scale * (0.8 + (curve_multi * 0.4))
 									if(removes < 1) removes = 1
 									var/kaiodmg = (0.5 + (2.5 * skill_ratio)) * max(1, src.times_multi)
 									//world << "DEBUG: Kaioken active check - src.active=[src.active], m.energy=[m.energy], removes=[removes]"

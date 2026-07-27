@@ -405,6 +405,16 @@
 			img.pixel_x = -(icon_width - mob_width) / 2
 			img.pixel_y = -(icon_height - mob_height) / 2
 
+/proc/outline_pulse(mob/target, var/color)
+	if(!target) return
+	var/outline_filter = filter(type = "outline", color = color, size = 1, alpha = 0)
+	target.filters += outline_filter
+	animate(outline_filter, alpha = 200, time = 0.5 * SECONDS, loop = -1)
+	animate(outline_filter, alpha = 0, time = 0.5 * SECONDS, loop = -1)
+	spawn(1 * SECONDS)
+		if(target)
+			remove_filter(target, outline_filter)
+
 // Add to mob initializer if not present
 /mob
 	var/list/overlay_names = list()  // Stores named overlays for easy access
