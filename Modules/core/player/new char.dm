@@ -3237,8 +3237,9 @@ mob
 				src.online = 1
 				if(src.eyes && src.age<13)
 					src.vis_contents -= list(src.eyes, src.eyes_white)
-					//src.vis_contents -= src.eyes_white
 					remove_overlays(src, list(src.eyes, src.eyes_white))
+					src.eyes = null
+					src.eyes_white = null
 					//src.overlays -= src.eyes_white
 
 			//	src<< "Checking Offspring!"
@@ -4699,10 +4700,10 @@ mob
 
 			//Do eye color next
 			if(target.eyes)
-				remove_overlay(target, eyes)
+				remove_overlay(target, target.eyes)
 			target.eyes = null
 			if(target.eyes_white)
-				remove_overlay(target, eyes_white)
+				remove_overlay(target, target.eyes_white)
 			target.eyes_white = null
 			var/i_white = new /obj/overlay/sclera
 			var/i_iris = new /obj/overlay/eyes_iris
@@ -4738,7 +4739,7 @@ mob
 					eye_white.layer = eye_white.layer
 					eye_white.vis_flags = eye_white.vis_flags
 					target.eyes_white = eye_white
-					target.vis_contents += target.eyes_white
+					add_overlay(target, target.eyes_white)
 					var/obj/eye_iris = new
 					eye_iris.icon = i_iris
 					var/icon/eye = new(eye_iris.icon)

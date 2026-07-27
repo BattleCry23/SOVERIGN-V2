@@ -55,11 +55,14 @@ obj
 					m.age_soul = 0.1
 					m.birth_year = year
 					//give psionic_power boost of 10xs
-					if(m.eyes)
-						m.vis_contents -= m.eyes_white
-						m.vis_contents -= m.eyes
-						m.overlays -= m.eyes_white
-						m.overlays -= m.eyes
+					if(m.eyes || m.eyes_white)
+						var/list/eye_layers = list(m.eyes, m.eyes_white)
+						remove_overlays(m, eye_layers)
+						m.vis_contents -= eye_layers
+						eye_layers = null
+						//m.vis_contents -= m.eyes
+						//m.overlays -= m.eyes_white
+						//m.overlays -= m.eyes
 					switch(m.race)
 						if("Human","Saiyan","Tuffle","Half God")
 							m.icon = m.gen == "Male" ? 'human_babymale.dmi' : 'human_babyfemale.dmi'
