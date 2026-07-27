@@ -1258,7 +1258,6 @@ mob
 			//apply_rating_multiplier(src)
 
 mob/proc
-
 	apply_c_type_mutation()
 		if(!src) return
 		src.mod_psionic_power = decimal_rand(5, 7)
@@ -1282,12 +1281,9 @@ mob/proc
 		src.mod_tech_potential = 1.1
 		src.hidden_potential *= decimal_rand(1.5, 1.7)
 		src.PG *= 2.2
-		var/filter = add_filter(src, filter="outline", list("color" = rgb(202, 242, 127), "size" = 1, "alpha" = 0))
-		animate(filter, alpha = 200, time = 0.5 * SECONDS, loop =-1)
-		animate(filter, alpha = 0, time = 0.5 * SECONDS, loop =-1)
-		spawn(1 * SECONDS)
-			if(src)
-				remove_filter(src, filter)
+		bodysize(src, "3", 1.12)
+		update_looks("body")
+		outline_pulse(src, rgb(202, 242, 127))
 		src << "you were born with the C-type mutation."
 
 	apply_lssj_gene()
@@ -1314,12 +1310,7 @@ mob/proc
 		src.LSSJ = 1
 		src.hidden_potential *= decimal_rand(1.1, 1.3)
 		src.auracolor = rgb(202, 242, 127)
-		var/filter = add_filter(src, filter="outline", list("color" = rgb(202, 242, 127), "size" = 1, "alpha" = 0))
-		animate(filter, alpha = 200, time = 0.5 * SECONDS, loop =-1)
-		animate(filter, alpha = 0, time = 0.5 * SECONDS, loop =-1)
-		spawn(1 * SECONDS)
-			if(src)
-				remove_filter(src, filter)
+		outline_pulse(src, rgb(202, 242, 127))
 		src << "You successfully activated the LSSJ gene in [src]."
 		world.log << "(Admin Log): [src.client.admin_name] activated the LSSJ gene in [src]!"
 

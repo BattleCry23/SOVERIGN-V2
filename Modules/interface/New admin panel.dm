@@ -1149,31 +1149,40 @@
 
 			var/list/mutations = list()
 			if(action == "Give")
-				// Get all available mutations sorted by name
-				for(var/mut_type in typesof(M.learnable_origins))
-					if(mut_type == M.learnable_origins) continue
-					var/obj/origins/mut = new mut_type()
-					mutations[mut.name] = mut_type
+				// Get every concrete mutation type defined in the game
+				for(var/mut_type in typesof(/mutations/))
+					if(mut_type == /mutations) continue
+					var/mutations/mut = new mut_type()
+					if(!mut || !mut.info_name) continue
+					mutations["[mut.info_name] ([mut_type])"] = mut_type
 				mutations = sort_list(mutations)
-				var/mutation_choice = input("Select mutation:", "Give Mutation") as null|anything in M.learnable_origins
+				if(!mutations.len)
+					src << "[M] has no available mutations to give."
+					return
+				var/mutation_choice = input("Select mutation:", "Give Mutation") as null|anything in mutations
 				if(!mutation_choice) return
 				var/mut_type = mutations[mutation_choice]
-				M.mutations += mut_type
+				if(!mut_type) return
+				var/mutations/mut = new mut_type()
+				if(!mut) return
+				mut.activate(M)
+				M.mutations += mut
 				src << "Gave [mutation_choice] to [M]."
 				M << "Admin gave you mutation: [mutation_choice]"
 			if(action == "Take")
 				// Get current mutations sorted by name
-				for(var/mut_type in M.mutations)
-					var/obj/origins/mutations/mut = new mut_type()
-					mutations[mut.name] = mut_type
+				for(var/mutations/mut in M.mutations)
+					if(!mut) continue
+					mutations[mut.info_name] = mut
 				if(!mutations.len)
 					src << "[M] has no mutations."
 					return
 				mutations = sort_list(mutations)
 				var/mutation_choice = input("Select mutation to remove:", "Remove Mutation") as null|anything in mutations
 				if(!mutation_choice) return
-				var/mut_type = mutations[mutation_choice]
-				M.mutations -= mut_type
+				var/mutations/mut = mutations[mutation_choice]
+				if(!mut) return
+				M.mutations -= mut
 				src << "Removed [mutation_choice] from [M]."
 				M << "Admin removed your mutation: [mutation_choice]"
 

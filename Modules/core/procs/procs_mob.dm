@@ -948,6 +948,8 @@ mob
 			var/icon/i_race
 			var/icon/i_horn
 			var/obj/horn = new
+			var/age_is_adult = (age >= 13 || age == null || age == 1 || age == 21)
+			var/age_is_kid = (age >= 4 && age < 13)
 			if(target)
 				//Celestial icon creation
 
@@ -978,7 +980,7 @@ mob
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 					if(target.skin_pos == 2)
-						if(age>13||age==null||age==21)
+						if(age>=13||age==null||age==21)
 							i_race = '1stFriezaBlue.dmi'
 						else if(age>=4 && age <13) i_race= '1stFriezaKid_Blue.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
@@ -990,7 +992,7 @@ mob
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 					if(target.skin_pos == 4)
-						if(age>=13||age==null|age==21)
+						if(age>=13||age==null||age==21)
 							i_race = '1stFriezaOrange.dmi'
 						else if(age>=4 && age <13) i_race= '1stFriezaKid_Orange.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
@@ -1297,6 +1299,24 @@ mob
 						else if(age<=0||age==0.1)
 							i_race = 'namekian_egg.dmi'
 
+					if(target.skin_pos == 5)
+						if(age>=13||age==null||age==1||age==21)
+							i_race = 'NewNamekianAdult1.dmi'
+						else if(age>=4 && age <13)
+							i_race = 'NewKidNamekian1.dmi'
+
+						else if(age<=0||age==0.1)
+							i_race = 'namekian_egg.dmi'
+
+					if(!i_race)
+						if(age>=13||age==null||age==1||age==21)
+							i_race = 'NewNamekianAdult1.dmi'
+						else if(age>=4 && age <13)
+							i_race = 'NewKidNamekian1.dmi'
+
+						else if(age<=0||age==0.1)
+							i_race = 'namekian_egg.dmi'
+
 				//Android icon creation
 				if(target.race == "Saiyan")
 					target.has_hair = 1
@@ -1470,6 +1490,64 @@ mob
 							target.horn_pos = 2
 							if(target.horn_pos == 2) i_horn = 'oni_horns_kid.dmi'
 							i_race = 'alien_egg.dmi'
+
+			if(target && !i_race)
+				if(target.race == "Spirit Doll")
+					if(target.skin_pos == 2)
+						i_race = age_is_adult ? 'spiritdoll_tan.dmi' : (age_is_kid ? 'spiritdoll_kidtan.dmi' : 'human_babymale.dmi')
+					else
+						i_race = age_is_adult ? 'spiritdoll.dmi' : (age_is_kid ? 'spiritdoll_kid.dmi' : 'human_babymale.dmi')
+				else if(target.race == "Changeling")
+					if(target.skin_pos == 2)
+						i_race = age_is_adult ? '1stFriezaBlue.dmi' : (age_is_kid ? '1stFriezaKid_Blue.dmi' : 'alien_egg.dmi')
+					else if(target.skin_pos == 3)
+						i_race = age_is_adult ? '1stFriezaGreen.dmi' : (age_is_kid ? '1stFriezaKid_Green.dmi' : 'alien_egg.dmi')
+					else if(target.skin_pos == 4)
+						i_race = age_is_adult ? '1stFriezaOrange.dmi' : (age_is_kid ? '1stFriezaKid_Orange.dmi' : 'alien_egg.dmi')
+					else if(target.skin_pos == 5)
+						i_race = age_is_adult ? '1stFriezaRed.dmi' : (age_is_kid ? '1stFriezaKid_Red.dmi' : 'alien_egg.dmi')
+					else
+						i_race = age_is_adult ? 'Frieza_1st_form.dmi' : (age_is_kid ? 'Frieza_1st_form_kid.dmi' : 'alien_egg.dmi')
+				else if(target.race == "Makyo")
+					if(target.skin_pos == 2)
+						i_race = age_is_adult ? 'makyo_red.dmi' : (age_is_kid ? 'makyo_kidred.dmi' : 'alien_egg.dmi')
+					else if(target.skin_pos == 3)
+						i_race = age_is_adult ? 'makyo_tan.dmi' : (age_is_kid ? 'makyo_kidtan.dmi' : 'alien_egg.dmi')
+					else if(target.skin_pos == 4)
+						i_race = age_is_adult ? 'makyo_purple.dmi' : (age_is_kid ? 'makyo_kidpurple.dmi' : 'alien_egg.dmi')
+					else
+						i_race = age_is_adult ? 'makyo.dmi' : (age_is_kid ? 'makyo_kid.dmi' : 'alien_egg.dmi')
+				else if(target.race == "Namekian")
+					if(target.skin_pos == 1)
+						i_race = age_is_adult ? 'NewNamekianAdult4.dmi' : (age_is_kid ? 'NewKidNamekian4.dmi' : 'namekian_egg.dmi')
+					else if(target.skin_pos == 2)
+						i_race = age_is_adult ? 'NewNamekianAdult3.dmi' : (age_is_kid ? 'NewKidNamekian3.dmi' : 'namekian_egg.dmi')
+					else if(target.skin_pos == 3)
+						i_race = age_is_adult ? 'NewNamekianAdult2.dmi' : (age_is_kid ? 'NewKidNamekian2.dmi' : 'namekian_egg.dmi')
+					else
+						i_race = age_is_adult ? 'NewNamekianAdult1.dmi' : (age_is_kid ? 'NewKidNamekian1.dmi' : 'namekian_egg.dmi')
+				else if(target.race == "Alien")
+					if(target.skin_pos == 2)
+						i_race = age_is_adult ? 'Alien_Immecka_Naked.dmi' : (age_is_kid ? 'alien_immecka_kid.dmi' : 'alien_egg.dmi')
+					else if(target.skin_pos == 3)
+						i_race = age_is_adult ? 'Alien_Kanassa_Naked.dmi' : (age_is_kid ? 'alien_kanassa_kid.dmi' : 'alien_egg.dmi')
+					else if(target.skin_pos == 4)
+						i_race = age_is_adult ? 'Alien_Kui_Naked.dmi' : (age_is_kid ? 'alien_kui_kid.dmi' : 'alien_egg.dmi')
+					else if(target.skin_pos == 5)
+						i_race = age_is_adult ? 'Alien_Yardrat_Naked.dmi' : (age_is_kid ? 'alien_yardrat_kid.dmi' : 'alien_egg.dmi')
+					else if(target.skin_pos == 6)
+						i_race = age_is_adult ? 'NewMalesWhite.dmi' : (age_is_kid ? 'human_male_white_kid.dmi' : 'human_babymale.dmi')
+					else if(target.skin_pos == 7)
+						i_race = age_is_adult ? 'NewMalesTan.dmi' : (age_is_kid ? 'human_male_tan_kid.dmi' : 'human_babymale_tan.dmi')
+					else if(target.skin_pos == 8)
+						i_race = age_is_adult ? 'NewMalesBlack.dmi' : (age_is_kid ? 'human_male_black_kid.dmi' : 'human_babymale_black.dmi')
+					else
+						i_race = age_is_adult ? 'Alien_Captin_Ginyu_Naked.dmi' : (age_is_kid ? 'alien_captginyu_kid.dmi' : 'alien_egg.dmi')
+				else if(target.race == "Oni")
+					if(target.skin_pos == 2)
+						i_race = age_is_adult ? 'oni_male_dark.dmi' : (age_is_kid ? 'oni_male_dark_kid.dmi' : 'alien_egg.dmi')
+					else
+						i_race = age_is_adult ? 'oni_male_light.dmi' : (age_is_kid ? 'oni_male_light_kid.dmi' : 'alien_egg.dmi')
 
 			if(target) target.icon = i_race
 
@@ -2633,11 +2711,6 @@ mob
 								if(prob(20)) // only sometimes
 									var/obj/body_related/bodyparts/randomlimb = pick(m.body)
 									m.damage_limb(m,1, 1, DMG, randomlimb)
-								if(m.skill_kaioken && m.skill_kaioken.active)
-									var/kaiodmg = 1 + (m.skill_kaioken.skill_lvl/100) * 2
-									if(prob(25))
-										var/obj/body_related/bodyparts/limb_random = pick(m.body)
-										m.damage_limb(m,1, 1, kaiodmg, limb_random)
 									//return
 
 							//	else m.gain_stat("strength",1,1,"High gravity")

@@ -9913,6 +9913,8 @@ obj
 			var/times_multi = 1
 			proc
 				activate(var/mob/m,var/obj/skills/Kaioken/s)
+					if(s in m)
+						if(m.skill_kaioken == null) m.skill_kaioken = s
 
 					var/needed = (10/m.mod_recovery) + (10/s.skill_lvl)
 					if(s.active)
@@ -9930,6 +9932,7 @@ obj
 						m.mod_strength = m.mod_strength_og
 						m.mod_offence = m.mod_offence_og
 						m.mod_agility = m.mod_agility_og
+						//m.power_percent = (m.kaioken_pl * 100)
 						s.times_multi = 1
 					//	src.controller = null
 						//m.mod_force/=1.2
@@ -9950,7 +9953,7 @@ obj
 
 					else
 						var/multi = input ("Kaioken x:") as num
-						if(multi>=20) multi = 20
+						if(multi>=50) multi = 50
 						if(multi<=0.1||multi<=1)
 							multi = 0
 							return
@@ -9963,6 +9966,7 @@ obj
 							m.mod_strength *= (round(s.times_multi * 0.55))
 							m.mod_offence *= (round(s.times_multi * 0.55))
 							m.mod_agility *= (round(s.times_multi * 0.55))
+							m.power_percent = (m.kaioken_pl * 100)
 							var/turf/t = m.loc
 							if(!t.liquid)
 								var/obj/effects/dust_medium/d = new
@@ -10018,10 +10022,27 @@ obj
 							var/mob/m = null
 							if(ismob(src.loc))
 								m = src.loc
+								if(m.skill_kaioken == null) m.skill_kaioken = src
 								if(src.active)
-									var/removes = (10/m.mod_recovery) + (10/src.skill_lvl) * src.times_multi
+									var/multi = max(1, src.times_multi)
+									var/curve_multi = 1 + ((multi - 1) ** 1.25)
+									var/skill_ratio = src.skill_lvl / 100
+									if(skill_ratio < 0) skill_ratio = 0
+									if(skill_ratio > 1) skill_ratio = 1
+									var/mastery_scale = 1 + skill_ratio
+									var/recovery_term = 12 / max(0.1, m.mod_recovery)
+									var/base_drain = 5 + recovery_term
+									var/removes = base_drain * mastery_scale * (0.8 + (curve_multi * 0.4))
+									if(removes < 1) removes = 1
+									var/kaiodmg = (0.5 + (2.5 * skill_ratio)) * max(1, src.times_multi)
+									//world << "DEBUG: Kaioken active check - src.active=[src.active], m.energy=[m.energy], removes=[removes]"
+									if(prob(35) && m.body && m.body.len)
+										m.damage_limb(m,1,0,max(0.1, kaiodmg * 0.5))
+										m.percent_health -= kaiodmg
+										if(m.percent_health < 0) m.KO()
 
 									if(m.energy >= removes)
+										//world << "DEBUG: Energy check passed - removing [removes] energy"
 										//m.energy-=5+((m.energy_max/5)/src.skill_lvl)/m.mod_recovery/m.mod_energy
 										//var/removes = 1 + 10 - (m.mod_recovery+m.mod_energy) - (src.skill_lvl/10)
 										m.energy -= removes
