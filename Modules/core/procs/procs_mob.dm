@@ -4049,40 +4049,16 @@ mob
 			return (1 + (rand(-125, 125) / 1000))
 
 		rngSaiyanClass()
-			switch(rand(1,15))
-				if(1)
+			var/roll = rand(1,100)
+			switch(roll)
+				if(1 to 50)
 					src.race_class = "Low"
-				if(2)
-					if(prob(50))
-						src.race_class = "Low"
-					else
-						src.race_class = "Elite"
-
-				if(3)
-					if(prob(1))
-						src.race_class = "Low"
-					else
-						src.race_class = "Elite"
-				if(4)
-					if(prob(5))
-						src.race_class = "Elite"
-					else
-						src.race_class = "Low"
-				if(5)
-					if(prob(50))
-						src.race_class = "Elite"
-					else
-						src.race_class = "Low"
-				if(6 to 14)
-					if(prob(5))
-						src.race_class = "Elite"
-					else
-						src.race_class = "Low"
-				if(15)
-					if(prob(1))
-						src.race_class = "Legendary"
-					else
-						src.race_class = "Elite"
+				if(51 to 85)
+					src.race_class = "Mid Class"
+				if(86 to 99)
+					src.race_class = "Elite"
+				if(100)
+					src.race_class = "Legendary"
 
 		secure_og_mods(var/mob/m)
 			if(started==0)
@@ -4224,44 +4200,39 @@ mob
 
 
 
-				if("Saiyan")
-					if(src.race_class == "Low")
-						src.mod_psionic_power = decimal_rand(3.6, 4.4)
-						src.final_powerlevel_mod = 1800000
-					else if(src.race_class == "Elite")
-						src.mod_psionic_power = decimal_rand(4.5, 5)
-						src.final_powerlevel_mod = 2000000
-					else if(src.race_class == "Legendary")
-						src.mod_psionic_power = decimal_rand(6, 10)
-						src.final_powerlevel_mod = 2800000
-					src.psionic_power_base = ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.0001)) * src.mod_psionic_power
-
-
-					//src.strength = 200
-					//src.endurance = 200
-					src.mod_rating = 1
-					src.mod_energy = decimal_rand(1.4, 2.2)
-
-					if(src.race_class == "Low")
+					if("Saiyan")
+						src.mod_rating = 1
+						src.mod_energy = decimal_rand(1.4, 2.2)
 						src.mod_strength = decimal_rand(1.8, 2)
-						src.mod_endurance = decimal_rand(1.6, 1.8)
-						src.mod_zenkai = decimal_rand(1.6,1.8)
+						switch(src.race_class)
+							if("Low")
+								src.mod_psionic_power = decimal_rand(3.6, 4.4)
+								src.final_powerlevel_mod = 1800000
+								src.mod_endurance = decimal_rand(1.6, 1.8)
+								src.mod_zenkai = decimal_rand(1.6, 1.8)
 
+							if("Mid Class")
+								src.mod_psionic_power = decimal_rand(4.2, 4.4)
+								src.final_powerlevel_mod = 1900000
+								src.mod_endurance = decimal_rand(1.65, 1.75)
+								src.mod_zenkai = decimal_rand(1.4, 1.6)
 
-					else
-						src.mod_strength = decimal_rand(1.8, 2)
-						src.mod_endurance = decimal_rand(1.7, 1.8)
-						src.mod_zenkai = decimal_rand(1.2,1.4)
+							if("Elite")
+								src.mod_psionic_power = decimal_rand(4.5, 5)
+								src.final_powerlevel_mod = 2000000
+								src.mod_endurance = decimal_rand(1.7, 1.8)
+								src.mod_zenkai = decimal_rand(1.2, 1.4)
+								src.mod_offence = decimal_rand(1.6, 2.2)
+								src.mod_defence = decimal_rand(1.4, 2)
+								src.mod_regeneration = decimal_rand(1.2, 1.5)
+								src.mod_recovery = decimal_rand(1.2, 1.5)
+								src.mod_sense = 2
+								src.mod_tech_potential = 1
 
-					src.mod_agility = decimal_rand(1.3, 1.5)
-					src.mod_force = decimal_rand(1.3, 1.8)
-					src.mod_resistance = decimal_rand(1.2, 1.4)
-					src.mod_offence = decimal_rand(1.6, 2.2)
-					src.mod_defence = decimal_rand(1.4, 2)
-					src.mod_regeneration = decimal_rand(1.2, 1.5)
-					src.mod_recovery = decimal_rand(1.2, 1.5)
-					src.mod_sense = 2
-					src.mod_tech_potential = 1
+							if("Legendary")
+								//src.mod_psionic_power = decimal_rand(6, 10)
+								src.apply_A_type_mutation()
+
 
 
 				if("Changeling")

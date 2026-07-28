@@ -15,6 +15,11 @@ obj
 			finishing = 0
 			hit_solid = 0
 			list/beam_list
+			//tier = 1
+			cap_states = 0
+			is_origin = 0
+			in_clash = 0
+			clash_opponent = null
 			tmp/mob/origin
 			tmp/num = 0
 			tmp/ang = 0

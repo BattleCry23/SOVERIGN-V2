@@ -3541,6 +3541,8 @@ obj
 							var/obj/beam = new
 							beam.icon = 'beam_body_new.dmi'
 							beam.icon *= custom_color
+							beam.ki_owner = m
+							beam.tag = "skill_beam_body"
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
 									beam.icon_state = "divine"
@@ -4271,6 +4273,8 @@ obj
 
 					var/obj/beam = new; beam_parts += beam
 					beam.icon = 'beam_body_new.dmi'; beam.icon *= custom_color
+					beam.ki_owner = m
+					beam.tag = "skill_beam_body"
 					beam.icon_state = "psionic"; beam.plane = 29
 					beam.pixel_y = -48; beam.bolted = 2; beam.density_factor = -1
 					beam.transform *= 0.1
@@ -4418,6 +4422,8 @@ obj
 
 						var/obj/beam = new
 						beam.icon = 'eye_lasers.dmi'
+						beam.ki_owner = m
+						beam.tag = "skill_beam_body"
 						//beam.blend_mode = BLEND_INSET_OVERLAY
 						//beam.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=rgb(102,0,204))
 						//beam.filters += filter(type="bloom", threshold=rgb(0,0,0), size = 6,offset=1,alpha = 175)
@@ -4780,6 +4786,8 @@ obj
 
 				var/obj/beam = new
 				beam.icon = 'beam2_body.dmi'
+				beam.ki_owner = m
+				beam.tag = "skill_beam_body"
 			//	beam.icon *= custom_color
 				beam.plane=2
 			//	if(beam.icon_state==null||beam.icon_state=="") beam.icon_state="psionic"
