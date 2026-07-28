@@ -14867,7 +14867,7 @@ obj
 				icon = 'Embroiled Crane Cape.dmi'
 				name = "Embroiled Cape"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -14880,7 +14880,7 @@ obj
 				icon = 'Cheerleader Skirt Overlay.dmi'
 				name = "Cheerleader Skirt"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -14893,7 +14893,7 @@ obj
 				icon = 'Cheerleader Top Overlay.dmi'
 				name = "Cheerleader Top"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -14906,7 +14906,7 @@ obj
 				icon = 'Nun Headdress.dmi'
 				name = "Nun Headdress"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -14919,7 +14919,7 @@ obj
 				icon = 'Nun Outfit.dmi'
 				name = "Nun Outfit"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -14932,7 +14932,7 @@ obj
 				icon = 'Nun Legging.dmi'
 				name = "Nun Leggings"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -14946,7 +14946,7 @@ obj
 
 				name = "Two Tone Dress"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 
@@ -14969,7 +14969,7 @@ obj
 
 				name = "Ballroom Dress"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 
@@ -14992,7 +14992,7 @@ obj
 
 				name = "Wide Skirt Dress"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 
@@ -15040,7 +15040,7 @@ obj
 				icon = 'Hair Ribbon Back Side Only.dmi'
 				name = "Hair Ribbon(Back)"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15053,7 +15053,7 @@ obj
 				icon = 'Hair Ribbon Base.dmi'
 				name = "Hair Ribbon"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15066,7 +15066,7 @@ obj
 				icon = 'DMG Helmet.dmi'
 				name = "Wizard Hat"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15080,7 +15080,7 @@ obj
 				icon = 'Fedora Base.dmi'
 				name = "Fedora Hat"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15093,7 +15093,7 @@ obj
 				icon = 'Shaka Helmet.dmi'
 				name = "Hero Helmet"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15106,7 +15106,7 @@ obj
 				icon = 'Emperor Cape Overlay.dmi'
 				name = "Deluxe Cape"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15119,7 +15119,7 @@ obj
 				icon = 'Emperor Cape.dmi'
 				name = "Royal Cape"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15132,7 +15132,7 @@ obj
 				icon = 'Shades.dmi'
 				name = "Shades"
 				value = 1000
-				layer = CLOTHES_LAYER + 4
+				layer = CLOTHING_LAYER + 4
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15145,7 +15145,7 @@ obj
 				icon = 'Glasses.dmi'
 				name = "Glasses"
 				value = 1000
-				layer = CLOTHES_LAYER + 4
+				layer = CLOTHING_LAYER + 4
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15158,7 +15158,7 @@ obj
 				icon = 'NamekianTurban.dmi'
 				name = "Turban"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15172,7 +15172,7 @@ obj
 				icon = 'NamekianTurbanKid.dmi'
 				name = "Turban(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15185,7 +15185,7 @@ obj
 				icon = 'Namekian_Scarf.dmi'
 				name = "Namekian Scarf"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15198,7 +15198,7 @@ obj
 				icon = 'Kogu_Headband.dmi'
 				name = "Side Headband"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15211,7 +15211,7 @@ obj
 				icon = 'Kogu_Headband_kid.dmi'
 				name = "Side Headband(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15224,7 +15224,7 @@ obj
 				icon = 'KarateHeadband.dmi'
 				name = "Karate Headband"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15237,7 +15237,7 @@ obj
 				icon = 'KarateHeadband_kid.dmi'
 				name = "Karate Headband(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15250,7 +15250,7 @@ obj
 				icon = 'Bojack_Bandana.dmi'
 				name = "Bandana"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15263,7 +15263,7 @@ obj
 				icon = 'Bojack_Bandana_Kid.dmi'
 				name = "Bandana(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 2
+				layer = CLOTHING_LAYER + 2
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15276,7 +15276,7 @@ obj
 				icon = 'Cape_Shoulderless.dmi'
 				name = "Shouderless Cape"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15289,7 +15289,7 @@ obj
 				icon = 'Cape.dmi'
 				name = "Cape"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15302,7 +15302,7 @@ obj
 				icon = 'Kid_Cape (1).dmi'
 				name = "Cape(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15315,7 +15315,7 @@ obj
 				icon = 'Kai_Sash.dmi'
 				name = "Kai Sash"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15328,7 +15328,7 @@ obj
 				icon = 'Sash.dmi'
 				name = "Sash"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15341,7 +15341,7 @@ obj
 				icon = 'Belt.dmi'
 				name = "Belt"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15354,7 +15354,7 @@ obj
 				icon = 'Wristbands.dmi'
 				name = "Wristbands"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15367,7 +15367,7 @@ obj
 				icon = 'Gloves.dmi'
 				name = "Gloves"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15381,7 +15381,7 @@ obj
 				icon = 'Boots_Saiyan.dmi'
 				name = "Saiyan Boots"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15394,7 +15394,7 @@ obj
 				icon = 'boots_saiyan_kid.dmi'
 				name = "Saiyan Boots(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15407,7 +15407,7 @@ obj
 				icon = 'BootsSov.dmi'
 				name = "Boots"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15420,7 +15420,7 @@ obj
 				icon = 'BootsSovkid.dmi'
 				name = "Boots(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15433,7 +15433,7 @@ obj
 				icon = 'Hoodie.dmi'
 				name = "Hoodie"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15446,7 +15446,7 @@ obj
 				icon = 'Jacket_Black_Sleeves.dmi'
 				name = "Black Jacket Sleeves"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15459,7 +15459,7 @@ obj
 				icon = 'Jacket_Kid_Black_Sleeves.dmi'
 				name = "Black Jacket Sleeves(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15472,7 +15472,7 @@ obj
 				icon = 'Martial_Art_Uniform_SingleShoulder.dmi'
 				name = "Single Shoulder Martial Art Uniform"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15485,7 +15485,7 @@ obj
 				icon = 'Martial_Art_Uniform.dmi'
 				name = "Martial Art Uniform"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15498,7 +15498,7 @@ obj
 				icon = 'UnderclothesFemaleSleevless.dmi'
 				name = "Female Underclothes"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15511,7 +15511,7 @@ obj
 				icon = 'Underclothes_Male.dmi'
 				name = "Male Underclothes"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15524,7 +15524,7 @@ obj
 				icon = 'Kai_Suit.dmi'
 				name = "Kai Suit"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15537,7 +15537,7 @@ obj
 				icon = 'Sleeveless_Trench_Coat.dmi'
 				name = "Sleevelees Trench Coat"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15550,7 +15550,7 @@ obj
 				icon = 'Jacket_Sleeveless.dmi'
 				name = "Sleeveless Jacket"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15563,7 +15563,7 @@ obj
 				icon = 'Jacket_Kid_Sleeveless.dmi'
 				name = "Sleeveless Jacket(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15576,7 +15576,7 @@ obj
 				icon = 'Jacket.dmi'
 				name = "Jacket"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15589,7 +15589,7 @@ obj
 				icon = 'Jacket_Kid.dmi'
 				name = "Jacket(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15602,7 +15602,7 @@ obj
 				icon = 'Singlet.dmi'
 				name = "Singlet"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15615,7 +15615,7 @@ obj
 				icon = 'Shirt_Sleeveless.dmi'
 				name = "Sleeveless Shirt"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15628,7 +15628,7 @@ obj
 				icon = 'Shoes.dmi'
 				name = "Shoes"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15641,7 +15641,7 @@ obj
 				icon = 'shoes_kid.dmi'
 				name = "Shoes(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15654,7 +15654,7 @@ obj
 				icon = 'Pants.dmi'
 				name = "Pants"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15667,7 +15667,7 @@ obj
 				icon = 'pants_kid.dmi'
 				name = "Pants(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15680,7 +15680,7 @@ obj
 				icon = 'Shirt.dmi'
 				name = "Shirt"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15693,7 +15693,7 @@ obj
 				icon = 'shirt_kid.dmi'
 				name = "Shirt(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15706,7 +15706,7 @@ obj
 				icon = 'Fur Skirt.dmi'
 				name = "Fur"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15718,7 +15718,7 @@ obj
 				icon = 'Fur.dmi'
 				name = "Fur"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15731,7 +15731,7 @@ obj
 				icon = 'Boots_Fur.dmi'
 				name = "Fur Boots"
 				value = 1000
-				layer = CLOTHES_LAYER + 1
+				layer = CLOTHING_LAYER + 1
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
@@ -15744,7 +15744,7 @@ obj
 				icon = 'Boots_Fur_Kid.dmi'
 				name = "Fur Boots(Kid)"
 				value = 1000
-				layer = CLOTHES_LAYER
+				layer = CLOTHING_LAYER
 				density_factor = 0
 				appearance_flags = KEEP_TOGETHER
 				New()
