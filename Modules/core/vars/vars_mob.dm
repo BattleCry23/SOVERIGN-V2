@@ -294,6 +294,7 @@ mob
 		obj/items/tech/Space_Pod/Pod
 		obj/items/tech/ships/Ship
 		tmp/killprompt=0
+		tmp/mob/killprompt_target = null
 		onEarth = 0
 		onNamek = 0
 		onVegeta = 0

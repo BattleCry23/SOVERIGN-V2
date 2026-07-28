@@ -510,72 +510,118 @@ atom/movable
 				if(src) src.shudders = 1;
 
 		//Code for when a beam hits an obj or mob.
-		if(istype(o,/obj/ranged/checker))
-			if(src.density || src.density_factor > 0)
-				var/obj/ranged/checker/b = o
-				if(b && b.origin)
-					if(ismob(src))
-						var/mob/M = src
-						if(istype(b,/obj/items/misc/body))
-							animate(b,alpha=0,transform=matrix(0.5,0,0,0.5,0,0),time=10)
-							spawn(10)
-								if(b) qdel(b)
-							return
-						var/Damage=((b.ki_force*b.force_usage)*b.ki_power)/(M.resistance*M.psionic_power)
+		var/src_is_skill_beam_body = (src.tag == "skill_beam_body")
+		var/o_is_skill_beam_body = (o.tag == "skill_beam_body")
+		if(istype(o,/obj/ranged/checker) || istype(src,/obj/ranged/checker) || src_is_skill_beam_body || o_is_skill_beam_body)
+			var/atom/movable/beam_obj = null
+			var/mob/M = null
+			var/obj/hit_obj = null
+			if(ismob(src) && (istype(o,/obj/ranged/checker) || o_is_skill_beam_body))
+				M = src
+				beam_obj = o
+			else if(ismob(o) && (istype(src,/obj/ranged/checker) || src_is_skill_beam_body))
+				M = o
+				beam_obj = src
+			if(!M)
+				if(isobj(src) && src != beam_obj)
+					hit_obj = src
+				else if(isobj(o) && o != beam_obj)
+					hit_obj = o
 
-						if(Damage > 0)
-							if(M.eating) M.cancel_eat()
-							M.percent_health -= Damage
+			if(M && beam_obj && (M.density || M.density_factor > 0))
+				var/obj/ranged/checker/b = null
+				if(istype(beam_obj,/obj/ranged/checker)) b = beam_obj
+				var/mob/beam_attacker = beam_obj.ki_owner
+				if(!beam_attacker && b) beam_attacker = b.origin
+				var/beam_ki_force = beam_obj.ki_force
+				var/beam_force_usage = beam_obj.force_usage
+				var/beam_ki_power = beam_obj.ki_power
+				if((src_is_skill_beam_body || o_is_skill_beam_body) && beam_attacker)
+					beam_ki_force = (beam_attacker.force / 100)
+					beam_force_usage = beam_attacker.mod_force_usage
+					beam_ki_power = beam_attacker.psionic_power
+				if(beam_attacker)
+					if(beam_ki_force <= 0) beam_ki_force = (beam_attacker.force / 100)
+					if(beam_force_usage <= 0) beam_force_usage = beam_attacker.mod_force_usage
+					if(beam_ki_power <= 0) beam_ki_power = beam_attacker.psionic_power
+				var/beam_def = (M.resistance * M.psionic_power)
+				if(beam_def <= 0) beam_def = 1
+				var/Damage=((beam_ki_force*beam_force_usage)*beam_ki_power)/beam_def
 
-						if(b.origin)
-							if(!M.remembers_force.Find(b.origin.id)) M.remembers_force += b.origin.id
-							if(!b.origin.remembers_resistance.Find(M.id)) b.origin.remembers_resistance += M.id
-						if(!M.client && !M.target)
-							if(M.npc)
-								M.target = b.origin
-								var/mob/NPC/N = M
-								N.npc_ai()
-							else if(M.boss)
-								M.target = b.origin
-								var/mob/NPC/WorldBoss/N = M
-								N.boss_idle_ai()
-						var/mob/beam_attacker = b.ki_owner
-						if(M.koed && beam_attacker && !beam_attacker.killprompt)
-							beam_attacker.killprompt=1
-							if(beam_attacker.srs_mode==0 && beam_attacker.spar_mode==1 || beam_attacker.srs_mode == 1 && beam_attacker.spar_mode==0)
-								switch(alert(beam_attacker,"Are you sure you want to kill [M]?","","No","Yes","Cancel"))
-									if("Yes")
-										if(M && !M.dead)
-											M.Death("[beam_attacker]",0)
-											beam_attacker.killprompt=0
-							else if(beam_attacker.srs_mode == 1 &&  beam_attacker.spar_mode == 1)
+				if(Damage > 0)
+					if(M.eating) M.cancel_eat()
+					M.percent_health -= Damage
+
+				if(beam_attacker)
+					if(!M.remembers_force.Find(beam_attacker.id)) M.remembers_force += beam_attacker.id
+					if(!beam_attacker.remembers_resistance.Find(M.id)) beam_attacker.remembers_resistance += M.id
+				if(!M.client && !M.target)
+					if(M.npc)
+						M.target = beam_attacker
+						var/mob/NPC/N = M
+						N.npc_ai()
+					else if(M.boss)
+						M.target = beam_attacker
+						var/mob/NPC/WorldBoss/N = M
+						N.boss_idle_ai()
+				if(M.percent_health <= 0 && !M.koed && !M.dead)
+					M.KO()
+				if(beam_attacker && !M.koed && beam_attacker.killprompt_target == M)
+					beam_attacker.killprompt_target = null
+				if(M.koed && !M.dead && beam_attacker && beam_attacker.killprompt_target != M && !beam_attacker.killprompt)
+					beam_attacker.killprompt=1
+					beam_attacker.killprompt_target = M
+					if(beam_attacker.srs_mode==0 && beam_attacker.spar_mode==1 || beam_attacker.srs_mode == 1 && beam_attacker.spar_mode==0)
+						switch(alert(beam_attacker,"Are you sure you want to kill [M]?","","No","Yes","Cancel"))
+							if("Yes")
 								if(M && !M.dead)
 									M.Death("[beam_attacker]",0)
 									beam_attacker.killprompt=0
-						else if(M.percent_health <= 0)
-							M.KO()
-						if(beam_attacker && beam_attacker.killprompt) beam_attacker.killprompt = 0
-					else if(src.immune_dmg == 0)
-						src.hp -= 10
-						if(src.hp <= 0)
-							var/turf/t = locate(src.x,src.y+1,src.z)
-							if(t)
-								if(src.type == /obj/map/cliffs/c1 || src.type == /obj/map/cliffs/c2 || src.type == /obj/map/cliffs/c3)
-									for(var/obj/map/cliffs/c in t)
-										c.destroy()
-									t.set_destroyed()
-									world.edges_solid_rock(t.x-1,t.y+1,t.x+1,t.y-1,t.z)
-								if(src.type == /obj/items/tech/Gravity_Machine)
-									var/obj/items/tech/Gravity_Machine/gm = src
-									gm.turn_off()
-							if(istype(src,/obj/items/tech/))
-								for(var/turf/trf in src.locs)
-									for(var/obj/items/tech/Power_Line/p in trf)
-										spawn(0)
-											if(p) p.reconnect_power()
-							src.destroy()
+					else if(beam_attacker.srs_mode == 1 &&  beam_attacker.spar_mode == 1)
+						if(M && !M.dead)
+							M.Death("[beam_attacker]",0)
+							beam_attacker.killprompt=0
+				else if(M.percent_health <= 0 && !M.dead)
+					M.KO()
+				if(beam_attacker && beam_attacker.killprompt) beam_attacker.killprompt = 0
 
-				if(o) o.loc = null
+			if(!M && beam_obj)
+				var/obj/items/misc/body/corpse_obj = null
+				if(istype(hit_obj,/obj/items/misc/body))
+					corpse_obj = hit_obj
+				if(corpse_obj)
+					for(var/atom/movable/A in corpse_obj)
+						A.loc = corpse_obj.loc
+					animate(corpse_obj,alpha=0,transform=matrix(0.5,0,0,0.5,0,0),time=10)
+					spawn(10)
+						if(corpse_obj) qdel(corpse_obj)
+					if(istype(beam_obj,/obj/ranged/checker) && beam_obj) beam_obj.loc = null
+					return
+				if(hit_obj)
+					if(istype(beam_obj,/obj/ranged/checker) && beam_obj) beam_obj.loc = null
+					return
+
+			if(!M && hit_obj && hit_obj.immune_dmg == 0)
+				hit_obj.hp -= 10
+				if(hit_obj.hp <= 0)
+					var/turf/t = locate(hit_obj.x,hit_obj.y+1,hit_obj.z)
+					if(t)
+						if(hit_obj.type == /obj/map/cliffs/c1 || hit_obj.type == /obj/map/cliffs/c2 || hit_obj.type == /obj/map/cliffs/c3)
+							for(var/obj/map/cliffs/c in t)
+								c.destroy()
+							t.set_destroyed()
+							world.edges_solid_rock(t.x-1,t.y+1,t.x+1,t.y-1,t.z)
+						if(hit_obj.type == /obj/items/tech/Gravity_Machine)
+							var/obj/items/tech/Gravity_Machine/gm = hit_obj
+							gm.turn_off()
+					if(istype(hit_obj,/obj/items/tech/))
+						for(var/turf/trf in hit_obj.locs)
+							for(var/obj/items/tech/Power_Line/p in trf)
+								spawn(0)
+									if(p) p.reconnect_power()
+					hit_obj.destroy()
+
+			if(istype(beam_obj,/obj/ranged/checker) && beam_obj) beam_obj.loc = null
 		//Code for when a beam hits another beam
 		/*
 		else if(istype(o,/obj/ranged/) && istype(src,/obj/ranged/))
@@ -648,16 +694,21 @@ atom/movable
 											M.target = ranged_attacker
 											var/mob/NPC/WorldBoss/N = M
 											N.boss_idle_ai()
+									if(ranged_attacker && !M.koed && ranged_attacker.killprompt_target == M)
+										ranged_attacker.killprompt_target = null
+									if(M.percent_health <= 0 && !M.koed && !M.dead)
+										M.KO()
 
-								if(M.koed && ranged_attacker && ranged_attacker.killprompt==0)
-									ranged_attacker.killprompt=1
-									if(ranged_attacker.npc)
-										if(M.dead==0)
-											if(prob(25))
-												var/killer = null
-												if(ranged_attacker) killer = ranged_attacker
-												if(M)
-													M.Death("[killer]",0)
+									if(M.koed && !M.dead && ranged_attacker && ranged_attacker.killprompt_target != M && ranged_attacker.killprompt==0)
+										ranged_attacker.killprompt=1
+										ranged_attacker.killprompt_target = M
+										if(ranged_attacker.npc)
+											if(M.dead==0)
+												if(prob(25))
+													var/killer = null
+													if(ranged_attacker) killer = ranged_attacker
+													if(M)
+														M.Death("[killer]",0)
 											ranged_attacker.killprompt=0
 									else if(ranged_attacker.srs_mode==0 && ranged_attacker.spar_mode==1 || ranged_attacker.srs_mode == 1 && ranged_attacker.spar_mode==0)
 										switch(alert(ranged_attacker,"Are you sure you want to kill [M]?","","No","Yes","Cancel"))
@@ -676,7 +727,7 @@ atom/movable
 											if(M)
 												M.Death("[killer]",0)
 												ranged_attacker.killprompt=0
-								else if(M.percent_health <= 0)
+								else if(M.percent_health <= 0 && !M.dead)
 									if(ranged_attacker && ranged_attacker.boss)
 										var/turf/safe = FindSafeBossRespawn(ranged_attacker)
 										if(safe)

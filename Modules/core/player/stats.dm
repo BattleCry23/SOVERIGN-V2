@@ -1282,32 +1282,33 @@ mob/proc
 		src.hidden_potential *= decimal_rand(1.5, 1.7)
 		src.PG *= 2.2
 		bodysize(src, "3", 1.12)
-		update_looks("body")
+		//update_looks("body")
 		outline_pulse(src, rgb(202, 242, 127))
 		src << "you were born with the C-type mutation."
 
-	apply_lssj_gene()
+	apply_A_type_mutation()
 		if(!src) return
-		src.mod_psionic_power = decimal_rand(7, 9)
+		src.mod_psionic_power = decimal_rand(6, 10)
 		src.final_powerlevel_mod = 3000000
 		src.psionic_power_base += ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.0015)) * src.mod_psionic_power
 
 		src.mod_rating = 1
-		src.mod_energy = decimal_rand(2.3, 2.5)
-		src.mod_strength = decimal_rand(1.9, 2.1)
-		src.mod_endurance = decimal_rand(1.9, 2.2)
-		src.mod_zenkai = decimal_rand(1.9, 2.2)
-		src.mod_agility += decimal_rand(1.4, 1.5)
-		src.mod_force = decimal_rand(1.95, 2.15)
-		src.mod_resistance = decimal_rand(1.35, 1.5)
-		src.mod_offence = decimal_rand(1.7, 2.1)
-		src.mod_defence = decimal_rand(1.5, 1.9)
-		src.mod_regeneration = decimal_rand(1.35, 1.5)
-		src.mod_recovery = decimal_rand(1.8, 2.0)
+		src.mod_energy += decimal_rand(2.0, 2.2)
+		src.mod_strength += decimal_rand(2.0, 2.2)
+		src.mod_endurance += decimal_rand(2.0, 2.2)
+		src.mod_zenkai += decimal_rand(2.0, 2.2)
+		src.mod_agility += decimal_rand(1.5, 1.7)
+		src.mod_force += decimal_rand(2.0, 2.2)
+		src.mod_resistance += decimal_rand(1.4, 1.6)
+		src.mod_offence += decimal_rand(1.8, 2.0)
+		src.mod_defence += decimal_rand(1.8, 2.0)
+		src.mod_regeneration += decimal_rand(1.4, 1.6)
+		src.mod_recovery += decimal_rand(1.8, 2.0)
 		src.mod_sense = 1.8
-		src.mod_anger = decimal_rand(1.1, 1.3)
+		src.mod_anger += decimal_rand(1.1, 1.3)
 		src.mod_tech_potential = 1.1
 		src.LSSJ = 1
+		src.race_class = "Legendary"
 		src.hidden_potential *= decimal_rand(1.1, 1.3)
 		src.auracolor = rgb(202, 242, 127)
 		outline_pulse(src, rgb(202, 242, 127))
