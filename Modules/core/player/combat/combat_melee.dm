@@ -487,7 +487,13 @@ mob
 			src.dead = 1;
 			src.disable_skills()
 			src.clear_drugs()
-			src.energy = 1
+			src.dead_ki_lock = max(src.energy, 1)
+			src.energy = src.dead_ki_lock
+			src.dead_skill_levels = list()
+			for(var/obj/skills/S in src)
+				src.dead_skill_levels[S] = S.skill_lvl
+				if(S.skill_exp >= 100)
+					S.skill_exp = 99
 			src.percent_health = 1
 			for(var/mob/m in players)
 				if(m.target == src) m.add_remove_target(src,1)
@@ -669,7 +675,13 @@ mob
 				src.death_power_mod = 0.2
 			src.disable_skills()
 			src.clear_drugs()
-			src.energy = 1
+			src.dead_ki_lock = max(src.energy, 1)
+			src.energy = src.dead_ki_lock
+			src.dead_skill_levels = list()
+			for(var/obj/skills/S in src)
+				src.dead_skill_levels[S] = S.skill_lvl
+				if(S.skill_exp >= 100)
+					S.skill_exp = 99
 			src.percent_health = 1
 			for(var/mob/m in players)
 				if(m.target == src) m.add_remove_target(src,1)
@@ -938,6 +950,8 @@ mob
 		TempRevive(var/energyconsumption,var/mob/caster)
 			if(src)
 				src.dead = 0;
+				src.dead_ki_lock = 0
+				src.dead_skill_levels = null
 				animate(src,alpha = 255, time = 30)
 				src.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=src.auracolor)
 				src.screen_text.maptext = "<font size = 6><center>Soul temporarily restored"
@@ -960,6 +974,8 @@ mob
 				//if(src.debuff_dead && src.debuff_dead.active) call(src.debuff_dead.act)(src,src.debuff_dead)
 		Revive()
 			src.dead = 0;
+			src.dead_ki_lock = 0
+			src.dead_skill_levels = null
 			animate(src,alpha = 255, time = 30)
 			src.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=src.auracolor)
 			src.screen_text.maptext = "<font size = 4><center>You were revived."

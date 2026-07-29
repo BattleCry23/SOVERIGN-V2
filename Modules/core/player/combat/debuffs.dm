@@ -182,6 +182,22 @@ mob
 			if(src.kaioryu <=0)
 				src.buff_kaioryu.active = 0;
 				if(src.client) src.client.screen -= src.buff_kaioryu
+
+			if(src.dead)
+				if(src.dead_ki_lock <= 0)
+					src.dead_ki_lock = max(src.energy, 1)
+				if(src.energy < src.dead_ki_lock)
+					src.energy = src.dead_ki_lock
+				if(!src.dead_skill_levels)
+					src.dead_skill_levels = list()
+				for(var/obj/skills/S in src)
+					var/locked_lvl = src.dead_skill_levels[S]
+					if(isnull(locked_lvl))
+						src.dead_skill_levels[S] = S.skill_lvl
+					else if(S.skill_lvl > locked_lvl)
+						S.skill_lvl = locked_lvl
+					if(S.skill_exp >= 100)
+						S.skill_exp = 99
 			if(src.gaining_rating < 0)
 
 				src.gaining_rating = 0;
@@ -263,9 +279,12 @@ mob
 				if(src.client) src.client.screen -= src.buff_stance
 				src.buff_stance.active = 0;
 
-			if(src.dead == 0 && src.debuff_dead && src.debuff_dead.active)
-				src.debuff_dead.active = 0
-				if(src.client) src.client.screen -= src.debuff_dead
+			if(src.dead == 0)
+				src.dead_ki_lock = 0
+				src.dead_skill_levels = null
+				if(src.debuff_dead && src.debuff_dead.active)
+					src.debuff_dead.active = 0
+					if(src.client) src.client.screen -= src.debuff_dead
 
 			if(src.need_food == "Yes")
 				if(src.hunger > 70 && src.buff_hunger.active == 0) call(src.buff_hunger.act)(src,src.buff_hunger)
