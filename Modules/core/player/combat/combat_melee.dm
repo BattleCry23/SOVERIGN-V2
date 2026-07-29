@@ -507,7 +507,7 @@ mob
 					X.letgo()
 				var/turf/t = src.loc
 				//Create the body
-				if(src.has_body)
+				if(src.has_body && !src.kept_body)
 					var/obj/items/misc/body/b = new
 					var/obj/i=new
 					i.icon='deathblood.dmi'
@@ -530,7 +530,10 @@ mob
 
 				//if(src.keep_body == 0) src.has_body = 0;
 				src.has_body = 0;
-				src.alpha = 130;
+				if(src.kept_body)
+					src.alpha = 255
+				else
+					src.alpha = 130;
 				if(src.client)
 					if(src.shadow) src.shadow.loc = null
 					var/mob/clone = null;
@@ -660,7 +663,7 @@ mob
 			src.hunger = 99
 			src.thirst = 99
 			src.restedness = 99
-			if(src.has_body)
+			if(src.kept_body)
 				src.death_power_mod = 0.5
 			else
 				src.death_power_mod = 0.2
@@ -686,7 +689,7 @@ mob
 					X.letgo()
 				var/turf/t = src.loc
 				//Create the body
-				if(src.has_body && make_body)
+				if(src.has_body && make_body && !src.kept_body)
 					var/obj/items/misc/body/b = new
 					var/obj/i=new
 					i.icon='deathblood.dmi'
@@ -757,7 +760,10 @@ mob
 
 				//if(src.keep_body == 0) src.has_body = 0;
 				src.has_body = 0;
-				src.alpha = 130;
+				if(src.kept_body)
+					src.alpha = 255;
+				else
+					src.alpha = 130;
 				if(!src.npc && !src.boss)
 					if(src.shadow) src.shadow.loc = null
 					var/mob/clone = null;
@@ -973,9 +979,13 @@ mob
 			src.death_power_mod = 1
 			src.alpha = 255
 			if(src.death_location)
-				src.loc=src.death_location
+				if(src.kept_body)
+					src.death_location = src.loc
+				else
+					src.loc=src.death_location
 				src.check_glow_planes()
 				src.death_location = null
+				src.kept_body = 0
 
 			//if(src.debuff_dead && src.debuff_dead.active) call(src.debuff_dead.act)(src,src.debuff_dead)
 		KO(var/loggedin = 0,var/un_koed=0)
