@@ -839,6 +839,7 @@ world/proc/LoadChildren() if(fexists("saves/ChildrenandAndroids/ActiveChildren.s
 
 
 world/proc/SaveBan()
+	world.NormalizeBanList()
 	var/savefile/S=new("saves/BANS.sav")
 	S["Bans"]<<ban_list
 
@@ -846,6 +847,102 @@ world/proc/LoadBan()
 	if(fexists("saves/BANS.sav"))
 		var/savefile/S=new("saves/BANS.sav")
 		S["Bans"]>>ban_list
+	world.NormalizeBanList()
+	world.PruneExpiredBans()
+
+world/proc/NormalizeBanList()
+	if(!islist(ban_list))
+		ban_list = list()
+	var/list/normalized = list()
+	for(var/computer_id in ban_list)
+		var/entry = ban_list[computer_id]
+		if(islist(entry))
+			var/list/entry_list = entry
+			var/expires_at = -1
+			if(isnum(entry_list["expires_at"]))
+				expires_at = round(entry_list["expires_at"])
+			else if(isnum(entry_list["expiry"]))
+				expires_at = round(entry_list["expiry"])
+			var/ckey = entry_list["ckey"]
+			var/ip = entry_list["ip"]
+			normalized["[computer_id]"] = list(
+				"expires_at" = expires_at,
+				"ckey" = istext(ckey) ? "[ckey]" : null,
+				"ip" = istext(ip) ? "[ip]" : null
+			)
+		else if(isnull(entry))
+			normalized["[computer_id]"] = list("expires_at" = -1, "ckey" = null, "ip" = null)
+		else if(isnum(entry))
+			normalized["[computer_id]"] = list("expires_at" = round(entry), "ckey" = null, "ip" = null)
+		else
+			var/entry_text = "[entry]"
+			var/entry_num = text2num(entry_text)
+			if(entry_num)
+				normalized["[computer_id]"] = list("expires_at" = round(entry_num), "ckey" = null, "ip" = null)
+			else
+				normalized["[computer_id]"] = list("expires_at" = -1, "ckey" = null, "ip" = null)
+	ban_list = normalized
+
+world/proc/PruneExpiredBans()
+	world.NormalizeBanList()
+	var/changed = FALSE
+	for(var/computer_id in ban_list.Copy())
+		var/entry = ban_list[computer_id]
+		var/expires_at = -1
+		if(islist(entry))
+			expires_at = entry["expires_at"]
+		else if(isnum(entry))
+			expires_at = entry
+		if(isnum(expires_at) && expires_at >= 0 && expires_at <= world.realtime)
+			ban_list -= computer_id
+			changed = TRUE
+	if(changed)
+		world.SaveBan()
+
+world/proc/GetBanExpiry(computer_id)
+	if(!computer_id) return null
+	world.NormalizeBanList()
+	world.PruneExpiredBans()
+	var/entry = ban_list["[computer_id]"]
+	if(islist(entry))
+		return entry["expires_at"]
+	if(isnum(entry))
+		return entry
+	return null
+
+world/proc/GetBanCkey(computer_id)
+	if(!computer_id) return null
+	world.NormalizeBanList()
+	var/entry = ban_list["[computer_id]"]
+	if(islist(entry))
+		return entry["ckey"]
+	return null
+
+world/proc/GetBanIP(computer_id)
+	if(!computer_id) return null
+	world.NormalizeBanList()
+	var/entry = ban_list["[computer_id]"]
+	if(islist(entry))
+		return entry["ip"]
+	return null
+
+world/proc/SetTimedBan(computer_id, duration_ds, ckey = null, ip = null)
+	if(!computer_id || duration_ds <= 0) return
+	world.NormalizeBanList()
+	ban_list["[computer_id]"] = list(
+		"expires_at" = world.realtime + duration_ds,
+		"ckey" = istext(ckey) ? "[ckey]" : null,
+		"ip" = istext(ip) ? "[ip]" : null
+	)
+	world.SaveBan()
+
+world/proc/RemoveTimedBan(computer_id)
+	if(!computer_id) return FALSE
+	world.NormalizeBanList()
+	if(!("[computer_id]" in ban_list)) return FALSE
+	ban_list -= "[computer_id]"
+	world.SaveBan()
+	return TRUE
 
 
 /proc/IsGuestKey(key)

@@ -284,10 +284,13 @@ mob
 		//	src.bodyhealth = 100
 			//src.bodypcnt = (round(percent_power*0.01) + round(percent_energy)) - 1 //- 100
 			if(src.Body) src.BodyPcnt()
+			var/death_power_mod = 1
+			if(src.dead)
+				death_power_mod = src.death_power_mod
 			if(src.dead && !src.has_body)
-				src.psionic_power = ((src.psionic_power_base*0.125)+((src.gains_trained_power + src.gains_psiforged_power + src.gains_items_power - src.injury_power)+gravity_mastered+current_transformation_boost)*chosen_pp*Energy_Multiplier*Health_Multiplier*anger_phase*kaioken_pl)*Body/weight*(power_percent/100)*0.1
+				src.psionic_power = ((src.psionic_power_base*0.125)+((src.gains_trained_power + src.gains_psiforged_power + src.gains_items_power - src.injury_power)+gravity_mastered+current_transformation_boost)*chosen_pp*Energy_Multiplier*Health_Multiplier*anger_phase*kaioken_pl)*Body/weight*(power_percent/100)*death_power_mod
 			else
-				src.psionic_power = ((src.psionic_power_base*0.125)+((src.gains_trained_power + src.gains_psiforged_power + src.gains_items_power - src.injury_power)+gravity_mastered+current_transformation_boost)*chosen_pp*Energy_Multiplier*Health_Multiplier*anger_phase*kaioken_pl)*Body/weight*(power_percent/100)
+				src.psionic_power = ((src.psionic_power_base*0.125)+((src.gains_trained_power + src.gains_psiforged_power + src.gains_items_power - src.injury_power)+gravity_mastered+current_transformation_boost)*chosen_pp*Energy_Multiplier*Health_Multiplier*anger_phase*kaioken_pl)*Body/weight*(power_percent/100)*death_power_mod
 		//	src.create_chat_entry("alerts","PL: [src.psionic_power]")
 		//	src.create_chat_entry("alerts","Prime: [src.prime]")
 			if(psionic_power <= 0) psionic_power = 1;

@@ -1092,7 +1092,7 @@ mob
 		has_hair = 0;
 		has_eyes = 0 //Just visually. For example, some races might not have eyes. Currently applies to endoskeletal androids.
 		has_stomach = 1 //Set to 0 if impossible to eat food, i.e Androids.
-		keep_body = 0;
+		kept_body = 0; // this handles if you keep your body when you die, or if you lose it and have to get a new one. 0 = lose body, 1 = keep body.
 		signature = 0;
 		shop_opened=0
 		can_attack = 1
@@ -1459,6 +1459,7 @@ mob
 
 		//Skills Stuff
 		tmp/kaioken_pl = 1
+		tmp/death_power_mod = 1
 		tmp/kaiosoku_boost = 0
 		tmp/kaioenjin = 0
 		tmp/kaioryu = 0

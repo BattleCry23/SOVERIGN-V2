@@ -116,6 +116,11 @@ mob/proc/BasicCheck()
 		usr.client.admin_level = 1
 	if(is_ckey_in_admin_save(src.ckey))
 		load_admin_profile(src.client)
+	if(src.client && src.client.admin_level > 0)
+		if(!(src.key in CodedStaff))
+			CodedStaff += "[src.key]"
+		if(!(src.key in StaffTeam))
+			StaffTeam += "[src.key]"
 	if(findtextEx(src.key, "Telnet @"))
 		//alert(  "Acess Denied: Sorry, this game does not support Telnet!")
 		//del(src)

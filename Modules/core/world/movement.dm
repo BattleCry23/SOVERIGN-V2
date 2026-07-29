@@ -602,7 +602,8 @@ atom/movable
 					return
 
 			if(!M && hit_obj && hit_obj.immune_dmg == 0)
-				hit_obj.hp -= 10
+				if(hit_obj.can_pocket) return
+				else hit_obj.hp -= 10
 				if(hit_obj.hp <= 0)
 					var/turf/t = locate(hit_obj.x,hit_obj.y+1,hit_obj.z)
 					if(t)

@@ -191,9 +191,6 @@ obj/items/tech/weapons
 
 obj
 	step_size = 6
-	var/const/HAIR_LAYER = FLOAT_LAYER-1
-	var/const/ARMOUR_LAYER = FLOAT_LAYER-1
-	var/const/EQUIPMENT_LAYER = MOB_LAYER+1
 
 	Move()
 		if(src.loc)

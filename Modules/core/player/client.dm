@@ -611,6 +611,25 @@ client
             if(src.mob)
                 src.mob.RunAdminCommand(href_list["admin_cmd"])
 
+        if(href_list["admin_panel_action"])
+            if(!src.mob)
+                return
+            var/action = href_list["admin_panel_action"]
+            var/target_ref = href_list["target"]
+            var/mob/target = locate(target_ref)
+            if(!target)
+                var/target_ckey = href_list["target_ckey"]
+                if(target_ckey)
+                    for(var/mob/M in players)
+                        if(M && M.ckey == target_ckey)
+                            target = M
+                            break
+            if(!target)
+                src.mob << "Admin panel action failed: target not found."
+                return
+            src.mob.RunAdminPanelAction(action, target)
+            return
+
         if(href_list["dokuro_buy"])
             prompt_paypal_redirect(src)
         if(href_list["dokuro_window_closed"])

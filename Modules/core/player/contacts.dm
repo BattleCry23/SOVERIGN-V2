@@ -178,7 +178,7 @@ mob/proc/new_contact(var/mob/m)
 			break
 	if(already_added == 0)
 		var/obj/hud/contact/shell = player_shells[1]
-		if(m.port)
+		if(m.port && m.port.icon)
 			var/obj/port_copy = new
 			port_copy.icon = m.port.icon
 			port_copy.icon_state = m.port.icon_state
@@ -188,6 +188,7 @@ mob/proc/new_contact(var/mob/m)
 			port_copy.pixel_y = 4
 			shell.overlays += port_copy
 			for(var/obj/portrait/p in m.port.vis_contents)
+				if(!p.icon) continue
 				var/obj/o = new
 				o.icon = p.icon
 				o.icon_state = p.icon_state

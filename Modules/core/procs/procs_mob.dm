@@ -2132,12 +2132,20 @@ mob
 							m.makyoboost_disable(m)
 
 		check_ban()
-			if(findtext(ban_list,"[src.client.computer_id]"))
+			if(!src.client || !src.client.computer_id) return
+			var/ban_expires = world.GetBanExpiry(src.client.computer_id)
+			if(!isnull(ban_expires))
 				src.client.screen += new /obj/bannedbackground
+				if(isnum(ban_expires) && ban_expires >= 0)
+					var/remaining_text = FormatBanTimeRemaining(ban_expires - world.realtime)
+					src << "You are banned for [remaining_text] more."
+				else
+					src << "You are banned from this server."
 				sleep(0.1)
 				src.Logout()
-				sleep(50)
+				sleep(5 * SECONDS)
 				del(src.client)
+
 		lssj_disable(mob/m)
 			m.lssj_form = 0
 			m.reset_anger()

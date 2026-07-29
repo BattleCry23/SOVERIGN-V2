@@ -42,6 +42,7 @@ proc/save_admin_profile(client/C)
 	F["[ckey]_icon"] << C.admin_icon_type
 	F["[ckey]_setup"] << C.admin_setup_done
 	F["[ckey]_setdone"] << C.admin_mode_set
+	F["[ckey]_level"] << C.admin_level
 
 // Load admin profile from file safely
 proc/load_admin_profile(client/C)
@@ -50,12 +51,13 @@ proc/load_admin_profile(client/C)
 	var/ckey = lowertext(C.ckey)
 
 	// Use temporary vars to avoid loading corrupt data directly into client
-	var/name, color, icon, setup, setdone
+	var/name, color, icon, setup, setdone, level
 	F["[ckey]_name"] >> name
 	F["[ckey]_color"] >> color
 	F["[ckey]_icon"] >> icon
 	F["[ckey]_setup"] >> setup
 	F["[ckey]_setdone"] >> setdone
+	F["[ckey]_level"] >> level
 
 	// Apply only if all exist
 	//if(name && color && icon && setup && setdone)
@@ -65,6 +67,8 @@ proc/load_admin_profile(client/C)
 		C.admin_icon_type = icon
 		C.admin_setup_done = setup
 		C.admin_mode_set = setdone
+	if(isnum(level))
+		C.admin_level = round(level)
 		//C.mob<<"Profile Loaded."
 // Check if the ckey exists in the savefile (admin marker)
 proc/is_ckey_in_admin_save(var/ckey)

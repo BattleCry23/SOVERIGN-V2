@@ -649,7 +649,6 @@ mob
 							//	newborn = new /mob/races/Human // fallback if unknown race
 
 						if(!m)
-							m << "Error: Could not create race template for [profile.race]."
 							return
 						m.creature_started = 1
 						m.offspring = 1
@@ -914,6 +913,12 @@ mob
 				target.port = null
 		set_baby_icon(var/mob/target,var/ascend = 0)
 			if(target)
+				var/nose_count = length(nose_portrait_female)
+				if(nose_count && (target.nose_pos < 1 || target.nose_pos > nose_count))
+					target.nose_pos = 1
+				var/mouth_count = length(mouth_portrait_female)
+				if(mouth_count && (target.mouth_pos < 1 || target.mouth_pos > mouth_count))
+					target.mouth_pos = 1
 				if(target.port)
 					if(target.age<4||target.age == 0.1)
 						if(target.client) target.client.screen -= target.port
@@ -1407,10 +1412,12 @@ mob
 							target.port.icon = P
 
 							var/icon/P_skin_c = icon(port.icon,"[port.icon_state]",SOUTH,1,0)
-							if(target.skin_c) P_skin_c.icon *= target.skin_c//P_skin_c.Blend(target.skin_c)
-							else P_skin_c.Blend(rgb(0,0,155))
-							port.icon = P_skin_c
-							P.Blend(P_skin_c,ICON_OVERLAY)
+							if(P_skin_c)
+								if(target.skin_c) P_skin_c.icon *= target.skin_c//P_skin_c.Blend(target.skin_c)
+								else P_skin_c.Blend(rgb(0,0,155))
+								port.icon = P_skin_c
+								if(P)
+									P.Blend(P_skin_c,ICON_OVERLAY)
 
 
 
@@ -2129,10 +2136,12 @@ mob
 							target.port.icon = P
 
 							var/icon/P_skin_c = icon(port.icon,"[port.icon_state]",SOUTH,1,0)
-							if(target.skin_c) P_skin_c.icon *= target.skin_c//P_skin_c.Blend(target.skin_c)
-							else P_skin_c.Blend(rgb(0,0,155))
-							port.icon = P_skin_c
-							P.Blend(P_skin_c,ICON_OVERLAY)
+							if(P_skin_c)
+								if(target.skin_c) P_skin_c.icon *= target.skin_c//P_skin_c.Blend(target.skin_c)
+								else P_skin_c.Blend(rgb(0,0,155))
+								port.icon = P_skin_c
+								if(P)
+									P.Blend(P_skin_c,ICON_OVERLAY)
 
 
 
@@ -3892,6 +3901,14 @@ mob
 							else if(target.gen == "Male" && target.age>=13) target.hair_pos = 16
 							if(target.gen == "Female") target.hair_pos = 5
 
+			if(target)
+				var/nose_count = length(nose_portrait_female)
+				if(nose_count && (target.nose_pos < 1 || target.nose_pos > nose_count))
+					target.nose_pos = 1
+				var/mouth_count = length(mouth_portrait_female)
+				if(mouth_count && (target.mouth_pos < 1 || target.mouth_pos > mouth_count))
+					target.mouth_pos = 1
+
 			//Reset hair for some races, since they don't have any.
 			var/obj/h = null
 			if(target)
@@ -4184,11 +4201,14 @@ mob
 					target.has_hair =1
 					target.horn_pos = 1
 					if(is_adult_age)
-
-						i_horn = 'Demonic Horns.dmi'
-						target.horn_pos = 1
-					else if(age<=4)
-						i_horn = 'demonic_horns_kid.dmi'
+						if(prob(50))
+							i_horn = new /obj/overlay/horns/demon
+							target.horn_pos = 1
+						else
+							i_horn = new /obj/overlay/horns/demon/demon_2
+							target.horn_pos = 2
+					else if(is_kid_age)
+						i_horn = new /obj/overlay/horns/demon/kid_horn
 						target.horn_pos = 2
 
 					if(target.gen == "Male")
@@ -4604,9 +4624,9 @@ mob
 				if(target.race == "Oni")
 					if(is_adult_age)
 
-						i_horn = 'OniHorns.dmi'
+						i_horn = new /obj/overlay/horns/oni
 					else if(age==4)
-						i_horn = 'oni_horns_kid.dmi'
+						i_horn = new /obj/overlay/horns/oni/kid_horn
 					if(target.skin_pos == 1)
 						if(is_adult_age)
 							i_race = 'oni_male_light.dmi'
@@ -4705,16 +4725,20 @@ mob
 			if(target.eyes_white)
 				remove_overlay(target, target.eyes_white)
 			target.eyes_white = null
-			var/i_white = new /obj/overlay/sclera
-			var/i_iris = new /obj/overlay/eyes_iris
+			var/obj/overlay/sclera/i_white = new /obj/overlay/sclera
+			var/obj/overlay/eyes_iris/i_iris = new /obj/overlay/eyes_iris
 			if(target.age<13 && target.age >3.9)
 				i_white = new /obj/overlay/sclera/kid
 				i_iris = new /obj/overlay/eyes_iris/kid
 			/*if(target.race == "Android" && target.skin_pos == 1)
 				i_white = 'humanoid_eyes_iris_android.dmi'
 				i_iris = 'humanoid_eyes_iris_android.dmi'*/
-			var/icon/P_white = icon(i_white,"",SOUTH,1,0)
-			var/icon/P_eyecolor = icon(i_iris,"",SOUTH,1,0)
+			var/icon/P_white
+			if(i_white && i_white.icon)
+				P_white = icon(i_white.icon,"",SOUTH,1,0)
+			var/icon/P_eyecolor
+			if(i_iris && i_iris.icon)
+				P_eyecolor = icon(i_iris.icon,"",SOUTH,1,0)
 			if(target.has_eyes)
 				var/proceed_eyes = 1
 				if(target.race == "Android")
@@ -4723,38 +4747,48 @@ mob
 
 				if(proceed_eyes)
 					var/is_adult_eyes = (target.age >= 13)
-					P_white.Scale(128,128)
-					I.Blend(P_white,ICON_OVERLAY)
-
-					P_eyecolor.Scale(128,128)
+					var/final_eye_c = target.eye_c
 					if(target.race == "Saiyan" || (target.saiyan_dna && !target.is_hybrid))
-						target.eye_c = rgb(0,0,0)
-					if(target.eye_c) P_eyecolor.Blend(target.eye_c)
-					else P_eyecolor.Blend(rgb(0,0,155))
-					I.Blend(P_eyecolor,ICON_OVERLAY)
-					target.saved_eye_c = target.eye_c
+						final_eye_c = rgb(0,0,0)
+					if(!final_eye_c)
+						final_eye_c = rgb(0,0,155)
+					target.eye_c = final_eye_c
+					//P_eyecolor = final_eye_c
+					if(P_white)
+						P_white.Scale(128,128)
+						I.Blend(P_white,ICON_OVERLAY)
+
+					if(P_eyecolor)
+						P_eyecolor.Scale(128,128)
+						P_eyecolor.Blend(final_eye_c, ICON_MULTIPLY)
+						I.Blend(P_eyecolor,ICON_OVERLAY)
+					target.saved_eye_c = final_eye_c
 
 					var/obj/eye_white = new
-					eye_white.icon = i_white
-					eye_white.layer = eye_white.layer
-					eye_white.vis_flags = eye_white.vis_flags
+					eye_white.icon = i_white.icon
+					eye_white.layer = i_white.layer
+					eye_white.vis_flags = i_white.vis_flags
 					target.eyes_white = eye_white
-					add_overlay(target, target.eyes_white)
+					//add_overlay(target, target.eyes_white)
 					var/obj/eye_iris = new
-					eye_iris.icon = i_iris
-					var/icon/eye = new(eye_iris.icon)
-					if(target.eye_c) eye.icon *= eye_c
+					eye_iris.icon = i_iris.icon
+					var/icon/eye
+					if(eye_iris.icon)
+						eye = new(eye_iris.icon)
 						//eye.Blend(target.eye_c)
-					eye_iris.icon = eye
-					eye_iris.layer = eye_iris.layer
-					eye_iris.vis_flags = eye_iris.vis_flags
+					if(eye)
+						eye.Blend(final_eye_c, ICON_MULTIPLY)
+						eye_iris.icon = eye
+					eye_iris.layer = i_iris.layer
+					eye_iris.vis_flags = i_iris.vis_flags
 					target.eyes = eye_iris
 					if(is_adult_eyes)
 						target.eyes.pixel_x = 0
 						target.eyes_white.pixel_y = 0
-					target.vis_contents += target.eyes_white
-					target.vis_contents += target.eyes
+					//target.vis_contents += target.eyes_white
+					//target.vis_contents += target.eyes
 					add_overlays(target, list(target.eyes_white, target.eyes))
+					//add_overlay(target, target.eyes)
 					//target.overlays += target.eyes
 
 					//target.overlays += P_eyecolor
@@ -4768,10 +4802,10 @@ mob
 						target.eyes_white = null
 				*/
 			if(target.race == "Demon")
-				if(target.age>=13 || target.age == null || target.age == 1)
-					target.overlays += 'Demonic Horns.dmi'
-				else if(target.age<=4)
-					target.overlays += 'demonic_horns_kid.dmi'
+				if(is_adult_age || target.age == null || target.age == 1)
+					add_overlay(target, i_horn)
+				else if(is_under4_age)
+					add_overlay(target, i_horn)
 
 			//Now set the actual in game portrait
 			if(i_horn)
@@ -4802,7 +4836,7 @@ mob
 
 				target.horns = horn
 				//target.overlays = null
-				target.overlays += target.horns
+				add_overlay(target, target.horns)
 			//	target.vis_contents += target.horns
 	proc
 		ages(var/adjust as text)

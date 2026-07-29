@@ -332,15 +332,14 @@
 	// =========================
 	html += "<div class='section'><div class='section-title'>World Control</div>"
 	if(level >= 1)
-		html += AdminButton("Announce","Announce")
-		html += AdminButton("Spy_Roleplay","Spy Roleplay")
-		html += AdminButton("Toggle_Global_OOC","Toggle Global OOC")
-		html += AdminButton("Check_CPU","Check CPU")
-		html += AdminButton("Purge_Lag","Purge Lag")
+		var/list/world_cmds_l1 = list("Announce", "Spy_Roleplay", "Toggle_Global_OOC", "Check_CPU", "Purge_Lag")
+		for(var/cmd in AdminSortCommandsByName(world_cmds_l1))
+			html += AdminButton(cmd)
 
 	if(level >= 2)
-		html += AdminButton("Shutdown","Shutdown")
-		html += AdminButton("Reboot","Reboot")
+		var/list/world_cmds_l2 = list("Shutdown", "Reboot")
+		for(var/cmd in AdminSortCommandsByName(world_cmds_l2))
+			html += AdminButton(cmd)
 	html += "</div>"
 
 	// =========================
@@ -348,55 +347,54 @@
 	// =========================
 	html += "<div class='section'><div class='section-title'>Player Control</div>"
 	if(level >= 1)
-		html += AdminButton ("Rename_Player","Rename Player")
-		html += AdminButton ("Admin_Telepathy","Admin Telepathy")
-		html += AdminButton("Heal","Heal")
-		html += AdminButton("Heal_Everything","Heal Everything")
-		html += AdminButton("Revive","Revive")
-		html += AdminButton("Kill","Kill")
-		html += AdminButton("Knockout","Knockout")
-		html += AdminButton("Observe","Observe")
-		html += AdminButton("Goto","Goto")
-		html += AdminButton("Bring","Bring")
-		html += AdminButton("Ban","Ban")
-		html += AdminButton("Boot","Boot")
-		html += AdminButton("Damage_Limb","Damage Limb")
-		html += AdminButton("Remove_Limb","Remove Limb")
-		html += AdminButton("Restore_Limb","Restore Limb")
-		html += AdminButton("Mute","Mute")
-		html += AdminButton("Ban","Ban")
-		html += AdminButton("Send_To_Spawn","Send To Spawn")
-		html += AdminButton("Reset_Player_Technology","Reset Player Technology")
-		html += AdminButton("Reset_Player_Inventory", "Reset Player Inventory")
-		html += AdminButton("Refresh_Player_Skills","Reset Player Skills")
-		html += AdminButton("Delete_Player_Skills","Delete Player Skills")
-		html += AdminButton("Manage_Mutations","Manage Mutations")
+		var/list/player_cmds_l1 = list(
+			"Rename_Player",
+			"Admin_Telepathy",
+			"Heal",
+			"Heal_Everything",
+			"Revive",
+			"Kill",
+			"Knockout",
+			"Observe",
+			"Goto",
+			"Bring",
+			"Ban",
+			"Unban",
+			"Boot",
+			"Damage_Limb",
+			"Remove_Limb",
+			"Restore_Limb",
+			"Mute",
+			"Send_To_Spawn",
+			"Reset_Player_Technology",
+			"Reset_Player_Inventory",
+			"Refresh_Player_Skills",
+			"Delete_Player_Skills",
+			"Manage_Mutations"
+		)
+		for(var/cmd in AdminSortCommandsByName(player_cmds_l1))
+			html += AdminButton(cmd)
 
 
 	if(level >= 2)
-		html += AdminButton("Change_Icon","Change Icon")
-		html += AdminButton("Assess","Assess")
-		html += AdminButton("Edit_Age","Edit Age")
-		html += AdminButton("Debug_Player_Technology","Debug Player Tech")
-		html += AdminButton("Planet_Teleport","Planet Teleport")
+		var/list/player_cmds_l2 = list("Change_Icon", "Assess", "Edit_Age", "Debug_Player_Technology", "Planet_Teleport")
+		for(var/cmd in AdminSortCommandsByName(player_cmds_l2))
+			html += AdminButton(cmd)
 	if(level >= 3)
-		html += AdminButton("Manage_Technology","Manage Technology")
-		html += AdminButton("Force_Transformation","Force Transformation")
-	if(level >= 4)
-		html += AdminButton("Spawn_Player","Spawn Dummy Player")
+		var/list/player_cmds_l3 = list("Manage_Technology", "Force_Transformation")
+		for(var/cmd in AdminSortCommandsByName(player_cmds_l3))
+			html += AdminButton(cmd)
 	html += "</div>"
 	// =========================
 	// FIX/CLIENT
 	// =========================
 	html += "<div class='section'><div class='section-title'>Fixes</div>"
 	if(level >= 1)
-
-		html += AdminButton("Clear_Known_Names", "Clear Known Names")
-		html += AdminButton("Fix_Icon","Fix Icon")
-		html += AdminButton("Fix_Screen_Offset","Fix Screen Offset")
-		html += AdminButton("Force_Resolution_Fix","Force Resolution Fix")
+		var/list/fix_cmds_l1 = list("Clear_Known_Names", "Fix_Icon", "Fix_Screen_Offset", "Force_Resolution_Fix")
+		for(var/cmd in AdminSortCommandsByName(fix_cmds_l1))
+			html += AdminButton(cmd)
 	if(level >=4)
-		html += AdminButton("Clear_Tech_List","Clear Tech List")
+		html += AdminButton("Clear_Tech_List")
 	html += "</div>"
 
 
@@ -405,11 +403,11 @@
 	// =========================
 	html += "<div class='section'><div class='section-title'>Items</div>"
 	if(level >= 1)
-		html += AdminButton("Delete","Delete Object")
+		html += AdminButton("Delete")
 	if(level >= 3)
-		html += AdminButton("Create_Item","Create Item")
+		html += AdminButton("Create_Item")
 	if(level >= 4)
-		html += AdminButton("Create_Custom_Icon_Object","Create Custom Icon Object")
+		html += AdminButton("Create_Custom_Icon_Object")
 	html += "</div>"
 
 	// =========================
@@ -417,13 +415,9 @@
 	// =========================
 	html += "<div class='section'><div class='section-title'>Economy / Stats</div>"
 	if(level >= 3)
-		html += AdminButton("Edit","Edit")
-		html += AdminButton("Global_CFT","Global CFT")
-		html += AdminButton("Give_RPPs","Give RPPs")
-		html += AdminButton("Give_Zenni","Give Zenni")
-		html += AdminButton("Increase_Stats","Increase Stats")
-		html += AdminButton("Increase_HTT","Increase HTT")
-		html += AdminButton("Restore_Artifacts","Restore Artifacts")
+		var/list/econ_cmds_l3 = list("Edit", "Global_CFT", "Give_RPPs", "Give_Zenni", "Increase_Stats", "Increase_HTT", "Restore_Artifacts")
+		for(var/cmd in AdminSortCommandsByName(econ_cmds_l3))
+			html += AdminButton(cmd)
 
 
 	html += "</div>"
@@ -433,9 +427,11 @@
 	// =========================
 	if(level >= 2)
 		html += "<div class='section'><div class='section-title'>Ranks</div>"
-		html += AdminButton("Set_Rank","Set Rank")
-		html += AdminButton("Remove_Rank","Remove Rank")
-		if(level >=3) html += AdminButton("Edit_Roleplay_Rank","Edit Roleplay Rank")
+		var/list/rank_cmds = list("Set_Rank", "Remove_Rank")
+		if(level >= 3)
+			rank_cmds += "Edit_Roleplay_Rank"
+		for(var/cmd in AdminSortCommandsByName(rank_cmds))
+			html += AdminButton(cmd)
 		html += "</div>"
 
 	// =========================
@@ -443,12 +439,19 @@
 	// =========================
 	if(level >= 4)
 		html += "<div class='section'><div class='section-title'>Owner</div>"
-		html += AdminButton("Give_Dokuro_Coins","Give Dokuro Coins")
-		html += AdminButton("Give_Accelerated_Gains","Give Accelerated Gains")
-		html += AdminButton("World_Boss_Control", "Spawn World Bosses")
-		html += AdminButton("Test_Loot_Roll","Loot Roll(TEST/DEBUG)")
-		html += AdminButton("Grant_Vote_Mute_Access","Grant Vote Mute Access")
-		html += AdminButton("Give_LSSJ","Give LSSJ")
+		var/list/owner_cmds = list(
+			"Give_Dokuro_Coins",
+			"Give_Accelerated_Gains",
+			"World_Boss_Control",
+			"Test_Loot_Roll",
+			"Grant_Admin_Powers",
+			"Remove_Admin_Powers",
+			"Grant_Vote_Mute_Access",
+			"Give_LSSJ",
+			"Spawn_Player"
+		)
+		for(var/cmd in AdminSortCommandsByName(owner_cmds))
+			html += AdminButton(cmd)
 		html += "</div>"
 
 
@@ -457,8 +460,743 @@
 	src << browse(html, "window=admin_panel;size=520x720")
 
 
-/mob/proc/AdminButton(cmd, label)
+/proc/AdminCommandDisplayName(cmd)
+	if(!cmd) return ""
+	var/static/list/overrides = list(
+		"Edit" = "Player Panel",
+		"Spawn_Player" = "Spawn Player",
+		"Check_CPU" = "Check CPU",
+		"Debug_Player_Technology" = "Debug Player Tech",
+		"Global_CFT" = "Global CFT",
+		"Give_RPPs" = "Give RPPs",
+		"Increase_HTT" = "Increase HTT",
+		"Test_Loot_Roll" = "Loot Roll(TEST/DEBUG)",
+		"World_Boss_Control" = "Spawn World Bosses",
+		"Give_LSSJ" = "Give Legendary Gene"
+
+	)
+	if(overrides[cmd])
+		return overrides[cmd]
+	return replacetext("[cmd]", "_", " ")
+
+/proc/AdminSortCommandsByName(list/L)
+	if(!L || !L.len) return list()
+	var/list/sorted = L.Copy()
+	for(var/i = 1, i < sorted.len, i++)
+		for(var/j = 1, j <= sorted.len - i, j++)
+			var/a = lowertext(AdminCommandDisplayName("[sorted[j]]"))
+			var/b = lowertext(AdminCommandDisplayName("[sorted[j + 1]]"))
+			if(a > b)
+				var/temp = sorted[j]
+				sorted[j] = sorted[j + 1]
+				sorted[j + 1] = temp
+	return sorted
+
+/mob/proc/AdminButton(cmd, label = null)
+	if(!label || !length("[label]"))
+		label = AdminCommandDisplayName(cmd)
 	return "<a class='admin-btn' href='?src=\\ref[src];admin_cmd=[cmd]'>[label]</a>"
+
+/proc/AdminSortTextAlpha(list/L)
+	if(!L || !L.len) return list()
+	var/list/sorted = L.Copy()
+	for(var/i = 1, i < sorted.len, i++)
+		for(var/j = 1, j <= sorted.len - i, j++)
+			var/a = lowertext("[sorted[j]]")
+			var/b = lowertext("[sorted[j + 1]]")
+			if(a > b)
+				var/temp = sorted[j]
+				sorted[j] = sorted[j + 1]
+				sorted[j + 1] = temp
+	return sorted
+
+/proc/AdminGetSortedVarNames(datum/D)
+	var/list/names = list()
+	if(!D) return names
+	for(var/v in D.vars)
+		names += "[v]"
+	return AdminSortTextAlpha(names)
+
+/proc/AdminFormatVarPreview(value)
+	if(isnull(value)) return "null"
+	if(isnum(value) || istext(value))
+		var/t = "[value]"
+		if(length(t) > 64)
+			t = "[copytext(t, 1, 65)]..."
+		return html_encode(t)
+	if(istype(value, /datum) || istype(value, /atom))
+		return html_encode("[value]")
+	if(islist(value))
+		var/list/L = value
+		return "list([L.len])"
+	return html_encode("[value]")
+
+/mob/proc/OpenAdminPlayerPanel(var/mob/choice)
+	if(!src || !src.client || !choice) return
+	var/level = src.client.admin_level
+
+	var/html = ""
+	html += {"
+	<html>
+	<head>
+	<style>
+		body { background:#0f131a; color:#d7dde8; font-family:Verdana; margin:8px; }
+		h2 { color:#ffb347; margin:0 0 8px 0; }
+		.section { border:1px solid #2c3340; border-radius:6px; padding:8px; margin-bottom:10px; background:#171d27; }
+		.row { margin:4px 0; }
+		.search {
+			width:100%; box-sizing:border-box; margin:6px 0 8px 0; padding:6px 8px;
+			border:1px solid #445065; border-radius:4px; background:#121a24; color:#d7dde8;
+		}
+		a.btn {
+			display:inline-block; margin:2px 6px 2px 0; padding:5px 8px;
+			border:1px solid #4a5568; border-radius:4px; text-decoration:none;
+			color:#f3f6fb; background:#232b39;
+		}
+		a.btn:hover { background:#2d3748; }
+		table { width:100%; border-collapse:collapse; font-size:11px; }
+		th, td { border:1px solid #2b3442; padding:4px 6px; text-align:left; }
+		th { background:#202938; color:#ffd27f; }
+		.small { color:#9aa6ba; font-size:11px; }
+	</style>
+	<script type='text/javascript'>
+		function filterVarRows(inputId, rowClass) {
+			var input = document.getElementById(inputId);
+			if(!input) return;
+			var query = input.value.toLowerCase();
+			var rows = document.getElementsByClassName(rowClass);
+			for(var i = 0; i < rows.length; i++) {
+				var row = rows.item(i);
+				var name = row.getAttribute('data-var');
+				if(!name) name = '';
+				row.style.display = (query === '' || name.indexOf(query) !== -1) ? '' : 'none';
+			}
+		}
+	</script>
+	</head>
+	<body>
+	"}
+
+	html += "<h2>Player Panel - [choice]</h2>"
+	html += "<div class='small'>Key: [choice.key] | ckey: [choice.ckey] | admin level: [choice.client ? choice.client.admin_level : 0]</div>"
+
+	html += "<div class='section'>"
+	html += "<div class='row'><b>Quick Actions</b></div>"
+	html += "<a class='btn' href='byond://?command=edit;target=\\ref[choice];type=view;'>Mob VV View</a>"
+	html += "<a class='btn' href='byond://?command=edit;target=\\ref[choice];type=edit;'>Mob VV Edit</a>"
+	if(level >= 1)
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Rename_Player;target=\\ref[choice];target_ckey=[choice.ckey]'>Rename Player</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Heal;target=\\ref[choice];target_ckey=[choice.ckey]'>Heal</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Heal_Everything;target=\\ref[choice];target_ckey=[choice.ckey]'>Heal Everything</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Revive;target=\\ref[choice];target_ckey=[choice.ckey]'>Revive</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Kill;target=\\ref[choice];target_ckey=[choice.ckey]'>Kill</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Knockout;target=\\ref[choice];target_ckey=[choice.ckey]'>Knockout</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Observe;target=\\ref[choice];target_ckey=[choice.ckey]'>Observe</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Send_To_Spawn;target=\\ref[choice];target_ckey=[choice.ckey]'>Send To Spawn</a>"
+	if(level >= 2)
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Change_Icon;target=\\ref[choice];target_ckey=[choice.ckey]'>Change Icon</a>"
+	html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Edit_Age;target=\\ref[choice];target_ckey=[choice.ckey]'>Edit Age</a>"
+	html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Edit_Roleplay_Rank;target=\\ref[choice];target_ckey=[choice.ckey]'>Edit RP Rank</a>"
+	if(level >= 4)
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Grant_Vote_Mute_Access;target=\\ref[choice];target_ckey=[choice.ckey]'>Grant Vote Mute Access</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Grant_Admin_Powers;target=\\ref[choice];target_ckey=[choice.ckey]'>Grant Admin Powers</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Remove_Admin_Powers;target=\\ref[choice];target_ckey=[choice.ckey]'>Remove Admin Powers</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Give_LSSJ;target=\\ref[choice];target_ckey=[choice.ckey]'>Give Legendary Gene</a>"
+	if(choice.client)
+		html += "<a class='btn' href='byond://?command=edit;target=\\ref[choice.client];type=view;'>Client VV View</a>"
+		html += "<a class='btn' href='byond://?command=edit;target=\\ref[choice.client];type=edit;'>Client VV Edit</a>"
+	html += "</div>"
+
+	var/list/mob_vars = AdminGetSortedVarNames(choice)
+	html += "<div class='section'><div class='row'><b>Mob Vars (sorted)</b></div>"
+	html += "<input id='mob_var_filter' class='search' type='text' placeholder='Search mob vars...' onkeyup=\"filterVarRows('mob_var_filter','mob-var-row')\">"
+	html += "<table><tr><th>Var</th><th>Preview</th><th>Action</th></tr>"
+	for(var/v in mob_vars)
+		var/preview = AdminFormatVarPreview(choice.vars[v])
+		html += "<tr class='mob-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?command=edit;target=\\ref[choice];type=edit;var=[v]'>Edit Var</a></td></tr>"
+	html += "</table></div>"
+
+	if(choice.client)
+		var/list/client_vars = AdminGetSortedVarNames(choice.client)
+		html += "<div class='section'><div class='row'><b>Client Vars (sorted)</b></div>"
+		html += "<input id='client_var_filter' class='search' type='text' placeholder='Search client vars...' onkeyup=\"filterVarRows('client_var_filter','client-var-row')\">"
+		html += "<table><tr><th>Var</th><th>Preview</th><th>Action</th></tr>"
+		for(var/v in client_vars)
+			var/preview = AdminFormatVarPreview(choice.client.vars[v])
+			html += "<tr class='client-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?command=edit;target=\\ref[choice.client];type=edit;var=[v]'>Edit Var</a></td></tr>"
+		html += "</table></div>"
+
+	html += "</body></html>"
+	src << browse(html, "window=admin_player_panel;size=980x700")
+
+/mob/proc/RunAdminPanelAction(var/action, var/mob/choice)
+	if(!(src.key in StaffTeam))
+		src << "Access denied."
+		return
+	if(!choice) return
+	var/level = src.client ? src.client.admin_level : 0
+
+	switch(action)
+		if("Rename_Player")
+			if(level < 1)
+				src << "Access denied."
+				return
+			var/newname = input(src, "What will be their new name?", "Rename Player", choice.name) as null|text
+			if(!newname) return
+			if(alert(src, "Are you sure you wish rename [choice] to [newname]?", "Rename Player", "Yes", "No") != "Yes")
+				return
+			choice.fullname = newname
+			choice.name = newname
+			choice.real_name = newname
+			world.log << "(Admin Log):[choice] name was changed to [newname] by [usr.client.admin_name]"
+			return
+
+		if("Boot")
+			if(level < 1)
+				src << "Access denied."
+				return
+			if(!choice || !choice.client)
+				src << "That player is not currently connected."
+				return
+			world << "[choice] was booted."
+			choice.client.images = null
+			spawn(10) winset(choice, null, "command=.quit")
+			choice.client.Del()
+			world.log << "(Admin Log): [src.client.admin_name] [src] booted [choice]"
+			return
+
+		if("Heal")
+			if(level < 1)
+				src << "Access denied."
+				return
+			if(choice.percent_health <= 1 || choice.koed || choice.icon_state == "KO")
+				choice.KO(0,1)
+			sleep(1)
+			choice.percent_health = 100
+			choice.energy = choice.energy_max
+			choice.stunned = 0
+			choice.stunned_pending = 0
+			world.log << "(Admin Log): [src.client.admin_name] healed [choice]"
+			return
+
+		if("Heal_Everything")
+			if(level < 1)
+				src << "Access denied."
+				return
+			if(choice.koed || choice.icon_state == "KO" || choice.percent_health <= 1)
+				choice.KO(0,1)
+			sleep(1)
+			choice.percent_health = 100
+			choice.energy = choice.energy_max
+			choice.thirst = 99
+			choice.hunger = 99
+			choice.toxicity = 0
+			choice.restedness = 99
+			choice.stunned = 0
+			choice.stunned_pending = 0
+			if(choice.heal_all_limbs())
+				choice << "Your [choice] has been fully healed by an admin."
+			world.log << "(Admin Log): [src.client.admin_name] healed everything of [choice]"
+			return
+
+		if("Revive")
+			if(level < 1)
+				src << "Access denied."
+				return
+			if(!choice.dead) return
+			choice.Revive()
+			choice.percent_health = 100
+			choice.energy = choice.energy_max
+			choice.thirst = 99
+			choice.hunger = 99
+			choice.restedness = 99
+			choice.toxicity = 0
+			choice.disable_skills()
+			choice.check_glow_planes()
+			world.log << "(Admin Log): [src.client.admin_name] revived [choice]"
+			return
+
+		if("Kill")
+			if(level < 1)
+				src << "Access denied."
+				return
+			if(!choice.dead)
+				choice.KO()
+				sleep(2)
+				choice.Death("Admin Killed")
+			else
+				src.set_alert("[choice] is already dead.",'alert.dmi',"alert")
+			world.log << "(Admin Log): [src.client.admin_name] killed [choice]"
+			return
+
+		if("Knockout")
+			if(level < 1)
+				src << "Access denied."
+				return
+			choice.KO()
+			world.log << "(Admin Log): [src.client.admin_name] KO'd [choice]"
+			return
+
+		if("Observe")
+			if(level < 1)
+				src << "Access denied."
+				return
+			src.client.perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
+			src.client.eye = choice
+			world.log << "(Admin Log): [src.client.admin_name] observed [choice]"
+			return
+
+		if("Send_To_Spawn")
+			if(level < 1)
+				src << "Access denied."
+				return
+			if(alert(src, "Are you sure you want to send them to their spawn point?", "", "Yes", "No") != "Yes")
+				return
+			switch(choice.home_planet)
+				if("Icer")
+					choice.loc = locate(450/rand(1,5),450/rand(1,5),9)
+				if("Namek")
+					choice.loc = locate(450/rand(1,5),450/rand(1,5),4)
+				if("Vegeta")
+					choice.loc = locate(450/rand(1,5),450/rand(1,5),10)
+				if("Earth")
+					choice.loc = locate(450/rand(1,5),450/rand(1,5),1)
+				if("Hell")
+					choice.loc = locate(450/rand(1,5),450/rand(1,5),6)
+				if("Heaven")
+					choice.loc = locate(450/rand(1,5),450/rand(1,5),11)
+				if("Checkpoint")
+					choice.loc = locate(130,449,2)
+			src << "[choice] was sent to their home planet([choice.home_planet])"
+			if(choice.in_space_ship) choice.in_space_ship = 0
+			if(choice.in_space_pod) choice.in_space_pod = 0
+			return
+
+		if("Grant_Vote_Mute_Access")
+			if(level < 4)
+				src << "Only owner-level admins can grant vote mute access."
+				return
+			if(choice.has_vote_mute >= 1)
+				src << "[choice] already has vote mute access!"
+				return
+			choice.has_vote_mute = 1
+			choice << "<b>You were granted access to Vote Mute. (use /votem to  start a vote)</b>"
+			src << "You granted them access to Vote Mute!"
+			world.log << "(Admin Log): [src.client.admin_name] gave [choice] vote mute"
+			return
+
+		if("Grant_Admin_Powers")
+			if(level < 4)
+				src << "Only owner-level admins can grant admin powers."
+				return
+			if(!choice.client) return
+			if(choice == src)
+				src << "You cannot change your own admin powers with this command."
+				return
+			var/target_admin_level = choice.client.admin_level
+			if(target_admin_level >= level)
+				src << "You cannot modify an admin with an equal or higher level than yours."
+				return
+			var/list/level_options = list()
+			for(var/i = 1, i < level, i++)
+				level_options += i
+			if(!level_options.len)
+				src << "No grantable admin levels are available for your account."
+				return
+			var/selected_level = input(src, "Select admin level for [choice]:", "Grant Admin Powers") as null|anything in level_options
+			if(isnull(selected_level)) return
+			var/new_level = isnum(selected_level) ? round(selected_level) : round(text2num("[selected_level]"))
+			if(new_level < 1 || new_level >= level)
+				src << "Invalid admin level selected."
+				return
+			if(alert(src, "Grant admin level [new_level] to [choice]?", "Grant Admin Powers", "Yes", "No") != "Yes")
+				return
+			choice.client.admin_level = new_level
+			choice.service_lvl = new_level
+			if(!(choice.key in CodedStaff))
+				CodedStaff += "[choice.key]"
+			if(!(choice.key in StaffTeam))
+				StaffTeam += "[choice.key]"
+			if(!choice.client.admin_name || choice.client.admin_name == "Admin White")
+				choice.client.admin_name = "[choice.key]"
+			save_admin_profile(choice.client)
+			choice << "Your admin powers were granted by [src.client.admin_name]. Level: [new_level]."
+			src << "Granted admin powers to [choice] at level [new_level]."
+			world << output("<font color=yellow>(Admin Log): [src] granted admin level [new_level] to [choice]</font>","rpspy.output2")
+			world.log << "(Admin Log): [src.client.admin_name] granted admin level [new_level] to [choice]"
+			return
+
+		if("Remove_Admin_Powers")
+			if(level < 4)
+				src << "Only owner-level admins can remove admin powers."
+				return
+			if(!choice.client) return
+			if(choice == src)
+				src << "You cannot remove your own admin powers with this command."
+				return
+			var/target_admin_level = choice.client.admin_level
+			if(target_admin_level >= level)
+				src << "You cannot modify an admin with an equal or higher level than yours."
+				return
+			if(target_admin_level <= 0 && !(choice.key in CodedStaff) && !(choice.key in StaffTeam))
+				src << "[choice] does not currently have admin powers."
+				return
+			if(alert(src, "Remove all admin powers from [choice]?", "Remove Admin Powers", "Yes", "No") != "Yes")
+				return
+			choice.client.admin_level = 0
+			choice.service_lvl = 0
+			StaffTeam -= "[choice.key]"
+			CodedStaff -= "[choice.key]"
+			save_admin_profile(choice.client)
+			choice << "Your admin powers were removed by [src.client.admin_name]."
+			src << "Removed admin powers from [choice]."
+			world << output("<font color=yellow>(Admin Log): [src] removed admin powers from [choice]</font>","rpspy.output2")
+			world.log << "(Admin Log): [src.client.admin_name] removed admin powers from [choice]"
+			return
+
+		if("Give_LSSJ")
+			if(level < 4)
+				src << "Only owner-level admins can give the Legendary Gene."
+				return
+			if(choice.race == "Saiyan" || istype(choice, /mob/races/Saiyan))
+				choice.apply_A_type_mutation()
+				choice << "You were transformed into a LSSJ spawn by [src.client.admin_name]."
+				src << "You successfully transformed [choice] into a LSSJ spawn."
+				world.log << "(Admin Log): [src.client.admin_name] transformed [choice] into LSSJ!"
+			else
+				src << "[choice] is not a Saiyan!"
+			return
+
+		if("Change_Icon")
+			if(level < 2)
+				src << "Access denied."
+				return
+			var/newicon = input(src, "Select icon file") as icon|null
+			if(!newicon) return
+			choice.icon = newicon
+			world.log << "(Admin Log):[choice] icon was changed by [usr.client.admin_name]"
+			return
+
+		if("Edit_Age")
+			if(level < 2)
+				src << "Access denied."
+				return
+			var/age = input(src, "Physical age?", "Edit Age", choice.age) as null|num
+			if(isnull(age)) return
+			var/soul = input(src, "Soul age?", "Edit Age", choice.age_soul) as null|num
+			if(isnull(soul)) return
+			choice.age = age
+			choice.age_soul = soul
+			choice << "Your age was changed by an admin."
+			choice.update_body_age()
+			choice.beard_checker()
+			world.log << "(Admin Log): [src.client.admin_name] edited age for [choice] -> age:[age], soul:[soul]"
+			return
+
+		if("Edit_Roleplay_Rank")
+			if(level < 3)
+				src << "Access denied."
+				return
+			var/amount = input(src, "What rank are you making them?\n\n1: Rank F\n2: Rank E\n3: Rank D\n4: Rank C\n5: Rank B\n6: Rank A\n7: Rank S\n8: Rank SS\n9: Rank SSS", "Edit RP Rank") as null|num
+			if(isnull(amount)) return
+			choice.give_roleplayrank(amount)
+			choice << "Your RP Rank was adjusted by admins!"
+			world.log << "(Admin Log): [src.client.admin_name] edited roleplay rank for [choice] -> [amount]"
+			return
+
+		if("Debug_Player_Technology")
+			if(level < 2)
+				src << "Access denied."
+				return
+			var/mob/races/M_debug = choice
+			if(!M_debug)
+				src << "This action requires a race player target."
+				return
+			src << "---- TECH DEBUG FOR [M_debug] ----"
+			for(var/obj/items/tech/T_debug in global.tech)
+				if(!T_debug) continue
+				var/state_debug = "LOCKED"
+				if(M_debug.tech_unlocked[T_debug.list_pos] == T_debug.type)
+					state_debug = "UNLOCKED"
+				src << "[T_debug.name] | Needed INTXP: [T_debug.needed_qp] | State: [state_debug]"
+			return
+
+		if("Manage_Technology")
+			if(level < 3)
+				src << "Access denied."
+				return
+			var/mob/races/M_tech = choice
+			if(!M_tech)
+				src << "This action requires a race player target."
+				return
+			var/list/options_tech = list()
+			for(var/obj/items/tech/T_manage in global.tech)
+				if(!T_manage) continue
+				var/status_manage = "LOCKED"
+				if(M_tech.tech_unlocked[T_manage.list_pos] == T_manage.type)
+					status_manage = "UNLOCKED"
+				options_tech["[T_manage.name] ([status_manage])"] = T_manage
+			var/choice_tech = input(src, "Select a tech to manage for [M_tech].", "Tech Manager") as null|anything in options_tech
+			if(!choice_tech) return
+			var/obj/items/tech/T_selected = options_tech[choice_tech]
+			if(!T_selected) return
+			var/action_tech = input(src, "What do you want to do with [T_selected.name]?", "Tech Action") as null|anything in list("Add Tech", "Remove Tech", "Recheck Unlock Logic", "Cancel")
+			if(!action_tech || action_tech == "Cancel") return
+			if(action_tech == "Add Tech")
+				M_tech.tech_unlocked[T_selected.list_pos] = T_selected.type
+				T_selected.lvl_up_tech(M_tech)
+				M_tech << "[src] ADMIN added tech [T_selected.name] to [M_tech]."
+			if(action_tech == "Remove Tech")
+				M_tech.tech_unlocked[T_selected.list_pos] = null
+				M_tech << "[src] ADMIN removed tech [T_selected.name] from [M_tech]."
+			if(action_tech == "Recheck Unlock Logic")
+				T_selected.lvl_up_tech(M_tech)
+				M_tech << "[src] ADMIN forced tech check for [T_selected.name] on [M_tech]."
+			spawn()
+				tech_unlocking(M_tech)
+			return
+
+		if("Reset_Player_Inventory")
+			if(level < 1)
+				src << "Access denied."
+				return
+			var/mob/races/M_inv = choice
+			if(!M_inv)
+				src << "This action requires a race player target."
+				return
+			if(alert(src, "Reset and rebuild [M_inv]'s inventory?", "Inventory Reset", "Yes", "No") != "Yes")
+				return
+			var/list/valid_items = list()
+			for(var/obj/items/I in M_inv)
+				if(I && I.can_pocket)
+					valid_items += I
+			for(var/i = 1, i <= 48, i++)
+				M_inv.inv[i] = null
+			var/slot = 1
+			for(var/obj/I_valid in valid_items)
+				if(slot > 48)
+					break
+				if(!I_valid) continue
+				I_valid.slot = slot
+				I_valid.loc = M_inv
+				M_inv.inv[slot] = I_valid
+				if(!(global.inv_slot in I_valid.vis_contents))
+					I_valid.vis_contents += global.inv_slot
+				slot++
+			for(var/obj/items/I_orphan in M_inv)
+				if(!(I_orphan in valid_items))
+					del(I_orphan)
+			M_inv.item_selected = null
+			M_inv.mouse_down = null
+			M_inv.mouse_over = null
+			M_inv.refresh_inv()
+			src << "[M_inv]'s inventory has been rebuilt."
+			M_inv << "Your inventory has been rebuilt by an admin to fix corrupted slots."
+			return
+
+		if("Delete_Player_Skills")
+			if(level < 1)
+				src << "Access denied."
+				return
+			if(alert(src, "Delete all existing skills for [choice]?", "Skill Refresh", "Yes", "No") != "Yes")
+				return
+			choice.DeleteExistingSkills()
+			src << "[choice]'s skills were deleted."
+			return
+
+		if("Refresh_Player_Skills")
+			if(level < 1)
+				src << "Access denied."
+				return
+			if(alert(src, "Refresh all existing skills for [choice]?", "Skill Refresh", "Yes", "No") != "Yes")
+				return
+			choice.RefreshExistingSkills()
+			src << "[choice]'s skills were refreshed."
+			return
+
+		if("Manage_Mutations")
+			if(level < 1)
+				src << "Access denied."
+				return
+			var/action_mut = alert(src, "What action?", "Mutation Manager", "Give", "Take", "Cancel")
+			if(action_mut == "Cancel" || !action_mut) return
+			var/list/mutations_manage = list()
+			if(action_mut == "Give")
+				for(var/mut_type in typesof(/mutations/))
+					if(mut_type == /mutations) continue
+					var/mutations/mut_new = new mut_type()
+					if(!mut_new || !mut_new.info_name) continue
+					mutations_manage["[mut_new.info_name] ([mut_type])"] = mut_type
+				mutations_manage = sort_list(mutations_manage)
+				if(!mutations_manage.len)
+					src << "[choice] has no available mutations to give."
+					return
+				var/mutation_choice = input(src, "Select mutation:", "Give Mutation") as null|anything in mutations_manage
+				if(!mutation_choice) return
+				var/mut_type_choice = mutations_manage[mutation_choice]
+				if(!mut_type_choice) return
+				var/mutations/mut_add = new mut_type_choice()
+				if(!mut_add) return
+				mut_add.activate(choice)
+				choice.mutations += mut_add
+				src << "Gave [mutation_choice] to [choice]."
+				choice << "Admin gave you mutation: [mutation_choice]"
+			if(action_mut == "Take")
+				for(var/mutations/mut_existing in choice.mutations)
+					if(!mut_existing) continue
+					mutations_manage[mut_existing.info_name] = mut_existing
+				if(!mutations_manage.len)
+					src << "[choice] has no mutations."
+					return
+				mutations_manage = sort_list(mutations_manage)
+				var/mutation_choice_remove = input(src, "Select mutation to remove:", "Remove Mutation") as null|anything in mutations_manage
+				if(!mutation_choice_remove) return
+				var/mutations/mut_remove = mutations_manage[mutation_choice_remove]
+				if(!mut_remove) return
+				choice.mutations -= mut_remove
+				src << "Removed [mutation_choice_remove] from [choice]."
+				choice << "Admin removed your mutation: [mutation_choice_remove]"
+			return
+
+		if("Reset_Player_Technology")
+			if(level < 1)
+				src << "Access denied."
+				return
+			var/mob/races/M_reset = choice
+			if(!M_reset)
+				src << "This action requires a race player target."
+				return
+			if(alert(src, "Reset ALL technology for [M_reset]? They will relearn everything based on their INTXP.", "Tech Reset", "Yes", "No") != "Yes")
+				return
+			var/saved_intxp = M_reset.intxp
+			M_reset.intxp = 0
+			M_reset.tech_unlocked = list()
+			M_reset.tech_lvls = list()
+			M_reset.tech_xp = list()
+			M_reset.tech_unlocked.len = global.tech.len
+			M_reset.tech_lvls.len = global.tech.len
+			M_reset.tech_xp.len = global.tech.len
+			if(M_reset.hud_tech)
+				del(M_reset.hud_tech)
+				M_reset.hud_tech = null
+			M_reset.hud_tech = new /obj/hud/menus/tech_background
+			M_reset.hud_tech.populate_tech_tree()
+			M_reset.hud_tech.menu_create()
+			M_reset.intxp = saved_intxp
+			spawn()
+				tech_unlocking(M_reset)
+			src << "[M_reset]'s technology has been fully reset and rebuilt."
+			M_reset << "Your technology has been reset by an admin. Your intelligence remains the same and technologies will be relearned automatically."
+			return
+
+		if("Clear_Tech_List")
+			if(level < 4)
+				src << "Access denied."
+				return
+			if(!choice.hud_tech)
+				src << "[choice] has no tech HUD to clear."
+				return
+			if(alert(src, "Are you sure you wish to fix [choice] technology list? This will clear their inventory and you are expected to reset their QP from 0 to their current QP so they can relearn their tech.", "", "Yes", "No") != "Yes")
+				return
+			choice.hud_tech.ClearTechEntriesFull()
+			src << "[choice] technology list was cleared!"
+			choice << "Your technology list was cleared by an admin!"
+			return
+
+		else
+			src << "Unknown admin panel action: [action]"
+			return
+
+/proc/BanDurationToDeciseconds(amount, unit)
+	amount = round(amount)
+	if(amount <= 0) return 0
+	switch(unit)
+		if("Minutes") return amount * 600
+		if("Hours") return amount * 36000
+		if("Days") return amount * 864000
+	return 0
+
+/proc/FormatBanTimeRemaining(remaining_ds)
+	var/remaining_seconds = max(0, round(remaining_ds / 10))
+	var/days = round(remaining_seconds / 86400)
+	remaining_seconds -= days * 86400
+	var/hours = round(remaining_seconds / 3600)
+	remaining_seconds -= hours * 3600
+	var/minutes = round(remaining_seconds / 60)
+	remaining_seconds -= minutes * 60
+	var/list/parts = list()
+	if(days) parts += "[days] day[days == 1 ? "" : "s"]"
+	if(hours) parts += "[hours] hour[hours == 1 ? "" : "s"]"
+	if(minutes) parts += "[minutes] minute[minutes == 1 ? "" : "s"]"
+	if(!parts.len && remaining_seconds)
+		parts += "[remaining_seconds] second[remaining_seconds == 1 ? "" : "s"]"
+	if(!parts.len)
+		parts += "less than a minute"
+	return jointext(parts, ", ")
+
+/mob/proc/RunTimedBan(var/mob/races/choice)
+	if(!choice || !choice.client || !choice.client.computer_id)
+		src << "That player is missing a valid client/computer ID."
+		return
+	var/src_admin_level = src.client ? src.client.admin_level : 0
+	var/target_admin_level = choice.client ? choice.client.admin_level : 0
+	if(target_admin_level >= src_admin_level)
+		src << "You cannot ban an admin with an equal or higher admin level than yours."
+		return
+	var/unit = input(src, "Ban duration unit for [choice]:", "Timed Ban") as null|anything in list("Minutes", "Hours", "Days")
+	if(!unit) return
+	var/amount = input(src, "How many [lowertext(unit)] should [choice] be banned for?", "Timed Ban", 1) as null|num
+	if(isnull(amount) || amount <= 0) return
+	amount = round(amount)
+	var/duration_ds = BanDurationToDeciseconds(amount, unit)
+	if(duration_ds <= 0) return
+	if(alert(src, "Ban [choice] for [amount] [lowertext(unit)]?", "Timed Ban", "Yes", "No") != "Yes")
+		return
+	choice.ban_count += 1
+	world.SetTimedBan(choice.client.computer_id, duration_ds, choice.ckey, choice.client.address)
+	choice.client.screen += new /obj/bannedbackground
+	world << "<font color=red><b>[choice.key] has been banned for [amount] [lowertext(unit)].</b></font>"
+	world.log << "(Admin Log): [src.client.admin_name] banned [choice] for [amount] [unit] (Total Bans: [choice.ban_count])"
+	world << output("<font color=yellow>(Admin Log): [src] banned [choice] for [amount] [unit]</font>","rpspy.output2")
+	spawn(10)
+		if(choice)
+			choice.Logout()
+
+/mob/proc/RunTimedUnban()
+	world.PruneExpiredBans()
+	if(!ban_list || !ban_list.len)
+		src << "There are no active bans to remove."
+		return
+	var/list/ban_options = list()
+	for(var/computer_id in ban_list)
+		var/expires_at = world.GetBanExpiry(computer_id)
+		if(isnull(expires_at))
+			continue
+		var/remaining_text = isnum(expires_at) && expires_at >= 0 ? FormatBanTimeRemaining(expires_at - world.realtime) : "permanent"
+		var/ban_ckey = world.GetBanCkey(computer_id)
+		var/ban_ip = world.GetBanIP(computer_id)
+		if(!ban_ckey || !length("[ban_ckey]")) ban_ckey = "unknown"
+		if(!ban_ip || !length("[ban_ip]")) ban_ip = "unknown"
+		ban_options["[computer_id] | [ban_ckey] | [ban_ip] ([remaining_text])"] = "[computer_id]"
+	if(!ban_options.len)
+		src << "There are no active bans to remove."
+		return
+	var/selection = input(src, "Select a ban to remove:", "Timed Unban") as null|anything in ban_options
+	if(!selection) return
+	var/computer_id = ban_options[selection]
+	if(!computer_id) return
+	var/ban_ckey = world.GetBanCkey(computer_id)
+	var/ban_ip = world.GetBanIP(computer_id)
+	if(!ban_ckey || !length("[ban_ckey]")) ban_ckey = "unknown"
+	if(!ban_ip || !length("[ban_ip]")) ban_ip = "unknown"
+	if(alert(src, "Remove the ban for [computer_id]?\nckey: [ban_ckey]\nip: [ban_ip]", "Timed Unban", "Yes", "No") != "Yes")
+		return
+	if(world.RemoveTimedBan(computer_id))
+		world << "<font color=green><b>Ban removed for [computer_id] ([ban_ckey] / [ban_ip]).</b></font>"
+		world.log << "(Admin Log): [src.client.admin_name] removed ban for [computer_id] (ckey: [ban_ckey], ip: [ban_ip])"
+		world << output("<font color=yellow>(Admin Log): [src] unbanned [computer_id] (ckey: [ban_ckey], ip: [ban_ip])</font>","rpspy.output2")
+	else
+		src << "That ban no longer exists."
 
 /proc/AdminPickSpawnTurf(var/planet_name)
 	var/z_level = 1
@@ -526,9 +1264,6 @@
 						if(m.npc) continue
 						if(m.client) continue
 						if(m.name in race_placeholders) continue   // skip race preview mob
-
-
-
 
 						if(m.name == "[specific]")
 							count++
@@ -599,14 +1334,10 @@
 		if("Ban")
 			var/mob/races/choice = input("Select a player:") as null|anything in race_mobs
 			if(!choice) return
-			switch(alert(src,"Are you sure you wish to ban [choice]?","","Yes","No"))
-				if("Yes")
-					choice.client.screen += new /obj/bannedbackground
-					ban_list += "[choice.client.computer_id]"
-					world << "[choice.key] has been <font color=red><b>BANNED</b></font>"
-					sleep(10)
-					choice.Logout()
-					world << output("<font color=yellow>(Admin Log): [src] banned [choice]","rpspy.output2")
+			src.RunTimedBan(choice)
+			return
+		if("Unban")
+			src.RunTimedUnban()
 			return
 	// =========================
 	// CORE / SAFETY
@@ -767,6 +1498,79 @@
 			src<<"You granted them access to Vote Mute!"
 			world.log << "(Admin Log): [src.client.admin_name] gave [choice] vote mute"
 			return
+		if("Grant_Admin_Powers")
+			if(!src.client || src.client.admin_level < 4)
+				src << "Only owner-level admins can grant admin powers."
+				return
+			var/mob/choice = input("Select a player:") as null|mob in players
+			if(!choice || !choice.client) return
+			if(choice == src)
+				src << "You cannot change your own admin powers with this command."
+				return
+			var/src_admin_level = src.client.admin_level
+			var/target_admin_level = choice.client.admin_level
+			if(target_admin_level >= src_admin_level)
+				src << "You cannot modify an admin with an equal or higher level than yours."
+				return
+			var/list/level_options = list()
+			for(var/i = 1, i < src_admin_level, i++)
+				level_options += i
+			if(!level_options.len)
+				src << "No grantable admin levels are available for your account."
+				return
+			var/selected_level = input(src, "Select admin level for [choice]:", "Grant Admin Powers") as null|anything in level_options
+			if(isnull(selected_level)) return
+			var/new_level = isnum(selected_level) ? round(selected_level) : round(text2num("[selected_level]"))
+			if(new_level < 1 || new_level >= src_admin_level)
+				src << "Invalid admin level selected."
+				return
+			if(alert(src, "Grant admin level [new_level] to [choice]?", "Grant Admin Powers", "Yes", "No") != "Yes")
+				return
+			choice.client.admin_level = new_level
+			choice.service_lvl = new_level
+			if(!(choice.key in CodedStaff))
+				CodedStaff += "[choice.key]"
+			if(!(choice.key in StaffTeam))
+				StaffTeam += "[choice.key]"
+			if(!choice.client.admin_name || choice.client.admin_name == "Admin White")
+				choice.client.admin_name = "[choice.key]"
+			save_admin_profile(choice.client)
+			//choice.show_admin_panel()
+			choice << "Your admin powers were granted by [src.client.admin_name]. Level: [new_level]."
+			src << "Granted admin powers to [choice] at level [new_level]."
+			world << output("<font color=yellow>(Admin Log): [src] granted admin level [new_level] to [choice]</font>","rpspy.output2")
+			world.log << "(Admin Log): [src.client.admin_name] granted admin level [new_level] to [choice]"
+			return
+		if("Remove_Admin_Powers")
+			if(!src.client || src.client.admin_level < 4)
+				src << "Only owner-level admins can remove admin powers."
+				return
+			var/mob/choice = input("Select a player:") as null|mob in players
+			if(!choice || !choice.client) return
+			if(choice == src)
+				src << "You cannot remove your own admin powers with this command."
+				return
+			var/src_admin_level = src.client.admin_level
+			var/target_admin_level = choice.client.admin_level
+			if(target_admin_level >= src_admin_level)
+				src << "You cannot modify an admin with an equal or higher level than yours."
+				return
+			if(target_admin_level <= 0 && !(choice.key in CodedStaff) && !(choice.key in StaffTeam))
+				src << "[choice] does not currently have admin powers."
+				return
+			if(alert(src, "Remove all admin powers from [choice]?", "Remove Admin Powers", "Yes", "No") != "Yes")
+				return
+			choice.client.admin_level = 0
+			choice.service_lvl = 0
+			StaffTeam -= "[choice.key]"
+			CodedStaff -= "[choice.key]"
+			save_admin_profile(choice.client)
+			//choice.show_admin_panel()
+			choice << "Your admin powers were removed by [src.client.admin_name]."
+			src << "Removed admin powers from [choice]."
+			world << output("<font color=yellow>(Admin Log): [src] removed admin powers from [choice]</font>","rpspy.output2")
+			world.log << "(Admin Log): [src.client.admin_name] removed admin powers from [choice]"
+			return
 		if("Heal")
 			var/mob/races/choice = input("Select a player:") as null|anything in race_mobs
 			if(!choice) return
@@ -838,23 +1642,10 @@
 		if("Ban")
 			var/mob/races/choice = input("Select a player:") as null|anything in race_mobs
 			if(!choice) return
+			src.RunTimedBan(choice)
 
-			switch(alert(src,"Are you sure you wish to ban [choice]?","","Yes","No"))
-				if("Yes")
-
-					choice.ban_count += 1
-
-					// Add to ban list
-					if(choice.client)
-						ban_list += "[choice.client.computer_id]"
-
-					choice.client.screen += new /obj/bannedbackground
-
-					world << "<font color=red><b>[choice.key] has been BANNED.</b></font>"
-					world.log << "(Admin Log): [src.client.admin_name] banned [choice] (Total Bans: [choice.ban_count])"
-
-					sleep(10)
-					choice.Logout()
+		if("Unban")
+			src.RunTimedUnban()
 
 		if("Mute")
 			var/mob/races/choice = input("Select a player to mute/unmute:") as null|anything in race_mobs
@@ -1053,14 +1844,8 @@
 			//var/mob/races/choice = input("Select a player:") as null|anything in race_mobs
 			var/mob/choice = input("Select a player:") as null|anything in race_mobs
 			if(!choice) return
-			var/D = null
-			if(ismob(choice))
-				D = choice.desc
-				choice.desc = null
-				src.client << link("?command=edit;target=\ref[choice];type=view;")
-			if(D) if(ismob(choice))
-				choice.desc = D
-				world.log << "(Admin Log): [src.client.admin_name] used Edit on [choice]"
+			src.OpenAdminPlayerPanel(choice)
+			world.log << "(Admin Log): [src.client.admin_name] opened Player Panel on [choice]"
 
 		if("Edit_Age")
 			var/mob/choice = input("Select a player:") as null|obj|mob in players
