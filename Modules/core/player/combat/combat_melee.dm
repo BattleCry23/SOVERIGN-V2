@@ -660,6 +660,10 @@ mob
 			src.hunger = 99
 			src.thirst = 99
 			src.restedness = 99
+			if(src.has_body)
+				src.death_power_mod = 0.5
+			else
+				src.death_power_mod = 0.2
 			src.disable_skills()
 			src.clear_drugs()
 			src.energy = 1
@@ -919,6 +923,7 @@ mob
 				src.icon_state = ""
 				src.screen_text.maptext = "<font size = 4><center>Your body was restored!"
 				src.has_body = 1;
+				src.death_power_mod = 0.5
 				animate(src.screen_text,alpha = 255,time = 60)
 				animate(alpha = 0,time = 60)
 				src.disable_parts(null,1,0)
@@ -965,6 +970,7 @@ mob
 			src.overlays-=src.halo
 			if(src.halo) src.halo = null
 			src.has_body = 1
+			src.death_power_mod = 1
 			src.alpha = 255
 			if(src.death_location)
 				src.loc=src.death_location

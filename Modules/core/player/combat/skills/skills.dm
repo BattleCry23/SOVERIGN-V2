@@ -10653,6 +10653,8 @@ obj
 
 														m.set_alert("You have Majinized [tar.real_name] to Level [src.intended_level]!",src.icon,src.icon_state)
 														m.create_chat_entry("alerts","You have Majinized [tar.real_name] to Level [src.intended_level]!")
+														if(m.dead)
+															m.Revive()
 														//view(8,m) << output("<font color = purple> [m] finishes reknitting [tar]'s soul and fuses it back to their body.", "chat.local")
 														if(src.active) call(src.act)(m,src)
 														for(var/obj/skills/Majin/mjn in tar)

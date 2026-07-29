@@ -1459,6 +1459,7 @@ mob
 
 		//Skills Stuff
 		tmp/kaioken_pl = 1
+		tmp/death_power_mod = 1
 		tmp/kaiosoku_boost = 0
 		tmp/kaioenjin = 0
 		tmp/kaioryu = 0
