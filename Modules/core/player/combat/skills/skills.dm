@@ -9914,7 +9914,7 @@ obj
 			info_point_cost_type = "force"
 			info_name = "kaioken"
 			act = /obj/skills/Kaioken/proc/activate
-			info_stats = "Power multiplier (x1-20)\n\nConstant energy drain\n\nToggleable"
+			info_stats = "Power multiplier (x1-50)\n\nConstant energy drain\n\nToggleable"
 			hud_x = 20
 			hud_y = 636
 			var/mob/granter
@@ -9935,12 +9935,15 @@ obj
 						s.icon_state = "kaioken off"
 					//	if(m.race == "Alien") m.overlays -= /obj/effects/elec_cerebroid
 						remove_overlay(m, /obj/overlay/auras/kaioken)
+						if(m.buff_kaioken && m.buff_kaioken.active)
+							m.buff_kaioken:activate(m,m.buff_kaioken)
 						m.med_pixel = 1
 						m.shock_chance = 0
 						m.mod_strength = m.mod_strength_og
 						m.mod_offence = m.mod_offence_og
 						m.mod_agility = m.mod_agility_og
-						//m.power_percent = (m.kaioken_pl * 100)
+						m.kaioken_pl = 1
+						m.power_percent = 100
 						s.times_multi = 1
 					//	src.controller = null
 						//m.mod_force/=1.2
@@ -9971,10 +9974,11 @@ obj
 						//m.buffs += "focus"
 							s.active = 1
 							s.icon_state = "kaioken"
+							m.kaioken_pl = s.times_multi
+							m.power_percent = max(100, round(s.times_multi * 100))
 							m.mod_strength *= (round(s.times_multi * 0.55))
 							m.mod_offence *= (round(s.times_multi * 0.55))
 							m.mod_agility *= (round(s.times_multi * 0.55))
-							m.power_percent = (m.kaioken_pl * 100)
 							var/turf/t = m.loc
 							if(!t.liquid)
 								var/obj/effects/dust_medium/d = new
@@ -10000,7 +10004,6 @@ obj
 								animate(m,pixel_y = 10, time = 20,loop = -1,flags = ANIMATION_PARALLEL)
 								animate(pixel_y = pix_y, time = 20)
 							// do if majin_level == 1, and set buff_majin1 and so forth
-							m.kaioken_pl = s.times_multi
 							var/obj/buffs_and_debuffs/b = m.buff_kaioken
 
 							var/txt = "<br><u>Sources</u>"
@@ -10037,15 +10040,28 @@ obj
 									var/skill_ratio = src.skill_lvl / 100
 									if(skill_ratio < 0) skill_ratio = 0
 									if(skill_ratio > 1) skill_ratio = 1
-									var/mastery_scale = 1 + skill_ratio
+									var/unmastered_ratio = 1 - skill_ratio
+									var/high_level_pressure = max(0, multi - 2)
+									var/unmastered_spike = 1 + ((high_level_pressure ** 1.35) * unmastered_ratio * 0.75)
 									var/recovery_term = 12 / max(0.1, m.mod_recovery)
 									var/base_drain = 5 + recovery_term
-									var/removes = base_drain * mastery_scale * (0.8 + (curve_multi * 0.4))
+									var/mastery_relief = 1.2 - (skill_ratio * 0.5)
+									var/removes = base_drain * mastery_relief * (0.8 + (curve_multi * 0.4)) * unmastered_spike
 									if(removes < 1) removes = 1
-									var/kaiodmg = (0.5 + (2.5 * skill_ratio)) * max(1, src.times_multi)
+									var/kaiodmg = (0.4 + (2.1 * skill_ratio)) * max(1, src.times_multi)
+									kaiodmg *= (1 + (high_level_pressure * unmastered_ratio * 0.65))
+									var/limb_damage_chance = min(85, 35 + round(high_level_pressure * 12 * unmastered_ratio))
+									var/obj/body_related/bodyparts/torso/torso_limb = null
+									for(var/obj/body_related/bodyparts/torso/torso_part in m.bodyparts)
+										torso_limb = torso_part
+										break
 									//world << "DEBUG: Kaioken active check - src.active=[src.active], m.energy=[m.energy], removes=[removes]"
-									if(prob(35) && m.body && m.body.len)
-										m.damage_limb(m,1,0,max(0.1, kaiodmg * 0.5))
+									if(prob(limb_damage_chance) && m.body && m.body.len)
+										var/limb_hit_damage = max(0.1, kaiodmg * (0.5 + (high_level_pressure * unmastered_ratio * 0.35)))
+										if(torso_limb && prob(35))
+											m.damage_limb(m,0,0,limb_hit_damage,torso_limb)
+										else
+											m.damage_limb(m,1,0,limb_hit_damage)
 										m.percent_health -= kaiodmg
 										if(m.percent_health < 0) m.KO()
 
