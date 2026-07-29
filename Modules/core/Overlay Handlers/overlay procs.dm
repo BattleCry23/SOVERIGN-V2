@@ -191,8 +191,9 @@
 	if(!target || !overlays || !overlays.len) return
 	for(var/i = 1 to overlays.len)
 		var/overlay = overlays[i]
+		if(!overlay) continue
 		var/name = names && names.len >= i ? names[i] : null
-		add_overlay(target, overlay, name, use_vis_contents)
+		add_overlay(target, overlay, use_vis_contents, name)
 
 /**
  * Removes an overlay by reference or name
@@ -356,11 +357,13 @@
 /proc/sync_overlays(mob/source, mob/target, use_vis_contents = FALSE)
 	if(!source || !target) return
 	clear_overlays(target, use_vis_contents)
+	target.update_looks()
+	target.redraw_appearance()
+	target.update_icon(target)
 	var/source_list = use_vis_contents ? source.vis_contents : source.overlays
 	var/target_list = use_vis_contents ? target.vis_contents : target.overlays
 	for(var/overlay in source_list)
 		target_list += overlay
-		target.update_looks()
 	if(source.overlay_names)
 		for(var/name in source.overlay_names)
 			target.overlay_names[name] = source.overlay_names[name]

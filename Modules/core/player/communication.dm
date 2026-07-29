@@ -43,23 +43,26 @@ proc/Send_OOC_To_Discord(name, msg)
 
 */
 mob/proc/save_portrait_icon()
+	if(!src.port) return
 	for(var/atom/movable/A in src.port.vis_contents)
 		if(A.icon)
 			src.portrait_contents += A
 mob/proc/GetPortraitIcon()
-    if(!src.port) return null
+	if(!src.port || !src.port.icon) return null
 
-    var/icon/I = icon(src.port.icon, src.port.icon_state)
+	var/icon/I = icon(src.port.icon, src.port.icon_state)
+	if(!I) return null
 
-    // Blend vis_contents overlays
-    for(var/atom/movable/A in src.port.vis_contents)
-        if(A.icon)
-            var/icon/O = icon(A.icon, A.icon_state)
-            I.Blend(O, ICON_OVERLAY)
+	// Blend vis_contents overlays
+	for(var/atom/movable/A in src.port.vis_contents)
+		if(A.icon)
+			var/icon/O = icon(A.icon, A.icon_state)
+			if(O)
+				I.Blend(O, ICON_OVERLAY)
 
-    I.Scale(64,82) // Or 48x48 if you want slightly bigger
+	I.Scale(64,82) // Or 48x48 if you want slightly bigger
 
-    return I
+	return I
 
 
 mob/proc/format_message(var/mob/M,message,src.text_color_ic)
@@ -2199,6 +2202,7 @@ mob/proc/open_settings()
 			if(usr.moved) usr.moved=0
 			//General_Portrait_Fix(usr)
 			usr.update_icon(usr)
+			usr.update_looks(usr)
 			view(5,usr)<<output("[usr] Generally fixed themselves.","actionoutput")
 			return 1
 	return 1

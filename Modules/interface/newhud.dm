@@ -22984,14 +22984,10 @@ obj
 												S["Testers"] << Testers
 									if("Ban")
 										var/mob/races/choice = input("Select a player:") as null|anything in race_mobs
-										switch(alert(usr,"Are you sure you wish to ban [choice]?","","Yes","No"))
-											if("Yes")
-												choice.client.screen += new /obj/bannedbackground
-												ban_list += "[choice.client.computer_id]"
-												world<<"[choice.key] has been <font color=red><b>BANNED</b></font>"
-												sleep(10)
-												choice.Logout()
-												world<<output("<font color=yellow>(Admin Log): [usr] banned [choice]","rpspy.output2")
+										if(choice)
+											usr.RunTimedBan(choice)
+									if("Unban")
+										usr.RunTimedUnban()
 
 
 

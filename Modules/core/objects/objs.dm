@@ -14786,30 +14786,33 @@ obj
 					if(i in m.accessing)
 						var/mob/x = m.accessing
 						if(!i.suffix)
-							m.vis_contents -= i.icon
+							remove_overlay(m, i.icon)
 							i.suffix = "worn"
 							i.name += "(Equipped)"
 							i.icon_state = ""
 							//i.layer = 13
 							x.redraw_appearance()
-							m.vis_contents += i.icon
+							m.update_looks()
+							add_overlay(m, i.icon)
 							return
 						else
 							i.suffix = null
 							i.name = initial(i.name)
 							i.layer = initial(i.layer)
 							x.redraw_appearance()
-							m.vis_contents -= i.icon
+							m.update_looks()
+							remove_overlay(m, i.icon)
 							return
 				drop(var/mob/m,var/obj/items/clothing/i)
 					if(i in m.accessing)
 						var/mob/x = m.accessing
 						if(i.suffix)
-							m.overlays -= i.icon
+							remove_overlay(m, i.icon)
 							i.suffix = null
 							i.name = initial(i.name)
 							//i.layer = initial(i.layer)
 							x.redraw_appearance()
+							m.update_looks()
 						m.drop(i)
 			Click(location,control,params)
 				..()

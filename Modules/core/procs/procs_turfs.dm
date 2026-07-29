@@ -24,6 +24,7 @@ turf
 			if(maps_created)
 				var/obj/hud/map/map_large/map_obj = maps[src.z]
 				var/obj/map_o = map_obj.build_overlay
+				if(!map_o || !map_o.icon) return
 				var/icon/I_overlay = new(map_o.icon)
 				map_obj.overlays -= map_o
 				if(istype(src,/turf/buildables/roofs/))
@@ -64,7 +65,7 @@ turf
 				if(istype(src,/turf/buildables/))
 					var/obj/hud/map/map_large/map_obj = maps[src.z]
 					var/obj/map_o = map_obj.build_overlay
-					if(map_o)
+					if(map_o && map_o.icon)
 						map_obj.overlays -= map_o
 						var/icon/I = new(map_o.icon)
 						I.DrawBox(null,src.x,src.y,src.x,src.y)
