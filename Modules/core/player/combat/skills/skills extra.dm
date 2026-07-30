@@ -426,7 +426,7 @@ obj/skills/Destructo_Disk
                 // Update during charge
                 if(b.fired == 0)
                     // Skill exp and level handling
-                    src.skill_exp += ((0.1 - (src.skill_lvl/1000)) * m.mod_skill) + 0.1
+                    if(!m.dead) src.skill_exp += ((0.1 - (src.skill_lvl/1000)) * m.mod_skill) + 0.1
                     if(src.skill_exp >= 100 && src.skill_lvl < 100)
                         src.skill_exp = 1
                         src.skill_lvl += 1
@@ -472,7 +472,7 @@ obj/skills/Destructo_Disk
                     if(b.finishing == 0 && b.size < 1)
                         // Energy drain (clamp if needed)
                         var/e = ((1/m.mod_recovery) + (1/src.skill_lvl) * b.charge_lvl)
-                        m.energy -= e
+                        if(!m.dead) m.energy -= e
 
                         b.charge_lvl += 0.01 * m.mod_recovery
                         var/charge_rounded = round(b.charge_lvl)

@@ -112,6 +112,7 @@ obj
 					if(s.active == 0)
 						m.aged = s
 						s.active = 1
+						m.age_text = "Baby"
 						m.age = 0.1
 						m.age_soul = 0.1
 						m.birth_year = year
@@ -167,6 +168,7 @@ obj
 								icon='human_babymale.dmi'
 							if("Changeling")
 								icon='alien_egg.dmi'
+						m.update_looks("age")
 		kid
 			act = /obj/ages/adult/proc/activate
 			//banned_races = list("Namekian","Cerebroid","Android","Demon","Kai","Oni")
@@ -179,6 +181,7 @@ obj
 					if(s.active == 0)
 						m.aged = s
 						s.active = 1
+						m.age_text = "Kid"
 						m.age = 4
 						m.age_soul = 4
 						m.birth_year = year-4
@@ -239,6 +242,7 @@ obj
 								icon='spiritdoll_kid.dmi'
 							if("Changeling")
 								icon='Frieza_1st_form_kid.dmi'
+						m.update_looks("age")
 		teen
 			act = /obj/ages/adult/proc/activate
 			//banned_races = list("Namekian","Cerebroid","Android","Demon","Kai","Oni")
@@ -251,6 +255,7 @@ obj
 					if(s.active == 0)
 						m.aged = s
 						s.active = 1
+						m.age_text = "Teen"
 						m.age = 13
 						m.age_soul = 13
 						m.birth_year = year-13
@@ -310,6 +315,7 @@ obj
 								icon='spiritdoll.dmi'
 							if("Changeling")
 								icon='Frieza_1st_form.dmi'
+						m.update_looks("age")
 		adult
 			act = /obj/ages/adult/proc/activate
 			//banned_races = list("Namekian","Cerebroid","Android","Demon","Kai","Oni")
@@ -322,6 +328,7 @@ obj
 					if(s.active == 0)
 						m.aged = s
 						s.active = 1
+						m.age_text = "Adult"
 						m.age = 21
 						m.age_soul = 21
 						m.birth_year = year-21
@@ -381,4 +388,5 @@ obj
 								icon='spiritdoll.dmi'
 							if("Changeling")
 								icon='Frieza_1st_form.dmi'
+						m.update_looks("age")
 

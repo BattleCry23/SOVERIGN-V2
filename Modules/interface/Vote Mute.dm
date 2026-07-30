@@ -52,6 +52,7 @@ datum/vote_mute
             var/mob/target = GetMobByCkey(target_ckey)
             if(target)
                 target.muted = 1
+                target.mute_expires_at = -1
                 target.mute_count += 1
                 world << "<b>[yes] people voted <font color=green>Yes</font>, [no] people voted <font color=red>No</font> [target_ckey] has been muted!</b></font>"
         else

@@ -359,6 +359,7 @@
 			"Goto",
 			"Bring",
 			"Ban",
+			"Manual_Ban",
 			"Unban",
 			"Boot",
 			"Damage_Limb",
@@ -469,6 +470,7 @@
 		"Debug_Player_Technology" = "Debug Player Tech",
 		"Global_CFT" = "Global CFT",
 		"Give_RPPs" = "Give RPPs",
+		"Manual_Ban" = "Manual Ban",
 		"Increase_HTT" = "Increase HTT",
 		"Test_Loot_Roll" = "Loot Roll(TEST/DEBUG)",
 		"World_Boss_Control" = "Spawn World Bosses",
@@ -534,6 +536,11 @@
 /mob/proc/OpenAdminPlayerPanel(var/mob/choice)
 	if(!src || !src.client || !choice) return
 	var/level = src.client.admin_level
+	choice.UpdateMuteState()
+	var/mute_status = "Unmuted"
+	if(choice.muted)
+		var/mute_left = choice.GetMuteRemainingText()
+		mute_status = (mute_left == "permanent") ? "Muted (Permanent)" : "Muted ([mute_left] remaining)"
 
 	var/html = ""
 	html += {"
@@ -579,6 +586,7 @@
 
 	html += "<h2>Player Panel - [choice]</h2>"
 	html += "<div class='small'>Key: [choice.key] | ckey: [choice.ckey] | admin level: [choice.client ? choice.client.admin_level : 0]</div>"
+	html += "<div class='small'>Mute Status: [mute_status]</div>"
 
 	html += "<div class='section'>"
 	html += "<div class='row'><b>Quick Actions</b></div>"
@@ -595,6 +603,11 @@
 		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Send_To_Spawn;target=\\ref[choice];target_ckey=[choice.ckey]'>Send To Spawn</a>"
 	if(level >= 2)
 		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Change_Icon;target=\\ref[choice];target_ckey=[choice.ckey]'>Change Icon</a>"
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Assess;target=\\ref[choice];target_ckey=[choice.ckey]'>Assess</a>"
+	if(level >= 3)
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Increase_Stats;target=\\ref[choice];target_ckey=[choice.ckey]'>Increase Stats</a>"
+	if(level >= 3)
+		html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Increase_HTT;target=\\ref[choice];target_ckey=[choice.ckey]'>Increase HTT</a>"
 	html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Edit_Age;target=\\ref[choice];target_ckey=[choice.ckey]'>Edit Age</a>"
 	html += "<a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Edit_Roleplay_Rank;target=\\ref[choice];target_ckey=[choice.ckey]'>Edit RP Rank</a>"
 	if(level >= 4)
@@ -877,6 +890,13 @@
 			world.log << "(Admin Log):[choice] icon was changed by [usr.client.admin_name]"
 			return
 
+		if("Assess")
+			if(level < 2)
+				src << "Access denied."
+				return
+			src.RunAssess(choice)
+			return
+
 		if("Edit_Age")
 			if(level < 2)
 				src << "Access denied."
@@ -902,6 +922,104 @@
 			choice.give_roleplayrank(amount)
 			choice << "Your RP Rank was adjusted by admins!"
 			world.log << "(Admin Log): [src.client.admin_name] edited roleplay rank for [choice] -> [amount]"
+			return
+
+		if("Increase_Stats")
+			if(level < 3)
+				src << "Access denied."
+				return
+
+			var/stat_choice = input(src, "Which Stat to Increase:", "Increase Stats") as null|anything in list("Passive Points","Stance Points","Personal Growth","Rating","Intelligence","Magic","Energy","Power Level","Strength","Endurance","Speed","Force","Resistance","Offence","Defence","Recovery","Regeneration","Gravity")
+			if(!stat_choice) return
+
+			if(stat_choice == "Personal Growth" || stat_choice == "Recovery" || stat_choice == "Regeneration" || stat_choice == "Speed")
+				var/amount_mod = input(src, "How much are you increasing by? (Use caution: these are modifier levels, usually around 0.1 to 5.0+)", "Increase Stats") as null|num
+				if(isnull(amount_mod)) return
+				switch(stat_choice)
+					if("Personal Growth")
+						choice.PG += amount_mod
+						world.log << "(Admin Log): [src.client.admin_name] increased [choice] PG by [amount_mod]"
+					if("Recovery")
+						choice.mod_recovery += amount_mod
+						world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Recovery by [amount_mod]"
+					if("Regeneration")
+						choice.mod_regeneration += amount_mod
+						world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Regeneration by [amount_mod]"
+					if("Speed")
+						choice.mod_agility += amount_mod
+						world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Speed by [amount_mod]"
+				return
+
+			var/amount = input(src, "How much are you increasing by?", "Increase Stats") as null|num
+			if(isnull(amount)) return
+
+			switch(stat_choice)
+				if("Rating")
+					choice.rating += amount
+					world.log << "(Admin Log): [src.client.admin_name] increased [choice] Ratings by [amount]"
+				if("Power Level")
+					choice.psionic_power_base += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] PL by [amount]"
+				if("Strength")
+					choice.strength += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Strength by [amount]"
+				if("Endurance")
+					choice.endurance += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Endurance by [amount]"
+				if("Energy")
+					choice.gains_trained_energy += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Energy by [amount]"
+				if("Gravity")
+					choice.gravity_mastered += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Gravity by [amount]"
+				if("Force")
+					choice.force += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Force by [amount]"
+				if("Resistance")
+					choice.resistance += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Resistance by [amount]"
+				if("Offence")
+					choice.offence += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Offence by [amount]"
+				if("Defence")
+					choice.defence += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Defence by [amount]"
+				if("Passive Points")
+					choice.passive_points += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] PPs by [amount]"
+				if("Stance Points")
+					choice.stance_points += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] SPs by [amount]"
+				if("Intelligence")
+					choice.intxp += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] QP% by [amount]"
+				if("Magic")
+					choice.magicxp += amount
+					world.log << "(Admin Log): [src.client.admin_name] [src] increased [choice] Magic by [amount]"
+			return
+
+		if("Increase_HTT")
+			if(level < 3)
+				src << "Access denied."
+				return
+			var/selection = input(src, "Select a variable:", "Increase HTT") as null|anything in list("Cancel","Hunger","Thirst","Tiredness")
+			if(!selection || selection == "Cancel") return
+			switch(selection)
+				if("Hunger")
+					var/amount_hunger = input(src, "How much are you increasing their hunger by?", "Increase HTT") as null|num
+					if(isnull(amount_hunger) || amount_hunger <= 1) return
+					choice.hunger += amount_hunger
+					world << output("<font color=yellow>(Admin Log): [src] increased [choice] Hunger by [amount_hunger]!","rpspy.output2")
+				if("Thirst")
+					var/amount_thirst = input(src, "How much are you increasing their thirst by?", "Increase HTT") as null|num
+					if(isnull(amount_thirst) || amount_thirst <= 1) return
+					choice.thirst += amount_thirst
+					world << output("<font color=yellow>(Admin Log): [src] increased [choice] Thirst by [amount_thirst]!","rpspy.output2")
+				if("Tiredness")
+					var/amount_tired = input(src, "How much are you increasing their tiredness by?", "Increase HTT") as null|num
+					if(isnull(amount_tired) || amount_tired <= 1) return
+					choice.restedness += amount_tired
+					world << output("<font color=yellow>(Admin Log): [src] increased [choice] Tiredness by [amount_tired]!","rpspy.output2")
 			return
 
 		if("Debug_Player_Technology")
@@ -1198,6 +1316,91 @@
 	else
 		src << "That ban no longer exists."
 
+/mob/proc/RunManualBan()
+	var/src_admin_level = src.client ? src.client.admin_level : 0
+	if(src_admin_level < 1)
+		src << "Access denied."
+		return
+
+	var/ban_ckey = input(src, "Enter ckey to ban:", "Manual Ban") as null|text
+	if(isnull(ban_ckey)) return
+	ban_ckey = lowertext("[ban_ckey]")
+	if(!length(ban_ckey))
+		src << "A ckey is required for manual bans."
+		return
+
+	var/computer_id = input(src, "Optional Computer ID (leave blank to skip):", "Manual Ban") as null|text
+	if(isnull(computer_id)) return
+	computer_id = "[computer_id]"
+	if(!length(computer_id)) computer_id = null
+
+	var/ban_ip = input(src, "Optional IP (leave blank to skip):", "Manual Ban") as null|text
+	if(isnull(ban_ip)) return
+	ban_ip = "[ban_ip]"
+	if(!length(ban_ip)) ban_ip = null
+
+	var/mode = input(src, "Ban duration type:", "Manual Ban") as null|anything in list("Permanent", "Minutes", "Hours", "Days")
+	if(!mode) return
+
+	var/expires_at = -1
+	var/duration_text = "permanent"
+	if(mode != "Permanent")
+		var/amount = input(src, "How many [lowertext(mode)] should this ban last?", "Manual Ban", 1) as null|num
+		if(isnull(amount) || amount <= 0) return
+		amount = round(amount)
+		var/duration_ds = BanDurationToDeciseconds(amount, mode)
+		if(duration_ds <= 0) return
+		expires_at = world.realtime + duration_ds
+		duration_text = "[amount] [lowertext(mode)]"
+
+	var/ban_key = computer_id
+	if(!ban_key)
+		ban_key = "ckey:[ban_ckey]"
+
+	var/confirm_text = "ckey: [ban_ckey]\nDuration: [duration_text]"
+	confirm_text += "\nComputer ID: [computer_id ? computer_id : "(none)"]"
+	confirm_text += "\nIP: [ban_ip ? ban_ip : "(none)"]"
+	if(ban_ckey)
+		confirm_text += "\nckey: [ban_ckey]"
+	if(alert(src, "[confirm_text]\n\nConfirm manual ban?", "Manual Ban", "Yes", "No") != "Yes")
+		return
+
+	world.NormalizeBanList()
+	ban_list["[ban_key]"] = list(
+		"expires_at" = expires_at,
+		"ckey" = ban_ckey,
+		"ip" = ban_ip
+	)
+	world.SaveBan()
+
+	for(var/mob/M in players)
+		if(!M || !M.client)
+			continue
+		var/match_cid = computer_id && M.client.computer_id == computer_id
+		var/match_ckey = ban_ckey && M.ckey == ban_ckey
+		var/match_ip = ban_ip && M.client.address == ban_ip
+		if(match_cid || match_ckey || match_ip)
+			M.client.screen += new /obj/bannedbackground
+			M << (expires_at < 0 ? "You are banned from this server." : "You are banned for [duration_text].")
+			spawn(10)
+				if(M)
+					M.Logout()
+
+	var/ban_ckey_log = ban_ckey
+	if(!ban_ckey_log || ban_ckey_log == "")
+		ban_ckey_log = "unknown"
+	var/ban_ip_log = ban_ip
+	if(!ban_ip_log || ban_ip_log == "")
+		ban_ip_log = "unknown"
+
+	var/ban_key_log = ban_key
+	if(!ban_key_log || ban_key_log == "")
+		ban_key_log = "unknown"
+
+	src << "Manual ban applied for [ban_key_log] ([duration_text])."
+	world.log << "(Admin Log): [src.client.admin_name] manually banned [ban_key_log] ([duration_text]) ckey:[ban_ckey_log] ip:[ban_ip_log]"
+	world << output("<font color=yellow>(Admin Log): [src] manually banned [ban_key_log] ([duration_text])</font>","rpspy.output2")
+
 /proc/AdminPickSpawnTurf(var/planet_name)
 	var/z_level = 1
 	switch(planet_name)
@@ -1222,6 +1425,80 @@
 		if(!blocked) return t
 
 	return locate(150, 150, z_level)
+
+/mob/proc/RunAssess(var/mob/choice)
+	if(!choice) return
+
+	var/S = choice.bodysize
+	if(S == 1) S = "Small"
+	if(S == 2) S = "Medium"
+	if(S == 3) S = "Large"
+
+	var/A = {"
+	<html>
+	<style type="text/css">
+	<!--
+	body {
+	     color:#449999;
+	     background-color:black;
+	     font-size:12;
+	 }
+	table {
+	     font-size:12;
+	 }
+	//-->
+	</style>
+	<body>
+	[(choice)]<br>
+	Current Anger: [choice.anger]%<br>
+	<table cellspacing="6%" cellpadding="1%">
+	<tr><td><font color=white><b>Compensation Minutes | Standing Minutes:</b></font></td><td>Comp. Gains: [choice.offline_gains] minutes | Standing Gains: [choice.standing_gains_timer] second</td></tr>
+	<tr><td><font color=white><b>Current HTTG:</b></font></td><td>(H:[choice.hunger] T:[choice.thirst] T:[choice.restedness])</td></tr>
+	<tr><td><font color=white><b>Resilliences:</b></font></td><td> (Training)[choice.trainres]--[choice.max_trainres]| (Meditation)[choice.medres]--[choice.max_medres]| (Sparring)[choice.sparres]/[choice.max_sparres]| (Blasting)[choice.blastres]/[choice.max_blastres]</td></tr>
+	<tr><td><font color=white><b>Ratings:</b></font></td><td>[choice.rating]</td></tr>
+	<tr><td><font color=white><b>Move Lv:</b></font></td><td>[choice.move_lvl] Exp:([choice.movelvl_exp]/1000)</td></tr>
+	<hr>
+	<tr><td><font color=white><b>Health:</b></font></td><td>[choice.hp]</td></tr>
+	<hr>
+	<tr><td>Race(s):</td><td>[choice.race] | [choice.recessive_race]</td></tr>
+	<tr><td>Race Class:</td><td>[choice.race_class]</td></tr>
+	<tr><td>Key:</td><td>[choice.key]</td></tr>
+	<tr><td>Body Size:</td><td>[S]</td></tr>
+	<tr><td>Age:</td><td>[choice.age] ([choice.age_soul] True Age)</td></tr>
+	<tr><td>Generation:</td><td>[choice.generation_lvl]</td></tr>
+
+	<tr><td>Body:</td><td>[choice.Body*100]% ([choice.oldage] Decline) - Prime Age: ([choice.prime]) </td></tr>
+	<tr><td>Base:</td><td>[choice.psionic_power_base] ([choice.mod_psionic_power])</td></tr>
+	<tr><td>Current PL:</td><td>[Commas(choice.psionic_power)]</td></tr>
+	<tr><td>Lift:</td><td>[round((choice.strength+choice.endurance*4)*0.45359237)*0.01] kg ([round(choice.strength+choice.endurance*4)*0.01] lbs)</td></tr>
+	<tr><td>Energy:</td><td>[choice.energy]/[round(choice.energy_max)] Mod.([choice.mod_energy])</td></tr>
+	<tr><td>Strength:</td><td>[choice.strength] Mod.([choice.mod_strength]) </td></tr>
+	<tr><td>Endurance:</td><td>[choice.endurance] Mod.([choice.mod_endurance])</td></tr>
+	<tr><td>Speed:</td><td>x[choice.mod_agility]</td></tr>
+	<tr><td>Force:</td><td>[choice.force] Mod.([choice.mod_force])</td></tr>
+	<tr><td>Resistance:</td><td>[round(choice.resistance)] Mod.([choice.mod_resistance])</td></tr>
+	<tr><td>Offense:</td><td>[choice.offence] Mod.([choice.mod_offence])</td></tr>
+	<tr><td>Defense:</td><td>[choice.defence] Mod.([choice.mod_defence])</td></tr>
+	<tr><td>Regeneration:</td><td>[choice.mod_regeneration]</td></tr>
+	<tr><td>Recovery:</td><td>[choice.mod_recovery]</td></tr>
+	<tr><td>Gravity:</td><td>x[round(choice.gravity_mastered)]</td></tr>
+	<tr><td>Anger:</td><td>[choice.max_anger]%</td></tr>
+	<tr><td>Intelligence:</td><td>([choice.intxp]%) Mod([choice.mod_tech_potential])</td></tr>
+	<tr><td>Magic:</td><td>([choice.magicxp]%) Mod([choice.mod_arcane_potential])</td></tr>
+	<tr><td>Energy Signature:</td><td>[choice.signature]</td></tr>
+	<tr><td>PG/PG Mult: [choice.PG] - [round(choice.rating_mult)]x</td></tr>
+	<tr><td>Cycle Free Time:[choice.cycle_free_time]</td></tr>
+	<tr><td>Final Power Level Mod:[choice.final_powerlevel_mod]</td></tr>
+	</table>
+	"}
+
+	A += "<br><font color=red><b><u>Mutations</b></u><br>"
+	for(var/mutations/X in choice.mutations)
+		A += "<font color=red>[X.info_name] - [X.info]<br>"
+
+	src << "[A]"
+	src << browse(A, "window=[(choice)];size=700x600")
+	world.log << "(Admin Log): [src.client.admin_name] [src] used ASSESS on [choice]"
 
 /mob/proc/RunAdminCommand(cmd)
 	if(!(src.key in StaffTeam))
@@ -1335,6 +1612,9 @@
 			var/mob/races/choice = input("Select a player:") as null|anything in race_mobs
 			if(!choice) return
 			src.RunTimedBan(choice)
+			return
+		if("Manual_Ban")
+			src.RunManualBan()
 			return
 		if("Unban")
 			src.RunTimedUnban()
@@ -1650,20 +1930,58 @@
 		if("Mute")
 			var/mob/races/choice = input("Select a player to mute/unmute:") as null|anything in race_mobs
 			if(!choice) return
+			var/src_admin_level = src.client ? src.client.admin_level : 0
+			var/target_admin_level = 0
+			if(choice.client && choice.client.admin_level > target_admin_level)
+				target_admin_level = choice.client.admin_level
+			if(choice.service_lvl > target_admin_level)
+				target_admin_level = choice.service_lvl
+			if(target_admin_level > src_admin_level)
+				src << "You cannot mute an admin with a higher admin level than yours."
+				return
+			choice.UpdateMuteState()
 
 			if(choice.muted)
-				switch(alert(src,"[choice] is currently muted.\nDo you want to unmute them?","","Unmute","Cancel"))
+				var/current_mute = choice.GetMuteRemainingText()
+				switch(alert(src,"[choice] is currently muted ([current_mute]).\nWhat would you like to do?","","Unmute","Adjust Timer","Cancel"))
 					if("Unmute")
 						choice.muted = 0
+						choice.mute_expires_at = 0
 						world << "<font color=yellow>[choice] has been unmuted by an administrator.</font>"
 						world.log << "(Admin Log): [src.client.admin_name] unmuted [choice]"
+						return
+					if("Cancel")
+						return
 			else
 				switch(alert(src,"Mute [choice]?","","Yes","Cancel"))
-					if("Yes")
-						choice.muted = 1
-						choice.mute_count += 1
-						world << "<font color=orange>[choice] has been muted by an administrator.</font>"
-						world.log << "(Admin Log): [src.client.admin_name] muted [choice] (Total Mutes: [choice.mute_count])"
+					if("Cancel")
+						return
+
+			var/unit = input(src, "Mute duration unit for [choice]:", "Timed Mute") as null|anything in list("Permanent", "Minutes", "Hours", "Days")
+			if(!unit) return
+
+			var/expires_at = -1
+			var/duration_text = "permanent"
+			if(unit != "Permanent")
+				var/amount = input(src, "How many [lowertext(unit)] should [choice] be muted for?", "Timed Mute", 1) as null|num
+				if(isnull(amount) || amount <= 0) return
+				amount = round(amount)
+				var/duration_ds = BanDurationToDeciseconds(amount, unit)
+				if(duration_ds <= 0) return
+				expires_at = world.realtime + duration_ds
+				duration_text = "[amount] [lowertext(unit)]"
+
+			if(alert(src, "Mute [choice] for [duration_text]?", "Timed Mute", "Yes", "No") != "Yes")
+				return
+
+			var/was_muted = choice.muted
+			choice.muted = 1
+			choice.mute_expires_at = expires_at
+			if(!was_muted)
+				choice.mute_count += 1
+			choice << (expires_at < 0 ? "You were permanently muted by an administrator." : "You were muted by an administrator for [duration_text].")
+			world << "<font color=orange>[choice] has been muted by an administrator ([duration_text]).</font>"
+			world.log << "(Admin Log): [src.client.admin_name] muted [choice] for [duration_text] (Total Mutes: [choice.mute_count])"
 
 
 	// =========================
@@ -1768,77 +2086,7 @@
 		if("Assess")
 			var/mob/choice = input("Select a player:") as null|mob in race_mobs
 			if(!choice) return
-
-			var/S = choice.bodysize
-			if(S == 1) S = "Small"
-			if(S == 2) S = "Medium"
-			if(S == 3) S = "Large"
-
-			var/A = {"
-			<html>
-			<style type="text/css">
-			<!--
-			body {
-			     color:#449999;
-			     background-color:black;
-			     font-size:12;
-			 }
-			table {
-			     font-size:12;
-			 }
-			//-->
-			</style>
-			<body>
-			[(choice)]<br>
-			Current Anger: [choice.anger]%<br>
-			<table cellspacing="6%" cellpadding="1%">
-			<tr><td><font color=white><b>Compensation Minutes | Standing Minutes:</b></font></td><td>Comp. Gains: [choice.offline_gains] minutes | Standing Gains: [choice.standing_gains_timer] second</td></tr>
-			<tr><td><font color=white><b>Current HTTG:</b></font></td><td>(H:[choice.hunger] T:[choice.thirst] T:[choice.restedness])</td></tr>
-			<tr><td><font color=white><b>Resilliences:</b></font></td><td> (Training)[choice.trainres]--[choice.max_trainres]| (Meditation)[choice.medres]--[choice.max_medres]| (Sparring)[choice.sparres]/[choice.max_sparres]| (Blasting)[choice.blastres]/[choice.max_blastres]</td></tr>
-			<tr><td><font color=white><b>Ratings:</b></font></td><td>[choice.rating]</td></tr>
-			<tr><td><font color=white><b>Move Lv:</b></font></td><td>[choice.move_lvl] Exp:([choice.movelvl_exp]/1000)</td></tr>
-			<hr>
-			<tr><td><font color=white><b>Health:</b></font></td><td>[choice.hp]</td></tr>
-			<hr>
-			<tr><td>Race(s):</td><td>[choice.race] | [choice.recessive_race]</td></tr>
-			<tr><td>Race Class:</td><td>[choice.race_class]</td></tr>
-			<tr><td>Key:</td><td>[choice.key]</td></tr>
-			<tr><td>Body Size:</td><td>[S]</td></tr>
-			<tr><td>Age:</td><td>[choice.age] ([choice.age_soul] True Age)</td></tr>
-			<tr><td>Generation:</td><td>[choice.generation_lvl]</td></tr>
-
-			<tr><td>Body:</td><td>[choice.Body*100]% ([choice.oldage] Decline) - Prime Age: ([choice.prime]) </td></tr>
-			<tr><td>Base:</td><td>[choice.psionic_power_base] ([choice.mod_psionic_power])</td></tr>
-			<tr><td>Current PL:</td><td>[Commas(choice.psionic_power)]</td></tr>
-			<tr><td>Lift:</td><td>[round((choice.strength+choice.endurance*4)*0.45359237)*0.01] kg ([round(choice.strength+choice.endurance*4)*0.01] lbs)</td></tr>
-			<tr><td>Energy:</td><td>[choice.energy]/[round(choice.energy_max)] Mod.([choice.mod_energy])</td></tr>
-			<tr><td>Strength:</td><td>[choice.strength] Mod.([choice.mod_strength]) </td></tr>
-			<tr><td>Endurance:</td><td>[choice.endurance] Mod.([choice.mod_endurance])</td></tr>
-			<tr><td>Speed:</td><td>x[choice.mod_agility]</td></tr>
-			<tr><td>Force:</td><td>[choice.force] Mod.([choice.mod_force])</td></tr>
-			<tr><td>Resistance:</td><td>[round(choice.resistance)] Mod.([choice.mod_resistance])</td></tr>
-			<tr><td>Offense:</td><td>[choice.offence] Mod.([choice.mod_offence])</td></tr>
-			<tr><td>Defense:</td><td>[choice.defence] Mod.([choice.mod_defence])</td></tr>
-			<tr><td>Regeneration:</td><td>[choice.mod_regeneration]</td></tr>
-			<tr><td>Recovery:</td><td>[choice.mod_recovery]</td></tr>
-			<tr><td>Gravity:</td><td>x[round(choice.gravity_mastered)]</td></tr>
-			<tr><td>Anger:</td><td>[choice.max_anger]%</td></tr>
-			<tr><td>Intelligence:</td><td>([choice.intxp]%) Mod([choice.mod_tech_potential])</td></tr>
-			<tr><td>Magic:</td><td>([choice.magicxp]%) Mod([choice.mod_arcane_potential])</td></tr>
-			<tr><td>Energy Signature:</td><td>[choice.signature]</td></tr>
-			<tr><td>PG/PG Mult: [choice.PG] - [round(choice.rating_mult)]x</td></tr>
-			<tr><td>Cycle Free Time:[choice.cycle_free_time]</td></tr>
-			<tr><td>Final Power Level Mod:[choice.final_powerlevel_mod]</td></tr>
-			</table>
-			"}
-
-			A += "<br><font color=red><b><u>Mutations</b></u><br>"
-			for(var/mutations/X in choice.mutations)
-				A += "<font color=red>[X.info_name] - [X.info]<br>"
-
-			src << "[A]"
-			src << browse(A, "window=[(choice)];size=700x600")
-			world.log << "(Admin Log): [src.client.admin_name] [src] used ASSESS on [choice]"
+			src.RunAssess(choice)
 
 		if("Edit")
 			//var/mob/races/choice = input("Select a player:") as null|anything in race_mobs

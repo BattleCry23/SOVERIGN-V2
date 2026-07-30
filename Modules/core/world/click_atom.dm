@@ -108,9 +108,9 @@ atom
 								var/obj/effects/dust_medium/d = new
 								d.SetCenter(O)
 							//usr.energy -= 0.01+((usr.energy_max*0.25)/proceed.skill_lvl/usr.mod_energy)
-							usr.energy -= 1.1-(proceed.skill_lvl/100)
+							if(!usr.dead) usr.energy -= 1.1-(proceed.skill_lvl/100)
 							//usr.gain_stat("force",1,1,"Telekinesis")
-							proceed.skill_exp += (10/proceed.skill_lvl)*usr.mod_skill
+							if(!usr.dead) proceed.skill_exp += (10/proceed.skill_lvl)*usr.mod_skill
 							if(proceed.skill_exp >= 100 && proceed.skill_lvl < 100)
 								proceed.skill_exp = 1
 								proceed.skill_lvl += 1
@@ -332,9 +332,9 @@ atom
 									animate(src,pixel_y = 4, time = 10,loop = -1)
 									animate(pixel_y = 0, time = 10)
 						//usr.energy -= 0.01+((usr.energy_max*0.25)/proceed.skill_lvl/usr.mod_energy)
-						usr.energy -= 11-(usr.skill_tk.skill_lvl/100)
+						if(!usr.dead) usr.energy -= 11-(usr.skill_tk.skill_lvl/100)
 						//usr.gain_stat("force",1,1,"Telekinesis")
-						usr.skill_tk.skill_exp += (10/usr.skill_tk.skill_lvl)*usr.mod_skill
+						if(!usr.dead) usr.skill_tk.skill_exp += (10/usr.skill_tk.skill_lvl)*usr.mod_skill
 						if(usr.skill_tk.skill_exp >= 100 && usr.skill_tk.skill_lvl < 100)
 							usr.skill_tk.skill_exp = 1
 							usr.skill_tk.skill_lvl += 1

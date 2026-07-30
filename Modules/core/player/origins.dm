@@ -77,6 +77,7 @@ obj
 					m.overlays -= m.hair
 					//m.hair = kid_hairs_male[m.hair_pos]
 					//m.overlays += m.hair
+					m.update_looks("age")
 
 		kid
 			icon_state = "kid"
@@ -125,8 +126,7 @@ obj
 							m.icon = race_data[m.gen]
 					if(m.race !="Changeling" && m.race !="Namekian")
 						remove_overlay(m, m.hair)
-						m.hair = kid_hairs_male[m.hair_pos]
-						add_overlay(m, m.hair)
+					m.update_looks("age")
 					//m.reset_modsages()
 		teen
 			icon_state = "teen"
@@ -180,8 +180,7 @@ obj
 							m.icon = race_data[m.gen]
 					if(m.race !="Changeling" && m.race !="Namekian")
 						remove_overlay(m, m.hair)
-						m.hair = hairs_male[m.hair_pos]
-						add_overlay(m, m.hair)
+					m.update_looks("age")
 					//m.reset_modsages()
 		adult
 			icon_state = "adult"
@@ -231,8 +230,7 @@ obj
 							m.icon = race_data[m.gen]
 					if(m.race !="Changeling" && m.race !="Namekian")
 						remove_overlay(m, m.hair)
-						m.hair = kid_hairs_male[m.hair_pos]
-						add_overlay(m, m.hair)
+					m.update_looks("age")
 					//m.reset_modsages()
 /obj/origins/mutations
 	parent_type = /obj/origins

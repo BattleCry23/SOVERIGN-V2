@@ -1263,6 +1263,7 @@ mob
 mob/proc
 	apply_c_type_mutation()
 		if(!src) return
+		var/c_type_color = rgb(202, 242, 127)
 		src.mod_psionic_power = decimal_rand(5, 7)
 		src.final_powerlevel_mod = 2400000
 		src.psionic_power_base += ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.0012)) * src.mod_psionic_power
@@ -1283,14 +1284,33 @@ mob/proc
 		src.mod_anger = decimal_rand(1.1, 1.3)
 		src.mod_tech_potential = 1.1
 		src.hidden_potential *= decimal_rand(1.5, 1.7)
-		src.PG *= 2.2
+		src.PG = 2.2
+		src.rating_mult = 1.75
+		src.auracolor = c_type_color
+		src << output("DEBUG: apply_c_type_mutation() called. race_class=[src.race_class], aura=[src.auracolor].", "chat.system")
+		src << "DEBUG: apply_c_type_mutation() called. race_class=[src.race_class], aura=[src.auracolor]."
 		bodysize(src, "3", 1.12)
 		//update_looks("body")
-		outline_pulse(src, rgb(202, 242, 127))
+		outline_pulse(src, c_type_color)
+		// Character creation can clear filters after this proc, so re-apply pulse a few times.
+		spawn(2)
+			if(src)
+				outline_pulse(src, c_type_color)
+		spawn(10)
+			if(src)
+				outline_pulse(src, c_type_color)
+		spawn(30)
+			if(src)
+				outline_pulse(src, c_type_color)
 		src << "you were born with the C-type mutation."
+		if(src.client && src.client.admin_name)
+			world.log << "(Admin Log): [src.client.admin_name] activated C-type mutation in [src]!"
+		else
+			world.log << "(System Log): C-type mutation activated in [src]."
 
 	apply_A_type_mutation()
 		if(!src) return
+		var/lssj_color = rgb(202, 242, 127)
 		src.mod_psionic_power = decimal_rand(6, 10)
 		src.final_powerlevel_mod = 3000000
 		src.psionic_power_base += ((src.age/src.mod_psionic_power) + random_mod_multiplier() + (src.final_powerlevel_mod * 0.0015)) * src.mod_psionic_power
@@ -1313,10 +1333,18 @@ mob/proc
 		src.LSSJ = 1
 		src.race_class = "Legendary"
 		src.hidden_potential *= decimal_rand(1.1, 1.3)
-		src.auracolor = rgb(202, 242, 127)
-		outline_pulse(src, rgb(202, 242, 127))
+		src.auracolor = lssj_color
+		src << output("DEBUG: apply_A_type_mutation() called. LSSJ=[src.LSSJ], race_class=[src.race_class], aura=[src.auracolor].", "chat.system")
+		outline_pulse(src, lssj_color)
+		// Character creation can clear filters right after this proc, so pulse again shortly after.
+		spawn(2)
+			if(src)
+				outline_pulse(src, lssj_color)
 		src << "You successfully activated the LSSJ gene in [src]."
-		world.log << "(Admin Log): [src.client.admin_name] activated the LSSJ gene in [src]!"
+		if(src.client && src.client.admin_name)
+			world.log << "(Admin Log): [src.client.admin_name] activated the LSSJ gene in [src]!"
+		else
+			world.log << "(System Log): LSSJ gene activated in [src]."
 
 	apply_beast_gene()
 		if(!src) return
@@ -1327,7 +1355,8 @@ mob/proc
 		src.mod_rating = 1
 		src.mod_anger = decimal_rand(1.2, 1.4)
 		src.hidden_potential *= decimal_rand(1.3, 1.6)
-		src.PG *= 1.5
+		src.PG = 1.5
+		src.rating_mult = 1.35
 
 	apply_f_type_mutation()
 		if(!src) return

@@ -2123,18 +2123,13 @@ obj
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.pixel_x = 0
+							src.over.pixel_y = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
+							else src.over.pixel_z = 0
 							src.over.dir = src.dir
-							sleep(0.1)
+							sleep(1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
 			MouseExited(location,control,params)
 				if(!isturf(src.loc))
@@ -2144,7 +2139,7 @@ obj
 				usr.mouse_txt_confirm = null // For the name box that appears for items.
 				usr.mouse_txt_over = null // For the name box that appears for items.
 				usr.client.images -= src.over
-				usr.mouse_over = null
+				if(usr.mouse_over == src) usr.mouse_over = null
 				if(!usr.left_click_function) usr.client.mouse_pointer_icon = 'mouse.dmi'
 
 				if(usr.hud_namebar)
@@ -2237,18 +2232,13 @@ obj
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.pixel_x = 0
+							src.over.pixel_y = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
+							else src.over.pixel_z = 0
 							src.over.dir = src.dir
-							sleep(0.1)
+							sleep(1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
 			MouseExited(location,control,params)
 				if(!isturf(src.loc))
@@ -2258,7 +2248,7 @@ obj
 				usr.mouse_txt_confirm = null // For the name box that appears for items.
 				usr.mouse_txt_over = null // For the name box that appears for items.
 				usr.client.images -= src.over
-				usr.mouse_over = null
+				if(usr.mouse_over == src) usr.mouse_over = null
 				if(!usr.left_click_function) usr.client.mouse_pointer_icon = 'mouse.dmi'
 
 				if(usr.hud_namebar)
@@ -3026,18 +3016,13 @@ obj
 				if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
 					usr.client.images += src.over
 					while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-						//src.over.appearance = src.appearance
-						src.over.icon = src.icon
-						src.over.icon_state = src.icon_state
-						//src.over.pixel_x = src.pixel_x
-						//src.over.pixel_y = src.pixel_y
-						src.over.overlays = src.overlays
-						src.over.underlays = src.underlays
-						//src.over.override = 1
+						src.over.appearance = src.appearance
+						src.over.pixel_x = 0
+						src.over.pixel_y = 0
 						if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-						//src.over.transform = src.transform
+						else src.over.pixel_z = 0
 						src.over.dir = src.dir
-						sleep(0.1)
+						sleep(1)
 				else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
 		MouseExited(location,control,params)
 			if(!usr) return
@@ -3049,7 +3034,7 @@ obj
 				usr.mouse_txt_confirm = null // For the name box that appears for items.
 				usr.mouse_txt_over = null // For the name box that appears for items.
 			usr.client.images -= src.over
-			usr.mouse_over = null
+			if(usr.mouse_over == src) usr.mouse_over = null
 			if(!usr.left_click_function) usr.client.mouse_pointer_icon = 'mouse.dmi'
 
 			if(usr.hud_namebar)
@@ -3264,9 +3249,9 @@ obj
 									animate(src,pixel_y = 4, time = 10,loop = -1)
 									animate(pixel_y = 0, time = 10)
 						//usr.energy -= 0.01+((usr.energy_max*0.25)/proceed.skill_lvl/usr.mod_energy)
-						usr.energy -= 1.1-(usr.skill_tk.skill_lvl/100)
+						if(!usr.dead) usr.energy -= 1.1-(usr.skill_tk.skill_lvl/100)
 					//	usr.gain_stat("force",1,1,"Telekinesis")
-						usr.skill_tk.skill_exp += (10/usr.skill_tk.skill_lvl)*usr.mod_skill
+						if(!usr.dead) usr.skill_tk.skill_exp += (10/usr.skill_tk.skill_lvl)*usr.mod_skill
 						if(usr.skill_tk.skill_exp >= 100 && usr.skill_tk.skill_lvl < 100)
 							usr.skill_tk.skill_exp = 1
 							usr.skill_tk.skill_lvl += 1
@@ -3646,18 +3631,13 @@ obj
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.pixel_x = 0
+							src.over.pixel_y = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
+							else src.over.pixel_z = 0
 							src.over.dir = src.dir
-							sleep(0.1)
+							sleep(1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
 			MouseExited(location,control,params)
 				if(!isturf(src.loc))
@@ -3667,7 +3647,7 @@ obj
 				usr.mouse_txt_confirm = null // For the name box that appears for items.
 				usr.mouse_txt_over = null // For the name box that appears for items.
 				usr.client.images -= src.over
-				usr.mouse_over = null
+				if(usr.mouse_over == src) usr.mouse_over = null
 				if(!usr.left_click_function) usr.client.mouse_pointer_icon = 'mouse.dmi'
 
 				if(usr.hud_namebar)
@@ -4021,18 +4001,13 @@ obj
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.pixel_x = 0
+							src.over.pixel_y = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
+							else src.over.pixel_z = 0
 							src.over.dir = src.dir
-							sleep(0.1)
+							sleep(1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
 			MouseExited(location,control,params)
 				if(!isturf(src.loc))
@@ -4042,7 +4017,7 @@ obj
 				usr.mouse_txt_confirm = null // For the name box that appears for items.
 				usr.mouse_txt_over = null // For the name box that appears for items.
 				usr.client.images -= src.over
-				usr.mouse_over = null
+				if(usr.mouse_over == src) usr.mouse_over = null
 				if(!usr.left_click_function) usr.client.mouse_pointer_icon = 'mouse.dmi'
 
 				if(usr.hud_namebar)
@@ -4105,18 +4080,13 @@ obj
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.pixel_x = 0
+							src.over.pixel_y = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
+							else src.over.pixel_z = 0
 							src.over.dir = src.dir
-							sleep(0.1)
+							sleep(1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
 			MouseExited(location,control,params)
 				if(!isturf(src.loc))
@@ -4126,7 +4096,7 @@ obj
 				usr.mouse_txt_confirm = null // For the name box that appears for items.
 				usr.mouse_txt_over = null // For the name box that appears for items.
 				usr.client.images -= src.over
-				usr.mouse_over = null
+				if(usr.mouse_over == src) usr.mouse_over = null
 				if(!usr.left_click_function) usr.client.mouse_pointer_icon = 'mouse.dmi'
 
 				if(usr.hud_namebar)
@@ -13483,7 +13453,7 @@ obj
 										usr.left_click_ref = null
 										var/found_body_owner = 0
 										for(var/mob/m in world)
-											if(m.client && m.real_name == src.owner)
+											if(m.client && (m == src.owner || m.real_name == src.owner))
 												m.loc = src.loc
 												m.step_x = src.step_x
 												m.step_y = src.step_y
@@ -14792,7 +14762,7 @@ obj
 							i.icon_state = ""
 							//i.layer = 13
 							x.redraw_appearance()
-							m.update_looks()
+							//m.update_looks()
 							add_overlay(m, i.icon)
 							return
 						else
@@ -14800,7 +14770,7 @@ obj
 							i.name = initial(i.name)
 							i.layer = initial(i.layer)
 							x.redraw_appearance()
-							m.update_looks()
+							//m.update_looks()
 							remove_overlay(m, i.icon)
 							return
 				drop(var/mob/m,var/obj/items/clothing/i)
@@ -14812,7 +14782,7 @@ obj
 							i.name = initial(i.name)
 							//i.layer = initial(i.layer)
 							x.redraw_appearance()
-							m.update_looks()
+							//m.update_looks()
 						m.drop(i)
 			Click(location,control,params)
 				..()
