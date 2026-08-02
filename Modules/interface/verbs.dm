@@ -219,14 +219,6 @@ mob
 			set hidden = 1
 			if(usr.typing) return
 			if(usr.started == 0) return
-			usr.UpdateMuteState()
-			if(usr.muted)
-				var/mute_left_world = usr.GetMuteRemainingText()
-				if(mute_left_world == "permanent")
-					usr << "You are permanently muted."
-				else
-					usr << "You are muted for [mute_left_world] more."
-				return
 			winset(usr,"map.map","focus=true")
 			if(length(t) > 500)
 				usr << output("Text too long, please make it shorter to help avoid lag or spam.", "chat.system")

@@ -570,15 +570,10 @@ mob
 						src.icon_state = "Meditate"
 						src.copy_mob_genetics(clone,0,0,0,0,"copy clone")
 						clone.give_extra_organs(null,src)
-						if(clone.vat)
-							clone.vat.set_for = null
-							clone.vat.in_use = null
-							clone.vat.growth_percent = 0
+						clone.vat.set_for = null
+						clone.vat.in_use = null;
+						clone.vat.growth_percent = 0
 						clone.vat = null
-						if(src.clones && clone.id in src.clones)
-							src.clones -= clone.id
-						clone.loc = null
-						clone.contents = null
 						//del(clone)
 						//src.layer = clone.layer + 1;
 						//src.transform = matrix()*0.1
@@ -593,9 +588,8 @@ mob
 						src.step_y = caster.step_y
 						src.dead = 0;
 						//src.has_body = 1
-						if(!src.halo) src.halo = new /obj/overlay/halo
-						add_overlay(src, src.halo)
-						src.halo.layer = initial(src.halo.layer)
+						if(!src.halo) src.halo = 'newhalo.dmi'
+						src.overlays += src.halo
 						src.alpha = 130
 						for(var/obj/body_related/bodyparts/b in src.body)
 							for(var/obj/body_related/bodyparts/o in b)
@@ -610,9 +604,8 @@ mob
 						src.step_y = stone.step_y
 						src.dead = 0;
 						//src.has_body = 1
-						if(!src.halo) src.halo = new /obj/overlay/halo
-						add_overlay(src, src.halo)
-						src.halo.layer = initial(src.halo.layer)
+						if(!src.halo) src.halo = 'newhalo.dmi'
+						src.overlays += src.halo
 						src.alpha = 130
 						for(var/obj/body_related/bodyparts/b in src.body)
 							for(var/obj/body_related/bodyparts/o in b)
@@ -629,9 +622,8 @@ mob
 						src.in_oldage = 0
 						src.vigour = 100
 						src.apply_afterlife_glow(1)
-						if(!src.halo) src.halo = new /obj/overlay/halo
-						add_overlay(src, src.halo)
-						src.halo.layer = initial(src.halo.layer)
+						if(!src.halo) src.halo = 'newhalo.dmi'
+						src.overlays += src.halo
 						src.alpha = 130
 						//if(already_dead == 0) src.disable_parts(null,1,1,1,"Death")
 					src.client.perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
@@ -657,9 +649,8 @@ mob
 							src.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=src.auracolor)
 						else
 							src.alpha = 130
-							if(clone)
-								clone.loc = null
-								clone.contents = null
+							clone.loc=null
+							clone.contents=null
 						/*
 						else
 							animate(transform = matrix()*1,time = 600)
@@ -980,10 +971,6 @@ mob
 				caster.alive_drainer(energyconsumption,src)
 				src.repriever = caster
 				caster.reprievee = src
-
-				for(var/obj/items/misc/body/B in world)
-					if(B.owner == src || B.owner == src.real_name)
-						B.destroy()
 				//if(src.debuff_dead && src.debuff_dead.active) call(src.debuff_dead.act)(src,src.debuff_dead)
 		Revive()
 			src.dead = 0;
@@ -1015,10 +1002,6 @@ mob
 				src.check_glow_planes()
 				src.death_location = null
 				src.kept_body = 0
-
-			for(var/obj/items/misc/body/B in world)
-				if(B.owner == src || B.owner == src.real_name)
-					B.destroy()
 
 			//if(src.debuff_dead && src.debuff_dead.active) call(src.debuff_dead.act)(src,src.debuff_dead)
 		KO(var/loggedin = 0,var/un_koed=0)

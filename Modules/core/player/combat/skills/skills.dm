@@ -1239,10 +1239,10 @@ obj
 									var/removes = (10/m.mod_recovery) + (10/src.skill_lvl)
 									if(m.energy >= removes)
 										//m.energy-=((m.energy_max/10)/src.skill_lvl)/m.mod_recovery/m.mod_energy
-										if(!m.dead) m.energy -= removes
+										m.energy-=removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
-										if(!m.dead) src.skill_exp += (10-(src.skill_lvl/10))*m.mod_skill
+										src.skill_exp += (10-(src.skill_lvl/10))*m.mod_skill
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -1404,11 +1404,11 @@ obj
 									var/removes = (100/m.mod_recovery) + (10/src.skill_lvl)
 									if(m.energy >= removes)
 										//m.energy-=((m.energy_max/10)/src.skill_lvl)/m.mod_recovery/m.mod_energy
-										if(!m.dead) m.energy -= removes
+										m.energy-=removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//world << "DEBUG - [(10-(src.skill_lvl/10))*m.mod_skill]"
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										//world << "DEBUG - exp for expand = [(2.5-(src.skill_lvl/40)*m.mod_skill)+0.025]"
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
@@ -1585,11 +1585,11 @@ obj
 									var/removes = (100/m.mod_recovery) + (10/src.skill_lvl)
 									if(m.energy >= removes)
 										//m.energy-=((m.energy_max/10)/src.skill_lvl)/m.mod_recovery/m.mod_energy
-										if(!m.dead) m.energy -= removes
+										m.energy-=removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//world << "DEBUG - [(10-(src.skill_lvl/10))*m.mod_skill]"
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										//world << "DEBUG - exp for expand = [(2.5-(src.skill_lvl/40)*m.mod_skill)+0.025]"
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
@@ -1682,11 +1682,11 @@ obj
 									var/removes = (10/m.mod_recovery) + (10/src.skill_lvl)
 									if(m.energy >= removes)
 										//m.energy-=((m.energy_max/10)/src.skill_lvl)/m.mod_recovery/m.mod_energy
-										if(!m.dead) m.energy -= removes
+										m.energy-=removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//world << "DEBUG - [(10-(src.skill_lvl/10))*m.mod_skill]"
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										//world << "DEBUG - exp for expand = [(2.5-(src.skill_lvl/40)*m.mod_skill)+0.025]"
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
@@ -1840,10 +1840,10 @@ obj
 										if(get_dist(m,tar) <= 2)
 											if(tar.dead)
 												if(m.energy >= src.skill_lvl+10)
-													if(!m.dead) m.energy -= src.skill_lvl+10;
+													m.energy -= src.skill_lvl+10;
 													src.progress += 1+round(src.skill_lvl/10)
 													//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-													if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+													src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 													if(src.skill_exp >= 100 && src.skill_lvl < 100)
 														src.skill_exp = 1
 														src.skill_lvl += 1
@@ -1881,7 +1881,7 @@ obj
 														tar.Revive()
 
 														m.icon_state = ""
-														if(!m.dead) m.divine_energy -= 25
+														m.divine_energy -= 25
 														if(m.race == "Demon")
 															m.lifespan -= (m.lifespan*0.1)
 															m<<output("You sacrificed [(m.lifespan*0.1)] worth of your lifespan to revive [tar]","actionoutput")
@@ -1893,7 +1893,7 @@ obj
 														if(src.active) call(src.act)(m,src)
 													else
 														m.icon_state = ""
-														if(!m.dead) m.divine_energy -= 25
+														m.divine_energy -= 25
 														if(m.race == "Demon")
 															m.lifespan -= (m.lifespan*0.1)
 															m<<output("You sacrificed [(m.lifespan*0.1)] worth of your lifespan to revive [tar]","actionoutput")
@@ -2031,10 +2031,10 @@ obj
 										m = src.loc
 										if(get_dist(m,tar) <= 2)
 											if(m.energy >= src.skill_lvl+10)
-												if(!m.dead) m.energy -= src.skill_lvl+10;
+												m.energy -= src.skill_lvl+10;
 												src.progress += 1+round(src.skill_lvl/10)
 												//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-												if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+												src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 												if(src.skill_exp >= 100 && src.skill_lvl < 100)
 													src.skill_exp = 1
 													src.skill_lvl += 1
@@ -2064,7 +2064,7 @@ obj
 												if(tar.lifespan <= tar.prime) tar.lifespan = tar.prime
 												tar.age = tar.prime
 												tar.vigour = 100
-												if(!m.dead) m.divine_energy -= 25
+												m.divine_energy -= 25
 												m.set_alert("Restoration successful!",src.icon,src.icon_state)
 												//m.create_chat_entry("alerts","Restoration successful!")
 												animate(tar.screen_text,alpha = 255,time = 60)
@@ -2178,7 +2178,7 @@ obj
 									m = src.loc
 									src.progress += 2+round(src.skill_lvl/10)
 									//src.skill_exp += (33/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -2217,7 +2217,7 @@ obj
 									if(m.koed || m.meditating)
 										call(src.act)(m,src)
 									if(src.progress >= 100)
-										if(!m.dead) m.divine_energy -= 10
+										m.divine_energy -= 10
 										animate(m,alpha = 255, time = 30)
 										m.icon_state = ""
 										m.screen_text.maptext = "<font size = 6><center>[m.cleansing] cleansed"
@@ -2395,10 +2395,10 @@ obj
 									m = src.loc
 									if(m)
 										if(m.energy >= src.skill_lvl+10)
-											if(!m.dead) m.energy -= src.skill_lvl+10;
+											m.energy -= src.skill_lvl+10;
 											src.progress += 1+round(src.skill_lvl/10)
 											//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-											if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+											src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 											if(src.skill_exp >= 100 && src.skill_lvl < 100)
 												src.skill_exp = 1
 												src.skill_lvl += 1
@@ -2429,7 +2429,7 @@ obj
 											if(m.dead == 1)
 
 												//m.Body()
-												if(!m.dead) m.divine_energy -= 25
+												m.divine_energy -= 25
 												m.reincarnate()
 												m.set_alert("Reincarnation successful!",src.icon,src.icon_state)
 												//m.create_chat_entry("alerts","Reincarnation successful!")
@@ -2978,10 +2978,10 @@ obj
 								if(ismob(src.loc))
 									m = src.loc
 									if(m.energy >= 1)
-										if(!m.dead) m.energy -= 1
+										m.energy -= 1
 										//src.skill_exp += (3/src.skill_lvl)*m.mod_skill
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -3162,7 +3162,7 @@ obj
 									if(m.energy >= removes)
 										//m.energy-=5+((m.energy_max/5)/src.skill_lvl)/m.mod_recovery/m.mod_energy
 										//var/removes = 1 + 10 - (m.mod_recovery+m.mod_energy) - (src.skill_lvl/10)
-										if(!m.dead) m.energy -= removes
+										m.energy -= removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										if(m.meditating)
@@ -3177,7 +3177,7 @@ obj
 										//src.skill_exp += (5-(src.skill_lvl/20))*m.mod_skill
 										m.gain_stat("force",1,1,"From Focus skill")
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -3630,7 +3630,7 @@ obj
 								var/e = (5/m.mod_recovery)+(5/src.skill_lvl)*power_multiplier
 								if(e<0) e = 1
 								//While this skill is active, give some exp.
-								if(!m.dead) src.skill_exp += ((0.1-(src.skill_lvl/100))*m.mod_skill)+0.1
+								src.skill_exp += ((0.1-(src.skill_lvl/100))*m.mod_skill)+0.1
 
 								if(src.skill_exp >= 100 && src.skill_lvl < 100)
 									src.skill_exp = 1
@@ -3752,7 +3752,7 @@ obj
 											//m.charge_nums("<font color = green>x[charge_check]")
 
 											//world << "Beam charge lvl is [checker.charge_lvl] and rounded it is [round(checker.charge_lvl)]"
-										if(!m.dead) m.energy -= e*checker.charge_lvl
+										m.energy -= e*checker.charge_lvl
 										size_upper += 0.001*m.mod_recovery
 										if(size >= 1) size = 1;
 										//issue is trans_extra
@@ -3823,7 +3823,7 @@ obj
 											checker.step_x = m.step_x
 											checker.step_y = m.step_y
 
-										if(!m.dead) m.energy -= e*checker.charge_lvl
+										m.energy -= e*checker.charge_lvl
 										//world << "Beam firing removes [removes]"
 
 										//Sends an obj out to seek obstacles. Tracks how long the beam will be.
@@ -4344,7 +4344,7 @@ obj
 						else if(m.mouse_down)
 							size += 0.001*m.mod_recovery
 							if(size > 1) size = 1
-							if(!m.dead) m.energy -= (5/m.mod_recovery)
+							m.energy -= (5/m.mod_recovery)
 							animate(ball, transform = matrix()*size, time = 1)
 							animate(ball_hit, transform = matrix()*size, time = 1)
 
@@ -4363,7 +4363,7 @@ obj
 								checker.loc = m.loc
 								checker.step_x = m.step_x
 								checker.step_y = m.step_y
-							if(!m.dead) m.energy -= 0.5
+							m.energy -= 0.5
 							pix += 1; trans += 16
 							var/matrix/M = matrix()
 							M.Scale(pix, size)
@@ -4468,7 +4468,7 @@ obj
 							var/e = (0.5/m.mod_recovery)+(0.5/src.skill_lvl)
 
 							//While this skill is active, give some exp.
-							if(!m.dead) src.skill_exp += ((0.1-(src.skill_lvl/100))*m.mod_skill)+0.1
+							src.skill_exp += ((0.1-(src.skill_lvl/100))*m.mod_skill)+0.1
 
 							if(src.skill_exp >= 100 && src.skill_lvl < 100)
 								src.skill_exp = 1
@@ -4507,7 +4507,7 @@ obj
 									checker.step_x = m.step_x
 									checker.step_y = m.step_y
 
-								if(!m.dead) m.energy -= e*checker.charge_lvl
+								m.energy -= e*checker.charge_lvl
 
 								//Sends an obj out to seek obstacles. Tracks how long the beam will be.
 								while(checker.loc)
@@ -4620,13 +4620,13 @@ obj
 							di = m.mouse_degree
 							m.dir = get_dir(m,m.mouse_saved_loc)
 							if(src)
-								if(!m.dead) src.skill_exp += (1/src.skill_lvl)*m.mod_skill
+								src.skill_exp += (1/src.skill_lvl)*m.mod_skill
 								if(src.skill_exp >= 100 && src.skill_lvl < 100)
 									src.skill_exp = 1
 									src.skill_lvl += 1
 								var/e = (1/m.mod_recovery)+(1/src.skill_lvl)
 								if(m.mouse_saved_loc)
-									if(!m.dead) m.energy -= e
+									m.energy -= e
 									//Grab any beams that got removed from play for any reason and put them back into play, unless the player canceled use of the skill.
 									var/fly = 0;
 									if(m.skill_flight && m.skill_flight.active) fly = 1;
@@ -4862,7 +4862,7 @@ obj
 					var/e = (5/m.mod_recovery)+(5/src.skill_lvl)*5
 					if(e<0) e = 1
 					//While this skill is active, give some exp.
-					if(!m.dead) src.skill_exp += ((0.1-(src.skill_lvl/100))*m.mod_skill)+0.1
+					src.skill_exp += ((0.1-(src.skill_lvl/100))*m.mod_skill)+0.1
 
 					if(src.skill_exp >= 100 && src.skill_lvl < 100)
 						src.skill_exp = 1
@@ -4963,7 +4963,7 @@ obj
 								charge_check = charge_rounded
 								m.charge_nums("<font color = green>x[charge_check]")
 								//world << "Beam charge lvl is [checker.charge_lvl] and rounded it is [round(checker.charge_lvl)]"
-							if(!m.dead) m.energy -= e*checker.charge_lvl
+							m.energy -= e*checker.charge_lvl
 							size_upper += 0.001*m.mod_recovery
 							if(size >= 1) size = 1;
 							//issue is trans_extra
@@ -5025,7 +5025,7 @@ obj
 								checker.step_x = m.step_x
 								checker.step_y = m.step_y
 
-							if(!m.dead) m.energy -= e*checker.charge_lvl
+							m.energy -= e*checker.charge_lvl
 							//world << "Beam firing removes [removes]"
 
 							//Sends an obj out to seek obstacles. Tracks how long the beam will be.
@@ -5163,7 +5163,7 @@ obj
 							var/b_num = 0
 							//If the charge ball exists, move it relative to player mouse position and continue with the rest of the code.
 							if(b)
-								if(!m.dead) src.skill_exp += (1/src.skill_lvl)*m.mod_skill
+								src.skill_exp += (1/src.skill_lvl)*m.mod_skill
 								if(src.skill_exp >= 100 && src.skill_lvl < 100)
 									src.skill_exp = 1
 									src.skill_lvl += 1
@@ -5183,7 +5183,7 @@ obj
 									b.fired = 1
 									spawn(5)
 										if(b) b.fired = 2
-								if(!m.dead) src.skill_exp += (1/src.skill_lvl)*m.mod_skill
+								src.skill_exp += (1/src.skill_lvl)*m.mod_skill
 								if(src.skill_exp >= 100 && src.skill_lvl < 100)
 									src.skill_exp = 1
 									src.skill_lvl += 1
@@ -5247,7 +5247,7 @@ obj
 									var/e = ((1/m.mod_recovery)+(1/src.skill_lvl)*b.charge_lvl)
 									if(m.mouse_saved_loc)
 										if(b.fired)
-											if(!m.dead) m.energy -= e
+											m.energy -= e
 											if(b_num < 30 && b.finishing == 0)
 												//Make sure we have no more than 40 beam segements and create them as needed.
 												for(var/obj/ranged/beam/o in beams)
@@ -6181,7 +6181,7 @@ obj
 									if(!isturf(m.mouse_saved_loc) || m.mouse_saved_loc.z != m.z)
 										m.active_attack = null
 										return
-									if(!m.dead) src.skill_exp += ((0.1-(src.skill_lvl/1000))*m.mod_skill)+0.1
+									src.skill_exp += ((0.1-(src.skill_lvl/1000))*m.mod_skill)+0.1
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -6238,7 +6238,7 @@ obj
 												charge_check = charge_rounded
 											//	m.charge_nums("<font color = green>x[charge_check]")
 											//m << output("Charge lvl is [b.charge_lvl]", "chat.system")
-											if(!m.dead) m.energy -= e
+											m.energy-=e
 											b.size += 0.001*m.mod_recovery
 											if(b.size > 1) b.size = 1
 											var/matrix/M = matrix()
@@ -6462,7 +6462,7 @@ obj
 										m.active_attack = null
 										continue
 									//src.skill_exp += (1/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((0.1-(src.skill_lvl/1000))*m.mod_skill)+0.1
+									src.skill_exp += ((0.1-(src.skill_lvl/1000))*m.mod_skill)+0.1
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -6519,7 +6519,7 @@ obj
 												charge_check = charge_rounded
 												//m.charge_nums("<font color = green>x[charge_check]")
 											//m << output("Charge lvl is [b.charge_lvl]", "chat.system")
-											if(!m.dead) m.energy -= e
+											m.energy-=e
 											b.size += 0.001*m.mod_recovery
 											if(b.size > 1) b.size = 1
 											var/matrix/M = matrix()
@@ -6681,7 +6681,7 @@ obj
 								var/e = ((4/m.mod_recovery)+(4/src.skill_lvl)*b.charge_lvl)
 								if(b.fired == 0)
 									//src.skill_exp += (1/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((0.1-(src.skill_lvl/1000))*m.mod_skill)+0.1
+									src.skill_exp += ((0.1-(src.skill_lvl/1000))*m.mod_skill)+0.1
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -6734,7 +6734,7 @@ obj
 												charge_check = charge_rounded
 												//m.charge_nums("<font color = green>x[charge_check]")
 											//m << output("Charge lvl is [b.charge_lvl]", "chat.system")
-											if(!m.dead) m.energy -= e
+											m.energy-=e
 											b.size += 0.002*m.mod_recovery
 											if(b.size > 1) b.size = 1
 											b.pix_away += 0.14*m.mod_recovery
@@ -6868,7 +6868,7 @@ obj
 						b.force_usage = m.mod_force_usage
 						b.ki_offence = m.offence
 						b.ki_agility = m.mod_agility
-						if(!m.dead) src.skill_exp += (1/src.skill_lvl)*m.mod_skill
+						src.skill_exp += (1/src.skill_lvl)*m.mod_skill
 						if(src.skill_exp >= 100 && src.skill_lvl < 100)
 							src.skill_exp = 1
 							src.skill_lvl += 1
@@ -7213,8 +7213,8 @@ obj
 								return
 							if(bounds_dist(m, tgt) <= m.attack_range)
 								m.skill_cooldown(s)
-								if(!m.dead) m.energy -= removes
-								if(!m.dead) s.skill_exp += (2.5-(s.skill_lvl/40)*m.mod_skill)+0.025
+								m.energy -= removes
+								s.skill_exp += (2.5-(s.skill_lvl/40)*m.mod_skill)+0.025
 								if(s.skill_exp >= 100 && s.skill_lvl < 100)
 									s.skill_exp = 1
 									s.skill_lvl += 1
@@ -7327,7 +7327,7 @@ obj
 							else if(m.wrestle_stage == "locking joint")
 								s.cd_max = (initial(s.cd_max)/m.mod_agility)/(1+s.skill_lvl/100)
 								m.skill_cooldown(s)
-								if(!m.dead) s.skill_exp += ((5-(s.skill_lvl/20))*m.mod_skill)+0.5
+								s.skill_exp += ((5-(s.skill_lvl/20))*m.mod_skill)+0.5
 								if(s.skill_exp >= 100 && s.skill_lvl < 100)
 									s.skill_exp = 1
 									s.skill_lvl += 1
@@ -7474,11 +7474,11 @@ obj
 								//if(src.fly && src.fly.active || m.submerged) m.icon_state = "fly blast"//flick("fly blast",m)
 								//else m.icon_state = "blast"//flick("blast",m)
 								if(m.energy >= e)
-									if(!m.dead) m.energy -= (e)
+									m.energy-=(e)
 									//m << output("<font color = teal>[e] energy removed by [src]","chat.system")
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
 									//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-									if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+									src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -7624,11 +7624,11 @@ obj
 								if(m.energy >= e)
 									S.volume = rand(15,40)
 
-									if(!m.dead) m.energy -= e
+									m.energy-=e
 									//m << output("<font color = teal>[e] energy removed by [src]","chat.system")
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
 									//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-									if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+									src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -7763,8 +7763,8 @@ obj
 								if(src.active)
 									var/removes = (10/m.mod_recovery) + (10/src.skill_lvl)
 									if(m.energy >= removes)
-										if(!m.dead) m.energy -= removes
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										m.energy -= removes
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -7863,11 +7863,11 @@ obj
 									if(m.power_percent > 100 && stage == 1)
 										var/drain=10*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
-											if(!m.dead) m.energy -= drain
+											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
 											//m << output("Psionic power now at [m.psionic_power]","chat.local")
 											//m.gain_stat("recovery",1,100,"From Power Control skill")
-											if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+											src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 											if(src.skill_exp >= 100 && src.skill_lvl < 100)
 												src.skill_exp = 1
 												src.skill_lvl += 1
@@ -7885,11 +7885,11 @@ obj
 									if(m.power_percent > 100 && stage==5 && m.has_sf1)
 										var/drain=10.8*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
-											if(!m.dead) m.energy -= drain
+											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
 											//m << output("Psionic power now at [m.psionic_power]","chat.local")
 											//m.gain_stat("recovery",1,100,"From Power Control skill")
-											if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+											src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 											if(src.skill_exp >= 100 && src.skill_lvl < 100)
 												src.skill_exp = 1
 												src.skill_lvl += 1
@@ -7906,11 +7906,11 @@ obj
 									if(m.power_percent > 100 && stage==4 && m.has_sf1)
 										var/drain=10.6*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
-											if(!m.dead) m.energy -= drain
+											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
 											//m << output("Psionic power now at [m.psionic_power]","chat.local")
 											//m.gain_stat("recovery",1,100,"From Power Control skill")
-											if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+											src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 											if(src.skill_exp >= 100 && src.skill_lvl < 100)
 												src.skill_exp = 1
 												src.skill_lvl += 1
@@ -7927,11 +7927,11 @@ obj
 									if(m.power_percent > 100 && stage==3 && m.has_sf1)
 										var/drain=10.4*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
-											if(!m.dead) m.energy -= drain
+											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
 											//m << output("Psionic power now at [m.psionic_power]","chat.local")
 											//m.gain_stat("recovery",1,100,"From Power Control skill")
-											if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+											src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 											if(src.skill_exp >= 100 && src.skill_lvl < 100)
 												src.skill_exp = 1
 												src.skill_lvl += 1
@@ -7948,11 +7948,11 @@ obj
 									if(m.power_percent > 100 && stage==2 && m.has_sf1)
 										var/drain=10.2*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
-											if(!m.dead) m.energy -= drain
+											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
 											//m << output("Psionic power now at [m.psionic_power]","chat.local")
 											//m.gain_stat("recovery",1,100,"From Power Control skill")
-											if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+											src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 											if(src.skill_exp >= 100 && src.skill_lvl < 100)
 												src.skill_exp = 1
 												src.skill_lvl += 1
@@ -7976,9 +7976,6 @@ obj
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
-					if(m.skill_kaioken && m.skill_kaioken.active)
-						m << output("You cannot use Power Control while Kaioken is active.","actionoutput")
-						return
 					params = params2list(params)
 					winset(m,"map.map","focus=true")
 					var/dir = null
@@ -8255,11 +8252,11 @@ obj
 									if(m.energy>=1)
 										//m.energy-=5+((m.energy_max/10)/src.skill_lvl)/m.mod_recovery/m.mod_energy
 										var/removes = (10/m.mod_recovery) + (10/src.skill_lvl)
-										if(!m.dead) m.energy -= removes
+										m.energy-=removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -8359,12 +8356,12 @@ obj
 								if(src.active)
 									var/removes = (1/m.mod_recovery) + (1/src.skill_lvl)
 									if(m.energy >= removes)
-										if(!m.dead) m.energy -= removes
+										m.energy -= removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -8492,12 +8489,12 @@ obj
 								if(src.active)
 									if(m.energy>=2)
 										var/removes = (1/m.mod_recovery) + (1/src.skill_lvl)
-										if(!m.dead) m.energy -= removes
+										m.energy -= removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -8605,7 +8602,7 @@ obj
 									m = src.loc
 									src.progress += 3+round(src.skill_lvl/10)
 									//src.skill_exp += (33/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.rotate == 0)
 										m.shockwave_inverse()
 										src.rotate = 1
@@ -8765,7 +8762,7 @@ obj
 									m = src.loc
 									src.progress += 3+round(src.skill_lvl/10)
 									//src.skill_exp += (33/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -8944,7 +8941,7 @@ obj
 									m = src.loc
 									src.progress += 3+round(src.skill_lvl/10)
 									//src.skill_exp += (33/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -8980,7 +8977,7 @@ obj
 									if(m.koed || m.meditating)
 										call(src.act)(m,src)
 									if(src.progress >= 100)
-										if(!m.dead) m.divine_energy -= 10
+										m.divine_energy -= 10
 										animate(m,alpha = 255, time = 30)
 										//m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=rgb(102,0,204))
 										m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=rgb(255,255,170))
@@ -9183,7 +9180,7 @@ obj
 									m = src.loc
 									src.progress += 3+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -9235,7 +9232,7 @@ obj
 													src.g_ball.destroy()
 													src.g_ball = null
 													src.last_used = year
-													if(!m.dead) m.divine_energy -= 100
+													m.divine_energy -= 100
 											if(src && src.active && m) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
@@ -9587,7 +9584,7 @@ obj
 								if(ismob(src.loc))
 									m = src.loc
 									src.progress += 2+round(src.skill_lvl/10)
-									if(!m.dead) src.skill_exp += (10/src.skill_lvl)*m.mod_skill
+									src.skill_exp += (10/src.skill_lvl)*m.mod_skill
 									if(prob(50))
 										var/obj/effects/lightning_bolt_psi_temp/bolt = new
 										bolt.loc = locate(m.x+rand(-3,3),m.y+rand(-3,3),m.z)
@@ -9811,7 +9808,7 @@ obj
 									m = src.loc
 									src.progress += 2+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -9975,13 +9972,6 @@ obj
 						needed*=multi
 						if(m.energy >= needed)
 						//m.buffs += "focus"
-							for(var/obj/skills/Power_Control/pc in m)
-								if(pc.active)
-									pc.active = 0
-									pc.icon_state = "Profusion off"
-									pc.stage = 0
-									m.powering_up = 0
-									remove_overlay(m, pc.aura)
 							s.active = 1
 							s.icon_state = "kaioken"
 							m.kaioken_pl = s.times_multi
@@ -10061,13 +10051,12 @@ obj
 									var/kaiodmg = (0.4 + (2.1 * skill_ratio)) * max(1, src.times_multi)
 									kaiodmg *= (1 + (high_level_pressure * unmastered_ratio * 0.65))
 									var/limb_damage_chance = min(85, 35 + round(high_level_pressure * 12 * unmastered_ratio))
-									var/is_dead = m.dead
 									var/obj/body_related/bodyparts/torso/torso_limb = null
 									for(var/obj/body_related/bodyparts/torso/torso_part in m.bodyparts)
 										torso_limb = torso_part
 										break
 									//world << "DEBUG: Kaioken active check - src.active=[src.active], m.energy=[m.energy], removes=[removes]"
-									if(!is_dead && prob(limb_damage_chance) && m.body && m.body.len)
+									if(prob(limb_damage_chance) && m.body && m.body.len)
 										var/limb_hit_damage = max(0.1, kaiodmg * (0.5 + (high_level_pressure * unmastered_ratio * 0.35)))
 										if(torso_limb && prob(35))
 											m.damage_limb(m,0,0,limb_hit_damage,torso_limb)
@@ -10076,11 +10065,11 @@ obj
 										m.percent_health -= kaiodmg
 										if(m.percent_health < 0) m.KO()
 
-									if(!is_dead && m.energy >= removes)
+									if(m.energy >= removes)
 										//world << "DEBUG: Energy check passed - removing [removes] energy"
 										//m.energy-=5+((m.energy_max/5)/src.skill_lvl)/m.mod_recovery/m.mod_energy
 										//var/removes = 1 + 10 - (m.mod_recovery+m.mod_energy) - (src.skill_lvl/10)
-										if(!m.dead) m.energy -= removes
+										m.energy -= removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										if(m.meditating)
@@ -10095,7 +10084,7 @@ obj
 										//src.skill_exp += (5-(src.skill_lvl/20))*m.mod_skill
 										//m.gain_stat("force",1,1,"From Focus skill")
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -10250,10 +10239,10 @@ obj
 										if(get_dist(m,tar) <= 2)
 											if(tar.dead)
 												if(m.energy >= src.skill_lvl+10)
-													if(!m.dead) m.energy -= src.skill_lvl+10;
+													m.energy -= src.skill_lvl+10;
 													src.progress += 1+round(src.skill_lvl/10)
 													//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-													if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+													src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 													if(src.skill_exp >= 100 && src.skill_lvl < 100)
 														src.skill_exp = 1
 														src.skill_lvl += 1
@@ -10291,7 +10280,7 @@ obj
 													if(m.energy_max >= neededenergy)
 														tar.TempRevive(neededenergy,m)
 														m.icon_state = ""
-														if(!m.dead) m.divine_energy -= 25
+														m.divine_energy -= 25
 														m.set_alert("You have temporarily revived [tar.real_name]!",src.icon,src.icon_state)
 													//	m.create_chat_entry("alerts","You have temporarily revived [tar.real_name]!")
 														//view(8,m) << output("<font color = purple> [m] finishes reknitting [tar]'s soul and fuses it back to their body.", "chat.local")
@@ -10300,14 +10289,14 @@ obj
 														if(prob(50))
 															tar.TempRevive(neededenergy,m)
 															m.icon_state = ""
-															if(!m.dead) m.divine_energy -= 25
+															m.divine_energy -= 25
 															m.set_alert("You have temporarily revived [tar.real_name]!",src.icon,src.icon_state)
 														//	m.create_chat_entry("alerts","You have temporarily revived [tar.real_name]!")
 														//	view(8,m) << output("<font color = purple> [m] finishes reknitting [tar]'s soul and fuses it back to their body.", "chat.local")
 															if(src.active) call(src.act)(m,src)
 														else
 															m.icon_state = ""
-															if(!m.dead) m.divine_energy -= 25
+															m.divine_energy -= 25
 															m.set_alert("You have failed to temporarily revived [tar.real_name]!",src.icon,src.icon_state)
 														//	m.create_chat_entry("alerts","You have failed to temporarily revived [tar.real_name]!")
 														//	view(8,m) << output("<font color = purple> [m] finishes reknitting [tar]'s soul and fuses it back to their body.", "chat.local")
@@ -10462,7 +10451,7 @@ obj
 										//src.skill_exp += (5-(src.skill_lvl/20))*m.mod_skill
 										//m.gain_stat("force",1,1,"From Focus skill")
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -10619,10 +10608,10 @@ obj
 										if(get_dist(m,tar) <= 2)
 											if(tar.has_majin <=0)
 												if(m.energy >= src.skill_lvl+10)
-													if(!m.dead) m.energy -= src.skill_lvl+10;
+													m.energy -= src.skill_lvl+10;
 													src.progress += 1+round(src.skill_lvl/10)
 													//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-													if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+													src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 													if(src.skill_exp >= 100 && src.skill_lvl < 100)
 														src.skill_exp = 1
 														src.skill_lvl += 1
@@ -10848,7 +10837,7 @@ obj
 										//src.skill_exp += (5-(src.skill_lvl/20))*m.mod_skill
 										//m.gain_stat("force",1,1,"From Focus skill")
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -11012,10 +11001,10 @@ obj
 										if(get_dist(m,tar) <= 2)
 											if(tar.has_mystic <=0)
 												if(m.energy >= src.skill_lvl+10)
-													if(!m.dead) m.energy -= src.skill_lvl+10;
+													m.energy -= src.skill_lvl+10;
 													src.progress += 1+round(src.skill_lvl/10)
 													//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-													if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+													src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 													if(src.skill_exp >= 100 && src.skill_lvl < 100)
 														src.skill_exp = 1
 														src.skill_lvl += 1
@@ -11186,7 +11175,7 @@ obj
 									m = src.loc
 									src.progress += 10+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -11324,7 +11313,7 @@ obj
 									m = src.loc
 									src.progress += 10+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -11485,7 +11474,7 @@ obj
 							s.summoning = 0
 							s.icon_state = "uw portal off"
 							animate(m)
-							if(!m.dead) m.energy -= (m.energy_max*0.25)
+							m.energy -= (m.energy_max*0.25)
 
 
 							var/obj/items/environmental/blackhole2/bh = new
@@ -11522,7 +11511,7 @@ obj
 									m = src.loc
 									src.progress += 10+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -11821,9 +11810,9 @@ obj
 									m = src.loc
 
 									if(get_dist(m, tar) <= 2 && m.energy >= src.skill_lvl+5)
-										if(!m.dead) m.energy -= src.skill_lvl+5
+										m.energy -= src.skill_lvl+5
 										src.progress += 10 + round(src.skill_lvl / 10)
-										if(!m.dead) src.skill_exp += ((5 - (src.skill_lvl/20)) * m.mod_skill) + 0.5
+										src.skill_exp += ((5 - (src.skill_lvl/20)) * m.mod_skill) + 0.5
 
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
@@ -11957,9 +11946,9 @@ obj
 									m = src.loc
 
 									if(get_dist(m, tar) <= 2 && m.energy >= src.skill_lvl+5)
-										if(!m.dead) m.energy -= src.skill_lvl+5
+										m.energy -= src.skill_lvl+5
 										src.progress += 1 + round(src.skill_lvl / 10)
-										if(!m.dead) src.skill_exp += ((5 - (src.skill_lvl/20)) * m.mod_skill) + 0.5
+										src.skill_exp += ((5 - (src.skill_lvl/20)) * m.mod_skill) + 0.5
 
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
@@ -12134,7 +12123,7 @@ obj
 									m = src.loc
 									src.progress += 10
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -12307,7 +12296,7 @@ obj
 									m = src.loc
 									src.progress += 10//m.mod_tech_potential+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -12456,7 +12445,7 @@ obj
 									m = src.loc
 									src.progress += 50+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -12586,7 +12575,7 @@ obj
 									m = src.loc
 									src.progress += 50+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -12716,7 +12705,7 @@ obj
 									m = src.loc
 									src.progress += 35+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -12862,7 +12851,7 @@ obj
 									m = src.loc
 									src.progress += 3+round(src.skill_lvl/10)
 									//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-									if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+									src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -13043,7 +13032,7 @@ obj
 							if(ismob(src.loc))
 								var/mob/m = src.loc
 								if(src.active)
-									if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+									src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -13117,7 +13106,7 @@ obj
 							if(ismob(src.loc))
 								var/mob/m = src.loc
 								if(src.active)
-									if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+									src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -13223,12 +13212,12 @@ obj
 								if(src.active)
 									var/removes = (1/m.mod_recovery) + (1/src.skill_lvl)
 									if(m.energy >= removes)
-										if(!m.dead) m.energy -= removes
+										m.energy -= removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -13874,7 +13863,7 @@ obj
 											if(m.energy <= 1) call(src.act)(m,src)
 											else if(m.tmp_dmg < 0) call(src.act)(m,src)
 											if(m.skill_meditation && m.skill_meditation.active) call(m.skill_meditation.act)(m,m.skill_meditation)
-											if(!m.dead) src.skill_exp += ((0.1-(src.skill_lvl/100))*m.mod_skill)+0.1
+											src.skill_exp += ((0.1-(src.skill_lvl/100))*m.mod_skill)+0.1
 											if(src.skill_exp >= 100 && src.skill_lvl < 100)
 												src.skill_exp = 1
 												src.skill_lvl += 1
@@ -14105,7 +14094,7 @@ obj
 									//	if(prob(1)) m.gain_stat("offence",1,N,"Self Train")
 										//if(prob(1)) m.gain_stat("defence",1,N,"Self Train")
 										//src.skill_exp += (N/src.skill_lvl)*m.mod_skill
-										if(!m.dead) src.skill_exp += (((N/4)-(src.skill_lvl/40))*m.mod_skill)+0.025
+										src.skill_exp += (((N/4)-(src.skill_lvl/40))*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -14155,7 +14144,7 @@ obj
 											m.open_close_eyes(0)
 										else
 										//	m.energy -= (1000/rand(10,20))*(m.mod_recovery)*((m.weight*0.125)**0.1)
-											if(!m.dead) m.energy -= (300/m.mod_recovery)*((m.weight*0.125)**0.1)
+											m.energy -= (300/m.mod_recovery)*((m.weight*0.125)**0.1)
 							sleep(1)
 
 			Click(location,control,params)
@@ -14653,7 +14642,7 @@ obj
 										m.gain_stat("regen",1,N,"Active Meditation")
 										m.gain_stat("recovery",1,N,"Active Meditation")
 										//src.skill_exp += (N/src.skill_lvl)*m.mod_skill
-										if(!m.dead) src.skill_exp += (((N/4)-(src.skill_lvl/40))*m.mod_skill)+0.025
+										src.skill_exp += (((N/4)-(src.skill_lvl/40))*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -14756,8 +14745,8 @@ obj
 								m.client.screen += x.bar
 								m.dir = SOUTH
 
-								if(!m.dead) m.energy -= m.energy_max/x.skill_lvl
-								if(!m.dead) x.skill_exp += (100/x.skill_lvl)*m.mod_skill
+								m.energy -= m.energy_max/x.skill_lvl
+								x.skill_exp += (100/x.skill_lvl)*m.mod_skill
 								if(x.skill_exp >= 100 && x.skill_lvl < 100)
 									x.skill_exp = 1
 									x.skill_lvl += 1
@@ -14930,7 +14919,7 @@ obj
 										m = src.loc
 										src.progress += 10//3+round(src.skill_lvl/10)
 										//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
-										if(!m.dead) src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
+										src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -14980,7 +14969,7 @@ obj
 													//world << "DEBUG - Created [src.dw.skill_super_speed] for [src.dw]. Their super speed skill is now [src.dw.skill_super_speed], which has its active set to [dw.skill_super_speed.active]"
 													src.dw = null
 													src.icon_state = "[src.icon_og] off"
-													if(!m.dead) m.divine_energy -= 25
+													m.divine_energy -= 25
 											if(src && src.active && m) call(src.act)(m,src)
 								sleep(10)
 			Click(location,control,params)
@@ -15040,7 +15029,7 @@ obj
 
 						x.icon_state = "mage pot"
 						//m.energy_max -= needed_energy
-						if(!m.dead) m.energy -= needed_energy
+						m.energy -= needed_energy
 						var/obj/items/Mage_Pot/pot = new /obj/items/Mage_Pot(get_step(m, m.dir))
 						pot.user = m // Assign the user to the pot
 						for(var/mob/MM in view(10,m))
@@ -15113,9 +15102,9 @@ obj
 						return
 
 					x.icon_state = "Psi Clone"
-					if(!m.dead) m.energy -= m.energy_max / max(x.skill_lvl, 1)
+					m.energy -= m.energy_max / max(x.skill_lvl, 1)
 
-					if(!m.dead) x.skill_exp += ((10-(x.skill_lvl/10))*m.mod_skill)+1
+					x.skill_exp += ((10-(x.skill_lvl/10))*m.mod_skill)+1
 					if(x.skill_exp >= 100 && x.skill_lvl < 100)
 						x.skill_exp = 1
 						x.skill_lvl += 1
@@ -15141,9 +15130,9 @@ obj
 						if(m.energy >= m.energy_max/x.skill_lvl)
 							x.icon_state = "Psi Clone"
 
-							if(!m.dead) m.energy -= m.energy_max/x.skill_lvl
+							m.energy -= m.energy_max/x.skill_lvl
 							//x.skill_exp += (100/x.skill_lvl)*m.mod_skill
-							if(!m.dead) x.skill_exp += ((10-(x.skill_lvl/10))*m.mod_skill)+1
+							x.skill_exp += ((10-(x.skill_lvl/10))*m.mod_skill)+1
 							if(x.skill_exp >= 100 && x.skill_lvl < 100)
 								x.skill_exp = 1
 								x.skill_lvl += 1
@@ -15220,9 +15209,9 @@ obj
 						if(m.energy >= m.energy_max/x.skill_lvl)
 							x.icon_state = "Psi Clone"
 
-							if(!m.dead) m.energy -= m.energy_max/x.skill_lvl
+							m.energy -= m.energy_max/x.skill_lvl
 							//x.skill_exp += (100/x.skill_lvl)*m.mod_skill
-							if(!m.dead) x.skill_exp += ((10-(x.skill_lvl/10))*m.mod_skill)+1
+							x.skill_exp += ((10-(x.skill_lvl/10))*m.mod_skill)+1
 							if(x.skill_exp >= 100 && x.skill_lvl < 100)
 								x.skill_exp = 1
 								x.skill_lvl += 1
@@ -15373,12 +15362,12 @@ obj
 									var/removes = (10/m.mod_recovery) + (10/src.skill_lvl)
 									if(m.energy >= removes)
 										//m.energy-=5+((m.energy_max/10)/src.skill_lvl)/m.mod_recovery/m.mod_energy
-										if(!m.dead) m.energy -= removes
+										m.energy -= removes
 										//world << "[removes] energy removed by [src]"
 										//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -15486,8 +15475,8 @@ obj
 										//m.gain_stat("power",1,1,"Levitation")
 										m.gain_stat("rating",1,1,"Levitation")
 										m.overlays -= /obj/effects/superfly
-										if(!m.dead) m.energy -= removes
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										m.energy -= removes
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -15544,7 +15533,7 @@ obj
 								src.active = 1
 
 								if(m.in_oozaru_rampage)
-									if(!m.dead) src.skill_exp += (10.5-(src.skill_lvl/40)*m.mod_skill)+0.125
+									src.skill_exp += (10.5-(src.skill_lvl/40)*m.mod_skill)+0.125
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -15592,7 +15581,7 @@ obj
 								src.active = 1
 
 								if(m.in_lssj_rampage)
-									if(!m.dead) src.skill_exp += (10.5-(src.skill_lvl/40)*m.mod_skill)+0.125
+									src.skill_exp += (10.5-(src.skill_lvl/40)*m.mod_skill)+0.125
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -15652,7 +15641,7 @@ obj
 						while(src)
 							if(ismob(src.loc))
 								if(src.active)
-									if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+									src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 									if(src.skill_exp >= 100 && src.skill_lvl < 100)
 										src.skill_exp = 1
 										src.skill_lvl += 1
@@ -15770,18 +15759,18 @@ obj
 										m.overlays -= /obj/effects/superfly
 										//m.overlays += /obj/effects/superfly
 										if(m.super_fly)
-											if(!m.dead) m.energy -= (removes*3)
+											m.energy -= (removes*3)
 											//world << "[removes] energy removed by [src]"
 											//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										else
 											if(m.trait_ef == null)
 												//m.energy -= 1+((m.energy_max*0.25)/src.skill_lvl/m.mod_energy)
-												if(!m.dead) m.energy -= removes*3
+												m.energy -= removes*3
 												//world << "[removes] energy removed by [src]"
 												//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
 										//src.skill_exp += ((5-(src.skill_lvl/20))*m.mod_skill)+0.5
-										if(!m.dead) src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 										if(src.skill_exp >= 100 && src.skill_lvl < 100)
 											src.skill_exp = 1
 											src.skill_lvl += 1
@@ -15879,7 +15868,6 @@ obj
 							animate(o)
 							o.reset_use()
 		skill_up(var/mob/c)
-			if(c && c.dead && istype(src,/obj/skills/)) return
 			if(c && c.client)
 				var/obj/effects/over_displays/lvl_up_overlay/o
 				for(var/obj/effects/over_displays/lvl_up_overlay/x in lvl_overlays)
@@ -17075,4 +17063,3 @@ mob
 					usr << output("<font color = teal>Skills can only be taught every 3 years. Next teaching will be available at year [x.teach_cd].","actionoutput")
 					usr.set_alert("Available at year [round(x.teach_cd,0.1)]",x.icon,x.icon_state)
 					usr.<<output("Available at year [round(x.teach_cd,0.1)]","actionoutput")
-

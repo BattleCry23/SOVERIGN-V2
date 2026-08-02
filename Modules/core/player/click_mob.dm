@@ -27,21 +27,6 @@ mob
 
 		if(!M.client.images.Find(src.over))
 			M.client.images += src.over
-
-		spawn()
-			while(M && M.client && src && M.mouse_over == src && src.over)
-				src.over.appearance = src.appearance
-				src.over.pixel_x = 0
-				src.over.pixel_y = 0
-				src.over.pixel_z = 0
-				src.over.dir = src.dir
-
-				if(src == M)
-					src.over.filters = list(filter(type="outline", size=1, color=rgb(0,255,0)))
-				else
-					src.over.filters = list(filter(type="outline", size=1, color=rgb(255,255,255)))
-
-				sleep(1)
 	/*MouseEntered(location,control,params)
 
 		usr.mouse_over = src
@@ -85,8 +70,7 @@ mob
 		if(src.over)
 			M.client.images -= src.over
 
-		if(M.mouse_over == src)
-			M.mouse_over = null
+		M.mouse_over = null
 	Click(location,control,params)
 		usr.place_percise(params)
 		params = params2list(params)

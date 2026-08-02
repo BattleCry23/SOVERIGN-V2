@@ -910,11 +910,6 @@ mob
 		update_body_age()
 			//Find out if we're changing a clones appearance, a players, or the settings of a cloning tank.
 			var/mob/target = src
-			var/mob/dead_visual_target = null
-			var/dead_visual_alpha = null
-			if(target && target.dead)
-				dead_visual_target = target
-				dead_visual_alpha = target.alpha
 
 			//if(target && target.race == "Alien")
 			///	target.set_icon(target)
@@ -922,12 +917,6 @@ mob
 			if(target)
 				target.filters = null
 				if(target.hair) target.overlays -= target.hair
-			if(dead_visual_target)
-				spawn(1)
-					if(dead_visual_target && dead_visual_target.dead)
-						dead_visual_target.alpha = dead_visual_alpha
-						if(dead_visual_target.client)
-							dead_visual_target.apply_afterlife_glow(1)
 
 
 			if(target.midget && target.age>12.9)
@@ -1672,15 +1661,11 @@ mob
 						target.eyes_white = null
 				*/
 			if(target.race == "Demon")
-				target.overlays -= 'Demonic Horns.dmi'
-				target.overlays -= 'demonic_horns_kid.dmi'
 				if(target.age>=13 || target.age == null || target.age == 1)
 					target.overlays += 'Demonic Horns.dmi'
 				else if(target.age<=4)
 					target.overlays += 'demonic_horns_kid.dmi'
 			else if(target.race == "Oni")
-				target.overlays -= 'OniHorns.dmi'
-				target.overlays -= 'oni_horns_kid.dmi'
 				if(target.age>=13 || target.age == null || target.age == 1)
 					target.overlays += 'OniHorns.dmi'
 				else if(target.age<=4)
@@ -1710,8 +1695,6 @@ mob
 				horns.Blend(P_eyecolor,ICON_OVERLAY)
 				target.save_icon = horns
 
-				if(target.horns)
-					target.overlays -= target.horns
 				target.horns = horn
 				//target.overlays = null
 				target.overlays += target.horns
@@ -2149,29 +2132,8 @@ mob
 							m.makyoboost_disable(m)
 
 		check_ban()
-			if(!src.client) return
-			world.NormalizeBanList()
-			world.PruneExpiredBans()
-
-			var/computer_id = src.client.computer_id
-			var/current_ckey = src.ckey
-			var/current_ip = src.client.address
-
-			var/ban_expires = null
-			for(var/ban_key in ban_list)
-				var/entry = ban_list[ban_key]
-				if(!islist(entry))
-					continue
-				var/list/E = entry
-				var/entry_ckey = E["ckey"]
-				var/entry_ip = E["ip"]
-				var/match_cid = computer_id && ban_key == "[computer_id]"
-				var/match_ckey = entry_ckey && current_ckey && lowertext("[entry_ckey]") == lowertext("[current_ckey]")
-				var/match_ip = entry_ip && current_ip && "[entry_ip]" == "[current_ip]"
-				if(match_cid || match_ckey || match_ip)
-					ban_expires = E["expires_at"]
-					break
-
+			if(!src.client || !src.client.computer_id) return
+			var/ban_expires = world.GetBanExpiry(src.client.computer_id)
 			if(!isnull(ban_expires))
 				src.client.screen += new /obj/bannedbackground
 				if(isnum(ban_expires) && ban_expires >= 0)
@@ -5497,26 +5459,11 @@ mob
 			src << output("[t].", "chat.world")
 			src << output("[t].", "chat.local")
 			src << output("[t].", "chat.system")
-
 		redraw_appearance()
-			var/preserved_alpha = src.alpha
 			src.overlays = null
-			if(src.eyes) 
-				remove_overlay(src, src.eyes)
-			if(src.eyes_white) 
-				remove_overlay(src, src.eyes_white)
-			if(src.hair) 
-				add_overlay(src, src.hair)
-			if(src.horns) 
-				add_overlay(src, src.horns)
-			if(src.halo) 
-				add_overlay(src, src.halo)
-			if(src.eyes_white)
-				add_overlay(src, src.eyes_white)
-				//src.vis_contents += src.eyes_white
-			if(src.eyes)
-				add_overlay(src, src.eyes)
-				//src.vis_contents += src.eyes
+			if(src.hair) src.overlays += src.hair
+			if(src.horns) src.overlays += src.horns
+			if(src.halo) src.overlays += src.halo
 			//if(src.divine_elec) src.overlays += src.divine_elec
 			//if(src.skill_focus && src.skill_focus.active) src.overlays += /obj/effects/elec
 			for(var/obj/items/i in src)
@@ -5529,10 +5476,6 @@ mob
 					if(src.skill_dig && src.skill_dig.active)
 						if(i.type == /obj/items/tech/digging/Shovel) src.overlays += 'spade_dig.dmi'
 						else if(i.type == /obj/items/tech/digging/Drill) src.overlays += 'drill_dig.dmi'
-			if(src.dead)
-				src.alpha = preserved_alpha
-				if(src.client)
-					src.apply_afterlife_glow(1)
 		remove(var/obj/i,var/amount)
 			if(src.accessing == null) src.accessing = src
 			var/mob/x = src.accessing
@@ -8205,14 +8148,6 @@ mob/proc/update_portrait_beard()
 			src.hud_char.update_portrait_transform()
 
 mob/verb/emote_button_click()
-	usr.UpdateMuteState()
-	if(usr.muted)
-		var/mute_left_rp = usr.GetMuteRemainingText()
-		if(mute_left_rp == "permanent")
-			usr << "You are permanently muted."
-		else
-			usr << "You are muted for [mute_left_rp] more."
-		return
 	usr.overlays -= 'roleplay_alert.dmi'
 	usr.overlays += 'roleplay_alert.dmi'
 

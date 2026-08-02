@@ -768,7 +768,6 @@ mob
 		//Admin vars
 		admin = 0
 		muted = 0
-		mute_expires_at = -1
 
 
 		text_color_ic = "red"

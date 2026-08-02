@@ -1252,7 +1252,6 @@ mob
 
 
 		update_icon(var/mob/target,var/ascend = 0)
-			if(!target) target = src
 			if(target)
 				//Clear the old portrait first, making sure to delete any obj/refs
 				if(target.port)
@@ -3756,28 +3755,16 @@ mob
 			//Find out if we're changing a clones appearance, a players, or the settings of a cloning tank.
 			var/mob/target = src
 			var/obj/items/tech/Vat/clone_tank = null
-			var/mob/dead_visual_target = null
-			var/dead_visual_alpha = null
 			if(target.tech_using)
 				if(istype(target.tech_using,/obj/items/tech/Vat))
 					clone_tank = target.tech_using
 					target = null
 					//if(v.in_use) target = v.in_use //Don't want to be able to make changes to a clone thats already grown.
 
-			if(target && target.dead)
-				dead_visual_target = target
-				dead_visual_alpha = target.alpha
-
 			//if(target && target.race == "Alien")
 			///	target.set_icon(target)
 			//	return
 			if(target) target.filters = null
-			if(dead_visual_target)
-				spawn(1)
-					if(dead_visual_target && dead_visual_target.dead)
-						dead_visual_target.alpha = dead_visual_alpha
-						if(dead_visual_target.client)
-							dead_visual_target.apply_afterlife_glow(1)
 			//Select sex
 			if(t == "gender")
 				if(target && target.race != "Oni" && target.race != "Changeling" && target.race != "Spirit Doll")
@@ -3932,9 +3919,9 @@ mob
 						target.hair = null
 						target.hair_icon = null*/
 				var/use_male_hair = (target.race == "Oni" || target.race == "Namekian" || target.gen == "Male")
-				if(target.age >= 13)
+				if(age >= 13)
 					h = use_male_hair ? hairs_male[target.hair_pos] : hairs_female[target.hair_pos]
-				else if(target.age < 13)
+				else if(age < 13)
 					h = use_male_hair ? kid_hairs_male[target.hair_pos] : kid_hairs_female[target.hair_pos]
 
 
@@ -3943,10 +3930,10 @@ mob
 		//	var/icon/i_age_race2
 			var/icon/i_horn
 			var/obj/horn = new
-			var/is_adult_age = (target && (target.age>=13||target.age==null||target.age==1||target.age==21))
-			var/is_kid_age = (target && (target.age<13 && target.age>3.9))
-			var/is_newborn_age = (target && (target.age<=0||target.age==0.1))
-			var/is_under4_age = (target && (target.age<4||target.age==0.1))
+			var/is_adult_age = (age>=13||age==null||age==1||age==21)
+			var/is_kid_age = (age<13 && age>3.9)
+			var/is_newborn_age = (age<=0||age==0.1)
+			var/is_under4_age = (age<4||age==0.1)
 			if(target)
 				//Celestial icon creation
 
@@ -4412,6 +4399,7 @@ mob
 						color_overlay(i_horn, target.hair_c)
 					else
 						i_horn = new /obj/overlay/tails/saiyan/brown_tail
+					add_overlay(target, i_horn)
 
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
@@ -4702,7 +4690,6 @@ mob
 					var/obj/new_hair = new h.type
 					//var/obj/new_age_hair = new h2.type
 					var/obj/old_hair = target.hair
-					var/icon/old_hair_icon = target.hair_icon
 
 					new_hair.icon = E_hair
 				//	target.age_hair = new_age_hair
@@ -4713,8 +4700,6 @@ mob
 					// Remove only previous hair safely
 					if(old_hair)
 						remove_overlay(target, old_hair)
-					if(old_hair_icon)
-						target.vis_contents -= old_hair_icon
 
 					target.hair = new_hair
 					if(target.started == 0 )target.overlays = null
@@ -4735,11 +4720,9 @@ mob
 
 			//Do eye color next
 			if(target.eyes)
-				target.vis_contents -= target.eyes
 				remove_overlay(target, target.eyes)
 			target.eyes = null
 			if(target.eyes_white)
-				target.vis_contents -= target.eyes_white
 				remove_overlay(target, target.eyes_white)
 			target.eyes_white = null
 			var/obj/overlay/sclera/i_white = new /obj/overlay/sclera
@@ -4800,19 +4783,7 @@ mob
 					eye_iris.vis_flags = i_iris.vis_flags
 					target.eyes = eye_iris
 					if(is_adult_eyes)
-						target.eyes.pixel_y = 0
-						target.eyes_white.pixel_x = 0
 						target.eyes.pixel_x = 0
-						target.eyes_white.pixel_y = 0
-					else if(target.age > 3.9 && target.age < 13)
-						target.eyes.pixel_x = -1
-						target.eyes.pixel_y = -5
-						target.eyes_white.pixel_x = -1
-						target.eyes_white.pixel_y = -5
-					else
-						target.eyes.pixel_x = 0
-						target.eyes.pixel_y = 0
-						target.eyes_white.pixel_x = 0
 						target.eyes_white.pixel_y = 0
 					//target.vis_contents += target.eyes_white
 					//target.vis_contents += target.eyes
@@ -4863,8 +4834,6 @@ mob
 				target.save_icon = horns
 				//if(target.skin_c) target.icon *= target.skin_c
 
-				if(target.horns)
-					remove_overlay(target, target.horns)
 				target.horns = horn
 				//target.overlays = null
 				add_overlay(target, target.horns)

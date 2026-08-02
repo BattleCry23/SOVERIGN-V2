@@ -1016,14 +1016,6 @@ mob
 			set hidden = 1
 			set name = ".emote"
 			if(usr.typing) return
-			usr.UpdateMuteState()
-			if(usr.muted)
-				var/mute_left_emote = usr.GetMuteRemainingText()
-				if(mute_left_emote == "permanent")
-					usr << "You are permanently muted."
-				else
-					usr << "You are muted for [mute_left_emote] more."
-				return
 			var/msg = winget(usr,"emote.input_emote","text")
 			var/speaker = usr
 			if(usr.projection) speaker = usr.projection
@@ -1109,7 +1101,6 @@ mob
 			if(usr.started == 0)
 				usr << "You are not authorized to communicate over these channels."
 				return
-			usr.UpdateMuteState()
 			if(!msg || !global.ooc_on)
 				usr << "Global OOC is <font color=red>OFF</font>"
 				return
@@ -1122,15 +1113,8 @@ mob
 			if(findtext(msg, "byond://"))
 				usr << "<b>Advertising other servers is not allowed.</b>"
 				return
-			if(usr.muted)
-				var/mute_left_ooc = usr.GetMuteRemainingText()
-				if(mute_left_ooc == "permanent")
-					usr << "<font color=red>You are permanently muted.</font>"
-				else
-					usr << "<font color=red>You are muted for [mute_left_ooc] more.</font>"
-				return
-			if(!ooc_allowed)
-				usr << "<font color=red>You cannot use OOC right now.</font>"
+			if(usr.muted || !ooc_allowed)
+				usr<<"<font color=red>You are muted.</font>"
 				return
 
 			// Message sanitization
@@ -1580,15 +1564,6 @@ mob
 				usr<< "You are not allowed to speak in this channel at the moment."
 				return
 
-			usr.UpdateMuteState()
-			if(usr.muted)
-				var/mute_left_say = usr.GetMuteRemainingText()
-				if(mute_left_say == "permanent")
-					usr << "You are permanently muted."
-				else
-					usr << "You are muted for [mute_left_say] more."
-				return
-
 			if(world.time < usr.next_say_allowed)
 				usr << "You're sending messages too quickly. Please wait a moment."
 				return
@@ -1685,25 +1660,6 @@ mob
 			RoleplaySpyLog(msg, FALSE)
 
 			//winset(usr, "map.map", "focus=true")
-
-mob/proc/UpdateMuteState()
-	if(!src.muted)
-		return FALSE
-	if(!isnum(src.mute_expires_at) || src.mute_expires_at < 0)
-		return TRUE
-	if(src.mute_expires_at > world.realtime)
-		return TRUE
-	src.muted = 0
-	src.mute_expires_at = 0
-	return FALSE
-
-mob/proc/GetMuteRemainingText()
-	if(!src.muted)
-		return null
-	if(!isnum(src.mute_expires_at) || src.mute_expires_at < 0)
-		return "permanent"
-	return FormatBanTimeRemaining(src.mute_expires_at - world.realtime)
-
 mob/proc/TryWhisper(var/msg)
 	if(!msg) return FALSE
 

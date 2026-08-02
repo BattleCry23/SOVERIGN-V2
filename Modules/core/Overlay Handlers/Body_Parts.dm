@@ -71,11 +71,3 @@ obj/overlay
                 icon = 'SaiyanTailBrown.dmi'
             colorable_tail
                 icon = 'SaiyanTailColorable.dmi'
-
-    halo
-        name = "Halo"
-        layer = MOB_LAYER + 4
-        density_factor = 0
-        appearance_flags = KEEP_TOGETHER | PIXEL_SCALE
-        vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_ID | VIS_INHERIT_ICON
-        icon = 'newhalo.dmi'
