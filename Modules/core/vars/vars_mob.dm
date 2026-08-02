@@ -1382,6 +1382,7 @@ mob
 		tmp/obj/build_marker = null
 		tmp/image/build_mouse = null
 		tmp/image/build_mouse_og = null
+		tmp/image/mob_mouse_over = null
 		tmp/mouse_far = null
 		tmp/image/txt_say = null
 		tmp/atom/movable/mouse_over = null

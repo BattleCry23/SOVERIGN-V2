@@ -2121,18 +2121,16 @@ obj
 						src.over = sel
 						src.over.filters = filter(type="outline", size=1, color=src.o_color)
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
+						src.over.appearance = src.appearance
+						src.over.override = 1
+						src.over.loc = src
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.override = 1
+							src.over.loc = src
+							src.over.pixel_z = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
 							src.over.dir = src.dir
 							sleep(0.1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
@@ -2235,18 +2233,16 @@ obj
 						src.over = sel
 						src.over.filters = filter(type="outline", size=1, color=src.o_color)
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
+						src.over.appearance = src.appearance
+						src.over.override = 1
+						src.over.loc = src
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.override = 1
+							src.over.loc = src
+							src.over.pixel_z = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
 							src.over.dir = src.dir
 							sleep(0.1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
@@ -3024,18 +3020,16 @@ obj
 					src.over = sel
 					src.over.filters = filter(type="outline", size=1, color=src.o_color)
 				if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
+					src.over.appearance = src.appearance
+					src.over.override = 1
+					src.over.loc = src
 					usr.client.images += src.over
 					while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-						//src.over.appearance = src.appearance
-						src.over.icon = src.icon
-						src.over.icon_state = src.icon_state
-						//src.over.pixel_x = src.pixel_x
-						//src.over.pixel_y = src.pixel_y
-						src.over.overlays = src.overlays
-						src.over.underlays = src.underlays
-						//src.over.override = 1
+						src.over.appearance = src.appearance
+						src.over.override = 1
+						src.over.loc = src
+						src.over.pixel_z = 0
 						if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-						//src.over.transform = src.transform
 						src.over.dir = src.dir
 						sleep(0.1)
 				else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
@@ -3644,18 +3638,16 @@ obj
 						src.over = sel
 						src.over.filters = filter(type="outline", size=1, color=src.o_color)
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
+						src.over.appearance = src.appearance
+						src.over.override = 1
+						src.over.loc = src
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.override = 1
+							src.over.loc = src
+							src.over.pixel_z = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
 							src.over.dir = src.dir
 							sleep(0.1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
@@ -4019,18 +4011,16 @@ obj
 						src.over = sel
 						src.over.filters = filter(type="outline", size=1, color=src.o_color)
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
+						src.over.appearance = src.appearance
+						src.over.override = 1
+						src.over.loc = src
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.override = 1
+							src.over.loc = src
+							src.over.pixel_z = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
 							src.over.dir = src.dir
 							sleep(0.1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)
@@ -4103,18 +4093,16 @@ obj
 						src.over = sel
 						src.over.filters = filter(type="outline", size=1, color=src.o_color)
 					if(ismob(src.loc) == 0 && isobj(src.loc) == 0)
+						src.over.appearance = src.appearance
+						src.over.override = 1
+						src.over.loc = src
 						usr.client.images += src.over
 						while(usr && usr.mouse_over && usr.mouse_over == src && src.over)
-							//src.over.appearance = src.appearance
-							src.over.icon = src.icon
-							src.over.icon_state = src.icon_state
-							//src.over.pixel_x = src.pixel_x
-							//src.over.pixel_y = src.pixel_y
-							src.over.overlays = src.overlays
-							src.over.underlays = src.underlays
-							//src.over.override = 1
+							src.over.appearance = src.appearance
+							src.over.override = 1
+							src.over.loc = src
+							src.over.pixel_z = 0
 							if(src.grabbed_by || src.tk) src.over.pixel_z = src.pixel_z-16
-							//src.over.transform = src.transform
 							src.over.dir = src.dir
 							sleep(0.1)
 					else if(length(src.filters) <= 0) src.filters += filter(type="outline", size=1, color=src.o_color)

@@ -2317,3 +2317,398 @@ DEBUG - the yeer's Save was last saved on 01/08/2026
 DEBUG - yeer(VOXTECH)'s Saved character to slot 1
 AuctionHouse: Saving all auction data before shutdown...
 AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the yeer login with /mob/races/Saiyan mob
+File Read(the yeer)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16056
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (148,231,10) (/turf/cracked_ground)
+  call stack:
+the yeer (/mob/races/Saiyan): skillbar()
+the yeer (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the yeer) Loaded!
+Drugs Created.
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+(Admin Log): Admin Purple killed the yeer
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1007
+  usr: (src)
+  src: the yeer (/mob/races/Saiyan)
+  src.loc: the grass (417,49,2) (/turf/grass)
+  call stack:
+the yeer (/mob/races/Saiyan): Revive()
+the yeer (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20yeer;admin_cmd=...", /list (/list))
+(Admin Log): Admin Purple revived the yeer
+DEBUG - the yeer's Save was last saved on 02/08/2026
+DEBUG - yeer(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the yeer (/mob/races/Saiyan): update limb hud()
+the yeer (/mob/races/Saiyan): check body health()
+the yeer (/mob/races/Saiyan): stats()
+the yeer (/mob/races/Saiyan): process stats()
+the yeer (/mob/races/Saiyan): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the yeer login with /mob/races/Saiyan mob
+File Read(the yeer)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16056
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (149,232,10) (/turf/cracked_ground)
+  call stack:
+the yeer (/mob/races/Saiyan): skillbar()
+the yeer (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the yeer) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the yeer's Save was last saved on 02/08/2026
+DEBUG - yeer(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the yeer (/mob/races/Saiyan): update limb hud()
+the yeer (/mob/races/Saiyan): check body health()
+the yeer (/mob/races/Saiyan): stats()
+the yeer (/mob/races/Saiyan): process stats()
+the yeer (/mob/races/Saiyan): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the yeer login with /mob/races/Saiyan mob
+File Read(the yeer)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16056
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (149,232,10) (/turf/cracked_ground)
+  call stack:
+the yeer (/mob/races/Saiyan): skillbar()
+the yeer (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the yeer) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the yeer's Save was last saved on 02/08/2026
+DEBUG - yeer(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the yeer (/mob/races/Saiyan): update limb hud()
+the yeer (/mob/races/Saiyan): check body health()
+the yeer (/mob/races/Saiyan): stats()
+the yeer (/mob/races/Saiyan): process stats()
+the yeer (/mob/races/Saiyan): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the yeer login with /mob/races/Saiyan mob
+File Read(the yeer)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16056
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (149,232,10) (/turf/cracked_ground)
+  call stack:
+the yeer (/mob/races/Saiyan): skillbar()
+the yeer (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the yeer) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the yeer's Save was last saved on 02/08/2026
+DEBUG - yeer(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the yeer login with /mob/races/Saiyan mob
+File Read(the yeer)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16056
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (149,232,10) (/turf/cracked_ground)
+  call stack:
+the yeer (/mob/races/Saiyan): skillbar()
+the yeer (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the yeer) Loaded!
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the yeer's Save was last saved on 02/08/2026
+DEBUG - yeer(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the yeer (/mob/races/Saiyan): update limb hud()
+the yeer (/mob/races/Saiyan): check body health()
+the yeer (/mob/races/Saiyan): stats()
+the yeer (/mob/races/Saiyan): process stats()
+the yeer (/mob/races/Saiyan): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the yeer login with /mob/races/Saiyan mob
+File Read(the yeer)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16056
+  usr: VOXTECH (/mob)
+  src: the yeer (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (149,232,10) (/turf/cracked_ground)
+  call stack:
+the yeer (/mob/races/Saiyan): skillbar()
+the yeer (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the yeer) Loaded!
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the yeer's Save was last saved on 02/08/2026
+DEBUG - yeer(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.

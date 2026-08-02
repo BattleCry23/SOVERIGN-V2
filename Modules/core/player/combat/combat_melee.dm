@@ -729,7 +729,7 @@ mob
 									sleep(20)
 								if(b)
 									items -= b
-									qdel(b)
+									b.destroy()
 				if(!src.boss)
 				/*	var/obj/items/misc/item_container/ic = new
 					ic.name = "[src]'s items"
@@ -850,9 +850,9 @@ mob
 					src.in_oldage = 0
 					src.vigour = 100
 					src.apply_afterlife_glow(1)
-					if(!src.halo) src.halo = 'newhalo.dmi'
-					src.overlays += src.halo
-					src.alpha = 130
+					if(!src.halo) src.halo = new /obj/overlay/halo
+					add_overlay(src, src.halo)
+					src.alpha = 100
 						//if(already_dead == 0) src.disable_parts(null,1,1,1,"Death")
 					src.client.perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
 					src.client.eye = t
@@ -969,8 +969,8 @@ mob
 				//winset(src,null,"stats_other.label_dead.text=\"Dead: No\"")
 
 				//src.disable_parts(soul_related,0, 0,1)
-				if(!src.halo) src.halo = 'newhalo.dmi'
-				src.overlays-=src.halo
+				if(!src.halo) src.halo = new /obj/overlay/halo
+				remove_overlay(src, src.halo)
 				src.has_body = 1
 				src<<output("You were temporarily revived for 30 minutes!","actionoutput")
 				src.repriever_timer = 18000
@@ -997,8 +997,8 @@ mob
 			for(var/obj/body_related/b in src.soul)
 				soul_related += b*/
 			//src.disable_parts(soul_related,1, 0,1)
-			if(!src.halo) src.halo = 'newhalo.dmi'
-			src.overlays-=src.halo
+			if(!src.halo) src.halo = new /obj/overlay/halo
+			remove_overlay(src, src.halo)
 			if(src.halo) src.halo = null
 			src.has_body = 1
 			src.death_power_mod = 1
@@ -1010,7 +1010,7 @@ mob
 					sleep(20)
 					if(b)
 						items -= b
-						qdel(b)
+						b.destroy(b)
 					break
 			if(src.death_location)
 				if(src.kept_body)
