@@ -720,16 +720,14 @@ mob
 
 				if(src.kept_body)
 					src.death_power_mod = 0.5
-					src.alpha = 255
-					for(var/obj/items/misc/body/b in world)
-						if(b.owner == src)
-							spawn(600)
-								if(b)
-									animate(b, alpha = 0, time = 20)
-									sleep(20)
-								if(b)
-									items -= b
-									b.destroy()
+					src.power_percent = (100 * src.death_power_mod)
+					for(var/obj/items/misc/body/B in world)
+						if(B.owner == src || B.owner == src.real_name)
+							spawn(200)
+								for(var/alpha = 255; alpha > 0; alpha -= 10)
+									B.alpha = alpha
+									sleep(2)
+								B.destroy()
 				if(!src.boss)
 				/*	var/obj/items/misc/item_container/ic = new
 					ic.name = "[src]'s items"
@@ -1135,6 +1133,28 @@ mob
 							//	src.willpower -= (src.mod_zenkai)
 								//if(src.willpower<=0) src.apply_zenkai(src)
 						//view() << output("[src] regains consciousness.","chat.local")
+
+		play_melee_flick()
+			if(!src) return
+			if(src.attack_anim_lock_until && world.time < src.attack_anim_lock_until) return
+			src.attack_anim_lock_until = world.time + 4
+			if(src.npc == 1)
+				flick("Attack",src)
+			else
+				switch(rand(1,2))
+					if(1) flick(pick("RPunch","LPunch"),src)
+					if(2) flick(pick("RKick","LKick"),src)
+		play_rock_flick()
+			if(!src) return
+			if(src.attack_anim_lock_until && world.time < src.attack_anim_lock_until) return
+			src.attack_anim_lock_until = world.time + 4
+			if(src.npc == 1)
+				flick("Attack",src)
+			else
+				if(world.time % 2)
+					flick("RPunch",src)
+				else
+					flick("LPunch",src)
 		Attack()
 			if(src.koed || src.stunned || src.recovering || src.selftraining || src.meditating) //If the player is ko, stunned, ect, they can't attack.
 				//world << output("unable to attack - KO'ed, stunned, ect.","chat.local")
@@ -1193,9 +1213,7 @@ mob
 					if (S == "2") hearers(6, src) << sound('weakpunch.ogg', volume = 24)
 
 					// Animation
-					switch(rand(1,2))
-						if(1) flick(pick("RPunch", "LPunch"), src)
-						if(2) flick(pick("RKick", "LKick"), src)
+					src.play_melee_flick()
 
 					// Stat gain
 					if(!src.last_gain_time || world.time >= src.last_gain_time + 25)
@@ -1230,10 +1248,10 @@ mob
 					if (S == "2") hearers(6, src) << sound('weakpunch.ogg', volume = 24)
 					//Set the can_attack to 0, and set it on a cd based on speed
 					//src.energy -= 1
-					switch(rand(1,2))
-						if(1)flick(pick("RPunch","LPunch"),src)
-						if(2)flick(pick("RKick","LKick"),src)
-					//world << "[src] Attacked [i]"
+					if(i.rock)
+						src.play_rock_flick()
+					else
+						src.play_melee_flick()
 					i.flash_red()
 					i.shake()
 					var/dmg = src.strength/2
@@ -1432,13 +1450,7 @@ mob
 				Damage += Damage * (calc_weapon_boost(src.hammer_pl, src.weapon_stance) / 100)
 			if(src.divine_weapon && M.divine_weapon) Damage=Damage*4
 			var/criticalChance=((offence*mod_str_usage)*(psionic_power))/(M.defence*M.psionic_power)
-			if(src.npc==0)
-				switch(rand(1,2))
-					if(1)flick(pick("RPunch","LPunch"),src)
-					if(2)flick(pick("RKick","LKick"),src)
-			else if(src.npc==1)
-				flick("Attack",src)
-
+			src.play_melee_flick()
 
 			//	src.set_alert("You attack",src.icon,src.icon_state)
 
@@ -1770,6 +1782,8 @@ mob
 					break
 		state()
 			if(src.started || src.client == null)
+				if(src.attack_anim_lock_until && world.time < src.attack_anim_lock_until)
+					return src.icon_state
 				//world << "DEBUG - [src] has started or isn't a client."
 				var/return_state = ""
 				var/flying = null

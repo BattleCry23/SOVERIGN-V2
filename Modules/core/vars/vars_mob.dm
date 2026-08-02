@@ -1404,6 +1404,7 @@ mob
 		tmp/mob/target_follow = null
 		tmp/atom/target_go = null
 		tmp/obj/active_attack = null
+		tmp/attack_anim_lock_until = 0
 		tmp/last_attacked = null
 		tmp/mouse_degree = 0
 		tmp/locked_mouse_degree = 0
