@@ -193,8 +193,8 @@ obj/overlay/auras/regular_aura
 	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_LAYER | VIS_INHERIT_ID | VIS_INHERIT_ICON
 	icon = 'sprites/effects/Auras/ShadowsAura.dmi'
 	alpha = 175
-	pixel_x = -42
-	pixel_y = 2
+	pixel_x = -40 // centers 120px-wide frame on 32px tile: -((120-32)/2)
+	pixel_y = 0   // bottom of aura aligns with bottom of tile
 
 	starteffect()
 		scale = list(1,1)

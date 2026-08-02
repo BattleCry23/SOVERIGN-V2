@@ -71,3 +71,6 @@ obj/overlay
                 icon = 'SaiyanTailBrown.dmi'
             colorable_tail
                 icon = 'SaiyanTailColorable.dmi'
+
+        /*wrapped
+            icon = 'SaiyanTailWrapped.dmi'*/

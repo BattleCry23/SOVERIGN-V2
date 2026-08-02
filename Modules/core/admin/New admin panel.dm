@@ -2420,6 +2420,7 @@
 							choice.occupation = "Guardian"
 							choice.rank = 4
 							global.hbtc_time = 270
+							choice.kept_body = 1
 							choice << output("The Hyperbolical Time Chamber has calmed down.","actionoutput")
 						if("Crane Hermit")
 							choice.occupation = "Hermit(C)"

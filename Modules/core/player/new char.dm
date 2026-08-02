@@ -4396,7 +4396,7 @@ mob
 					target.has_hair = 1
 					if(target.is_hybrid)
 						i_horn = new /obj/overlay/tails/saiyan/colorable_tail
-						color_overlay(i_horn, target.hair_c)
+						color_overlay(i_horn, target.hair_c, blend_mode = BLEND_MULTIPLY)
 					else
 						i_horn = new /obj/overlay/tails/saiyan/brown_tail
 					add_overlay(target, i_horn)
