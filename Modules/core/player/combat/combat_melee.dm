@@ -669,10 +669,8 @@ mob
 			src.hunger = 99
 			src.thirst = 99
 			src.restedness = 99
-			if(src.kept_body)
-				src.death_power_mod = 0.5
-			else
-				src.death_power_mod = 0.2
+			src.death_power_mod = 0.2
+			src.power_percent = (100 * src.death_power_mod)
 			src.disable_skills()
 			src.clear_drugs()
 			src.dead_ki_lock = max(src.energy, 1)
@@ -719,6 +717,19 @@ mob
 					items += b
 					b.hp = src.psionic_power*src.endurance
 					src.death_location = locate(b.x,b.y,b.z)
+
+				if(src.kept_body)
+					src.death_power_mod = 0.5
+					src.alpha = 255
+					for(var/obj/items/misc/body/b in world)
+						if(b.owner == src)
+							spawn(600)
+								if(b)
+									animate(b, alpha = 0, time = 20)
+									sleep(20)
+								if(b)
+									items -= b
+									qdel(b)
 				if(!src.boss)
 				/*	var/obj/items/misc/item_container/ic = new
 					ic.name = "[src]'s items"
@@ -772,10 +783,7 @@ mob
 
 				//if(src.keep_body == 0) src.has_body = 0;
 				src.has_body = 0;
-				if(src.kept_body)
-					src.alpha = 255;
-				else
-					src.alpha = 130;
+				src.alpha = 80
 				if(!src.npc && !src.boss)
 					if(src.shadow) src.shadow.loc = null
 					var/mob/clone = null;
@@ -952,6 +960,7 @@ mob
 				src.dead = 0;
 				src.dead_ki_lock = 0
 				src.dead_skill_levels = null
+				src.power_percent = (100 * src.death_power_mod)
 				animate(src,alpha = 255, time = 30)
 				src.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=src.auracolor)
 				src.screen_text.maptext = "<font size = 6><center>Soul temporarily restored"
@@ -993,10 +1002,19 @@ mob
 			if(src.halo) src.halo = null
 			src.has_body = 1
 			src.death_power_mod = 1
+			src.power_percent = (100 * src.death_power_mod)
 			src.alpha = 255
+			for(var/obj/items/misc/body/b in world)
+				if(b.owner == src)
+					animate(b, alpha = 0, time = 20)
+					sleep(20)
+					if(b)
+						items -= b
+						qdel(b)
+					break
 			if(src.death_location)
 				if(src.kept_body)
-					src.death_location = src.loc
+					src.death_location = AdminPickSpawnTurf(src.home_planet)
 				else
 					src.loc=src.death_location
 				src.check_glow_planes()

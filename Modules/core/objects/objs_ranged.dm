@@ -5,6 +5,7 @@ obj
 			charge_lvl = 1
 			spd = 12
 			homing = 0
+			manual_control = 0
 			size = 0.1
 			pix_away = 18
 			state_type = null
@@ -124,6 +125,10 @@ obj
 
 						var/remove = 0
 						if(src.homing == 0)
+							if(src.manual_control && src.ki_owner)
+								var/atom/aim = src.ki_owner.mouse_saved_loc
+								if(isturf(aim) && aim.z == src.z)
+									src.ang = src.GetAngleStep(aim)
 							src.MoveAngInstant(src.ang,src.spd,0,0,null)
 						else if(src.ki_owner)
 							if(src.ki_owner.target)

@@ -5461,9 +5461,11 @@ mob
 			src << output("[t].", "chat.system")
 		redraw_appearance()
 			src.overlays = null
-			if(src.hair) src.overlays += src.hair
-			if(src.horns) src.overlays += src.horns
-			if(src.halo) src.overlays += src.halo
+			if(src.hair) add_overlay(src, src.hair)
+			if(src.horns) add_overlay(src, src.horns)
+			if(src.halo) add_overlay(src, src.halo)
+			if(src.eyes_white) add_overlay(src, src.eyes_white)
+			if(src.eyes) add_overlay(src, src.eyes)
 			//if(src.divine_elec) src.overlays += src.divine_elec
 			//if(src.skill_focus && src.skill_focus.active) src.overlays += /obj/effects/elec
 			for(var/obj/items/i in src)

@@ -252,33 +252,6 @@ proc/Cyberize_AttemptReviveFromCorpse(mob/operator,obj/items/misc/body/C)
     target << "You have been revived as a cybernetic being."
 
     qdel(C)
-obj/skills
-	Destructo_Disk
-		Click(location,control,params)
-			..()
-			if(ismob(src.loc))
-				var/mob/m = src.loc
-				if(m.koed) return
-				params = params2list(params)
-				winset(m,"map.map","focus=true")
-				var/dir = null
-				if(params["left"] || m.mouse_dir == "left")
-					dir = "left"
-				if(params["right"])
-					dir = "right"
-				if(dir == "left")
-					if(src in m)
-						if(src.active)
-							src.active = 0
-							src.icon_state = "destructo disk off"
-							if(src == m.current_attack) m.current_attack = null
-							m.stop_charging()
-							if(src.played_fire_sound == 1) src.played_fire_sound = 0
-						else
-							src.icon_state = "destructo disk"
-							src.active = 1
-							m.current_attack = src;
-							m.toggle_skill(src)
 obj/skills/Destructo_Disk
     name = "Destructo Disk"
     icon_state = "destructo disk off"
@@ -311,6 +284,32 @@ obj/skills/Destructo_Disk
         category = list("Force","Offence")
         src.info = text_destructo_disk
 
+    Click(location,control,params)
+        ..()
+        if(ismob(src.loc))
+            var/mob/m = src.loc
+            if(m.koed) return
+            params = params2list(params)
+            winset(m,"map.map","focus=true")
+            var/dir = null
+            if(params["left"] || m.mouse_dir == "left")
+                dir = "left"
+            if(params["right"])
+                dir = "right"
+            if(dir == "left")
+                if(src in m)
+                    if(src.active)
+                        src.active = 0
+                        src.icon_state = "destructo disk off"
+                        if(src == m.current_attack) m.current_attack = null
+                        m.stop_charging()
+                        if(src.played_fire_sound == 1) src.played_fire_sound = 0
+                    else
+                        src.icon_state = "destructo disk"
+                        src.active = 1
+                        m.current_attack = src
+                        m.toggle_skill(src)
+
     proc
         // ------------------------------------------------------------
         // Single cleanup point. Call before EVERY return inside activate.
@@ -341,6 +340,8 @@ obj/skills/Destructo_Disk
         activate(mob/m)
             if(!m) return
             if(!(src in m)) return
+
+            var/base_can_move = m.can_move
 
             if(m.active_attack) return
             if(m.koed || m.stunned || m.meditating || m.selftraining) return
@@ -504,31 +505,49 @@ obj/skills/Destructo_Disk
 
                 // Release to fire
                 else if(b.fired == 0 && m.active_attack == b)
+                    var/controlled_disk = (src.skill_lvl >= 60)
                     var/di2 = m.GetAngleStep(m.mouse_saved_loc)
                     b.ang = di2
                     b.fired = 1
                     b.travel = 40
                     b.explode_impact = 1
+                    b.manual_control = controlled_disk
                     b.go()
 
-                    // Gains + unlock states
+                    // Gains
                     m.gain_stat("force", 1, (m.mod_force * 0.095), "From Destructo Disk skill")
-                    m.active_attack = null
-                    m.icon_state = m.state()
 
                     // Fire sound ONCE
                     if(!src.played_fire_sound)
                         view(8, m) << S
                         src.played_fire_sound = 1
 
-                    // Restore can_ki after a short delay
-                    var/time = 7 / m.mod_agility
-                    if(time < 1) time = 1
-                    spawn(time)
-                        if(m) m.can_ki = 1
-
                     // Ray no longer needed
-                    if(ray) del(ray)
+                    if(ray) qdel(ray)
+
+                    if(controlled_disk)
+                        m.can_move = 0
+                        m.icon_state = m.state()
+
+                        spawn()
+                            while(m && b && b.loc && !b.expired && m.active_attack == b)
+                                sleep(1)
+
+                            if(m)
+                                if(m.active_attack == b)
+                                    m.active_attack = null
+                                m.can_move = base_can_move
+                                m.can_ki = 1
+                                m.icon_state = m.state()
+                    else
+                        m.active_attack = null
+                        m.icon_state = m.state()
+
+                        // Restore can_ki after a short delay
+                        var/time = 7 / m.mod_agility
+                        if(time < 1) time = 1
+                        spawn(time)
+                            if(m) m.can_ki = 1
 
                     return
 
