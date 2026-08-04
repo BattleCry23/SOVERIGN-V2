@@ -36,7 +36,7 @@ mob
         form3aura = 'SSJ1AuraNew.dmi'
         form4aura = 'SSJ1AuraNew.dmi'
         aurabuffed = 0
-        icon/AURA = 'sprites/effects/Auras/ShadowsAura.dmi'
+        icon/AURA = new /obj/overlay/auras/regular_aura
 
 
 /*obj/overlay/auras/proc/centerAura() // todo: convert to matrixes
@@ -119,14 +119,8 @@ obj/overlay/auras/proc/ApplyFormSettings()
 		
 		switch(container.superform)
 			if(1)
-				if(container.sf_mastery < 100)
-					replace_overlay(icon, container.form1aura, "SSJ")
-					//icon_state = "SSJ"
+				if(container.sf_mastery == 100)
 					scale = list(1,1)
-				else
-					container.auracolor = SSJ_COLOR
-					scale = list(1,1)
-					color_overlay(icon, container.auracolor, blend_mode="multiply", filter = container.auracolor)
 			if(1.5)
 				icon_state = "Big"
 				scale = list(1.25, 1)
@@ -195,6 +189,34 @@ obj/overlay/auras/regular_aura
 	alpha = 175
 	pixel_x = -40 // centers 120px-wide frame on 32px tile: -((120-32)/2)
 	pixel_y = 0   // bottom of aura aligns with bottom of tile
+
+	starteffect()
+		scale = list(1,1)
+		//centerAura("center")
+		..()
+
+obj/overlay/auras/ssj_aura
+	name = "SSJ Aura"
+	layer = AURA_LAYER + 20
+	appearance_flags = KEEP_TOGETHER | PIXEL_SCALE
+	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_LAYER | VIS_INHERIT_ID | VIS_INHERIT_ICON
+	icon = 'sprites/effects/Auras/SSJ1AuraNew.dmi'
+	alpha = 175
+	pixel_x = -16 // centers 120px-wide frame on 32px tile: -((120-32)/2)
+
+	starteffect()
+		scale = list(1,1)
+		//centerAura("center")
+		..()
+
+obj/overlay/auras/giji_aura
+	name = "Giji Aura"
+	layer = AURA_LAYER + 20
+	appearance_flags = KEEP_TOGETHER | PIXEL_SCALE
+	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_LAYER | VIS_INHERIT_ID | VIS_INHERIT_ICON
+	icon = 'sprites/effects/Auras/GijiAura.dmi'
+	alpha = 175
+	pixel_x = -16 // centers 120px-wide frame on 32px tile: -((120-32)/2)
 
 	starteffect()
 		scale = list(1,1)

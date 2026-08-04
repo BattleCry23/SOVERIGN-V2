@@ -370,7 +370,8 @@
 			"Reset_Player_Inventory",
 			"Refresh_Player_Skills",
 			"Delete_Player_Skills",
-			"Manage_Mutations"
+			"Manage_Mutations",
+			"Manage_Skills"
 		)
 		for(var/cmd in AdminSortCommandsByName(player_cmds_l1))
 			html += AdminButton(cmd)

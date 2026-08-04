@@ -367,8 +367,7 @@ mob
 
 			drug_tolerances = 100
 
-			//Used to calculate the plus and minus of stats, when creating a char.
-
+			//Used to calculate the plus and minus of stats, when creating a char
 
 			mod_immune_rads = 0
 			mod_immune_cold = 2

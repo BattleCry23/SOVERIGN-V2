@@ -3967,60 +3967,29 @@ mob
 
 				if(target.race == "Changeling")
 					target.has_hair=0
-					if(target.skin_pos == 1)
+					var/frieza_variants = alist(
+						1 = list("adult" = "Frieza_1st_form.dmi", "kid" = "Frieza_1st_form_kid.dmi", "prefix" = "Frieza"),
+						2 = list("adult" = "1stFriezaBlue.dmi", "kid" = "1stFriezaKid_Blue.dmi", "prefix" = "FriezaBlue"),
+						3 = list("adult" = "1stFriezaGreen.dmi", "kid" = "1stFriezaKid_Green.dmi", "prefix" = "FriezaGreen"),
+						4 = list("adult" = "1stFriezaOrange.dmi", "kid" = "1stFriezaKid_Orange.dmi", "prefix" = "FriezaOrange"),
+						5 = list("adult" = "1stFriezaRed.dmi", "kid" = "1stFriezaKid_Red.dmi", "prefix" = "FriezaRed")
+					)
+					if(frieza_variants[target.skin_pos])
+						var/variant = frieza_variants[target.skin_pos]
 						if(is_adult_age)
-							i_race = 'Frieza_1st_form.dmi'
+							i_race = variant["adult"]
 						else if(is_kid_age)
-							i_race= 'Frieza_1st_form_kid.dmi'
-							i_age_race2 = 'Frieza_1st_form.dmi'
+							i_race = variant["kid"]
+							i_age_race2 = variant["adult"]
 						else if(is_newborn_age)
 							i_race = 'alien_egg.dmi'
-							i_age_race1 = 'Frieza_1st_form_kid.dmi'
-							i_age_race2 = 'Frieza_1st_form.dmi'
+							i_age_race1 = variant["kid"]
+							i_age_race2 = variant["adult"]
 
-					if(target.skin_pos == 2)
-						if(is_adult_age)
-							i_race = '1stFriezaBlue.dmi'
-						else if(is_kid_age)
-							i_race= '1stFriezaKid_Blue.dmi'
-							i_age_race2 = '1stFriezaBlue.dmi'
-						else if(is_newborn_age)
-							i_race = 'alien_egg.dmi'
-							i_age_race1= '1stFriezaKid_Blue.dmi'
-							i_age_race2 = '1stFriezaBlue.dmi'
-
-					if(target.skin_pos == 3)
-						if(is_adult_age)
-							i_race = '1stFriezaGreen.dmi'
-						else if(is_kid_age)
-							i_race= '1stFriezaKid_Green.dmi'
-							i_age_race2 = '1stFriezaGreen.dmi'
-						else if(is_newborn_age)
-							i_race = 'alien_egg.dmi'
-							i_age_race1 = '1stFriezaKid_Green.dmi'
-							i_age_race2 = '1stFriezaGreen.dmi'
-
-					if(target.skin_pos == 4)
-						if(is_adult_age)
-							i_race = '1stFriezaOrange.dmi'
-						else if(is_kid_age)
-							i_race= '1stFriezaKid_Orange.dmi'
-							i_age_race2 = '1stFriezaOrange.dmi'
-						else if(is_newborn_age)
-							i_race = 'alien_egg.dmi'
-							i_age_race1 = '1stFriezaKid_Orange.dmi'
-							i_age_race2 = '1stFriezaOrange.dmi'
-
-					if(target.skin_pos == 5)
-						if(is_adult_age)
-							i_race = '1stFriezaRed.dmi'
-						else if(is_kid_age)
-							i_race= '1stFriezaKid_Red.dmi'
-							i_age_race2 = '1stFriezaRed.dmi'
-						else if(is_newborn_age)
-							i_race = 'alien_egg.dmi'
-							i_age_race1 = '1stFriezaKid_Red.dmi'
-							i_age_race2 = '1stFriezaRed.dmi'
+					target.changeling_base_icon = target.get_changeling_base_icon()
+					target.changeling_form2_icon = target.get_changeling_form_icon(1)
+					target.changeling_form3_icon = target.get_changeling_form_icon(2)
+					target.changeling_form4_icon = target.get_changeling_form_icon(3)
 
 
 
@@ -4666,7 +4635,12 @@ mob
 						target.has_hair = 1
 
 
-			if(target) target.icon = i_race
+			if(target)
+				target.icon = i_race
+				if(target.race == "Changeling")
+					if(target.changeling_base_icon)
+						target.icon = target.changeling_base_icon
+					target.icon_state = ""
 
 			//world << "Debug - i_race = [i_race]"
 			var/icon/I = icon(i_race,"",SOUTH,1,0)
@@ -4714,7 +4688,7 @@ mob
 					target.overlays = null
 					target.overlays += target.hair
 					target.vis_contents += E_hair*/
-			if(target.skin_c)
+			if(target.skin_c && target.race != "Changeling")
 				target.icon *= target.skin_c
 			target.set_icon(target)
 

@@ -277,6 +277,13 @@ mob
 				if(chosen_ones <= 0) chosen_ones = 1
 				chosen_pp = 1+(1/chosen_ones)
 
+			//when transformed, run the transformation drain proc to drain energy and power over time.
+			if(src.transformed)
+				spawn(2)
+					if(src && src.transformed && src.superform > 0)
+						src.transformation_drain(src)
+
+
 
 
 

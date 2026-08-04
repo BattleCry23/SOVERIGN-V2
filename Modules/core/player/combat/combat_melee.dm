@@ -1781,6 +1781,8 @@ mob
 					dn.activate()
 					break
 		state()
+			if(src.race == "Changeling" && src.transformed)
+				return ""
 			if(src.started || src.client == null)
 				if(src.attack_anim_lock_until && world.time < src.attack_anim_lock_until)
 					return src.icon_state

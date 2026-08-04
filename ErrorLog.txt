@@ -2878,3 +2878,738 @@ DEBUG - the yeer's Save was last saved on 02/08/2026
 DEBUG - yeer(VOXTECH)'s Saved character to slot 1
 AuctionHouse: Saving all auction data before shutdown...
 AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - Changeling login with /mob/races/Changeling mob
+DEBUG - the lol's Save was last saved on 03/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple healed the lol
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: AdminSortTextAlpha (/proc/AdminSortTextAlpha)
+  source file: Modules/core/admin/New admin panel.dm,505
+  usr: the lol (/mob/races/Changeling)
+  src: null
+  usr.loc: the snow5 (112,450,9) (/turf/snows/snow5)
+  call stack:
+AdminSortTextAlpha(/list (/list))
+AdminGetSortedVarNames(the lol (/mob/races/Changeling))
+the lol (/mob/races/Changeling): OpenAdminPlayerPanel(the lol (/mob/races/Changeling))
+the lol (/mob/races/Changeling): RunAdminCommand("Edit")
+VOXTECH (/client): Topic("src=\\refthe%20lol;admin_cmd=E...", /list (/list))
+(Admin Log): Admin Purple opened Player Panel on the lol
+(Admin Log): Admin Purple the lol increased the lol Energy by 20000
+(Admin Log): Admin Purple healed the lol
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 472 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+(Admin Log): Admin Purple transformed the lol
+(Admin Log): Admin Purple transformed the lol
+DEBUG - the lol's Save was last saved on 03/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - Changeling login with /mob/races/Changeling mob
+DEBUG - the debuig's Save was last saved on 03/08/2026
+DEBUG - debuig(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple healed the debuig
+(Admin Log): Admin Purple the debuig increased the debuig PPs by 200
+DEBUG - the debuig's Save was last saved on 03/08/2026
+DEBUG - debuig(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: (src)
+  src: the debuig (/mob/races/Changeling)
+  src.loc: null
+  call stack:
+the debuig (/mob/races/Changeling): update limb hud()
+the debuig (/mob/races/Changeling): check body health()
+the debuig (/mob/races/Changeling): stats()
+the debuig (/mob/races/Changeling): process stats()
+the debuig (/mob/races/Changeling): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the debuig login with /mob/races/Changeling mob
+File Read(the debuig)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16040
+  usr: VOXTECH (/mob)
+  src: the debuig (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: Ice (150,90,9) (/turf/Terrain/Ice)
+  call stack:
+the debuig (/mob/races/Changeling): skillbar()
+the debuig (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the debuig) Loaded!
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: type mismatch: 0 & Ice (150,90,9) (/turf/Terrain/Ice)
+proc name: Click (/obj/hud/menus/options_background/option_settings/Click)
+  source file: Modules/interface/newhud.dm,1704
+  usr: the debuig (/mob/races/Changeling)
+  src: the option settings (/obj/hud/menus/options_background/option_settings)
+  usr.loc: Ice (150,90,9) (/turf/Terrain/Ice)
+  src.loc: null
+  call stack:
+the option settings (/obj/hud/menus/options_background/option_settings): Click(null, "map.map", "icon-x=60;icon-y=16;left=1;but...")
+DEBUG - the debuig's Save was last saved on 03/08/2026
+DEBUG - debuig(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Yukopian)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob/races/Yukopian): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=12;icon-y=15;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(the kid horn (/obj/overlay/horns/oni/kid_horn), "Meditate", 2, 1, 0)
+Imp (/mob/races/Imp): update looks(null)
+VOXTECH (/mob/races/Saiyan): switch race("Oni")
+the race button imp (/obj/hud/menus/char_creation_background/race_button_imp): Click(null, "map.map", "icon-x=18;icon-y=27;left=1;but...")
+VOXTECH (/client): Click(the race button imp (/obj/hud/menus/char_creation_background/race_button_imp), null, "map.map", "icon-x=18;icon-y=27;left=1;but...")
+DEBUG - Imp login with /mob/races/Imp mob
+DEBUG - Celestial login with /mob/races/Celestial mob
+DEBUG - Changeling login with /mob/races/Changeling mob
+DEBUG - the pop's Save was last saved on 03/08/2026
+DEBUG - pop(VOXTECH)'s Saved character to slot 1
+DEBUG - the pop's Save was last saved on 03/08/2026
+DEBUG - pop(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - Changeling login with /mob/races/Changeling mob
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+DEBUG - Yukopian login with /mob/races/Yukopian mob
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - Alien login with /mob/races/Alien mob
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Changeling)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New("Frieza_1st_form_kid.dmi", "", 2, 1, 0)
+VOXTECH (/mob/races/Changeling): update looks("+ eyes")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=14;left=1;but...")
+runtime error: list index out of bounds
+proc name: set icon (/mob/proc/set_icon)
+  source file: Modules/core/player/new char.dm,2392
+  usr: (src)
+  src: VOXTECH (/mob/races/Changeling)
+  src.loc: null
+  call stack:
+VOXTECH (/mob/races/Changeling): set icon(VOXTECH (/mob/races/Changeling), 0)
+VOXTECH (/mob/races/Changeling): update looks("+ eyes")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=14;left=1;but...")
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the pop's Save was last saved on 04/08/2026
+DEBUG - pop(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple the pop increased the pop PPs by 600
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 472 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+DEBUG - the pop's Save was last saved on 04/08/2026
+DEBUG - pop(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.

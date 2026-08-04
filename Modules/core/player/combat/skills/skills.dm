@@ -8002,16 +8002,7 @@ obj
 										m.overlays.Add(m.hair)
 
 								if(m.race == "Changeling")
-									if(m.superform)
-										m.icon = og_form_icon
-									if(m.superform2)
-										m.icon = trans2_icon
-									if(m.superform3)
-										m.icon = trans3_icon
-									if(m.superform4)
-										m.icon = trans4_icon
-									if(m.superform5)
-										m.icon = trans5_icon
+									m.apply_changeling_form_icon(0)
 								m.transformed = 0
 								if(m.superform)
 									m.superform = 0
@@ -8150,7 +8141,7 @@ obj
 							//	spawn(3) view(15,m)<<sfx
 								return
 							if(src.active == 1)
-								if(m.race == "Makyo" && m.psionic_power_base >= m.makyo_sf1_req|| m.race == "Changeling" && m.psionic_power_base >= m.ling_sf2_req ||m.race == "Saiyan" && m.psionic_power_base >= m.saiyan_sf1_req || m.race == "Namekian" && m.psionic_power_base >= m.namekian_sf1_req || m.race == "Human" && m.psionic_power_base >= m.human_sf1_req || m.race == "Kai" && m.psionic_power_base >= m.kai_sf1_req || m.race == "Demon" && m.psionic_power_base >= m.demon_sf1_req || m.race == "Spirit Doll" && m.psionic_power_base >= m.spiritdoll_sf1_req || m.race == "Tuffle" && m.psionic_power_base >= m.tuffle_sf1_req ||m.race == "Oni" && m.psionic_power_base >= m.oni_sf1_req ||m.race == "Alien" && m.psionic_power_base >= m.alien_sf1_req || m.race == "Half God" && m.psionic_power_base >= m.halfgod_sf1_req)
+								if(m.race == "Makyo" && m.psionic_power_base >= m.makyo_sf1_req|| m.race == "Changeling"||m.race == "Saiyan" && m.psionic_power_base >= m.saiyan_sf1_req || m.race == "Namekian" && m.psionic_power_base >= m.namekian_sf1_req || m.race == "Human" && m.psionic_power_base >= m.human_sf1_req || m.race == "Kai" && m.psionic_power_base >= m.kai_sf1_req || m.race == "Demon" && m.psionic_power_base >= m.demon_sf1_req || m.race == "Spirit Doll" && m.psionic_power_base >= m.spiritdoll_sf1_req || m.race == "Tuffle" && m.psionic_power_base >= m.tuffle_sf1_req ||m.race == "Oni" && m.psionic_power_base >= m.oni_sf1_req ||m.race == "Alien" && m.psionic_power_base >= m.alien_sf1_req || m.race == "Half God" && m.psionic_power_base >= m.halfgod_sf1_req)
 									if(!m.has_sf1)
 										if(!m.transformed)
 											if(!m.transing)
