@@ -3403,8 +3403,9 @@ obj
 				create(var/mob/m,var/obj/skills/Beam/s)
 					var/power
 					var/name = input(m, "Name your Beam technique.") as text
-					if(m.rank>=4) power = input(m, "Choose a power percentage (1-400%).") as num
-					else power = input(m, "Choose a power percentage (1-200%).") as num
+					var/max_power = 200 + s.skill_lvl
+					if(m.rank>=4) max_power = min(max_power, 600)
+					power = input(m, "Choose a power percentage (1-[max_power]%).") as num
 					var/color = input(m, "Choose the color for your Beam icon.") as color
 					var/side = input(m, "Choose left or right fist for your Beam.") in list ("Left","Right","Both")
 					var/chantEnabled = input(m, "Will this involve a chant?") in list ("Yes","No")
@@ -3416,7 +3417,7 @@ obj
 						//m.create_chat_entry("alerts", "You could not create the Beam technique!")
 						m.set_alert("You could not create the Beam technique(Missing inputs)!",s.icon,s.icon_state)
 						return  // If any input is missing, exit
-					if(m.rank<4 && power>200)
+					if(power > max_power)
 						m.set_alert("You could not create the Beam technique(Power too high)!",s.icon,s.icon_state)
 						return  // If any input is missing, exit
 					var/datum/custom_beam/custombeam = new
@@ -3737,7 +3738,7 @@ obj
 										B_H.Scale(size,size)
 										ball_hit.transform = B_H
 
-										hov_dis += 0.075*m.mod_recovery
+										hov_dis += 0.075*m.mod_recovery * (1 + (src.skill_lvl / 150))
 										size += 0.001*m.mod_recovery
 										//Increase the charge lvl of the attack, and its dmg, then check if the rounded charge lvl of the attack is higher than when we looked last. Only looking for whole increases.
 										checker.charge_lvl += 0.01*m.mod_recovery

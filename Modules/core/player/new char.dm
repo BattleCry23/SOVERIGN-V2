@@ -722,118 +722,6 @@ mob
 				m.set_path_type()
 				m.name = "[m.key]"
 
-
-
-				// === Transfer control and clean up the old mob ===
-			//	if(src in players)
-				//	players -= src
-
-				//var/client/C = src.client
-				//if(C)
-				//	C.mob = m
-					//m.client = C
-
-				//del(src) // Fully remove the old mob
-
-		/*switch_race(var/new_race)
-			src.loc = null
-			src.choosing_character = 0
-			src.started = 0
-			src.transform = null
-			var/mob/races/m = null
-			//If the player is trying to switch to a new race, make sure var/mob/m is correctly set to one of the mobs inside the corresponding race lists
-			switch(new_race)
-				if("Makyo")
-					if(races_makyos.len > 0)
-						m = races_makyos[1]
-						races_makyos -= races_makyos[1]
-				if("Half God")
-					if(races_halfgods.len > 0)
-						m = races_halfgods[1]
-						races_halfgods -= races_halfgods[1]
-				if("Tuffle")
-					if(races_tuffles.len > 0)
-						m = races_tuffles[1]
-						races_tuffles -= races_tuffles[1]
-				if("Spirit Doll")
-					if(races_spiritdolls.len > 0)
-						m = races_spiritdolls[1]
-						races_spiritdolls -= races_spiritdolls[1]
-				if("Changeling")
-					if(races_changelings.len > 0)
-						m = races_changelings[1]
-						races_changelings -= races_changelings[1]
-				if("Saiyan")
-					if(races_saiyans.len > 0)
-						m = races_saiyans[1]
-						races_saiyans -= races_saiyans[1]
-				if("Human")
-					if(races_humans.len > 0)
-						m = races_humans[1]
-						races_humans -= races_humans[1]
-				if("Demon")
-					if(races_demons.len > 0)
-						m = races_demons[1]
-						races_demons -= races_demons[1]
-				if("Kai")
-					if(races_celestials.len > 0)
-						m = races_celestials[1]
-						races_celestials -= races_celestials[1]
-				if("Android")
-					if(races_androids.len > 0)
-						m = races_androids[1]
-						races_androids -= races_androids[1]
-				if("Alien")
-					if(races_aliens.len > 0)
-						m = races_aliens[1]
-						races_aliens -= races_aliens[1]
-				if("Oni")
-					if(races_imps.len > 0)
-						m = races_imps[1]
-						races_imps -= races_imps[1]
-				if("Namekian")
-					if(races_yukopians.len > 0)
-						m = races_yukopians[1]
-						races_yukopians -= races_yukopians[1]
-			if(m)
-				if(src.hud_char)
-					var/obj/txt = src.hud_char.ages_desc_txt
-					txt.maptext = ""
-
-				m.sav_active = src.sav_active
-				m.hud_char = src.hud_char
-				m.hud_updates = src.hud_updates
-				m.hud_confirm = src.hud_confirm
-				m.hud_confirm_nums = src.hud_confirm_nums
-
-				src.hud_char.loc = m
-				src.hud_updates.loc = m
-				src.hud_confirm.loc = m
-				src.hud_confirm_nums.loc = m
-
-				src.hud_char = null
-				src.hud_updates = null
-				src.hud_confirm = null
-				src.hud_confirm_nums = null
-
-				src.clear_portrait()
-				src.sav_active = 0
-
-				//Reset some vars that might of been saved if another player was previously using this mob to assign mod points, age, ect.
-				m.started = 0
-				//m.age = 20
-			//	m.age_soul = 20
-				//m.birth_year = year-20
-				m.choosing_character = 1
-				m.loc = locate(260,260,19)
-				m.reset_mods()
-				//m.set_origins()
-				m.set_ages()
-				m.update_looks()
-				m.key = src.key
-				m.client.eye = locate(250,250,19)
-
-				*/
 		set_ages()
 			var/xx = 394
 			var/yy = 516//-538
@@ -860,6 +748,7 @@ mob
 				m.Translate(x.hud_x,x.hud_y)
 				x.transform = m
 				if(bg && bg.ages_txt_holder) bg.ages_txt_holder.vis_contents += x
+
 		set_origins()
 			var/xx = 404
 			var/yy = 516//-538
@@ -905,6 +794,7 @@ mob
 					m.Translate(x.hud_x,x.hud_y)
 					x.transform = m
 					if(bg && bg.origins_txt_holder) bg.origins_txt_holder.vis_contents += x
+
 		clear_portrait()
 			var/mob/target = src
 			if(target.port)
@@ -917,6 +807,7 @@ mob
 				if(target.hud_load) target.hud_load.vis_contents -= target.port
 				target.port.destroy()
 				target.port = null
+
 		set_baby_icon(var/mob/target,var/ascend = 0)
 			if(target)
 				var/nose_count = length(nose_portrait_female)
