@@ -330,6 +330,8 @@ mob/proc/start_transformation_upkeep()
 	if(!src.transformed || src.superform <= 0 || src.transformation_drain_running)
 		return
 	spawn(2)
+		while(src && src.transformed && src.superform > 0 && src.transing && !src.transformation_drain_running)
+			sleep(1)
 		if(src && src.transformed && src.superform > 0 && !src.transformation_drain_running)
 			src.transformation_drain(src)
 
@@ -501,6 +503,7 @@ mob/proc/revert_transformation()
 
 	// Reset transformation variables
 	transformed = 0
+	transing = 0
 	superform = 0
 	ssj_form = 0
 	current_transformation_boost = 0

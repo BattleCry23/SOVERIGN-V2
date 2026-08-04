@@ -99,7 +99,7 @@ obj
 						s.active = 1
 		Quicksilver
 			//Increased agility
-			info = "You move like a leaf on the wind, graceful in your poise and elegance. With training, you’ve managed to make others seem sluggish in comparison, a veritable speed-demon with few equals. With this trait, you gain an extra 10% to your agility mod."
+			info = "You move like a leaf on the wind, graceful in your poise and elegance. With training, youï¿½ve managed to make others seem sluggish in comparison, a veritable speed-demon with few equals. With this trait, you gain an extra 10% to your agility mod."
 			info_name = "Quicksilver"
 			act = /obj/traits/Quicksilver/proc/activate
 			proc
@@ -147,7 +147,7 @@ obj
 						s.active = 1
 		Rapid_Recuperation
 			//Increased recov
-			info = "With some effort, you’ve learned to gather energy and redirect it much faster than others. When drained or exhausted, your reserves seem to replenish at incredible speeds, giving you second wind to use in your endeavours. With this trait, you gain an extra 10% to your recovery mod."
+			info = "With some effort, youï¿½ve learned to gather energy and redirect it much faster than others. When drained or exhausted, your reserves seem to replenish at incredible speeds, giving you second wind to use in your endeavours. With this trait, you gain an extra 10% to your recovery mod."
 			info_name = "Rapid_Recuperation"
 			act = /obj/traits/Rapid_Recuperation/proc/activate
 			proc
@@ -242,6 +242,7 @@ obj
 					else
 						m.trait_prodigy = s
 						s.active = 1
+						m.mod_skill *= 2
 		Will_of_Steel
 			//Decreased ko times
 			info = "Your resolve is solid, a determination bordering on zealous which keeps you pushing hard than anyone else in the face of certain doom. Not even being unconscious or badly beaten can keep you down for long. With this trait, you stay unconscious for less time than others."
@@ -256,7 +257,7 @@ obj
 						s.active = 1
 		Unassailable
 			//Enemies have no chance for a flanking bonus.
-			info = "It’s like you have eyes in the back of your head! Nobody seems able to circumvent your seemingly impossible sense of awareness in combat. With this trait, enemies will be unable to gain a flanking bonus against you."
+			info = "Itï¿½s like you have eyes in the back of your head! Nobody seems able to circumvent your seemingly impossible sense of awareness in combat. With this trait, enemies will be unable to gain a flanking bonus against you."
 			info_name = "Unassailable"
 			act = /obj/traits/Unassailable/proc/activate
 			proc
@@ -280,7 +281,7 @@ obj
 						s.active = 1
 		Perfect_Adaption
 			//Master gravity and weights quicker and don't feel their effects as much.
-			info = "Environmental effects such as gravity are easily adapted by your body, offering increased opportunity to improve yourself in some of the harshest conditions imaginable. You’re also able to shake off their effects a little easier than others, allowing you to spend more time in them before succumbing to their damming effects."
+			info = "Environmental effects such as gravity are easily adapted by your body, offering increased opportunity to improve yourself in some of the harshest conditions imaginable. Youï¿½re also able to shake off their effects a little easier than others, allowing you to spend more time in them before succumbing to their damming effects."
 			info_name = "Perfect_Adaption"
 			act = /obj/traits/Perfect_Adaption/proc/activate
 			proc
@@ -294,7 +295,7 @@ obj
 			//Get better bonus from eating
 		Eternal_Flight
 			//No energy drain on fly, normal drain on super fly.
-			info = " Being able to suspend yourself via sheer force of will and psionic power has become second nature to you. You don’t even feel the effects any more, freeing your mind and concentration to focus on other activities. With this trait, flight no longer drains you and super flight only half as much."
+			info = " Being able to suspend yourself via sheer force of will and psionic power has become second nature to you. You donï¿½t even feel the effects any more, freeing your mind and concentration to focus on other activities. With this trait, flight no longer drains you and super flight only half as much."
 			info_name = "Eternal_Flight"
 			act = /obj/traits/Eternal_Flight/proc/activate
 			proc
@@ -327,7 +328,7 @@ obj
 						s.active = 1
 		Grand_Architect
 			//Half/No cost for building
-			info = "You’ve a knack for architecture and a pioneer of revolutionary and innovative design. Patterns, symbols, angles and mathematics are all part of a singular, greater list of ingredients utilized toward the perfect of construction. With this trait, your buildings are half as expensive to create compared to others."
+			info = "Youï¿½ve a knack for architecture and a pioneer of revolutionary and innovative design. Patterns, symbols, angles and mathematics are all part of a singular, greater list of ingredients utilized toward the perfect of construction. With this trait, your buildings are half as expensive to create compared to others."
 			info_name = "Grand_Architect"
 			act = /obj/traits/Grand_Architect/proc/activate
 			proc
@@ -351,7 +352,7 @@ obj
 						s.active = 1
 		Iron_Grip
 			//Much harder to break free from grip
-			info = "Woe to all within your reach, grasped firmly in place by the might of your unnaturally strong grapple. Even the best counter moves or attacks don’t seem to loosen your grasp, allowing you more chances to utilize your advantage. With this trait, people who are grabbed have only a 25% chance to become loose if they land a hit."
+			info = "Woe to all within your reach, grasped firmly in place by the might of your unnaturally strong grapple. Even the best counter moves or attacks donï¿½t seem to loosen your grasp, allowing you more chances to utilize your advantage. With this trait, people who are grabbed have only a 25% chance to become loose if they land a hit."
 			info_name = "Iron_Grip"
 			act = /obj/traits/Iron_Grip/proc/activate
 			proc
@@ -377,7 +378,7 @@ obj
 							s.active = 1
 		Firm_Footing
 			//better at fighting on the ground
-			info = "Nobody can dislodge your fortified stance whilst you remain firmly planted on the ground. You’ve mastered the art of ground-based combat, making a mockery of those foolish enough to battle you on your preferred turf. With this trait, you gain a +10% bonus to your offence and defence while fighting on the ground."
+			info = "Nobody can dislodge your fortified stance whilst you remain firmly planted on the ground. Youï¿½ve mastered the art of ground-based combat, making a mockery of those foolish enough to battle you on your preferred turf. With this trait, you gain a +10% bonus to your offence and defence while fighting on the ground."
 			info_name = "Firm_Footing"
 			act = /obj/traits/Firm_Footing/proc/activate
 			proc
@@ -417,7 +418,7 @@ obj
 		*/
 		Herculean_Might
 			//Bonus to weight lifting minigame,lets you lift heavier objects. Also lets you move bolted items.
-			info = "You lift, even more so than others. The weight of an object doesn’t really seem to be an issue for your body. Your muscles adapt quickly, granting you better gains when trying to increase your raw strength. Furthermore, anything bolted to the floor, doesn’t remain that way for long once you summon your full might."
+			info = "You lift, even more so than others. The weight of an object doesnï¿½t really seem to be an issue for your body. Your muscles adapt quickly, granting you better gains when trying to increase your raw strength. Furthermore, anything bolted to the floor, doesnï¿½t remain that way for long once you summon your full might."
 			info_name = "Herculean_Might"
 			act = /obj/traits/Herculean_Might/proc/activate
 			proc
@@ -429,7 +430,7 @@ obj
 						s.active = 1
 		Inconceivable_Psyche
 			//bonus to telekenis minigame, helps you lift heavier objects. Also lets you move bolted items.
-			info = "Your mind is of steel and iron, not mere flesh and blood. Telekinesis is so effortless that even huge objects far beyond your physical ability to handle, become like putty in your hands, or mind in this case. You’re even so potent as to tear and rip up objects which are bolted to the ground; such is your power."
+			info = "Your mind is of steel and iron, not mere flesh and blood. Telekinesis is so effortless that even huge objects far beyond your physical ability to handle, become like putty in your hands, or mind in this case. Youï¿½re even so potent as to tear and rip up objects which are bolted to the ground; such is your power."
 			info_name = "Inconceivable_Psyche"
 			act = /obj/traits/Inconceivable_Psyche/proc/activate
 			proc
@@ -491,7 +492,7 @@ obj
 						s.active = 1
 		Abnormal_Absorption
 			//Absorb energy from attacks.
-			info = "Somehow, you’re able to take the kinetic or psionic energy from an attack and absorb it into yourself, bolstering your own energy reserves. If an opponent isn’t careful or purely unlucky, they could see their own abilities becoming the very reason behind their defeat. "
+			info = "Somehow, youï¿½re able to take the kinetic or psionic energy from an attack and absorb it into yourself, bolstering your own energy reserves. If an opponent isnï¿½t careful or purely unlucky, they could see their own abilities becoming the very reason behind their defeat. "
 			info_name = "Abnormal_Absorption"
 			act = /obj/traits/Abnormal_Absorption/proc/activate
 			proc
@@ -503,11 +504,11 @@ obj
 						s.active = 1
 		//Unstoppable_Momentum
 			//Fly through objects to destroy them and create lots of dust.
-			//info = "You’re an unstoppable juggernaut and none shall bar your path! Flying into objects is more than likely going to end in that items immediate and total destruction. You’re also able to barge into and past others with some effort, sending them flying aside."
+			//info = "Youï¿½re an unstoppable juggernaut and none shall bar your path! Flying into objects is more than likely going to end in that items immediate and total destruction. Youï¿½re also able to barge into and past others with some effort, sending them flying aside."
 
 		Critical_Injury
 			//Small chance for a critical strike on an enemy.
-			info = " You hit with such puncturing force that any known material or mental defense fails to protect against such a terrifying onslaught. With a little effort, every few attacks you’re able to summon abnormal power and unleash it against a foe. With this trait, your attacks have a 25% chance to critically strike."
+			info = " You hit with such puncturing force that any known material or mental defense fails to protect against such a terrifying onslaught. With a little effort, every few attacks youï¿½re able to summon abnormal power and unleash it against a foe. With this trait, your attacks have a 25% chance to critically strike."
 			info_name = "Critical_Injury"
 			act = /obj/traits/Critical_Injury/proc/activate
 			proc
@@ -519,7 +520,7 @@ obj
 						s.active = 1
 		Corporeal_Negation
 			//Small chance to ignore the damage of a melee attack or energy blast.
-			info = "Such is your toughness that you’re sometimes able to shake off attacks of a lesser degree. Your foes will soon learn that their petty attempts are for naught as you stand amongst a legion and weather the storm like an unmoving stone washed over by the tide; indomitable and steadfast. With this trait, there's a 10% chance melee and energy attacks will be ignored. "
+			info = "Such is your toughness that youï¿½re sometimes able to shake off attacks of a lesser degree. Your foes will soon learn that their petty attempts are for naught as you stand amongst a legion and weather the storm like an unmoving stone washed over by the tide; indomitable and steadfast. With this trait, there's a 10% chance melee and energy attacks will be ignored. "
 			info_name = "Corporeal_Negation"
 			act = /obj/traits/Corporeal_Negation/proc/activate
 			proc
@@ -546,7 +547,7 @@ obj
 
 		//Pacifist
 			 //increased intelligence gains, reduced damage, endurance,etc.
-			//info = "You do not like fighting. It is an evolutionary dead end and lends nothing to the pursuits of order, knowledge or peace as far as you’re concerned. You may have neglected training, but your intelligence gains a +1 bonus while you lose 10% to your strength and endurance."
+			//info = "You do not like fighting. It is an evolutionary dead end and lends nothing to the pursuits of order, knowledge or peace as far as youï¿½re concerned. You may have neglected training, but your intelligence gains a +1 bonus while you lose 10% to your strength and endurance."
 		/*
 		Fervent_Fury
 			info = "When you become angry, you become a killing machine. Not only can you control your rage, but it enchances your powers further than others. With much practice, you no longer succumb to a red haze, but instead harness your full potential when full of anger. With this trait, gain +20% to all your stats while angry."

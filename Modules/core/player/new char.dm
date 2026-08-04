@@ -59,6 +59,12 @@ mob
 			var/t = n.maptext
 			if(src.creature_started == 0)
 
+				if(src.icon == null)
+					src.confirm_text = "Dont try and bug abuse, choose a skin color now!."
+					src.hud_confirm.confirm_text(1,"[src.confirm_text]",src)
+					src.confirm = "cancel char"
+					return
+
 				if(src.mod_points_spent < 5)
 					src.confirm_text = "Confirm this character? You still have points to spend."
 

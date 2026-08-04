@@ -1909,11 +1909,11 @@ mob
 				if(m.energy_max>=25000&&m.move_lvl>=3&&!(locate(/obj/skills/Beam) in src)&&!(locate(/obj/skills/Ki_Fist) in src)&&!(locate(/obj/skills/Ki_Blade) in src))
 					if(prob(1))
 						var/obj/skills/Beam/B = new
-						var/obj/skills/Ki_Fist/KF = new
-						var/obj/skills/Ki_Blade/KB = new
+						//var/obj/skills/Ki_Fist/KF = new
+						//var/obj/skills/Ki_Blade/KB = new
 						B.loc = m
-						KF.loc = m
-						KB.loc = m
+						//KF.loc = m
+						//KB.loc = m
 						m.set_alert("You learn the basics of Energy Manipulation on your own!",'alert.dmi',"skill")
 						m<<"<b>You learn the basics of Energy Manipulation on your own!</b>"
 				if(m.energy_max>=40000&&m.move_lvl>=3&&!(locate(/obj/skills/Power_Control) in src))

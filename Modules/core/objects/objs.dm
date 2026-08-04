@@ -2017,22 +2017,22 @@ obj
 			plane=22
 		bluntenergy_fistL
 			icon = 'energyFistL.dmi'
-			layer=20
+			layer = AURA_LAYER + 5
 
 		bluntenergy_fistR
 			icon = 'energyFistR.dmi'
-			layer=20
+			layer = AURA_LAYER + 5
 
 		sharpenergy_fistL
 			icon = 'energySwordL.dmi'
 			alpha=255
-			layer=20
+			layer = AURA_LAYER + 5
 			plane=3
 
 		sharpenergy_fistR
 			icon = 'energySwordR.dmi'
 			alpha=255
-			layer=20
+			layer = AURA_LAYER + 5
 			plane=3
 		aura_kaioken
 			icon = 'KaiokenSov.dmi'
@@ -2047,33 +2047,33 @@ obj
 			appearance_flags = KEEP_APART
 		elec_majin
 			icon = 'Electric_Majin.dmi'
-			layer = 20
+			layer = AURA_LAYER + 5
 			appearance_flags = KEEP_APART
 		energy_shield
 			icon = 'energy_shield.dmi'
-			layer = 20
+			layer = AURA_LAYER + 5
 			appearance_flags = KEEP_APART
 		elec_cerebroid
 			icon = 'blue elec.dmi'
 			pixel_x = 16
 			pixel_y = 12
-			layer = 20
+			layer = AURA_LAYER + 5
 			appearance_flags = KEEP_APART
 		elec
 			icon = 'blue elec.dmi'
 			//pixel_x = 16
 			//pixel_y = 12
-			layer = 20
+			layer = AURA_LAYER + 5
 			appearance_flags = KEEP_APART
 		elec_green
 			icon = 'green elec.dmi'
 			//pixel_x = 16
 			//pixel_y = 12
-			layer = 20
+			layer = AURA_LAYER + 5
 		select_item
 			icon = 'fx.dmi'
 			icon_state = "select item"
-			plane = 22
+			layer = AURA_LAYER + 7
 			layer = 35
 			appearance_flags = KEEP_APART
 			//vis_flags = VIS_INHERIT_ID | VIS_INHERIT_LAYER | VIS_INHERIT_PLANE | VIS_UNDERLAY

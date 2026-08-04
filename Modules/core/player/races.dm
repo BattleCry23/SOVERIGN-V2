@@ -11,21 +11,9 @@ mob
 			src.offence = acc
 			src.defence = ref
 		Celestial_Wings()
-			//var/obj/h = new
-			//h.icon = 'halo2.dmi'
-		//	h.pixel_y = 30;
-			//h.pixel_x = 6;
-			//h.plane = 4
-			//h.appearance_flags = KEEP_APART
-			//src.halo = h;
-			//src.overlays += src.halo;
 			src.wings = global.celestial_wings[1]
-			src.vis_contents += src.wings
-			src.vis_contents += new/obj/effects/celestial_energy
-
-			//src.filters = null
-			//src.filters += filter(type="drop_shadow", x=0, y=0,size=5, offset=2, color=rgb(102,204,170))
-			//src.filters += filter(type="bloom", threshold=rgb(0,0,0), size = 6,offset=1,alpha = 175)
+			add_overlay(src, src.wings, TRUE)
+			add_overlay(src, new/obj/effects/celestial_energy, TRUE)
 
 mob
 	races
@@ -452,6 +440,7 @@ mob
 			mod_recovery = 1.3
 			mod_sense = 2
 			mod_tech_potential = 1.15
+			mod_skill = 1.35
 
 			//Used to calculate the plus and minus of stats, when creating a char.
 			gains_trained_power_mod = 2
@@ -481,7 +470,7 @@ mob
 			gains_trained_energy = 1
 			New()
 				..()
-				lifespan = rand (112,122)
+				lifespan = rand (112,500)
 				oldage = lifespan
 				prime=25
 				src.max_anger = rand(140,150)
@@ -831,14 +820,14 @@ mob
 				oldage = lifespan
 				prime=25
 				src.max_anger = rand(125,135)
-				var/obj/t = new
+				var/obj/t = new /obj/overlay/horns/oni
 				onihornz = t
-				onihornz.icon = 'OniHorns.dmi'
-				onihornz.appearance_flags = KEEP_TOGETHER
-				onihornz.layer = src.layer+1
+				//onihornz.icon = 'OniHorns.dmi'
+				onihornz.appearance_flags = t.appearance_flags
+				onihornz.layer = t.layer
 				//tailz.pixel_x = -12
 				src.body_horns = onihornz
-				src.overlays += src.body_horns
+				add_overlay(src, body_horns)
 			/*	src.ascensions = list()
 				src.ascensions = list(new /:divine_mind,new /:petrified_body,new /:dark_soul)
 				for(var/obj/a in src.ascensions)
@@ -1066,6 +1055,7 @@ mob
 			mod_recovery = 1.5
 			mod_sense = 2
 			mod_tech_potential = 1
+			mod_skill = 1.5
 
 			//Used to calculate the plus and minus of stats, when creating a char.
 
@@ -1093,18 +1083,18 @@ mob
 					src.max_anger += 25
 					if(src.max_anger>=200) src.max_anger = 200
 
-				var/obj/t = new
+				var/obj/t = new /obj/overlay/tails/saiyan
 				tailz = t
 				switch(rand(1,3))
-					if(1) tailz.icon = 'SaiyanTailBlack.dmi'
-					if(2) tailz.icon = 'SaiyanTailBrown.dmi'
-					if(3) tailz.icon = 'SaiyanTailBlack.dmi'
+					if(1) tailz.icon = new /obj/overlay/tails/saiyan/black_tail
+					if(2) tailz.icon = new /obj/overlay/tails/saiyan/brown_tail
+					if(3) tailz.icon = new /obj/overlay/tails/saiyan/black_tail
 
-				tailz.appearance_flags = KEEP_TOGETHER
-				tailz.layer = src.layer+1
+				tailz.appearance_flags = t.appearance_flags
+				tailz.layer = t.layer
 				tailz.pixel_x = -12
 				src.tail = tailz
-				src.overlays += tailz
+				add_overlay(src, tailz)
 			/*	src.ascensions = list()
 				src.ascensions = list(new /:divine_mind,new /:petrified_body,new /:dark_soul)
 				for(var/obj/a in src.ascensions)
@@ -1283,6 +1273,7 @@ mob
 			mod_recovery = 1.5
 			mod_sense = 2
 			mod_tech_potential = 1.18
+			mod_skill = 3
 			drug_tolerances = 75
 			//Used to calculate the plus and minus of stats, when creating a char.
 			gains_trained_power_mod = 1.5
@@ -1321,14 +1312,14 @@ mob
 				prime=25
 			//	prime = lifespan / rand(1.1,2)
 				max_anger = rand(135,150)
-				var/obj/t = new
+				var/obj/t = new /obj/overlay/horns/demon/demon_2
 				demonhornz = t
-				demonhornz.icon = 'Demonic Horns.dmi'
-				demonhornz.appearance_flags = KEEP_TOGETHER
-				demonhornz.layer = src.layer+1
+				//demonhornz.icon = 'Demonic Horns.dmi'
+				demonhornz.appearance_flags = t.appearance_flags
+				demonhornz.layer = t.layer
 				//tailz.pixel_x = -12
 				src.body_horns = demonhornz
-				src.overlays += src.body_horns
+				add_overlay(src, body_horns)
 			/*	src.ascensions = list()
 				src.ascensions = list(new /:whole_body,new /:dark_body,new /:dark_soul,new /:demonic_ascension, new/:lichdom)
 				for(var/obj/a in src.ascensions)
