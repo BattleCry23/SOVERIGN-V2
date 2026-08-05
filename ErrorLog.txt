@@ -109,3 +109,54 @@ Bone Breaker (/obj/skills/Bone_Breaker): activate(the lol (/mob/races/Saiyan), B
 the lol (/mob/races/Saiyan): disable skills()
 AuctionHouse: Saving all auction data before shutdown...
 AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - Changeling login with /mob/races/Changeling mob
+DEBUG - the ok's Save was last saved on 04/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple the ok increased the ok PPs by 350
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 472 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+(Admin Log): Admin Purple the ok used ASSESS on the ok
+DEBUG - the ok's Save was last saved on 04/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.

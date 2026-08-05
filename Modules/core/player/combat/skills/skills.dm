@@ -7987,8 +7987,6 @@ obj
 					if(dir == "right")
 						if(src in m)
 							 //Power down
-							if(m.transformed)
-								m.revert_transformation()
 							// FIRST: stop powering up if currently powering up
 							if(src.active == 1)
 								src.active = 0
@@ -7999,6 +7997,8 @@ obj
 								return
 
 							// SECOND: return power to normal if above/below 100
+							if(m.transformed)
+								m.revert_transformation()
 							if(m.power_percent != 100)
 								m.power_percent = 100
 								m.shockwave()
@@ -8013,6 +8013,9 @@ obj
 
 							// THIRD: start powering down
 							if(src.active == 0)
+								if(src.skill_lvl < 20)
+									m << output("You need at least 20% mastery in Power Control to power down below 100%.","actionoutput")
+									return
 								src.active = -1
 								m.powering_up = -1
 								m.current_attack = src
