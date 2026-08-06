@@ -10,23 +10,62 @@ mob
 		if(!M.left_click_function)
 			M.client.mouse_pointer_icon = 'mouse.dmi'
 
-		if(!src.over)
-			var/image/sel = new
-			sel.appearance = src.appearance
-			sel.override = 1
-			sel.loc = src
-			src.over = sel
+		if(M.mob_mouse_over)
+			M.client.images -= M.mob_mouse_over
+		var/image/sel = M.mob_mouse_over
+		if(!sel)
+			sel = image(src.icon, src)
+			M.mob_mouse_over = sel
 
-		src.over.loc = src
-		src.over.dir = src.dir
+		sel.icon = src.icon
+		sel.icon_state = src.icon_state
+		sel.overlays = src.overlays
+		sel.underlays = src.underlays
+		sel.color = src.color
+		sel.alpha = src.alpha
+		sel.appearance_flags = src.appearance_flags
+		sel.override = 1
+		sel.vis_contents = null
+		sel.loc = src
+		sel.pixel_z = 0
+		sel.transform = src.transform
+		sel.dir = src.dir
 
 		if(src == M)
-			src.over.filters = list(filter(type="outline", size=1, color=rgb(0,255,0)))
+			sel.filters = list(filter(type="outline", size=1, color=rgb(0,255,0)))
 		else
-			src.over.filters = list(filter(type="outline", size=1, color=rgb(255,255,255)))
+			sel.filters = list(filter(type="outline", size=1, color=rgb(255,255,255)))
 
-		if(!M.client.images.Find(src.over))
-			M.client.images += src.over
+		if(!M.client.images.Find(sel))
+			M.client.images += sel
+		spawn()
+			while(M && M.client && src && M.mouse_over == src)
+				sel = M.mob_mouse_over
+				if(!sel || sel.icon != src.icon || sel.icon_state != src.icon_state)
+					if(sel)
+						M.client.images -= sel
+					sel = image(src.icon, src)
+					M.mob_mouse_over = sel
+				sel.icon = src.icon
+				sel.icon_state = src.icon_state
+				sel.overlays = src.overlays
+				sel.underlays = src.underlays
+				sel.color = src.color
+				sel.alpha = src.alpha
+				sel.appearance_flags = src.appearance_flags
+				sel.override = 1
+				sel.vis_contents = null
+				sel.loc = src
+				sel.pixel_z = 0
+				sel.transform = src.transform
+				sel.dir = src.dir
+				if(src == M)
+					sel.filters = list(filter(type="outline", size=1, color=rgb(0,255,0)))
+				else
+					sel.filters = list(filter(type="outline", size=1, color=rgb(255,255,255)))
+				if(!M.client.images.Find(sel))
+					M.client.images += sel
+				sleep(1)
 	/*MouseEntered(location,control,params)
 
 		usr.mouse_over = src
@@ -67,10 +106,11 @@ mob
 		var/mob/M = usr
 		if(!M || !M.client) return
 
-		if(src.over)
-			M.client.images -= src.over
+		if(M.mob_mouse_over)
+			M.client.images -= M.mob_mouse_over
 
-		M.mouse_over = null
+		if(M.mouse_over == src)
+			M.mouse_over = null
 	Click(location,control,params)
 		usr.place_percise(params)
 		params = params2list(params)

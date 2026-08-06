@@ -3403,8 +3403,9 @@ obj
 				create(var/mob/m,var/obj/skills/Beam/s)
 					var/power
 					var/name = input(m, "Name your Beam technique.") as text
-					if(m.rank>=4) power = input(m, "Choose a power percentage (1-400%).") as num
-					else power = input(m, "Choose a power percentage (1-200%).") as num
+					var/max_power = 200 + s.skill_lvl
+					if(m.rank>=4) max_power = min(max_power, 600)
+					power = input(m, "Choose a power percentage (1-[max_power]%).") as num
 					var/color = input(m, "Choose the color for your Beam icon.") as color
 					var/side = input(m, "Choose left or right fist for your Beam.") in list ("Left","Right","Both")
 					var/chantEnabled = input(m, "Will this involve a chant?") in list ("Yes","No")
@@ -3416,7 +3417,7 @@ obj
 						//m.create_chat_entry("alerts", "You could not create the Beam technique!")
 						m.set_alert("You could not create the Beam technique(Missing inputs)!",s.icon,s.icon_state)
 						return  // If any input is missing, exit
-					if(m.rank<4 && power>200)
+					if(power > max_power)
 						m.set_alert("You could not create the Beam technique(Power too high)!",s.icon,s.icon_state)
 						return  // If any input is missing, exit
 					var/datum/custom_beam/custombeam = new
@@ -3737,7 +3738,7 @@ obj
 										B_H.Scale(size,size)
 										ball_hit.transform = B_H
 
-										hov_dis += 0.075*m.mod_recovery
+										hov_dis += 0.075*m.mod_recovery * (1 + (src.skill_lvl / 150))
 										size += 0.001*m.mod_recovery
 										//Increase the charge lvl of the attack, and its dmg, then check if the rounded charge lvl of the attack is higher than when we looked last. Only looking for whole increases.
 										checker.charge_lvl += 0.01*m.mod_recovery
@@ -7860,7 +7861,7 @@ obj
 									if(src.active >= 1 && m.icon_state != "meditate" && stage == 5) m.power_percent += 6*m.mod_recovery
 									if(src.active == -1 ) m.power_percent -= 1*m.mod_recovery
 									if(m.power_percent <= 0) m.power_percent = 0;
-									if(m.power_percent > 100 && stage == 1)
+									if(src.active >= 1 && m.power_percent > 100 && stage == 1)
 										var/drain=10*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
 											m.energy -= drain
@@ -7882,7 +7883,7 @@ obj
 											stage=0
 											m<<output("You ran out of energy.","actionoutput")
 
-									if(m.power_percent > 100 && stage==5 && m.has_sf1)
+									if(src.active >= 1 && m.power_percent > 100 && stage==5 && m.has_sf1)
 										var/drain=10.8*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
 											m.energy -= drain
@@ -7903,7 +7904,7 @@ obj
 											stage=0
 											m<<output("You ran out of energy.","actionoutput")
 
-									if(m.power_percent > 100 && stage==4 && m.has_sf1)
+									if(src.active >= 1 && m.power_percent > 100 && stage==4 && m.has_sf1)
 										var/drain=10.6*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
 											m.energy -= drain
@@ -7924,7 +7925,7 @@ obj
 											stage=0
 											m<<output("You ran out of energy.","actionoutput")
 
-									if(m.power_percent > 100 && stage==3 && m.has_sf1)
+									if(src.active >= 1 && m.power_percent > 100 && stage==3 && m.has_sf1)
 										var/drain=10.4*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
 											m.energy -= drain
@@ -7945,7 +7946,7 @@ obj
 											stage=0
 											m<<output("You ran out of energy.","actionoutput")
 
-									if(m.power_percent > 100 && stage==2 && m.has_sf1)
+									if(src.active >= 1 && m.power_percent > 100 && stage==2 && m.has_sf1)
 										var/drain=10.2*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.energy >= drain)
 											m.energy -= drain
@@ -7986,58 +7987,6 @@ obj
 					if(dir == "right")
 						if(src in m)
 							 //Power down
-							if(m.transformed)
-								if(m.race == "Saiyan")
-									if(m.superform)
-										m.overlays.Remove(m.ssjhair)
-										m.overlays.Add(m.hair)
-									if(m.superform2)
-										m.overlays.Remove(m.ssjhair)
-										m.overlays.Add(m.hair)
-									if(m.superform3)
-										m.overlays.Remove(m.ssjhair)
-										m.overlays.Add(m.hair)
-									if(m.superform4)
-										m.overlays.Remove(m.ssjhair)
-										m.overlays.Add(m.hair)
-
-								if(m.race == "Changeling")
-									if(m.superform)
-										m.icon = og_form_icon
-									if(m.superform2)
-										m.icon = trans2_icon
-									if(m.superform3)
-										m.icon = trans3_icon
-									if(m.superform4)
-										m.icon = trans4_icon
-									if(m.superform5)
-										m.icon = trans5_icon
-								m.transformed = 0
-								if(m.superform)
-									m.superform = 0
-
-								if(m.superform2)
-									m.superform=0
-									m.superform2 = 0
-									m.Apply_Transformation_Boost(m.race)
-								if(m.superform3)
-									m.superform = 1
-									m.superform2 = 0
-									m.superform3 = 0
-									m.Apply_Transformation_Boost(m.race)
-								if(m.superform4)
-									m.superform = 0
-									m.superform2 = 1
-									m.superform3 = 0
-									m.superform4 = 0
-									m.Apply_Transformation_Boost(m.race)
-								if(m.superform5)
-									m.superform = 0
-									m.superform2 = 0
-									m.superform3 = 1
-									m.superform4 = 0
-									m.superform5 = 0
-								if(m.current_transformation_boost) m.current_transformation_boost = 0
 							// FIRST: stop powering up if currently powering up
 							if(src.active == 1)
 								src.active = 0
@@ -8048,6 +7997,8 @@ obj
 								return
 
 							// SECOND: return power to normal if above/below 100
+							if(m.transformed)
+								m.revert_transformation()
 							if(m.power_percent != 100)
 								m.power_percent = 100
 								m.shockwave()
@@ -8062,6 +8013,9 @@ obj
 
 							// THIRD: start powering down
 							if(src.active == 0)
+								if(src.skill_lvl < 20)
+									m << output("You need at least 20% mastery in Power Control to power down below 100%.","actionoutput")
+									return
 								src.active = -1
 								m.powering_up = -1
 								m.current_attack = src
@@ -8150,7 +8104,7 @@ obj
 							//	spawn(3) view(15,m)<<sfx
 								return
 							if(src.active == 1)
-								if(m.race == "Makyo" && m.psionic_power_base >= m.makyo_sf1_req|| m.race == "Changeling" && m.psionic_power_base >= m.ling_sf2_req ||m.race == "Saiyan" && m.psionic_power_base >= m.saiyan_sf1_req || m.race == "Namekian" && m.psionic_power_base >= m.namekian_sf1_req || m.race == "Human" && m.psionic_power_base >= m.human_sf1_req || m.race == "Kai" && m.psionic_power_base >= m.kai_sf1_req || m.race == "Demon" && m.psionic_power_base >= m.demon_sf1_req || m.race == "Spirit Doll" && m.psionic_power_base >= m.spiritdoll_sf1_req || m.race == "Tuffle" && m.psionic_power_base >= m.tuffle_sf1_req ||m.race == "Oni" && m.psionic_power_base >= m.oni_sf1_req ||m.race == "Alien" && m.psionic_power_base >= m.alien_sf1_req || m.race == "Half God" && m.psionic_power_base >= m.halfgod_sf1_req)
+								if(m.race == "Makyo" && m.psionic_power_base >= m.makyo_sf1_req|| m.race == "Changeling"||m.race == "Saiyan" && m.psionic_power_base >= m.saiyan_sf1_req || m.race == "Namekian" && m.psionic_power_base >= m.namekian_sf1_req || m.race == "Human" && m.psionic_power_base >= m.human_sf1_req || m.race == "Kai" && m.psionic_power_base >= m.kai_sf1_req || m.race == "Demon" && m.psionic_power_base >= m.demon_sf1_req || m.race == "Spirit Doll" && m.psionic_power_base >= m.spiritdoll_sf1_req || m.race == "Tuffle" && m.psionic_power_base >= m.tuffle_sf1_req ||m.race == "Oni" && m.psionic_power_base >= m.oni_sf1_req ||m.race == "Alien" && m.psionic_power_base >= m.alien_sf1_req || m.race == "Half God" && m.psionic_power_base >= m.halfgod_sf1_req)
 									if(!m.has_sf1)
 										if(!m.transformed)
 											if(!m.transing)
@@ -8158,6 +8112,7 @@ obj
 													if("Transform")
 														if(!m.transing)
 															if(!m.transformed) m.Transformation(1,0)
+										return
 
 										/*if(stage==4)
 											if(stage!=5)
@@ -8180,7 +8135,6 @@ obj
 												m<<output("You begin powering up faster!","actionoutput")
 											stage=2
 											return*/
-									return
 								if(m.has_sf1 || m.has_sf2 || m.has_sf3 || m.has_sf4 || m.has_sf5)
 									if(!m.transformed)
 										if(!m.transing)
@@ -9919,6 +9873,7 @@ obj
 			hud_y = 636
 			var/mob/granter
 			var/times_multi = 1
+			var/pre_kaioken_power_percent = 100
 			proc
 				activate(var/mob/m,var/obj/skills/Kaioken/s)
 					if(s in m)
@@ -9943,7 +9898,7 @@ obj
 						m.mod_offence = m.mod_offence_og
 						m.mod_agility = m.mod_agility_og
 						m.kaioken_pl = 1
-						m.power_percent = 100
+						m.power_percent = s.pre_kaioken_power_percent
 						s.times_multi = 1
 					//	src.controller = null
 						//m.mod_force/=1.2
@@ -9974,6 +9929,7 @@ obj
 						//m.buffs += "focus"
 							s.active = 1
 							s.icon_state = "kaioken"
+							s.pre_kaioken_power_percent = m.power_percent
 							m.kaioken_pl = s.times_multi
 							m.power_percent = max(100, round(s.times_multi * 100))
 							m.mod_strength *= (round(s.times_multi * 0.55))

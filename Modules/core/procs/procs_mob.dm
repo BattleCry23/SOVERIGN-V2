@@ -973,35 +973,22 @@ mob
 
 				if(target.race == "Changeling")
 					target.has_hair=0
-					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==21)
-							i_race = 'Frieza_1st_form.dmi'
-						else if(age>=4 && age <13) i_race= 'Frieza_1st_form_kid.dmi'
-						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
-
-					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==21)
-							i_race = '1stFriezaBlue.dmi'
-						else if(age>=4 && age <13) i_race= '1stFriezaKid_Blue.dmi'
-						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
-
-					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==21)
-							i_race = '1stFriezaGreen.dmi'
-						else if(age>=4 && age <13) i_race= '1stFriezaKid_Green.dmi'
-						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
-
-					if(target.skin_pos == 4)
-						if(age>=13||age==null||age==21)
-							i_race = '1stFriezaOrange.dmi'
-						else if(age>=4 && age <13) i_race= '1stFriezaKid_Orange.dmi'
-						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
-
-					if(target.skin_pos == 5)
-						if(age>=13||age==null||age==21)
-							i_race = '1stFriezaRed.dmi'
-						else if(age>=4 && age <13) i_race= '1stFriezaKid_Red.dmi'
-						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
+					if(age<=0||age==0.1)
+						i_race = 'alien_egg.dmi'
+					else if(target.skin_pos == 2)
+						i_race = age_is_adult ? '1stFriezaBlue.dmi' : '1stFriezaKid_Blue.dmi'
+					else if(target.skin_pos == 3)
+						i_race = age_is_adult ? '1stFriezaGreen.dmi' : '1stFriezaKid_Green.dmi'
+					else if(target.skin_pos == 4)
+						i_race = age_is_adult ? '1stFriezaOrange.dmi' : '1stFriezaKid_Orange.dmi'
+					else if(target.skin_pos == 5)
+						i_race = age_is_adult ? '1stFriezaRed.dmi' : '1stFriezaKid_Red.dmi'
+					else
+						i_race = age_is_adult ? 'Frieza_1st_form.dmi' : 'Frieza_1st_form_kid.dmi'
+					target.changeling_base_icon = target.get_changeling_base_icon()
+					target.changeling_form2_icon = target.get_changeling_form_icon(1)
+					target.changeling_form3_icon = target.get_changeling_form_icon(2)
+					target.changeling_form4_icon = target.get_changeling_form_icon(3)
 
 
 
@@ -1549,7 +1536,12 @@ mob
 					else
 						i_race = age_is_adult ? 'oni_male_light.dmi' : (age_is_kid ? 'oni_male_light_kid.dmi' : 'alien_egg.dmi')
 
-			if(target) target.icon = i_race
+			if(target)
+				target.icon = i_race
+				if(target.race == "Changeling")
+					if(target.changeling_base_icon)
+						target.icon = target.changeling_base_icon
+					target.icon_state = ""
 
 			//world << "Debug - i_race = [i_race]"
 			var/icon/I = icon(i_race,"",SOUTH,1,0)
@@ -1917,11 +1909,11 @@ mob
 				if(m.energy_max>=25000&&m.move_lvl>=3&&!(locate(/obj/skills/Beam) in src)&&!(locate(/obj/skills/Ki_Fist) in src)&&!(locate(/obj/skills/Ki_Blade) in src))
 					if(prob(1))
 						var/obj/skills/Beam/B = new
-						var/obj/skills/Ki_Fist/KF = new
-						var/obj/skills/Ki_Blade/KB = new
+						//var/obj/skills/Ki_Fist/KF = new
+						//var/obj/skills/Ki_Blade/KB = new
 						B.loc = m
-						KF.loc = m
-						KB.loc = m
+						//KF.loc = m
+						//KB.loc = m
 						m.set_alert("You learn the basics of Energy Manipulation on your own!",'alert.dmi',"skill")
 						m<<"<b>You learn the basics of Energy Manipulation on your own!</b>"
 				if(m.energy_max>=40000&&m.move_lvl>=3&&!(locate(/obj/skills/Power_Control) in src))
@@ -5461,9 +5453,11 @@ mob
 			src << output("[t].", "chat.system")
 		redraw_appearance()
 			src.overlays = null
-			if(src.hair) src.overlays += src.hair
-			if(src.horns) src.overlays += src.horns
-			if(src.halo) src.overlays += src.halo
+			if(src.hair) add_overlay(src, src.hair)
+			if(src.horns) add_overlay(src, src.horns)
+			if(src.halo) add_overlay(src, src.halo)
+			if(src.eyes_white) add_overlay(src, src.eyes_white)
+			if(src.eyes) add_overlay(src, src.eyes)
 			//if(src.divine_elec) src.overlays += src.divine_elec
 			//if(src.skill_focus && src.skill_focus.active) src.overlays += /obj/effects/elec
 			for(var/obj/items/i in src)
@@ -8597,5 +8591,3 @@ mob/proc/ValidatePassiveTree()
 					//	s.create_login_menus()
 						newandroid.set_shadow()
 						*/
-
-

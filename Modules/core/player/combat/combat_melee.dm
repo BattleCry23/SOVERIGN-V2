@@ -487,7 +487,13 @@ mob
 			src.dead = 1;
 			src.disable_skills()
 			src.clear_drugs()
-			src.energy = 1
+			src.dead_ki_lock = max(src.energy, 1)
+			src.energy = src.dead_ki_lock
+			src.dead_skill_levels = list()
+			for(var/obj/skills/S in src)
+				src.dead_skill_levels[S] = S.skill_lvl
+				if(S.skill_exp >= 100)
+					S.skill_exp = 99
 			src.percent_health = 1
 			for(var/mob/m in players)
 				if(m.target == src) m.add_remove_target(src,1)
@@ -663,13 +669,17 @@ mob
 			src.hunger = 99
 			src.thirst = 99
 			src.restedness = 99
-			if(src.kept_body)
-				src.death_power_mod = 0.5
-			else
-				src.death_power_mod = 0.2
+			src.death_power_mod = 0.2
+			src.power_percent = (100 * src.death_power_mod)
 			src.disable_skills()
 			src.clear_drugs()
-			src.energy = 1
+			src.dead_ki_lock = max(src.energy, 1)
+			src.energy = src.dead_ki_lock
+			src.dead_skill_levels = list()
+			for(var/obj/skills/S in src)
+				src.dead_skill_levels[S] = S.skill_lvl
+				if(S.skill_exp >= 100)
+					S.skill_exp = 99
 			src.percent_health = 1
 			for(var/mob/m in players)
 				if(m.target == src) m.add_remove_target(src,1)
@@ -707,6 +717,17 @@ mob
 					items += b
 					b.hp = src.psionic_power*src.endurance
 					src.death_location = locate(b.x,b.y,b.z)
+
+				if(src.kept_body)
+					src.death_power_mod = 0.5
+					src.power_percent = (100 * src.death_power_mod)
+					for(var/obj/items/misc/body/B in world)
+						if(B.owner == src || B.owner == src.real_name)
+							spawn(200)
+								for(var/alpha = 255; alpha > 0; alpha -= 10)
+									B.alpha = alpha
+									sleep(2)
+								B.destroy()
 				if(!src.boss)
 				/*	var/obj/items/misc/item_container/ic = new
 					ic.name = "[src]'s items"
@@ -760,10 +781,7 @@ mob
 
 				//if(src.keep_body == 0) src.has_body = 0;
 				src.has_body = 0;
-				if(src.kept_body)
-					src.alpha = 255;
-				else
-					src.alpha = 130;
+				src.alpha = 80
 				if(!src.npc && !src.boss)
 					if(src.shadow) src.shadow.loc = null
 					var/mob/clone = null;
@@ -830,9 +848,9 @@ mob
 					src.in_oldage = 0
 					src.vigour = 100
 					src.apply_afterlife_glow(1)
-					if(!src.halo) src.halo = 'newhalo.dmi'
-					src.overlays += src.halo
-					src.alpha = 130
+					if(!src.halo) src.halo = new /obj/overlay/halo
+					add_overlay(src, src.halo)
+					src.alpha = 100
 						//if(already_dead == 0) src.disable_parts(null,1,1,1,"Death")
 					src.client.perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
 					src.client.eye = t
@@ -938,6 +956,9 @@ mob
 		TempRevive(var/energyconsumption,var/mob/caster)
 			if(src)
 				src.dead = 0;
+				src.dead_ki_lock = 0
+				src.dead_skill_levels = null
+				src.power_percent = (100 * src.death_power_mod)
 				animate(src,alpha = 255, time = 30)
 				src.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=src.auracolor)
 				src.screen_text.maptext = "<font size = 6><center>Soul temporarily restored"
@@ -946,8 +967,8 @@ mob
 				//winset(src,null,"stats_other.label_dead.text=\"Dead: No\"")
 
 				//src.disable_parts(soul_related,0, 0,1)
-				if(!src.halo) src.halo = 'newhalo.dmi'
-				src.overlays-=src.halo
+				if(!src.halo) src.halo = new /obj/overlay/halo
+				remove_overlay(src, src.halo)
 				src.has_body = 1
 				src<<output("You were temporarily revived for 30 minutes!","actionoutput")
 				src.repriever_timer = 18000
@@ -960,6 +981,8 @@ mob
 				//if(src.debuff_dead && src.debuff_dead.active) call(src.debuff_dead.act)(src,src.debuff_dead)
 		Revive()
 			src.dead = 0;
+			src.dead_ki_lock = 0
+			src.dead_skill_levels = null
 			animate(src,alpha = 255, time = 30)
 			src.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=src.auracolor)
 			src.screen_text.maptext = "<font size = 4><center>You were revived."
@@ -972,15 +995,24 @@ mob
 			for(var/obj/body_related/b in src.soul)
 				soul_related += b*/
 			//src.disable_parts(soul_related,1, 0,1)
-			if(!src.halo) src.halo = 'newhalo.dmi'
-			src.overlays-=src.halo
+			if(!src.halo) src.halo = new /obj/overlay/halo
+			remove_overlay(src, src.halo)
 			if(src.halo) src.halo = null
 			src.has_body = 1
 			src.death_power_mod = 1
+			src.power_percent = (100 * src.death_power_mod)
 			src.alpha = 255
+			for(var/obj/items/misc/body/b in world)
+				if(b.owner == src)
+					animate(b, alpha = 0, time = 20)
+					sleep(20)
+					if(b)
+						items -= b
+						b.destroy(b)
+					break
 			if(src.death_location)
 				if(src.kept_body)
-					src.death_location = src.loc
+					src.death_location = AdminPickSpawnTurf(src.home_planet)
 				else
 					src.loc=src.death_location
 				src.check_glow_planes()
@@ -1101,6 +1133,28 @@ mob
 							//	src.willpower -= (src.mod_zenkai)
 								//if(src.willpower<=0) src.apply_zenkai(src)
 						//view() << output("[src] regains consciousness.","chat.local")
+
+		play_melee_flick()
+			if(!src) return
+			if(src.attack_anim_lock_until && world.time < src.attack_anim_lock_until) return
+			src.attack_anim_lock_until = world.time + 4
+			if(src.npc == 1)
+				flick("Attack",src)
+			else
+				switch(rand(1,2))
+					if(1) flick(pick("RPunch","LPunch"),src)
+					if(2) flick(pick("RKick","LKick"),src)
+		play_rock_flick()
+			if(!src) return
+			if(src.attack_anim_lock_until && world.time < src.attack_anim_lock_until) return
+			src.attack_anim_lock_until = world.time + 4
+			if(src.npc == 1)
+				flick("Attack",src)
+			else
+				if(world.time % 2)
+					flick("RPunch",src)
+				else
+					flick("LPunch",src)
 		Attack()
 			if(src.koed || src.stunned || src.recovering || src.selftraining || src.meditating) //If the player is ko, stunned, ect, they can't attack.
 				//world << output("unable to attack - KO'ed, stunned, ect.","chat.local")
@@ -1159,9 +1213,7 @@ mob
 					if (S == "2") hearers(6, src) << sound('weakpunch.ogg', volume = 24)
 
 					// Animation
-					switch(rand(1,2))
-						if(1) flick(pick("RPunch", "LPunch"), src)
-						if(2) flick(pick("RKick", "LKick"), src)
+					src.play_melee_flick()
 
 					// Stat gain
 					if(!src.last_gain_time || world.time >= src.last_gain_time + 25)
@@ -1196,10 +1248,10 @@ mob
 					if (S == "2") hearers(6, src) << sound('weakpunch.ogg', volume = 24)
 					//Set the can_attack to 0, and set it on a cd based on speed
 					//src.energy -= 1
-					switch(rand(1,2))
-						if(1)flick(pick("RPunch","LPunch"),src)
-						if(2)flick(pick("RKick","LKick"),src)
-					//world << "[src] Attacked [i]"
+					if(i.rock)
+						src.play_rock_flick()
+					else
+						src.play_melee_flick()
 					i.flash_red()
 					i.shake()
 					var/dmg = src.strength/2
@@ -1398,13 +1450,7 @@ mob
 				Damage += Damage * (calc_weapon_boost(src.hammer_pl, src.weapon_stance) / 100)
 			if(src.divine_weapon && M.divine_weapon) Damage=Damage*4
 			var/criticalChance=((offence*mod_str_usage)*(psionic_power))/(M.defence*M.psionic_power)
-			if(src.npc==0)
-				switch(rand(1,2))
-					if(1)flick(pick("RPunch","LPunch"),src)
-					if(2)flick(pick("RKick","LKick"),src)
-			else if(src.npc==1)
-				flick("Attack",src)
-
+			src.play_melee_flick()
 
 			//	src.set_alert("You attack",src.icon,src.icon_state)
 
@@ -1735,7 +1781,11 @@ mob
 					dn.activate()
 					break
 		state()
+			if(src.race == "Changeling" && src.transformed)
+				return ""
 			if(src.started || src.client == null)
+				if(src.attack_anim_lock_until && world.time < src.attack_anim_lock_until)
+					return src.icon_state
 				//world << "DEBUG - [src] has started or isn't a client."
 				var/return_state = ""
 				var/flying = null

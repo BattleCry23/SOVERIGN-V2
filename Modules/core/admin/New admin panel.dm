@@ -370,7 +370,8 @@
 			"Reset_Player_Inventory",
 			"Refresh_Player_Skills",
 			"Delete_Player_Skills",
-			"Manage_Mutations"
+			"Manage_Mutations",
+			"Manage_Skills"
 		)
 		for(var/cmd in AdminSortCommandsByName(player_cmds_l1))
 			html += AdminButton(cmd)
@@ -992,6 +993,67 @@
 			M_inv.refresh_inv()
 			src << "[M_inv]'s inventory has been rebuilt."
 			M_inv << "Your inventory has been rebuilt by an admin to fix corrupted slots."
+			return
+
+		if("Manage_Skills")
+			if(level < 1)
+				src << "Access denied."
+				return
+			var/action_skill = alert(src, "What action?", "Skill Manager", "Give", "Take", "Cancel")
+			if(action_skill == "Cancel" || !action_skill) return
+			var/list/skills_manage = list()
+			if(action_skill == "Give")
+				for(var/skill_type in typesof(/obj/skills))
+					if(skill_type == /obj/skills || skill_type == /obj/skills/AA_Skill_Copy) continue
+					var/info_name = initial(skill_type:info_name)
+					if(!info_name || !length("[info_name]")) continue
+					var/already_has = 0
+					for(var/obj/skills/existing_skill in choice)
+						if(existing_skill.type == skill_type)
+							already_has = 1
+							break
+					if(!already_has)
+						skills_manage["[info_name] ([skill_type])"] = skill_type
+				skills_manage = sort_list(skills_manage)
+				if(!skills_manage.len)
+					src << "[choice] has no available skills to give."
+					return
+				var/skill_choice = input(src, "Select skill:", "Give Skill") as null|anything in skills_manage
+				if(!skill_choice) return
+				var/skill_type_choice = skills_manage[skill_choice]
+				if(!skill_type_choice) return
+				var/obj/skills/skill_add = new skill_type_choice(choice)
+				if(!skill_add) return
+				skill_add.loc = choice
+				src << "Gave [skill_choice] to [choice]."
+				choice << "Admin gave you skill: [skill_choice]"
+			if(action_skill == "Take")
+				for(var/obj/skills/skill_existing in choice)
+					if(!skill_existing) continue
+					if(skill_existing.type == /obj/skills/AA_Skill_Copy) continue
+					if(!skill_existing.info_name || !length("[skill_existing.info_name]")) continue
+					skills_manage["[skill_existing.info_name] ([skill_existing.type])"] = skill_existing
+				if(!skills_manage.len)
+					src << "[choice] has no removable skills."
+					return
+				skills_manage = sort_list(skills_manage)
+				var/skill_choice_remove = input(src, "Select skill to remove:", "Remove Skill") as null|anything in skills_manage
+				if(!skill_choice_remove) return
+				var/obj/skills/skill_remove = skills_manage[skill_choice_remove]
+				if(!skill_remove) return
+				if(skill_remove.active)
+					choice.mouse_dir = "left"
+					skill_remove.Click()
+					choice.mouse_dir = null
+				if(choice.current_attack == skill_remove) choice.current_attack = null
+				if(choice.active_attack == skill_remove) choice.active_attack = null
+				for(var/v in choice.vars)
+					if(choice.vars[v] == skill_remove)
+						choice.vars[v] = null
+				choice.contents -= skill_remove
+				qdel(skill_remove)
+				src << "Removed [skill_choice_remove] from [choice]."
+				choice << "Admin removed your skill: [skill_choice_remove]"
 			return
 
 		if("Delete_Player_Skills")
@@ -2003,6 +2065,68 @@
 
 			src << "[M]'s skills were refreshed."
 			//M << "Your skills were refreshed by an admin."
+
+		if("Manage_Skills")
+			var/mob/M = input("Select a player:") as null|anything in players
+			if(!M) return
+
+			var/action = alert(src, "What action?", "Skill Manager", "Give", "Take", "Cancel")
+			if(action == "Cancel" || !action) return
+
+			var/list/skills = list()
+			if(action == "Give")
+				for(var/skill_type in typesof(/obj/skills))
+					if(skill_type == /obj/skills || skill_type == /obj/skills/AA_Skill_Copy) continue
+					var/info_name = initial(skill_type:info_name)
+					if(!info_name || !length("[info_name]")) continue
+					var/already_has = 0
+					for(var/obj/skills/existing_skill in M)
+						if(existing_skill.type == skill_type)
+							already_has = 1
+							break
+					if(!already_has)
+						skills["[info_name] ([skill_type])"] = skill_type
+				skills = sort_list(skills)
+				if(!skills.len)
+					src << "[M] has no available skills to give."
+					return
+				var/skill_choice = input("Select skill:", "Give Skill") as null|anything in skills
+				if(!skill_choice) return
+				var/skill_type = skills[skill_choice]
+				if(!skill_type) return
+				var/obj/skills/skill = new skill_type(M)
+				if(!skill) return
+				skill.loc = M
+				src << "Gave [skill_choice] to [M]."
+				M << "Admin gave you skill: [skill_choice]"
+			if(action == "Take")
+				for(var/obj/skills/skill in M)
+					if(!skill) continue
+					if(skill.type == /obj/skills/AA_Skill_Copy) continue
+					if(!skill.info_name || !length("[skill.info_name]")) continue
+					skills["[skill.info_name] ([skill.type])"] = skill
+				if(!skills.len)
+					src << "[M] has no removable skills."
+					return
+				skills = sort_list(skills)
+				var/skill_choice = input("Select skill to remove:", "Remove Skill") as null|anything in skills
+				if(!skill_choice) return
+				var/obj/skills/skill = skills[skill_choice]
+				if(!skill) return
+				if(skill.active)
+					M.mouse_dir = "left"
+					skill.Click()
+					M.mouse_dir = null
+				if(M.current_attack == skill) M.current_attack = null
+				if(M.active_attack == skill) M.active_attack = null
+				for(var/v in M.vars)
+					if(M.vars[v] == skill)
+						M.vars[v] = null
+				M.contents -= skill
+				qdel(skill)
+				src << "Removed [skill_choice] from [M]."
+				M << "Admin removed your skill: [skill_choice]"
+
 		
 		if("Manage_Mutations")
 			var/mob/M = input("Select a player:") as null|anything in players
@@ -2420,6 +2544,7 @@
 							choice.occupation = "Guardian"
 							choice.rank = 4
 							global.hbtc_time = 270
+							choice.kept_body = 1
 							choice << output("The Hyperbolical Time Chamber has calmed down.","actionoutput")
 						if("Crane Hermit")
 							choice.occupation = "Hermit(C)"

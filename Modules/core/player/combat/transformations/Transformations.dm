@@ -6,11 +6,21 @@ mob
 		transformation_boost3 = 10.00 // Max
 		transformation_boost4 = 15.00 // I'm thinking SSJ4 if anything.
 		current_transformation_boost = 0
+		power_percent_og = 0
 		obj/ssjhair
+		obj/ssj2hair
+		obj/ssj3hair
+		icon/changeling_base_icon
+		icon/changeling_form2_icon
+		icon/changeling_form3_icon
+		icon/changeling_form4_icon
 
 		sf_mastery = 1
 		sf2_mastery = 1
 		sf3_mastery = 1
+		sf4_mastery = 1
+		tmp/next_sf_mastery_tick = 0
+		tmp/transformation_drain_running = 0
 
 		sf_drain = 2.0
 
@@ -127,63 +137,220 @@ mob/proc/Transformation(var/firsttime=1,var/force=0)
 				if(force==1)
 
 					if(!has_sf1) has_sf1=1
-					if(superform3 && race_class == "Cooler")
-						spawn() src.Changeling_Superform5thForm_Effect()
-						return
-
-					if(superform2)
-						spawn() src.Changeling_Superform4thForm_Effect()
-						return
-					if(superform)
-						spawn() src.Changeling_Superform3rdForm_Effect()
-						return
-					if(!superform)
-						spawn() src.Changeling_Superform2ndForm_Effect()
+					if(src.start_changeling_transformation_effect())
 						return
 				else
 					if(!has_sf1 )
-						if(psionic_power_base >= ling_sf2_req)
+						if(psionic_power_base >= 1)
 							if(!has_sf1) has_sf1=1
-							if(superform3 && race_class == "Cooler")
-								spawn() src.Changeling_Superform5thForm_Effect()
-								return
-
-							if(superform2)
-								spawn() src.Changeling_Superform4thForm_Effect()
-								return
-							if(superform)
-								spawn() src.Changeling_Superform3rdForm_Effect()
-								return
-							if(!superform)
-								spawn() src.Changeling_Superform2ndForm_Effect()
+							if(src.start_changeling_transformation_effect())
 								return
 					else
-						if(superform3 && race_class == "Cooler")
-							spawn() src.Changeling_Superform5thForm_Effect()
+						if(src.start_changeling_transformation_effect())
 							return
-
-						if(superform2)
-							spawn() src.Changeling_Superform4thForm_Effect()
-							return
-						if(superform)
-							spawn() src.Changeling_Superform3rdForm_Effect()
-							return
-						if(!superform)
-							spawn() src.Changeling_Superform2ndForm_Effect()
-							return
-
 
 		return
 
+mob/proc/get_changeling_base_icon()
+	if(src.race != "Changeling")
+		return null
+
+	var/use_kid_form = (src.age < 13 && src.age > 3.9)
+	var/variant = max(1, min(src.skin_pos, 5))
+
+	switch(variant)
+		if(1)
+			return use_kid_form ? 'Frieza_1st_form_kid.dmi' : 'Frieza_1st_form.dmi'
+		if(2)
+			return use_kid_form ? '1stFriezaKid_Blue.dmi' : '1stFriezaBlue.dmi'
+		if(3)
+			return use_kid_form ? '1stFriezaKid_Green.dmi' : '1stFriezaGreen.dmi'
+		if(4)
+			return use_kid_form ? '1stFriezaKid_Orange.dmi' : '1stFriezaOrange.dmi'
+		if(5)
+			return use_kid_form ? '1stFriezaKid_Red.dmi' : '1stFriezaRed.dmi'
+
+	return null
+
+mob/proc/get_changeling_form_icon(var/form)
+	if(src.race != "Changeling")
+		return null
+
+	var/use_kid_form = (src.age < 13 && src.age > 3.9)
+	var/variant = max(1, min(src.skin_pos, 5))
+
+	switch(form)
+		if(1)
+			switch(variant)
+				if(1)
+					return 'Frieza_2nd_form.dmi'
+				if(2)
+					return use_kid_form ? '2ndFriezaKid_Blue.dmi' : '2ndFriezaBlue.dmi'
+				if(3)
+					return use_kid_form ? '2ndFriezaKid_Green.dmi' : '2ndFriezaGreen.dmi'
+				if(4)
+					return use_kid_form ? '2ndFriezaKid_Orange.dmi' : '2ndFriezaOrange.dmi'
+				if(5)
+					return use_kid_form ? '2ndFriezaKid_Red.dmi' : '2ndFriezaRed.dmi'
+		if(2)
+			switch(variant)
+				if(1)
+					return 'Frieza_3rd_form.dmi'
+				if(2)
+					return use_kid_form ? '3rdFriezaKid_Blue.dmi' : '3rdFriezaBlue.dmi'
+				if(3)
+					return use_kid_form ? '3rdFriezaKid_Green.dmi' : '3rdFriezaGreen.dmi'
+				if(4)
+					return use_kid_form ? '3rdFriezaKid_Orange.dmi' : '3rdFriezaOrange.dmi'
+				if(5)
+					return use_kid_form ? '3rdFriezaKid_Red.dmi' : '3rdFriezaRed.dmi'
+		if(3)
+			if(src.race_class == "Cooler")
+				switch(variant)
+					if(1)
+						return 'cooler_4.dmi'
+					if(2)
+						return 'cooler_4Blue.dmi'
+					if(3)
+						return 'cooler_4Green.dmi'
+					if(4)
+						return 'cooler_4Orange.dmi'
+					if(5)
+						return 'cooler_4Red.dmi'
+			switch(variant)
+				if(1)
+					return 'Frieza_4th_form.dmi'
+				if(2)
+					return use_kid_form ? '4thFriezaKid_Blue.dmi' : '4thFriezaBlue.dmi'
+				if(3)
+					return use_kid_form ? '4thFriezaKid_Green.dmi' : '4thFriezaGreen.dmi'
+				if(4)
+					return use_kid_form ? '4thFriezaKid_Orange.dmi' : '4thFriezaOrange.dmi'
+				if(5)
+					return use_kid_form ? '4thFriezaKid_Red.dmi' : '4thFriezaRed.dmi'
+		if(4,5)
+			if(src.race_class == "Cooler")
+				if(variant == 5)
+					return 'cooler_5Red.dmi'
+				return 'cooler_5.dmi'
+
+	return null
+
+mob/proc/apply_changeling_form_icon(var/form)
+	if(src.race != "Changeling")
+		return
+
+	if(form <= 0)
+		var/icon/base_icon = src.get_changeling_base_icon()
+		if(!base_icon)
+			base_icon = src.changeling_base_icon
+		if(base_icon)
+			src.icon = base_icon
+			src.changeling_base_icon = base_icon
+			src.icon_state = ""
+		return
+
+	if(!src.transformed && !src.changeling_base_icon)
+		src.changeling_base_icon = src.get_changeling_base_icon()
+
+	var/icon/form_icon = src.get_changeling_form_icon(form)
+	if(form_icon)
+		src.icon = form_icon
+		src.icon_state = ""
+
+mob/proc/start_changeling_transformation_effect()
+	if(src.race != "Changeling")
+		return 0
+
+	switch(src.superform)
+		if(0)
+			spawn() src.Changeling_Superform2ndForm_Effect()
+			return 1
+		if(1)
+			spawn() src.Changeling_Superform3rdForm_Effect()
+			return 1
+		if(2)
+			spawn() src.Changeling_Superform4thForm_Effect()
+			return 1
+		if(3)
+			if(src.race_class == "Cooler")
+				spawn() src.Changeling_Superform5thForm_Effect()
+				return 1
+
+	return 0
+
+mob/proc/gain_superform_mastery()
+	if(!src.transformed || src.superform <= 0 || src.energy_max <= 0)
+		return
+	if(world.time < src.next_sf_mastery_tick)
+		return
+
+	var/energy_ratio = max(0.05, min(src.energy / max(src.energy_max, 1), 1))
+	var/strain_multi = 1 + ((1 - energy_ratio) * 0.75)
+	var/base_gain = 0.02
+	var/gain_multi = 1
+	var/next_tick_delay = 10
+	var/gain_amount = 0
+
+	switch(src.superform)
+		if(1)
+			if(src.sf_mastery >= 100)
+				return
+			gain_multi = 1
+			next_tick_delay = 10
+			gain_amount = base_gain * gain_multi * strain_multi
+			src.sf_mastery = min(100, src.sf_mastery + gain_amount)
+		if(2)
+			if(src.sf2_mastery >= 100)
+				return
+			gain_multi = 0.75
+			next_tick_delay = 12
+			gain_amount = base_gain * gain_multi * strain_multi
+			src.sf2_mastery = min(100, src.sf2_mastery + gain_amount)
+		if(3)
+			if(src.sf3_mastery >= 100)
+				return
+			gain_multi = 0.55
+			next_tick_delay = 15
+			gain_amount = base_gain * gain_multi * strain_multi
+			src.sf3_mastery = min(100, src.sf3_mastery + gain_amount)
+		if(4,5)
+			if(src.sf3_mastery >= 100)
+				return
+			gain_multi = 0.45
+			next_tick_delay = 18
+			gain_amount = base_gain * gain_multi * strain_multi
+			src.sf4_mastery = min(100, src.sf4_mastery + gain_amount)
+		else
+			return
+
+	src.next_sf_mastery_tick = world.time + next_tick_delay
+
+mob/proc/start_transformation_upkeep()
+	if(!src.transformed || src.superform <= 0 || src.transformation_drain_running)
+		return
+	spawn(2)
+		while(src && src.transformed && src.superform > 0 && src.transing && !src.transformation_drain_running)
+			sleep(1)
+		if(src && src.transformed && src.superform > 0 && !src.transformation_drain_running)
+			src.transformation_drain(src)
+
 mob/proc/Apply_Transformation_Boost(var/race)
+	var/energy_ratio = max(0.1, min(src.energy / max(src.energy_max, 1), 1))
+	var/pressure_multi = 1 + ((1 - energy_ratio) * 0.25)
+	var/form_multi = 1
+	var/mastery_multi = 1
+	power_percent_og = power_percent
 	switch(race)
 		if("Saiyan")
 			if(saiyan_dna)
 				if(transformed)
 					if(has_sf1 && !superform)
-						var/boost = (psionic_power * (transformation_boost1 + 7))
+						//mastery_multi = 1 + ((max(0, min(sf_mastery, 100)) / 100) * 0.15)
+						form_multi = transformation_boost1 + 7
+						var/boost = round(psionic_power * form_multi * mastery_multi * pressure_multi)
 						current_transformation_boost = boost
-						power_percent = (100 * (transformation_boost1 + 7))
+						power_percent = round(100 * form_multi * pressure_multi)
 						ssj_form = 1
 						superform = ssj_form
 						/*if(!has_sf1) 
@@ -195,31 +362,38 @@ mob/proc/Apply_Transformation_Boost(var/race)
 						mod_offence *= 1.1
 						mod_defence *= 1.1
 						mod_agility *= 1.1
+						src.start_transformation_upkeep()
 						view(15,src)<<output("<b><font color=yellow>[src] has transformed into a Super Saiyan!</b></font>","actionoutput")
 						return
 
 					if((has_sf2 || psionic_power_base >= saiyan_sf2_req) && superform == 1)
-						var/boost = (psionic_power * (transformation_boost2 + 14))
+						//mastery_multi = 1 + ((max(0, min(sf2_mastery, 100)) / 100) * 0.2)
+						form_multi = transformation_boost2 + 14
+						var/boost = round(psionic_power * form_multi * pressure_multi)
 						current_transformation_boost = boost
-						power_percent = (100 * (transformation_boost2 + 14))
+						power_percent = round(100 * form_multi * pressure_multi)
 						ssj_form = 2
 						mod_agility = mod_agility_og * 2
 						mod_recovery *= 0.5
 						superform = ssj_form
 						if(!has_sf2) 
 							has_sf2=1
+						src.start_transformation_upkeep()
 						view(15,src)<<output("<b><font color=yellow>[src] has transformed into Super Saiyan 2!</b></font>","actionoutput")
 						return
 
 					if((has_sf3 || psionic_power_base >= saiyan_sf3_req) && superform == 2)
-						var/boost = (psionic_power * (transformation_boost3 + 21))
+						//mastery_multi = 1 + ((max(0, min(sf3_mastery, 100)) / 100) * 0.25)
+						form_multi = transformation_boost3 + 21
+						var/boost = round(psionic_power * form_multi * mastery_multi * pressure_multi)
 						current_transformation_boost = boost
-						power_percent = (100 * (transformation_boost3 + 21))
+						power_percent = round(100 * form_multi * pressure_multi)
 						ssj_form = 3
 						mod_recovery *= 0.75
 						superform = ssj_form
 						if(!has_sf3) 
 							has_sf3=1
+						src.start_transformation_upkeep()
 						view(15,src)<<output("<b><font color=yellow>[src] has transformed into Super Saiyan 3!</b></font>","actionoutput")
 						return
 
@@ -238,90 +412,256 @@ mob/proc/Apply_Transformation_Boost(var/race)
 		if("Changeling")
 			if(transformed)
 				if(has_sf1 && !superform)
-					var/boost = (psionic_power * (transformation_boost1 + 5))
+					mastery_multi = 1 + ((max(0, min(sf_mastery, 100)) / 100) * 0.15)
+					form_multi = transformation_boost1 + 5
+					var/boost = round(psionic_power * form_multi * mastery_multi * pressure_multi)
 					current_transformation_boost = boost
-					power_percent = (power_percent * transformation_boost1 + 5)
+					power_percent = round(100 * form_multi * mastery_multi * pressure_multi)
 					superform = 1
+					src.apply_changeling_form_icon(superform)
 					mod_regeneration *= 0.25
 					mod_recovery *= 0.25
+					src.start_transformation_upkeep()
 					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their second form!</b></font>","actionoutput")
 					return
 
 				if(has_sf2 && superform == 1 || psionic_power_base >= ling_sf2_req && superform == 1)
-					var/boost = (psionic_power * (transformation_boost2 + 8))
+					mastery_multi = 1 + ((max(0, min(sf2_mastery, 100)) / 100) * 0.2)
+					form_multi = transformation_boost2 + 8
+					var/boost = round(psionic_power * form_multi * mastery_multi * pressure_multi)
 					current_transformation_boost = boost
-					power_percent = (100 * (transformation_boost2 + 8))
+					power_percent = round(100 * form_multi * mastery_multi * pressure_multi)
 					superform = 2
+					src.apply_changeling_form_icon(superform)
 					mod_regeneration *= 0.50
 					mod_recovery *= 0.50
 					if(!has_sf2) 
 						has_sf2=1
+					src.start_transformation_upkeep()
 					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their third form!</b></font>","actionoutput")
 					return
 
 				if(has_sf3 && superform == 2 || psionic_power_base >= ling_sf3_req && superform == 2)
-					var/boost = (psionic_power * (transformation_boost3 + 10))
+					mastery_multi = 1 + ((max(0, min(sf3_mastery, 100)) / 100) * 0.25)
+					form_multi = transformation_boost3 + 10
+					var/boost = round(psionic_power * form_multi * mastery_multi * pressure_multi)
 					current_transformation_boost = boost
-					power_percent = (100 * (transformation_boost3 + 10))
+					power_percent = round(100 * form_multi * mastery_multi * pressure_multi)
 					superform = 3
+					src.apply_changeling_form_icon(superform)
 					mod_regeneration *= 0.75
 					mod_recovery *= 0.75
 					if(!has_sf3) 
 						has_sf3=1
+					src.start_transformation_upkeep()
 					view(15,src)<<output("<b><font color=yellow>[src] has transformed into their final form!</b></font>","actionoutput")
 					return
 
 				if(race_class == "Cooler")
 
 					if(has_sf4 && superform == 3 || psionic_power_base >= ling_sf4_req && superform == 3)
-						var/boost = (psionic_power * (transformation_boost4 + 12))
+						form_multi = transformation_boost4 + 12
+						var/boost = round(psionic_power * form_multi * pressure_multi)
 						current_transformation_boost = boost
-						power_percent = (100 * (transformation_boost4 + 12))
+						power_percent = round(100 * form_multi * pressure_multi)
 						superform = 4
+						src.apply_changeling_form_icon(superform)
 						if(!has_sf4) 
 							has_sf4=1
+						src.start_transformation_upkeep()
 						view(15,src)<<output("<b><font color=yellow>[src] has transformed into their ultimate form!</b></font>","actionoutput")
 						return
 
 					if(has_sf5 && superform == 4 || psionic_power_base >= ling_sf5_req && superform == 4)
-						var/boost = (psionic_power * (transformation_boost4 + 14))
+						form_multi = transformation_boost4 + 14
+						var/boost = round(psionic_power * form_multi * pressure_multi)
 						current_transformation_boost = boost
-						power_percent = (100 * (transformation_boost4 + 14))
+						power_percent = round(100 * form_multi * pressure_multi)
 						superform = 5
+						src.apply_changeling_form_icon(superform)
 						if(!has_sf5) 
 							has_sf5=1
+						src.start_transformation_upkeep()
 						return
 
+mob/proc/revert_transformation()
+	if(!src.transformed || src.superform <= 0)
+		return
+
+	var/previous_superform = src.superform
+
+	// Reset stat modifiers
+	mod_strength = mod_strength_og
+	mod_endurance = mod_endurance_og
+	mod_force = mod_force_og
+	mod_resistance = mod_resistance_og
+	mod_offence = mod_offence_og
+	mod_defence = mod_defence_og
+	mod_agility = mod_agility_og
+	mod_regeneration = mod_regeneration_og
+	mod_recovery = mod_recovery_og
+
+	// Reset transformation variables
+	transformed = 0
+	transing = 0
+	superform = 0
+	ssj_form = 0
+	current_transformation_boost = 0
+	power_percent = power_percent_og
+
+	// Remove aura and effects
+	if(src.race == "Changeling")
+		src.apply_changeling_form_icon(0)
+	if(saiyan_dna)
+		switch(previous_superform)
+			if(1)
+				remove_overlay(src, src.ssjhair)
+			if(2)
+				remove_overlay(src, src.ssj2hair)
+			if(3)
+				remove_overlay(src, src.ssj3hair)
+		add_overlay(src, src.hair)
+		update_looks("hair color")
+		update_looks("eye color")
+	
+	view(15,src) << output("<b><font color=yellow>[src] has reverted to their base form!</b></font>","actionoutput")
+
 mob/proc/transformation_drain(var/mob/container)
-	var/transdrain = container.energy_max * 0.01
-	var/mastery = max(0, min(container.sf_mastery, 100))
-	
-	var/mastery_multi = 1 - ((mastery / 100) * 0.75)
-	
-	var/final_drain = max(1, round(transdrain * mastery_multi * container.sf_drain))
+	if(!container || !container.transformed || container.energy <= 0)
+		return
+	if(container.transformation_drain_running)
+		return
+	container.transformation_drain_running = 1
 
-	if(transformed)
-		switch(race)
+	while(container && container.transformed && container.superform && container.energy_max > 0)
+		if(prob(30))
+			container.gain_superform_mastery()
+
+		if(container.energy <= 0)
+			container.transformation_drain_running = 0
+			container.revert_transformation()
+			return
+
+		var/form_multiplier = 1
+		var/mastery = 0
+		var/mastery_reduction = 0.75
+		var/min_drain = 1
+		var/valid_form = 0
+		var/apply_backlash = 0
+
+		switch(container.race)
 			if("Saiyan")
-				switch(superform)
+				switch(container.superform)
 					if(1)
-						if(prob(20))
-							if(container.sf_mastery == 100)
-								container.energy -= 1
-							else
-								container.energy -= final_drain // Apply Super Saiyan 1 transformation drain
+						mastery = max(0, min(container.sf_mastery, 100))
+						if(mastery >= 100)
+							min_drain = 0.12
+						valid_form = 1
 					if(2)
-						container.sf_drain *= 2
-						if(prob(20))
-							if(sf2_mastery == 100)
-								container.energy -= final_drain // Apply Super Saiyan 2 transformation drain
+						mastery = max(0, min(container.sf2_mastery, 100))
+						form_multiplier = 2
+						valid_form = 1
 					if(3)
-						container.sf_drain *= 3
-						//container.sf_drain = container.sf3_drain
-						if(prob(20))
-							container.energy -= final_drain
-	
+						mastery = max(0, min(container.sf3_mastery, 100))
+						form_multiplier = 4.5
+						mastery_reduction = 0.35
+						valid_form = 1
+					else
+						break
 
+			if("Namekian")
+				switch(container.superform)
+					if(1)
+						mastery = max(0, min(container.sf_mastery, 100))
+						if(mastery >= 100)
+							min_drain = 0
+						valid_form = 1
+					if(2)
+						mastery = max(0, min(container.sf2_mastery, 100))
+						form_multiplier = 2
+						if(mastery >= 100)
+							min_drain = 1.3
+						valid_form = 1
+					else
+						break
+			
+			if("Changeling")
+				switch(container.superform)
+					if(1)
+						mastery = max(0, min(container.sf_mastery, 100))
+						form_multiplier = 1.5
+						valid_form = 1
+						apply_backlash = 1
+					if(2)
+						mastery = max(0, min(container.sf2_mastery, 100))
+						form_multiplier = 2.5
+						valid_form = 1
+						apply_backlash = 1
+					if(3)
+						mastery = max(0, min(container.sf3_mastery, 100))
+						form_multiplier = 3.5
+						valid_form = 1
+						apply_backlash = 1
+					if(4)
+						mastery = max(0, min(container.sf3_mastery, 100))
+						form_multiplier = 4.5
+						mastery_reduction = 0.5
+						valid_form = 1
+						apply_backlash = 1
+					if(5)
+						mastery = max(0, min(container.sf3_mastery, 100))
+						form_multiplier = 5.5
+						mastery_reduction = 0.4
+						valid_form = 1
+						apply_backlash = 1
+					else
+						break
+
+		if(valid_form)
+			var/transdrain = container.energy_max * 0.01
+			var/mastery_multi = 1 - ((mastery / 100) * mastery_reduction)
+			var/energy_ratio = max(0.05, min(container.energy / max(container.energy_max, 1), 1))
+			var/pressure_multi = 1 + ((1 - energy_ratio) * 0.5)
+			var/final_drain = max(min_drain, round(transdrain * mastery_multi * container.sf_drain * form_multiplier * pressure_multi))
+			if(apply_backlash && mastery >= 100 && container.superform <= 3)
+				final_drain = 0
+			else if(apply_backlash && mastery >= 100 && container.superform == 4)
+				final_drain = max(0.12, final_drain * 0.1)
+
+			if(final_drain > 0 && prob(20))
+				container.energy -= final_drain
+
+			var/unmastered_ratio = max(0, (100 - mastery) / 100)
+			if(apply_backlash && unmastered_ratio > 0)
+				var/form_pressure = max(0.5, form_multiplier - 0.5)
+				var/backlash_intensity = unmastered_ratio * form_pressure * pressure_multi
+				var/hp_backlash = max(0.05, 0.08 + (backlash_intensity * 0.55))
+				var/limb_damage_chance = min(85, 20 + round(backlash_intensity * 30))
+				var/obj/body_related/bodyparts/torso/torso_limb = null
+				var/obj/body_related/bodyparts/head/head_limb = null
+				for(var/obj/body_related/bodyparts/torso/torso_part in container.bodyparts)
+					torso_limb = torso_part
+					break
+				for(var/obj/body_related/bodyparts/head/head_part in container.bodyparts)
+					head_limb = head_part
+					break
+
+				if(prob(limb_damage_chance) && container.body && container.body.len)
+					var/limb_hit_damage = max(0.1, hp_backlash * (0.6 + (backlash_intensity * 0.3)))
+					if(torso_limb)
+						container.damage_limb(container,0,0,limb_hit_damage,torso_limb)
+					if(head_limb)
+						container.damage_limb(container,0,0,limb_hit_damage,head_limb)
+					if(!torso_limb && !head_limb)
+						container.damage_limb(container,1,0,limb_hit_damage)
+					container.percent_health -= hp_backlash
+					if(container.percent_health <= 0)
+						container.KO()
+						break
+		
+		sleep(1)
+	container.transformation_drain_running = 0
+	
 mob/proc/SSJForm_Effect()
 //	var/progress = 0;
 //	var/obj/bar = null
@@ -546,7 +886,7 @@ mob/proc/SSJForm_Effect()
 			sleep(rand(2,4))
 
 		overlays.Remove(a)
-		overlays.Remove(m.ssjhair)
+		remove_overlay(m, m.ssjhair)
 		for(var/turf/A in view(10,src))
 			A.Rising_Rocks()
 		spawn() Super_Lightning()
@@ -617,8 +957,8 @@ mob/proc/SSJForm_Effect()
 		m.icon_state = initial(m.icon_state)
 		flick("Transform",m)
 		spawn(5)
-			overlays.Remove(m.hair)
-			overlays.Add(m.ssjhair)
+			remove_overlay(m, m.hair)
+			add_overlay(m, m.ssjhair)
 		overlays.Add(a)
 		m.transformed = 1
 		if(m.has_sf1!=1) m.has_sf1 = 1
@@ -920,6 +1260,9 @@ mob/proc/Changeling_Superform2ndForm_Effect()
 	spawn(15)
 		overlays.Remove(a)
 		var/icon/rev = m.icon
+		var/icon/form_preview = m.get_changeling_form_icon(1)
+		if(!form_preview)
+			form_preview = 'Frieza_2nd_form.dmi'
 		rays.icon = 'fx_ray_large.dmi'
 		rays.pixel_x = -284
 		rays.pixel_y = -284
@@ -949,11 +1292,10 @@ mob/proc/Changeling_Superform2ndForm_Effect()
 			amount-=1
 
 
-			m.icon = 'Frieza_2nd_form.dmi'
 			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
 			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = m.icon
-			o.icon_state = m.icon_state
+			o.icon = form_preview
+			o.icon_state = ""
 			o.overlays = m.overlays
 			o.loc = m.loc
 			o.step_x = m.step_x
@@ -962,18 +1304,17 @@ mob/proc/Changeling_Superform2ndForm_Effect()
 			o.layer = m.layer+1
 			animate(o, color = list("#000", "#000", "#000", "#fff"),time=20)
 			sleep(rand(5,20))
-			m.icon = rev
-			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
-			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = m.icon
-			o.icon_state = m.icon_state
 			o.overlays = m.overlays
+			o.icon = rev
+			o.icon_state = m.icon_state
 			o.loc = m.loc
 			o.step_x = m.step_x
 			o.step_y = m.step_y
 			o.bolted = 2
 			o.layer = m.layer+1
 			animate(o, color = list("#000", "#000", "#000", "#fff"),time=20)
+			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
+			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
 			sleep(rand(2,4))
 
 		//overlays.Remove(a)
@@ -1063,8 +1404,8 @@ mob/proc/Changeling_Superform2ndForm_Effect()
 		view(15,m) << SP
 		m.icon_state = initial(m.icon_state)
 		flick("Transform",m)
-
-		spawn(10) m.icon = 'Frieza_2nd_form.dmi'
+		spawn(10)
+			m.apply_changeling_form_icon(1)
 		overlays.Add(a)
 		m.transformed = 1
 		if(m.has_sf1!=1) m.has_sf1 = 1
@@ -1236,6 +1577,9 @@ mob/proc/Changeling_Superform3rdForm_Effect()
 	spawn(15)
 		overlays.Remove(a)
 		var/icon/rev = m.icon
+		var/icon/form_preview = m.get_changeling_form_icon(2)
+		if(!form_preview)
+			form_preview = 'Frieza_3rd_form.dmi'
 		rays.icon = 'fx_ray_large.dmi'
 		rays.pixel_x = -284
 		rays.pixel_y = -284
@@ -1264,11 +1608,10 @@ mob/proc/Changeling_Superform3rdForm_Effect()
 			amount-=1
 
 
-			m.icon = 'Frieza_3rd_form.dmi'
 			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
 			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = m.icon
-			o.icon_state = m.icon_state
+			o.icon = form_preview
+			o.icon_state = ""
 			o.overlays = m.overlays
 			o.loc = m.loc
 			o.step_x = m.step_x
@@ -1277,18 +1620,17 @@ mob/proc/Changeling_Superform3rdForm_Effect()
 			o.layer = m.layer+1
 			animate(o, color = list("#000", "#000", "#000", "#fff"),time=20)
 			sleep(rand(5,20))
-			m.icon = rev
-			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
-			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = m.icon
-			o.icon_state = m.icon_state
 			o.overlays = m.overlays
+			o.icon = rev
+			o.icon_state = m.icon_state
 			o.loc = m.loc
 			o.step_x = m.step_x
 			o.step_y = m.step_y
 			o.bolted = 2
 			o.layer = m.layer+1
 			animate(o, color = list("#000", "#000", "#000", "#fff"),time=20)
+			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
+			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
 			sleep(rand(2,4))
 
 		//overlays.Remove(a)
@@ -1360,7 +1702,8 @@ mob/proc/Changeling_Superform3rdForm_Effect()
 		view(15,m) << SP
 		m.icon_state = initial(m.icon_state)
 		flick("Transform",m)
-		spawn(10) m.icon = 'Frieza_3rd_form.dmi'
+		spawn(10)
+			m.apply_changeling_form_icon(2)
 		overlays.Add(a)
 		m.transformed = 1
 		if(m.has_sf2!=1) m.has_sf2 = 1
@@ -1537,6 +1880,19 @@ mob/proc/Changeling_Superform4thForm_Effect()
 	spawn(15)
 		overlays.Remove(a)
 		var/icon/rev = m.icon
+		var/icon/form_preview = 'Frieza_4th_form.dmi'
+		if(m.race_class == "Cooler")
+			switch(m.skin_pos)
+				if(2)
+					form_preview = 'cooler_4Blue.dmi'
+				if(3)
+					form_preview = 'cooler_4Green.dmi'
+				if(4)
+					form_preview = 'cooler_4Orange.dmi'
+				if(5)
+					form_preview = 'cooler_4Red.dmi'
+				else
+					form_preview = 'cooler_4.dmi'
 		rays.icon = 'fx_ray_large.dmi'
 		rays.pixel_x = -284
 		rays.pixel_y = -284
@@ -1565,11 +1921,10 @@ mob/proc/Changeling_Superform4thForm_Effect()
 			amount-=1
 
 
-			m.icon = 'Frieza_4th_form.dmi'
 			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
 			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = m.icon
-			o.icon_state = m.icon_state
+			o.icon = form_preview
+			o.icon_state = ""
 			o.overlays = m.overlays
 			o.loc = m.loc
 			o.step_x = m.step_x
@@ -1578,18 +1933,17 @@ mob/proc/Changeling_Superform4thForm_Effect()
 			o.layer = m.layer+1
 			animate(o, color = list("#000", "#000", "#000", "#fff"),time=20)
 			sleep(rand(5,20))
-			m.icon = rev
-			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
-			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = m.icon
-			o.icon_state = m.icon_state
 			o.overlays = m.overlays
+			o.icon = rev
+			o.icon_state = m.icon_state
 			o.loc = m.loc
 			o.step_x = m.step_x
 			o.step_y = m.step_y
 			o.bolted = 2
 			o.layer = m.layer+1
 			animate(o, color = list("#000", "#000", "#000", "#fff"),time=20)
+			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
+			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
 			sleep(rand(2,4))
 
 		//overlays.Remove(a)
@@ -1609,6 +1963,7 @@ mob/proc/Changeling_Superform4thForm_Effect()
 		animate(transform = turn(matrix(),120), time = 5)
 		animate(transform = null, time = 5)
 
+	var/icon/form_preview = 'Frieza_4th_form.dmi'
 	spawn(120)
 		if(pixs && islist(pixs))
 			for(var/obj/v in pixs)
@@ -1663,10 +2018,7 @@ mob/proc/Changeling_Superform4thForm_Effect()
 		m.icon_state = initial(m.icon_state)
 		flick("Transform",m)
 		spawn(10)
-			if(m.race_class != "Cooler")
-				m.icon = 'Frieza_4th_form.dmi'
-			if(m.race_class == "Cooler")
-				m.icon = 'cooler_4.dmi'
+			m.apply_changeling_form_icon(3)
 		overlays.Add(a)
 		m.transformed = 1
 		if(m.has_sf3!=1) m.has_sf3 = 1
@@ -1840,6 +2192,9 @@ mob/proc/Changeling_Superform5thForm_Effect()
 	spawn(15)
 		overlays.Remove(a)
 		var/icon/rev = m.icon
+		var/icon/form_preview = m.get_changeling_form_icon(4)
+		if(!form_preview)
+			form_preview = 'cooler_5.dmi'
 		rays.icon = 'fx_ray_large.dmi'
 		rays.pixel_x = -284
 		rays.pixel_y = -284
@@ -1869,11 +2224,10 @@ mob/proc/Changeling_Superform5thForm_Effect()
 			amount-=1
 
 
-			m.icon = 'cooler_5.dmi'
 			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
 			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = m.icon
-			o.icon_state = m.icon_state
+			o.icon = form_preview
+			o.icon_state = ""
 			o.overlays = m.overlays
 			o.loc = m.loc
 			o.step_x = m.step_x
@@ -1882,18 +2236,17 @@ mob/proc/Changeling_Superform5thForm_Effect()
 			o.layer = m.layer+1
 			animate(o, color = list("#000", "#000", "#000", "#fff"),time=20)
 			sleep(rand(5,20))
-			m.icon = rev
-			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
-			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = m.icon
-			o.icon_state = m.icon_state
 			o.overlays = m.overlays
+			o.icon = rev
+			o.icon_state = m.icon_state
 			o.loc = m.loc
 			o.step_x = m.step_x
 			o.step_y = m.step_y
 			o.bolted = 2
 			o.layer = m.layer+1
-			animate(o, color = list("#000", "#000", "#000", "#fff"),time=30)
+			animate(o, color = list("#000", "#000", "#000", "#fff"),time=20)
+			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
+			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
 			sleep(rand(2,4))
 
 		//overlays.Remove(a)
@@ -1969,7 +2322,8 @@ mob/proc/Changeling_Superform5thForm_Effect()
 		view(15,m) << SP
 		m.icon_state = initial(m.icon_state)
 		flick("Transform",m)
-		spawn(10) m.icon = 'cooler_5.dmi'
+		spawn(10)
+			m.apply_changeling_form_icon(4)
 		overlays.Add(a)
 		m.transformed = 1
 		if(m.has_sf4!=1) m.has_sf4 = 1

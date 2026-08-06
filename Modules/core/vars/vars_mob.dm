@@ -1382,6 +1382,7 @@ mob
 		tmp/obj/build_marker = null
 		tmp/image/build_mouse = null
 		tmp/image/build_mouse_og = null
+		tmp/image/mob_mouse_over = null
 		tmp/mouse_far = null
 		tmp/image/txt_say = null
 		tmp/atom/movable/mouse_over = null
@@ -1403,6 +1404,7 @@ mob
 		tmp/mob/target_follow = null
 		tmp/atom/target_go = null
 		tmp/obj/active_attack = null
+		tmp/attack_anim_lock_until = 0
 		tmp/last_attacked = null
 		tmp/mouse_degree = 0
 		tmp/locked_mouse_degree = 0
@@ -1460,6 +1462,8 @@ mob
 		//Skills Stuff
 		tmp/kaioken_pl = 1
 		tmp/death_power_mod = 1
+		tmp/dead_ki_lock = 0
+		tmp/list/dead_skill_levels = null
 		tmp/kaiosoku_boost = 0
 		tmp/kaioenjin = 0
 		tmp/kaioryu = 0
