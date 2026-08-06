@@ -15707,21 +15707,30 @@ obj
 									var/e = 10
 									if(m.trait_ef) e = 1
 									var/removes = (e/m.mod_recovery) + (e/src.skill_lvl)
+									var/flight_mastery = src.skill_lvl / 100
+									if(flight_mastery < 0) flight_mastery = 0
+									if(flight_mastery > 1) flight_mastery = 1
+									var/drain_multiplier = 1 - flight_mastery
+									var/flight_drain = max(0, (removes * 3) * drain_multiplier)
 									if(m.race == "Kai" && m.wings_hidden == 0)
 										if(m.z == 2 || m.z == 6) removes = 0
-									if(m.energy >= e)
+									if(m.race == "Kai" && m.wings_hidden == 0)
+										if(m.z == 2 || m.z == 6) flight_drain = 0
+									if(m.energy >= flight_drain)
 										//m.gain_stat("energy",1,0.1,"Flight")
 										//m.gain_stat("power",1,1,"Flight")
 										m.overlays -= /obj/effects/superfly
 										//m.overlays += /obj/effects/superfly
 										if(m.super_fly)
-											m.energy -= (removes*3)
+											if(flight_drain > 0)
+												m.energy -= flight_drain
 											//world << "[removes] energy removed by [src]"
 											//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										else
 											if(m.trait_ef == null)
 												//m.energy -= 1+((m.energy_max*0.25)/src.skill_lvl/m.mod_energy)
-												m.energy -= removes*3
+												if(flight_drain > 0)
+													m.energy -= flight_drain
 												//world << "[removes] energy removed by [src]"
 												//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
