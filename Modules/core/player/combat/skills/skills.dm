@@ -7844,10 +7844,7 @@ obj
 					if(revert_form && m.transformed)
 						m.revert_transformation()
 					if(reset_power_percent)
-						if(m.dead)
-							m.power_percent = (100 * m.death_power_mod)
-						else
-							m.power_percent = 100
+						m.power_percent = (100 * m.death_power_mod)
 					src.icon_state = "Profusion off"
 					remove_overlay(m, src.aura)
 					m.powering_up = 0
@@ -7857,8 +7854,11 @@ obj
 					stage = 0
 					if(m.client) m.recov_sources -= "From Power Control skill"
 					if(show_message)
-						m.shockwave()
-						m << output("You return your power to normal.","actionoutput")
+						if(reset_power_percent)
+							m.shockwave()
+							m << output("You return your power to normal.","actionoutput")
+						else
+							m << output("You stop powering up.","actionoutput")
 			New()
 				..()
 				category = list("Energy","Power","Buff")
@@ -7900,9 +7900,8 @@ obj
 									if(src.active >= 1 && m.power_percent > 100 && stage == 1)
 										var/drain=10*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.meditating)
-											m.powering_up = 0
-											src.active = 0
-											remove_overlay(m, src.aura)
+											reset_power_control(m,1,0,0)
+											return
 										if(m.energy >= drain)
 											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
@@ -8029,18 +8028,12 @@ obj
 							 //Power down
 							// FIRST: stop powering up if currently powering up
 							if(src.active == 1)
-								src.active = 0
-								m.powering_up = 0
-								m << output("You stop powering up.","actionoutput")
-								src.icon_state = "Profusion off"
-								remove_overlay(m, src.aura)
+								reset_power_control(m, 1,0,0)
 								return
 
 							// SECOND: return power to normal if above/below 100
-							if(m.transformed)
-								m.revert_transformation()
 							if(m.power_percent != 100)
-								src.reset_power_control(m)
+								reset_power_control(m, 1,1,1)
 								return
 
 							// THIRD: start powering down

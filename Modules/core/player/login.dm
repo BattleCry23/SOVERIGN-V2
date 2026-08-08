@@ -47,12 +47,11 @@ client
 	New()
 		//. = ..() // Always call the parent first
 		..()
-		/*for(var/mob/races/M in world)
-			if(M.byond_key == src.key && M != mob)
-				M.client = src
-				world.log << "Found a character for [src] - [src.mob]"*/
-				//world << "Cleaning ghost mob: [M]"
-				//del(M)
+		for(var/mob/races/M in world)
+			if(M.byond_key == src.key && M != src.mob && !M.client)
+				world.log << "Cleaning ghost mob: [M] ([M.type]) for [src.key]"
+				M.loc = null
+				del(M)
 
 
 
@@ -185,6 +184,7 @@ mob
 			src.LOYear = year
 			src.online = 0
 			src.remove_player_blip() //Put this here so blips are not deleted on player save, only on logout.
+			if(src.dead) src.koed = 0 // Prevent KO death timer from firing after logout on dead players
 			src.disable_skills()
 			if(src.oozaru_form) src.oozaru_disable()
 			if(src.lssj_form) src.lssj_disable()
@@ -198,20 +198,22 @@ mob
 				h.holder_special.vis_contents = null
 			src.change_hp = null
 			src.change_eng = null
+			var/old_z = src.z
 			src.save_x = src.x
 			src.save_y = src.y
 			src.save_z = src.z
+			if(src.dead) src.loc = null // Remove dead mob from world so it doesn't appear as a clone while offline
 		//	src.overlays -= /obj/effects/afk
 			//src.afk = 0
 			//winset(src,"chat.afk","is-checked=false")
 			src.Mob_Save(1)
 			src.started=0
-			if(src.z == 2)src.apply_afterlife_glow(0)
-			if(src.z == 6)src.apply_hell_glow(0)
-			if(src.z == 19)src.apply_loginday_glow(0)
-			if(src.z == 19)src.apply_loginnight_glow(0)
-			if(src.z == 12)src.apply_demonrealm_glow(0)
-			if(src.z == 23) src.apply_korintower_glow(0)
+			if(old_z == 2)src.apply_afterlife_glow(0)
+			if(old_z == 6)src.apply_hell_glow(0)
+			if(old_z == 19)src.apply_loginday_glow(0)
+			if(old_z == 19)src.apply_loginnight_glow(0)
+			if(old_z == 12)src.apply_demonrealm_glow(0)
+			if(old_z == 23) src.apply_korintower_glow(0)
 			if(src.inSpace == 1 ) src.apply_space_glow(0)
 			//queue_mob_save(src) // Replaces direct Mob_Save()
 

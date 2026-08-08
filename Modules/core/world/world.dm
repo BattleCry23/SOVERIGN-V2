@@ -4463,11 +4463,12 @@ world
 						//CHECK_TICK
 					//sleep(60)
 					sleep(3000)
-		save_items()
+
 			spawn(10)
 				while(src)
-					Save_objs()
+					SaveWorldObjects()
 					sleep(1000)
+		save_items()
 		create_bodies()
 			eyes_portrait_cerebroid = list(new /:portrait_cerebroid_eyes1)
 			eyes_portrait_yuk = list(new /:portrait_yuk_eyes1)
@@ -4774,5 +4775,3 @@ world
 /proc/signs(x)
 	sleep(1)
 	return x!=0?x/abs(x):0 //((x<0)?-1:((x>0)?1:0))
-
-

@@ -1003,13 +1003,12 @@ mob
 			src.power_percent = (100 * src.death_power_mod)
 			src.alpha = 255
 			for(var/obj/items/misc/body/b in world)
-				if(b.owner == src)
+				if(b.owner == src || b.owner == src.real_name)
 					animate(b, alpha = 0, time = 20)
 					sleep(20)
 					if(b)
 						items -= b
 						b.destroy(b)
-					break
 			if(src.death_location)
 				if(src.kept_body)
 					src.death_location = AdminPickSpawnTurf(src.home_planet)
