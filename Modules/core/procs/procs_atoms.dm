@@ -2315,6 +2315,19 @@ atom/movable
 
 
 // is screen_loc a valid screen_loc?
+proc/BuildScreenLoc(var/tile_x, var/step_x = null, var/tile_y, var/step_y = null, var/map_id = null)
+	var/x_tile = max(1, round(text2num("[tile_x]")))
+	var/y_tile = max(1, round(text2num("[tile_y]")))
+	var/x_part = "[x_tile]"
+	var/y_part = "[y_tile]"
+	if(!isnull(step_x))
+		x_part += ":[round(text2num("[step_x]"))]"
+	if(!isnull(step_y))
+		y_part += ":[round(text2num("[step_y]"))]"
+	if(map_id)
+		return "[map_id]:[x_part],[y_part]"
+	return "[x_part],[y_part]"
+
 atom/movable/proc/check_screen_loc()
 	if(ScreenLocParser.Find(src.screen_loc))
 		// just by calling regex.Find(), the regex.group variable now contains the relevant pieces:
@@ -2324,20 +2337,16 @@ atom/movable/proc/check_screen_loc()
 		var step_x = text2num(ScreenLocParser.group[3])
 		var tile_y = text2num(ScreenLocParser.group[4])
 		var step_y = text2num(ScreenLocParser.group[5])
-		if(tile_x) src.screen_x = tile_x
-		if(tile_y) src.screen_y = tile_y
-		if(step_x) src.screen_step_x = step_x
-		if(step_y) src.screen_step_y = step_y
+		if(!isnull(ScreenLocParser.group[2])) src.screen_x = tile_x
+		if(!isnull(ScreenLocParser.group[4])) src.screen_y = tile_y
+		if(!isnull(ScreenLocParser.group[3])) src.screen_step_x = step_x
+		if(!isnull(ScreenLocParser.group[5])) src.screen_step_y = step_y
 		//world << "[map_id]:[tile_x]:[step_x],[tile_y]:[step_y]"
 
 atom/movable/proc/set_screen_loc()
-	if(src.screen_step_x || src.screen_step_x > 0)
-		src.screen_step_x = ":[src.screen_step_x]"
-	else src.screen_step_x = null
-	if(src.screen_step_y || src.screen_step_y > 0)
-		src.screen_step_y = ":[src.screen_step_y]"
-	else src.screen_step_y = null
-	src.screen_loc = "[src.screen_x][src.screen_step_x],[src.screen_y][src.screen_step_y]"
+	var/step_x = isnull(src.screen_step_x) ? null : src.screen_step_x
+	var/step_y = isnull(src.screen_step_y) ? null : src.screen_step_y
+	src.screen_loc = BuildScreenLoc(src.screen_x, step_x, src.screen_y, step_y)
 
 
 proc/CommasADV(s)

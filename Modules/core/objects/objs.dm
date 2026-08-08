@@ -1561,7 +1561,7 @@ obj
 			step_size = 5
 			appearance_flags = KEEP_TOGETHER
 			filters = filter(type="motion_blur", x=1, y=0)
-			var in_use = 0;
+			var/in_use = 0
 			proc
 				enable(var/mob/m)
 					src.icon = m.icon
@@ -27229,3 +27229,8 @@ obj/items/consumables/food
 		spawn(10)
 			src.active=1
 			src.expiration_date()
+
+/obj/effects/txt/runechat
+	var/mob/viewer
+	var/display_image
+	var/fading = 0

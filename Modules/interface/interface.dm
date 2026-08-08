@@ -13,6 +13,23 @@ proc/GetScreenResolution(mob/M) // Yay dynamic HUDS?!
 	var/Y = text2num(copytext(POS,COMA+1,0))
 	M.client.view="[round(X/60)]x[round(Y/33)]"
 
+proc/GetViewTileSize(var/client/C)
+	var/view_size = "[C ? C.view : ""]"
+	var/split = findtext(view_size, "x")
+	var/vx
+	var/vy
+	if(split)
+		vx = text2num(copytext(view_size, 1, split))
+		vy = text2num(copytext(view_size, split + 1, 0))
+	else
+		vx = text2num(view_size)
+		vy = vx
+	if(!vx)
+		vx = BASE_VIEW_X
+	if(!vy)
+		vy = BASE_VIEW_Y
+	return list(vx, vy)
+
 client/proc/CalculateGlobalScale()
 
     var/main_size = winget(src, "main", "size")
@@ -349,30 +366,30 @@ client/proc/Rescale_TitleScreen(var/mob/m)
 	set background = 1
 	if(!m || !m.client) return
 
-	var/view_size = m.client.view
-	//var/vx = text2num(copytext(view_size, 1, findtext(view_size, "x")))
-	var/vy = text2num(copytext(view_size, findtext(view_size, "x") + 1))
+	var/list/view_tiles = GetViewTileSize(m.client)
+	var/vy = view_tiles[2]
+	var/title_y = max(1, vy - 10)
+	var/join_y = max(1, vy - 5)
 
 	for(var/obj/hud/titles/title/h in m.client.screen)
 		//m<"Moving Title."
-		h.screen_loc = "5,[vy-10]:13"
+		h.screen_loc = BuildScreenLoc(5, null, title_y, 13)
 	for(var/obj/hud/titles/Join_World/h in m.client.screen)
 	//	m<"Moving Join Now Icon."
-		h.screen_loc = "15,[vy-5]:13"
+		h.screen_loc = BuildScreenLoc(15, null, join_y, 13)
 HUD/proc/Rescale_Debuffs_Hud(var/mob/m)
 	set background = 1
 	if(!m || !m.client) return
 
-	var/view_size = m.client.view
-	//var/vx = text2num(copytext(view_size, 1, findtext(view_size, "x")))
-	var/vy = text2num(copytext(view_size, findtext(view_size, "x") + 1))
+	var/list/view_tiles = GetViewTileSize(m.client)
+	var/vy = view_tiles[2]
 	var/start_x = 3
 	var/start_y = 5
 	for(var/obj/buffs_and_debuffs/b in m.client.screen)
 
 		//src.client.screen -= b;
 		if(b.active)
-			b.screen_loc = "[start_x]:[start_y],[vy]"
+			b.screen_loc = BuildScreenLoc(start_x, start_y, vy)
 			if(start_x == "3") b.info_txt.maptext_x = b.x_shift
 			//else b.info_txt.maptext_x = -38
 			//if(src.client) src.client.screen += b;
@@ -386,23 +403,31 @@ HUD/proc/Rescale_HUD(var/mob/m)
 	if(!m || !m.client ) return
 	if(world.time < m.last_hud_rescale + 2) return
 	m.last_hud_rescale = world.time
-	var/view_size = m.client.view
-	var/vx = text2num(copytext(view_size, 1, findtext(view_size, "x")))
-	var/vy = text2num(copytext(view_size, findtext(view_size, "x") + 1))
+	var/list/view_tiles = GetViewTileSize(m.client)
+	var/vx = view_tiles[1]
+	var/vy = view_tiles[2]
+	var/hud_top_y = max(1, vy - 1)
+	var/hud_second_y = max(1, vy - 2)
+	var/hud_menu_y = max(1, vy - 3)
+	var/hud_admin_y = max(1, vy - 4)
+	var/hud_tree_y = max(1, vy - 5)
+	var/hud_portrait_y = max(1, vy - 2)
+	var/hud_title_x = max(1, vx - 12)
+	var/hud_help_x = max(1, vx - 15)
 
 
 	// === Core HUD Bars ===
 	//if(m.hud_info)
 		//m.hud_info.screen_loc = "BOTTOM,RIGHT"
 	if(m.hud_hp_bar)
-		m.hud_hp_bar.screen_loc = "3:1,[vy-1]:4"
+		m.hud_hp_bar.screen_loc = BuildScreenLoc(3, 1, hud_top_y, 4)
 	if(m.hud_hp_bar_inner)
-		m.hud_hp_bar_inner.screen_loc = "3:2,[vy-1]:4"
+		m.hud_hp_bar_inner.screen_loc = BuildScreenLoc(3, 2, hud_top_y, 4)
 
 	if(m.hud_eng_bar)
-		m.hud_eng_bar.screen_loc = "3:1,[vy-2]:17"
+		m.hud_eng_bar.screen_loc = BuildScreenLoc(3, 1, hud_second_y, 17)
 	if(m.hud_eng_bar_inner)
-		m.hud_eng_bar_inner.screen_loc = "3:2,[vy-2]:18"
+		m.hud_eng_bar_inner.screen_loc = BuildScreenLoc(3, 2, hud_second_y, 18)
 	var/start_x = 3
 	var/start_y = 5
 	for(var/obj/effects/over_displays/lvl_up_overlay/h in m.client.screen)
@@ -411,7 +436,7 @@ HUD/proc/Rescale_HUD(var/mob/m)
 		if(!comma) continue
 
 		var/y_part = copytext(orig, comma+1) // everything after the comma (Y side)
-		h.screen_loc = "[vx-12],[y_part]"
+		h.screen_loc = "[hud_title_x],[y_part]"
 
 
 	for(var/obj/hud/menus/bodyparts_background/h in m.client.screen)
@@ -460,20 +485,20 @@ HUD/proc/Rescale_HUD(var/mob/m)
 		if(!comma) continue
 
 		var/y_part = copytext(orig, comma+1) // everything after the comma (Y side)
-		h.screen_loc = "[vx-15],[y_part]"
+		h.screen_loc = "[hud_help_x],[y_part]"
 	for(var/obj/quests/tutorials/h in m.client.screen)
 		var/orig = h.screen_loc
 		var/comma = findtext(orig, ",")
 		if(!comma) continue
 
 		var/y_part = copytext(orig, comma+1) // everything after the comma (Y side)
-		h.screen_loc = "[vx-15],[y_part]"
+		h.screen_loc = "[hud_help_x],[y_part]"
 
 	for(var/obj/buffs_and_debuffs/b in m.client.screen)
 
 		//src.client.screen -= b;
 		if(b.active)
-			b.screen_loc = "[start_x]:[start_y],[vy]"
+			b.screen_loc = BuildScreenLoc(start_x, start_y, vy)
 			if(start_x == "3") b.info_txt.maptext_x = b.x_shift
 			//else b.info_txt.maptext_x = -38
 			//if(src.client) src.client.screen += b;
@@ -486,34 +511,34 @@ HUD/proc/Rescale_HUD(var/mob/m)
 	// === Power/Stat Display ===
 	if(m.hud_pp)
 		m.hud_pp.plane=29
-		m.hud_pp.screen_loc = "3:5,[vy-1]:20"
+		m.hud_pp.screen_loc = BuildScreenLoc(3, 5, hud_top_y, 20)
 
 	// === Skill Buttons / Menu ===
 	if(m.hud_passivetree)
-		m.hud_passivetree.screen_loc = "1:1,[vy-3]:13"
+		m.hud_passivetree.screen_loc = BuildScreenLoc(1, 1, hud_menu_y, 13)
 	if(m.hud_immersionshop)
-		m.hud_immersionshop.screen_loc = "2:1,[vy-3]:13"
+		m.hud_immersionshop.screen_loc = BuildScreenLoc(2, 1, hud_menu_y, 13)
 	if(m.hud_dokushop)
-		m.hud_dokushop.screen_loc = "3:1,[vy-3]:13"
+		m.hud_dokushop.screen_loc = BuildScreenLoc(3, 1, hud_menu_y, 13)
 
 	if(m.hud_cft)
-		m.hud_cft.screen_loc = "1:55,[vy-5]:13"
+		m.hud_cft.screen_loc = BuildScreenLoc(1, 55, hud_tree_y, 13)
 	if(m.hud_rptree)
-		m.hud_rptree.screen_loc = "2:1,[vy-5]:13"
+		m.hud_rptree.screen_loc = BuildScreenLoc(2, 1, hud_tree_y, 13)
 
 	// === Optional eating bar ===
 	if(m.hud_eat)
-		m.hud_eat.screen_loc = "3:[vx-3],[vy-3]"
+		m.hud_eat.screen_loc = BuildScreenLoc(3, vx - 3, hud_menu_y)
 
 
 	for(var/obj/hud/buttons/main/button_admin/h in m.client.screen)
 
-		h.screen_loc = "1:1,[vy-4]:13"
+		h.screen_loc = BuildScreenLoc(1, 1, hud_admin_y, 13)
 	for(var/obj/hud/buttons/main/button_emote/h in m.client.screen)
 		h.screen_loc = "BOTTOM,RIGHT-10"
 
 	for(var/obj/portrait/h in m.client.screen)
-		h.screen_loc = "1,[vy-2]:14"
+		h.screen_loc = BuildScreenLoc(1, null, hud_portrait_y, 14)
 	// === Revive Bar (center mid-screen) ===
 	//for(var/obj/hud/bars/revive_bar/h in m.client.screen)
 	//	h.screen_loc = "CENTER,TOP+([vy]/2)"

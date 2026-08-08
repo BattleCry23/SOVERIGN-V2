@@ -20,10 +20,9 @@ mob/var
 	NamekianLanguage=0
 
 proc/LanguageOutput(mob/M,var/phrase)
-	var
-		leng=length(phrase)
-		counter=length(phrase)
-		newphrase="";newletter=""
+	var/leng=length(phrase)
+	var/counter=length(phrase)
+	var/newphrase="",newletter=""
 	switch(M.CurrentLanguage)
 		if("Newborn")
 			for(var/mob/MM in view(M,15))

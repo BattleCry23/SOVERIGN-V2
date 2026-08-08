@@ -3660,7 +3660,7 @@ mob
 				src.target = m
 				m.estimates()
 				src.create_target_bars(m)
-				m.screen_loc = "1:[8+m.pixel_x_og],13:[2+(round(m.pixel_y_og/2))]"
+				m.screen_loc = BuildScreenLoc(1, 8 + m.pixel_x_og, 13, 2 + round(m.pixel_y_og / 2))
 				//if(src.client)
 					//src.client.images += m.target_img
 
@@ -6762,11 +6762,11 @@ mob
 				var step_x = text2num(ScreenLocParser.group[3])
 				var tile_y = text2num(ScreenLocParser.group[4])
 				var step_y = text2num(ScreenLocParser.group[5])
-				if(tile_x) src.mouse_x = tile_x
-				if(tile_y) src.mouse_y = tile_y
-				if(step_x) src.mouse_pix_x = step_x
-				if(step_y) src.mouse_pix_y = step_y
-				src.mouse_screen_loc = "[tile_x]:[step_x],[tile_y]:[step_y]"
+				if(!isnull(ScreenLocParser.group[2])) src.mouse_x = tile_x
+				if(!isnull(ScreenLocParser.group[4])) src.mouse_y = tile_y
+				if(!isnull(ScreenLocParser.group[3])) src.mouse_pix_x = step_x
+				if(!isnull(ScreenLocParser.group[5])) src.mouse_pix_y = step_y
+				src.mouse_screen_loc = BuildScreenLoc(tile_x, isnull(ScreenLocParser.group[3]) ? null : step_x, tile_y, isnull(ScreenLocParser.group[5]) ? null : step_y)
 				//world << "Test mouse = [src.mouse_screen_loc]"
 		create_info_tooltips()
 			var/image/o = new

@@ -371,7 +371,7 @@ mob
 			for(var/obj/buffs_and_debuffs/b in src)
 				//src.client.screen -= b;
 				if(b.active)
-					if(src.client && !locate((b) in src.client.screen)) b.screen_loc = "[debuff_x],18"
+					if(src.client && !locate((b) in src.client.screen)) b.screen_loc = BuildScreenLoc(debuff_x, null, 18)
 					if(debuff_x == 32) b.info_txt.maptext_x = b.x_shift
 					else b.info_txt.maptext_x = -38
 					if(src.client && !locate((b) in src.client.screen)) src.client.screen += b;

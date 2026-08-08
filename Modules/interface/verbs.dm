@@ -1165,7 +1165,7 @@ mob
 					if(m != usr)
 						var/obj/hud/map_blip/detect = new
 						detect.icon = 'map_blip_sense.dmi'
-						detect.screen_loc = "map_box:1:[m.x],1:[m.y]"
+						detect.screen_loc = BuildScreenLoc(1, m.x, 1, m.y, "map_box")
 						if(m.race == "Human") detect.icon_state = "human"
 						if(m.race == "Goog") detect.icon_state = "goog"
 						detect.name = m.name
@@ -1174,14 +1174,14 @@ mob
 						usr.mobs_map += m
 						usr.blips_map += detect
 				while(usr.open_map)
-					usr.blip.screen_loc = "map_box:1:[usr.x],1:[usr.y]"
+					usr.blip.screen_loc = BuildScreenLoc(1, usr.x, 1, usr.y, "map_box")
 					if(length(usr.blips_map))
 						var/pos = 1
 						var/pos_max = length(usr.mobs_map)
 						while(pos != pos_max)
 							var/mob/m = usr.mobs_map[pos]
 							var/obj/b = usr.blips_map[pos]
-							if(b) b.screen_loc = "map_box:1:[m.x],1:[m.y]"
+							if(b) b.screen_loc = BuildScreenLoc(1, m.x, 1, m.y, "map_box")
 							pos += 1
 					sleep(1)
 					//CHECK_TICK

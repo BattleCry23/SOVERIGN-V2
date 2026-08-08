@@ -148,6 +148,7 @@ mob
 	var/tmp/confirming = 0
 	var/tmp/last_pickup_time = 0
 	var/list/installed_cybernetics = list()
+	var/list/runechat_entries = null
 	var/tmp/next_gravity_damage = 0
 	var/tmp/last_gravity_tick = 0
 	var

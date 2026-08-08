@@ -3484,33 +3484,37 @@ obj
 							var/obj/chargeball = new
 							chargeball.icon = 'beam_charge.dmi'
 							chargeball.icon *= custom_color
+							chargeball.icon_state = "psionic"
+							chargeball.plane = 15
+							chargeball.layer = FLOAT_LAYER
+							chargeball.appearance_flags = PIXEL_SCALE
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
 									chargeball.icon_state = "divine"
-									chargeball.plane = 2
+									chargeball.plane = 15
 									break
-								else
-									chargeball.icon_state = "psionic"
-									chargeball.plane = 1
-							if(chargeball.icon_state==null||chargeball.icon_state=="") chargeball.icon_state = "psionic"
+							if(chargeball.icon_state==null||chargeball.icon_state=="")
+								chargeball.icon_state = "psionic"
 							chargeball.pixel_x = -48
 							chargeball.pixel_y = -48
-							chargeball.transform*=0.1
+							chargeball.transform *= 0.1
 							chargeball.bolted = 2
 							chargeball.density_factor = -1
 
 							var/obj/ball = new
 							ball.icon = 'beam_head.dmi'
 							ball.icon *= custom_color
+							ball.icon_state = "psionic"
+							ball.plane = 15
+							ball.layer = FLOAT_LAYER + 1
+							ball.appearance_flags = PIXEL_SCALE
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
 									ball.icon_state = "divine"
-									ball.plane = 2
+									ball.plane = 15
 									break
-								else
-									ball.icon_state = "psionic"
-									ball.plane = 1
-							if(ball.icon_state==null||ball.icon_state=="") ball.icon_state = "psionic"
+							if(ball.icon_state==null||ball.icon_state=="")
+								ball.icon_state = "psionic"
 							ball.pixel_x = -48
 							ball.pixel_y = -48
 							ball.transform*=0.1
@@ -3524,14 +3528,10 @@ obj
 							var/obj/ball_hit = new
 							ball_hit.icon = 'beam_hit.dmi'
 							ball_hit.icon *= custom_color
-							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
-								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
-									ball_hit.icon_state = "divine"
-									ball_hit.plane = 2
-									break
-								else
-									ball_hit.icon_state = "psionic"
-									ball_hit.plane = 1
+							ball_hit.icon_state = ""
+							ball_hit.plane = 15
+							ball_hit.layer = FLOAT_LAYER + 1
+							ball_hit.appearance_flags = PIXEL_SCALE
 							if(ball_hit.icon_state==null||ball_hit.icon_state=="") ball_hit.icon_state = "psionic"
 							ball_hit.pixel_x = -48
 							ball_hit.pixel_y = -48
@@ -3544,15 +3544,16 @@ obj
 							beam.icon *= custom_color
 							beam.ki_owner = m
 							beam.tag = "skill_beam_body"
+							beam.icon_state = "psionic"
+							beam.plane = 15
+							beam.appearance_flags = PIXEL_SCALE
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
 									beam.icon_state = "divine"
-									beam.plane = 2
+									beam.plane = 15
 									break
-								else
-									beam.icon_state = "psionic"
-									beam.plane = 1
-							if(beam.icon_state==null||beam.icon_state=="") beam.icon_state="psionic"
+							if(beam.icon_state==null||beam.icon_state=="")
+								beam.icon_state="psionic"
 							beam.pixel_y = -48
 							beam.bolted = 2
 							beam.density_factor = -1
@@ -3602,16 +3603,17 @@ obj
 							var/turf/t = null
 
 							var/go = 1
-							//m.beaming
-							  // Store the direction to lock later
+							var/beam_dir = EAST
 
-
-							switch(m.mouse_degree-180)
-								if(0 to 44) m.dir = WEST
-								if(45 to 135) m.dir = NORTH
-								if(136 to 225) m.dir = EAST
-								if(226 to 315) m.dir = SOUTH
-								if(316 to 360) m.dir = WEST
+							m.locked_mouse_degree = m.GetAngleStep(m.mouse_saved_loc)//m.mouse_degree
+							switch(m.locked_mouse_degree)
+								if(0 to 44) beam_dir = EAST
+								if(45 to 135) beam_dir = SOUTH
+								if(136 to 225) beam_dir = WEST
+								if(226 to 315) beam_dir = NORTH
+								if(316 to 360) beam_dir = EAST
+							m.dir = beam_dir
+							ball.dir = beam_dir
 
 							m.locked_mouse_degree = m.GetAngleStep(m.mouse_saved_loc)//m.mouse_degree
 							view(12, m) << SS
@@ -3797,6 +3799,8 @@ obj
 											chanted=0
 										view(12,m)<<S
 										fired = 1
+										if(chargeball)
+											chargeball.loc = null
 										if(ray && ray.loc) ray.loc = null
 										var/obj/effects/hit/h = new
 										h.loc = m.loc
@@ -3852,18 +3856,28 @@ obj
 											//Once we know how far and long the beam can travel, cap it off with an end graphically
 											//var/b_x = ((pix*32)+(trans_max/10)) * cos(m.mouse_degree)
 											//var/b_y = ((pix*32)+(trans_max/10)) * sin(m.mouse_degree)
-											var/b_x = ((pix*32)+16) * cos(m.locked_mouse_degree)// - og setting
-											var/b_y = ((pix*32)+16) * sin(m.locked_mouse_degree)// - og setting
+											var/head_distance = (pix_max * 32) + 16
+											var/b_x = head_distance * cos(m.locked_mouse_degree)
+											var/b_y = head_distance * sin(m.locked_mouse_degree)
+											ball.Move(m.loc, 0, m.step_x + b_x, m.step_y - b_y)
+											ball.dir = beam_dir
+											ball.layer = FLOAT_LAYER + 1
 											ball_hit.Move(m.loc, 0, m.step_x + b_x, m.step_y - b_y)
-											ball_hit.layer = 6
-										else ball_hit.loc = null
+											ball_hit.layer = FLOAT_LAYER + 1
+										else
+											ball.loc = null
+											ball_hit.loc = null
 
 										steps = 0
 
 										//Stretch out the beam graphically to the length of the plotted course, then set its location a tiny bit away from the caster.
 
 										size = clamp(size,0,1) //Make sure beam has a max size
-
+										var/matrix/H = matrix()
+										H.Scale(size, size)
+										ball.transform = H
+										ball_hit.transform = H
+										
 										var/matrix/M = matrix()
 										M.Scale(pix,size)
 										M.Translate(trans,0)
@@ -7823,6 +7837,28 @@ obj
 			// Used to hide power from others
 			// Used to power up for extra damage
 			// Used to return power to normal
+			proc
+				reset_power_control(var/mob/m, var/show_message = 1, var/revert_form = 1, var/reset_power_percent = 1)
+					if(!m)
+						return
+					if(revert_form && m.transformed)
+						m.revert_transformation()
+					if(reset_power_percent)
+						if(m.dead)
+							m.power_percent = (100 * m.death_power_mod)
+						else
+							m.power_percent = 100
+					src.icon_state = "Profusion off"
+					remove_overlay(m, src.aura)
+					m.powering_up = 0
+					if(m.current_attack == src)
+						m.current_attack = null
+					src.active = 0
+					stage = 0
+					if(m.client) m.recov_sources -= "From Power Control skill"
+					if(show_message)
+						m.shockwave()
+						m << output("You return your power to normal.","actionoutput")
 			New()
 				..()
 				category = list("Energy","Power","Buff")
@@ -7863,6 +7899,10 @@ obj
 									if(m.power_percent <= 0) m.power_percent = 0;
 									if(src.active >= 1 && m.power_percent > 100 && stage == 1)
 										var/drain=10*(m.power_percent-100)/pick(1,m.mod_recovery)
+										if(m.meditating)
+											m.powering_up = 0
+											src.active = 0
+											remove_overlay(m, src.aura)
 										if(m.energy >= drain)
 											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
@@ -8000,15 +8040,7 @@ obj
 							if(m.transformed)
 								m.revert_transformation()
 							if(m.power_percent != 100)
-								m.power_percent = 100
-								m.shockwave()
-								m << output("You return your power to normal.","actionoutput")
-								src.icon_state = "Profusion off"
-								remove_overlay(m, src.aura)
-								m.powering_up = 0
-								src.active = 0
-								stage = 0
-								if(m.client) m.recov_sources -= "From Power Control skill"
+								src.reset_power_control(m)
 								return
 
 							// THIRD: start powering down
