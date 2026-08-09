@@ -72,3 +72,66 @@ proc/update_beam_appearance(mob/m, angle, size, reach, sprite_half = 32, \
 	if(hit_part)
 		hit_part.Move(m.loc, 0, m.step_x + tip_dx, m.step_y - tip_dy)
 		hit_part.transform = TIP
+
+proc/apply_beam_appearance(obj/origin_part, obj/body_part, obj/head_part, obj/hit_part, obj/ray_part, var/beam_color, obj/charge_part = null)
+	var/c = beam_color
+	if(!c) c = rgb(80, 170, 255)
+	var/glow_c = c
+	var/impact_c = c
+
+	// Charge: bright startup orb/halo that pulses before the beam fires.
+	if(charge_part)
+		charge_part.alpha = 255
+		charge_part.filters = null
+		charge_part.filters += filter(type="outline", size=1, color=glow_c)
+		charge_part.filters += filter(type="drop_shadow", x=0, y=0, size=4, offset=1, color=glow_c)
+		charge_part.filters += filter(type="bloom", threshold=0, size=8, offset=1, alpha=180)
+		animate(charge_part, alpha=255, time=1, loop=-1)
+		animate(charge_part, alpha=170, time=2)
+
+	// Muzzle: hot/bright near the caster.
+	if(origin_part)
+		origin_part.alpha = 255
+		origin_part.filters = null
+		origin_part.filters += filter(type="outline", size=1, color=glow_c)
+		origin_part.filters += filter(type="drop_shadow", x=0, y=0, size=5, offset=1, color=impact_c)
+		origin_part.filters += filter(type="bloom", threshold=0, size=6, offset=1, alpha=220)
+		animate(origin_part, alpha=255, time=1, loop=-1)
+		animate(alpha=215, time=2)
+
+	// Tracer core: readable, thin-feel beam with limited bloom washout.
+	if(body_part)
+		body_part.alpha = 225
+		body_part.filters = null
+		body_part.filters += filter(type="outline", size=1, color=impact_c)
+		body_part.filters += filter(type="drop_shadow", x=0, y=0, size=2, offset=1, color=c)
+		body_part.filters += filter(type="bloom", threshold=0, size=3, offset=1, alpha=120)
+		animate(body_part, alpha=240, time=1, loop=-1)
+		animate(alpha=200, time=2)
+
+	// Forward tracer tip.
+	if(head_part)
+		head_part.alpha = 255
+		head_part.filters = null
+		head_part.filters += filter(type="outline", size=1, color=impact_c)
+		head_part.filters += filter(type="drop_shadow", x=0, y=0, size=4, offset=1, color=glow_c)
+		head_part.filters += filter(type="bloom", threshold=0, size=5, offset=1, alpha=190)
+		animate(head_part, alpha=255, time=1, loop=-1)
+		animate(alpha=210, time=2)
+
+	// Impact: strongest local flash at collision end.
+	if(hit_part)
+		hit_part.alpha = 255
+		hit_part.filters = null
+		hit_part.filters += filter(type="outline", size=1, color=impact_c)
+		hit_part.filters += filter(type="drop_shadow", x=0, y=0, size=6, offset=1, color=impact_c)
+		hit_part.filters += filter(type="bloom", threshold=0, size=9, offset=1, alpha=230)
+		animate(hit_part, alpha=255, time=1, loop=-1)
+		animate(alpha=185, time=1)
+
+	// Ambient ray texture behind tracer.
+	if(ray_part)
+		ray_part.alpha = 120
+		ray_part.filters = null
+		ray_part.filters += filter(type="rays", x=0, y=0, size=96, color=glow_c, offset=0, density=18, threshold=0.72, factor=0, flags=FILTER_OVERLAY)
+		animate(ray_part.filters[1], offset=100, time=120, loop=-1)

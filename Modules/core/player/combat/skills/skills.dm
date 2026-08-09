@@ -3530,7 +3530,7 @@ obj
 							ball.icon *= custom_color
 							ball.icon_state = "psionic"
 							ball.plane = 15
-							ball.layer = FLOAT_LAYER + 1
+							ball.layer = FLOAT_LAYER + 15
 							ball.appearance_flags = PIXEL_SCALE
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
@@ -3554,7 +3554,7 @@ obj
 							ball_hit.icon *= custom_color
 							ball_hit.icon_state = ""
 							ball_hit.plane = 15
-							ball_hit.layer = FLOAT_LAYER + 1
+							ball_hit.layer = FLOAT_LAYER + 15
 							ball_hit.appearance_flags = PIXEL_SCALE
 							if(ball_hit.icon_state==null||ball_hit.icon_state=="") ball_hit.icon_state = "psionic"
 							ball_hit.pixel_x = -48
@@ -3602,6 +3602,7 @@ obj
 							ray.filters += filter(type="rays",x=0,y=0,size=96,color=rgb(255,255,255),offset=0,density=10,threshold=0.7,factor=0,flags=FILTER_OVERLAY)
 							animate(ray.filters[1],offset = 100,time = 1000, loop = -1)
 							animate(offset = 0,time = 0)
+							apply_beam_appearance(beam, ball, ball_hit, ray, custom_color, chargeball)
 
 							src.parts = list(chargeball,ball,ball_hit,beam,checker,ray)
 
@@ -4332,6 +4333,7 @@ obj
 					ray.pixel_x = -144; ray.pixel_y = -144
 					ray.filters += filter(type="rays", x=0, y=0, size=96, color=rgb(255,255,255), offset=0, density=10, threshold=0.7, factor=0, flags=FILTER_OVERLAY)
 					animate(ray.filters[1], offset=100, time=1000, loop=-1)
+					apply_ctf_beam_appearance(ball, beam, null, ball_hit, ray, custom_color)
 
 					src.parts = beam_parts
 
@@ -4858,6 +4860,7 @@ obj
 				ray.filters += filter(type="rays",x=0,y=0,size=96,color=rgb(255,255,255),offset=0,density=10,threshold=0.7,factor=0,flags=FILTER_OVERLAY)
 				animate(ray.filters[1],offset = 100,time = 1000, loop = -1)
 				animate(offset = 0,time = 0)
+				apply_beam_appearance(ball, beam, null, ball_hit, ray, custom_color)
 
 				src.parts = list(ball,ball_hit,beam,checker,ray)
 

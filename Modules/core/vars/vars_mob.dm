@@ -1411,6 +1411,8 @@ mob
 		tmp/attack_anim_lock_until = 0
 		tmp/corpse_load_guard_until = 0
 		tmp/last_attacked = null
+		tmp/combat_tag_until = 0
+		tmp/combat_tag_source = null
 		tmp/mouse_degree = 0
 		tmp/locked_mouse_degree = 0
 		tmp/obj/ranged/ball = null

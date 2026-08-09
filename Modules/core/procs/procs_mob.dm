@@ -951,22 +951,67 @@ mob/proc/oozaru_rampage_loop()
 
 	while(in_oozaru_rampage && !src.koed && !src.stunned && !src.meditating && !src.selftraining)
 		// Disable manual movement keys
-		client.move_dir = 0
-		client.input_dir = 0
+		if(src.client)
+			src.client.move_dir = 0
+			src.client.input_dir = 0
 
-		// Force random movement if not stunned or locked
+		if(src.skill_control_oozaru && prob(1))
+			sleep(10)
+			return
+
 		if(!src.koed && !src.stunned && !src.selftraining && !src.beaming && src.can_move)
-			if(src.skill_control_oozaru && prob(1))
-				sleep(10)
-				return
-			var/dir_to_move = pick(NORTH, SOUTH, EAST, WEST)
-			step(src, dir_to_move)
+			src.oozaru_rampage_step()
 
-		// Random skill activation
-		spawn(10)
-			random_oozaru_action()
+		sleep(4)
 
-		sleep(10) // adjust for pacing (1 = 0.1 sec, so 10 = 1 second)
+mob/proc/oozaru_pick_rampage_target(var/scan_range = 25)
+	if(!src) return null
+	var/mob/best_target = null
+	var/best_dist = scan_range + 1
+	for(var/mob/M in oview(scan_range, src))
+		if(!M || M == src) continue
+		if(M.z != src.z) continue
+		if(M.koed || M.dead) continue
+		if(!M.can_harm) continue
+		var/d = get_dist(src, M)
+		if(d < best_dist)
+			best_dist = d
+			best_target = M
+	return best_target
+
+mob/proc/oozaru_rampage_step()
+	if(!src) return
+
+	if(src.grabbed_by && src.grabbed_by != src && !src.grabbed_by.koed && !src.grabbed_by.dead && src.grabbed_by.z == src.z)
+		src.target = src.grabbed_by
+
+	if(!src.target || src.target == src || src.target.koed || src.target.dead || src.target.z != src.z || get_dist(src, src.target) > 25)
+		src.target = src.oozaru_pick_rampage_target(25)
+
+	if(src.target)
+		src.dir = get_dir(src, src.target)
+		var/dist = get_dist(src, src.target)
+		if(dist > 1)
+			if(prob(85))
+				step_towards(src, src.target)
+			else
+				step_rand(src)
+		if(dist <= 2)
+			src.Attack()
+		if(prob(30))
+			src.random_oozaru_action()
+		return
+
+	// No valid target: thrash around and break nearby environment.
+	if(prob(65))
+		step_rand(src)
+	else
+		src.dir = pick(NORTH, SOUTH, EAST, WEST)
+	if(prob(45))
+		src.Attack()
+	if(prob(15))
+		src.random_oozaru_action()
+
 mob/proc/random_oozaru_action()
 	// Add more chaos here if desired
 	var/list/skills = list()
