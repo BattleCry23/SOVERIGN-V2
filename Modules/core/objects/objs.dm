@@ -1561,7 +1561,7 @@ obj
 			step_size = 5
 			appearance_flags = KEEP_TOGETHER
 			filters = filter(type="motion_blur", x=1, y=0)
-			var in_use = 0;
+			var/in_use = 0
 			proc
 				enable(var/mob/m)
 					src.icon = m.icon
@@ -13424,6 +13424,43 @@ obj
 				var/spoiled = 0
 				var/buried = 0
 				var/turf/buried_turf = null
+				var/owner_name = null
+				var/owner_key = null
+				var/owner_id = null
+				Del()
+					var/mob/owner_mob = src.resolve_owner_mob()
+					var/should_restore = 0
+					if(owner_mob && owner_mob.dead && !owner_mob.kept_body && !src.spoiled)
+						if(owner_mob.corpse_load_guard_until && world.time <= owner_mob.corpse_load_guard_until)
+							should_restore = 1
+							world.log << "Corpse delete intercepted during load guard for [owner_mob.key]/[owner_mob.real_name] at [src.x],[src.y],[src.z]"
+					. = ..()
+					if(should_restore && owner_mob)
+						spawn(1)
+							if(owner_mob && owner_mob.dead && !owner_mob.kept_body)
+								owner_mob.run_one_time_corpse_cleanup()
+				proc
+					matches_owner(var/mob/m)
+						if(!m) return 0
+						if(owner_id && m.id == owner_id) return 1
+						if(owner_key && m.key == owner_key) return 1
+						if(owner_name && m.real_name == owner_name) return 1
+						if(owner == m || owner == m.real_name) return 1
+						if(ismob(owner))
+							var/mob/owner_mob = owner
+							if(owner_mob == m) return 1
+							if(owner_mob.id && owner_mob.id == m.id) return 1
+							if(owner_mob.key && owner_mob.key == m.key) return 1
+							if(owner_mob.real_name && owner_mob.real_name == m.real_name) return 1
+						return 0
+					resolve_owner_mob()
+						if(ismob(owner))
+							var/mob/owner_mob = owner
+							if(owner_mob.client) return owner_mob
+						for(var/mob/m in world)
+							if(!m.client) continue
+							if(src.matches_owner(m)) return m
+						return null
 				New()
 					..()
 					spawn(72000)
@@ -13431,7 +13468,9 @@ obj
 							src.spoiled = 1
 							for(var/mob/m in view(10,src))
 								m<<output("[src]'s body has decayed.","actionoutput")
-							src.owner<<output("Your living body has decayed.","actionoutput")
+							var/mob/owner_mob = src.resolve_owner_mob()
+							if(owner_mob)
+								owner_mob << output("Your living body has decayed.","actionoutput")
 							src.owner=null
 							src.destroy()
 				Click(location,control,params)
@@ -13469,22 +13508,20 @@ obj
 											return
 										usr.left_click_function = null
 										usr.left_click_ref = null
-										var/found_body_owner = 0
-										for(var/mob/m in world)
-											if(m.client && m.real_name == src.owner)
-												m.loc = src.loc
-												m.step_x = src.step_x
-												m.step_y = src.step_y
-												m.Body()
-												m.Revive()
-												m.energy = 1
-												m.KO()
-												d.use_obj(usr)
-												found_body_owner = 1
-												spawn()
-													if(src) src.destroy()
-												return
-										if(found_body_owner == 0)
+										var/mob/body_owner = src.resolve_owner_mob()
+										if(body_owner)
+											body_owner.loc = src.loc
+											body_owner.step_x = src.step_x
+											body_owner.step_y = src.step_y
+											body_owner.Body()
+											body_owner.Revive()
+											body_owner.energy = 1
+											body_owner.KO()
+											d.use_obj(usr)
+											spawn()
+												if(src) src.destroy()
+											return
+										else
 											usr.set_alert("Defibrillation failed",d.icon,d.icon_state)
 											usr << output("Defibrillation failed, wasn't able to locate the soul of the corpse and rejoin it with their body.","actionoutput")
 			yuk_tree_heart
@@ -27229,3 +27266,8 @@ obj/items/consumables/food
 		spawn(10)
 			src.active=1
 			src.expiration_date()
+
+/obj/effects/txt/runechat
+	var/mob/viewer
+	var/display_image
+	var/fading = 0

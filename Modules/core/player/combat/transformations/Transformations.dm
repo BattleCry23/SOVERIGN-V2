@@ -280,7 +280,7 @@ mob/proc/start_changeling_transformation_effect()
 	return 0
 
 mob/proc/gain_superform_mastery()
-	if(!src.transformed || src.superform <= 0 || src.energy_max <= 0)
+	if(!src.transformed || src.superform <= 0 || src.energy_max <= 0 || src.dead)
 		return
 	if(world.time < src.next_sf_mastery_tick)
 		return
@@ -534,6 +534,10 @@ mob/proc/transformation_drain(var/mob/container)
 	container.transformation_drain_running = 1
 
 	while(container && container.transformed && container.superform && container.energy_max > 0)
+		if(container.dead)
+			sleep(10)
+			continue
+
 		if(prob(30))
 			container.gain_superform_mastery()
 
@@ -622,7 +626,11 @@ mob/proc/transformation_drain(var/mob/container)
 			var/mastery_multi = 1 - ((mastery / 100) * mastery_reduction)
 			var/energy_ratio = max(0.05, min(container.energy / max(container.energy_max, 1), 1))
 			var/pressure_multi = 1 + ((1 - energy_ratio) * 0.5)
-			var/final_drain = max(min_drain, round(transdrain * mastery_multi * container.sf_drain * form_multiplier * pressure_multi))
+			var/second_form_relief = 1
+			var/final_drain = max(min_drain, round(transdrain * mastery_multi * container.sf_drain * form_multiplier * pressure_multi * second_form_relief))
+			if(container.race == "Changeling" && container.superform == 1 && mastery < 100)
+				var/unmastered_second_form_ratio = max(0, (100 - mastery) / 100)
+				second_form_relief = 1 - (0.35 * unmastered_second_form_ratio)
 			if(apply_backlash && mastery >= 100 && container.superform <= 3)
 				final_drain = 0
 			else if(apply_backlash && mastery >= 100 && container.superform == 4)
@@ -666,14 +674,14 @@ mob/proc/SSJForm_Effect()
 //	var/progress = 0;
 //	var/obj/bar = null
 //	var/obj/bar_inner = null
-	var/tmp/list/things = list()
-	var/tmp/list/dusts = list()
-	var/tmp/list/disk_dust1 = list()
-	var/tmp/list/disk_dust2 = list()
-//	var/tmp/obj/g_ball = null
-//	var/tmp/obj/g_rays = null
-	var/tmp/list/pixs
-	var/tmp/mob_filter_pos = 0
+	var/list/things = list()
+	var/list/dusts = list()
+	var/list/disk_dust1 = list()
+	var/list/disk_dust2 = list()
+//	var/obj/g_ball = null
+//	var/obj/g_rays = null
+	var/list/pixs
+	var/mob_filter_pos = 0
 	var/sound/SF = sound('first ssj.ogg')
 	SF.channel = 3
 	SF.volume = 25
@@ -977,14 +985,14 @@ mob/proc/Changeling_Superform2ndForm_Effect()
 //	var/progress = 0;
 //	var/obj/bar = null
 //	var/obj/bar_inner = null
-	var/tmp/list/things = list()
-	var/tmp/list/dusts = list()
-	var/tmp/list/disk_dust1 = list()
-	var/tmp/list/disk_dust2 = list()
-//	var/tmp/obj/g_ball = null
-//	var/tmp/obj/g_rays = null
-	var/tmp/list/pixs
-	var/tmp/mob_filter_pos = 0
+	var/list/things = list()
+	var/list/dusts = list()
+	var/list/disk_dust1 = list()
+	var/list/disk_dust2 = list()
+//	var/obj/g_ball = null
+//	var/obj/g_rays = null
+	var/list/pixs
+	var/mob_filter_pos = 0
 	var/sound/S = sound('Power_Control_Stop.wav')
 	S.channel = 9
 	S.volume = 40
@@ -1425,14 +1433,14 @@ mob/proc/Changeling_Superform3rdForm_Effect()
 //	var/progress = 0;
 //	var/obj/bar = null
 //	var/obj/bar_inner = null
-	var/tmp/list/things = list()
-	var/tmp/list/dusts = list()
-	var/tmp/list/disk_dust1 = list()
-	var/tmp/list/disk_dust2 = list()
-//	var/tmp/obj/g_ball = null
-	//var/tmp/obj/g_rays = null
-	var/tmp/list/pixs
-	var/tmp/mob_filter_pos = 0
+	var/list/things = list()
+	var/list/dusts = list()
+	var/list/disk_dust1 = list()
+	var/list/disk_dust2 = list()
+//	var/obj/g_ball = null
+	//var/obj/g_rays = null
+	var/list/pixs
+	var/mob_filter_pos = 0
 	var/sound/S = sound('Power_Control_Stop.wav')
 	S.channel = 9
 	S.volume = 40
@@ -1724,14 +1732,14 @@ mob/proc/Changeling_Superform4thForm_Effect()
 //	var/progress = 0;
 //	var/obj/bar = null
 //	var/obj/bar_inner = null
-	var/tmp/list/things = list()
-	var/tmp/list/dusts = list()
-	var/tmp/list/disk_dust1 = list()
-	var/tmp/list/disk_dust2 = list()
-//	var/tmp/obj/g_ball = null
-	//var/tmp/obj/g_rays = null
-	var/tmp/list/pixs
-	var/tmp/mob_filter_pos = 0
+	var/list/things = list()
+	var/list/dusts = list()
+	var/list/disk_dust1 = list()
+	var/list/disk_dust2 = list()
+//	var/obj/g_ball = null
+	//var/obj/g_rays = null
+	var/list/pixs
+	var/mob_filter_pos = 0
 	var/sound/SF = sound('FriezaBegs.ogg')
 	SF.channel = 3
 	SF.volume = 30
@@ -2039,14 +2047,14 @@ mob/proc/Changeling_Superform5thForm_Effect()
 //	var/progress = 0;
 //	var/obj/bar = null
 //	var/obj/bar_inner = null
-	var/tmp/list/things = list()
-	var/tmp/list/dusts = list()
-	var/tmp/list/disk_dust1 = list()
-	var/tmp/list/disk_dust2 = list()
-//	var/tmp/obj/g_ball = null
-	//var/tmp/obj/g_rays = null
-	var/tmp/list/pixs
-	var/tmp/mob_filter_pos = 0
+	var/list/things = list()
+	var/list/dusts = list()
+	var/list/disk_dust1 = list()
+	var/list/disk_dust2 = list()
+//	var/obj/g_ball = null
+	//var/obj/g_rays = null
+	var/list/pixs
+	var/mob_filter_pos = 0
 	var/sound/SF = sound('KameSad.ogg')
 	SF.channel = 3
 	SF.volume = 25

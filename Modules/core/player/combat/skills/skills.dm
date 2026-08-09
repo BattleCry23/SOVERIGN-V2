@@ -95,7 +95,31 @@ obj
 			over.pixel_y = -1
 			src.img_over = over
 
+		proc
+			is_dead_without_kept_body_blocked(mob/m)
+				if(!m || !m.dead || m.kept_body || src.active)
+					return 0
+				if(istype(src,/obj/skills/Self_Train))
+					return 1
+				if(src.info_energy_cost)
+					return 1
+				return 0
+
+			show_dead_without_kept_body_block(mob/m)
+				if(!m) return
+				if(istype(src,/obj/skills/Self_Train))
+					m << output("<font color = teal>While dead without your kept body, you cannot self-train.</font>","chat.system")
+					m.set_alert("Cannot self-train",src.icon,src.icon_state)
+				else
+					m << output("<font color = teal>While dead without your kept body, you cannot use energy-based skills.</font>","chat.system")
+					m.set_alert("Cannot use energy skills",src.icon,src.icon_state)
+
 		Click()
+			if(ismob(src.loc))
+				var/mob/m = src.loc
+				if(src.is_dead_without_kept_body_blocked(m))
+					src.show_dead_without_kept_body_block(m)
+					return 1
 			//usr.check_quest("tutorial_use_skill",1)
 			if(src.loc == null && usr.hud_unlocks || usr.hud_unlocks && src.passive_skill == 1)
 				usr.skill_selected = src
@@ -918,7 +942,7 @@ obj
 					//	src.skill_lvl = m.android_skill
 				//	sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -967,7 +991,7 @@ obj
 					//	src.skill_lvl = m.android_skill
 				//	sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1176,7 +1200,7 @@ obj
 										//m.client.screen += src.bar_inner
 							sleep(t)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1253,7 +1277,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1420,7 +1444,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1601,7 +1625,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1698,7 +1722,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1913,7 +1937,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2080,7 +2104,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2238,7 +2262,7 @@ obj
 										if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2444,7 +2468,7 @@ obj
 										call(src.act)(m,src)*/
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2488,7 +2512,7 @@ obj
 				category = list("Excercise")
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2705,7 +2729,7 @@ obj
 				category = list("Strength", "Utility")
 
 			Click(location, control, params)
-				..()
+				if(..()) return
 				if (ismob(src.loc))
 					var/mob/m = src.loc
 					if (m.koed) return
@@ -2861,7 +2885,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3043,7 +3067,7 @@ obj
 							if(m.shadow && m.skill_invis == null || m.skill_invis && m.skill_invis.active == 0) m.shadow.alpha = 255
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3199,7 +3223,7 @@ obj
 									if(m.reflection) animate(m.reflection,pixel_y = 0, time = 11)
 							sleep(5)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3236,7 +3260,7 @@ obj
 				..()
 				category = list("Force","Agility","Buff")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3277,7 +3301,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					return
 					var/mob/m = src.loc
@@ -3340,7 +3364,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3484,33 +3508,37 @@ obj
 							var/obj/chargeball = new
 							chargeball.icon = 'beam_charge.dmi'
 							chargeball.icon *= custom_color
+							chargeball.icon_state = "psionic"
+							chargeball.plane = 15
+							chargeball.layer = FLOAT_LAYER
+							chargeball.appearance_flags = PIXEL_SCALE
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
 									chargeball.icon_state = "divine"
-									chargeball.plane = 2
+									chargeball.plane = 15
 									break
-								else
-									chargeball.icon_state = "psionic"
-									chargeball.plane = 1
-							if(chargeball.icon_state==null||chargeball.icon_state=="") chargeball.icon_state = "psionic"
+							if(chargeball.icon_state==null||chargeball.icon_state=="")
+								chargeball.icon_state = "psionic"
 							chargeball.pixel_x = -48
 							chargeball.pixel_y = -48
-							chargeball.transform*=0.1
+							chargeball.transform *= 0.1
 							chargeball.bolted = 2
 							chargeball.density_factor = -1
 
 							var/obj/ball = new
 							ball.icon = 'beam_head.dmi'
 							ball.icon *= custom_color
+							ball.icon_state = "psionic"
+							ball.plane = 15
+							ball.layer = FLOAT_LAYER + 1
+							ball.appearance_flags = PIXEL_SCALE
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
 									ball.icon_state = "divine"
-									ball.plane = 2
+									ball.plane = 15
 									break
-								else
-									ball.icon_state = "psionic"
-									ball.plane = 1
-							if(ball.icon_state==null||ball.icon_state=="") ball.icon_state = "psionic"
+							if(ball.icon_state==null||ball.icon_state=="")
+								ball.icon_state = "psionic"
 							ball.pixel_x = -48
 							ball.pixel_y = -48
 							ball.transform*=0.1
@@ -3524,14 +3552,10 @@ obj
 							var/obj/ball_hit = new
 							ball_hit.icon = 'beam_hit.dmi'
 							ball_hit.icon *= custom_color
-							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
-								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
-									ball_hit.icon_state = "divine"
-									ball_hit.plane = 2
-									break
-								else
-									ball_hit.icon_state = "psionic"
-									ball_hit.plane = 1
+							ball_hit.icon_state = ""
+							ball_hit.plane = 15
+							ball_hit.layer = FLOAT_LAYER + 1
+							ball_hit.appearance_flags = PIXEL_SCALE
 							if(ball_hit.icon_state==null||ball_hit.icon_state=="") ball_hit.icon_state = "psionic"
 							ball_hit.pixel_x = -48
 							ball_hit.pixel_y = -48
@@ -3544,15 +3568,16 @@ obj
 							beam.icon *= custom_color
 							beam.ki_owner = m
 							beam.tag = "skill_beam_body"
+							beam.icon_state = "psionic"
+							beam.plane = 15
+							beam.appearance_flags = PIXEL_SCALE
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
 									beam.icon_state = "divine"
-									beam.plane = 2
+									beam.plane = 15
 									break
-								else
-									beam.icon_state = "psionic"
-									beam.plane = 1
-							if(beam.icon_state==null||beam.icon_state=="") beam.icon_state="psionic"
+							if(beam.icon_state==null||beam.icon_state=="")
+								beam.icon_state="psionic"
 							beam.pixel_y = -48
 							beam.bolted = 2
 							beam.density_factor = -1
@@ -3602,16 +3627,17 @@ obj
 							var/turf/t = null
 
 							var/go = 1
-							//m.beaming
-							  // Store the direction to lock later
+							var/beam_dir = EAST
 
-
-							switch(m.mouse_degree-180)
-								if(0 to 44) m.dir = WEST
-								if(45 to 135) m.dir = NORTH
-								if(136 to 225) m.dir = EAST
-								if(226 to 315) m.dir = SOUTH
-								if(316 to 360) m.dir = WEST
+							m.locked_mouse_degree = m.GetAngleStep(m.mouse_saved_loc)//m.mouse_degree
+							switch(m.locked_mouse_degree)
+								if(0 to 44) beam_dir = EAST
+								if(45 to 135) beam_dir = SOUTH
+								if(136 to 225) beam_dir = WEST
+								if(226 to 315) beam_dir = NORTH
+								if(316 to 360) beam_dir = EAST
+							m.dir = beam_dir
+							ball.dir = beam_dir
 
 							m.locked_mouse_degree = m.GetAngleStep(m.mouse_saved_loc)//m.mouse_degree
 							view(12, m) << SS
@@ -3797,6 +3823,8 @@ obj
 											chanted=0
 										view(12,m)<<S
 										fired = 1
+										if(chargeball)
+											chargeball.loc = null
 										if(ray && ray.loc) ray.loc = null
 										var/obj/effects/hit/h = new
 										h.loc = m.loc
@@ -3852,18 +3880,28 @@ obj
 											//Once we know how far and long the beam can travel, cap it off with an end graphically
 											//var/b_x = ((pix*32)+(trans_max/10)) * cos(m.mouse_degree)
 											//var/b_y = ((pix*32)+(trans_max/10)) * sin(m.mouse_degree)
-											var/b_x = ((pix*32)+16) * cos(m.locked_mouse_degree)// - og setting
-											var/b_y = ((pix*32)+16) * sin(m.locked_mouse_degree)// - og setting
+											var/head_distance = (pix_max * 32) + 16
+											var/b_x = head_distance * cos(m.locked_mouse_degree)
+											var/b_y = head_distance * sin(m.locked_mouse_degree)
+											ball.Move(m.loc, 0, m.step_x + b_x, m.step_y - b_y)
+											ball.dir = beam_dir
+											ball.layer = FLOAT_LAYER + 1
 											ball_hit.Move(m.loc, 0, m.step_x + b_x, m.step_y - b_y)
-											ball_hit.layer = 6
-										else ball_hit.loc = null
+											ball_hit.layer = FLOAT_LAYER + 1
+										else
+											ball.loc = null
+											ball_hit.loc = null
 
 										steps = 0
 
 										//Stretch out the beam graphically to the length of the plotted course, then set its location a tiny bit away from the caster.
 
 										size = clamp(size,0,1) //Make sure beam has a max size
-
+										var/matrix/H = matrix()
+										H.Scale(size, size)
+										ball.transform = H
+										ball_hit.transform = H
+										
 										var/matrix/M = matrix()
 										M.Scale(pix,size)
 										M.Translate(trans,0)
@@ -3897,7 +3935,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -4064,7 +4102,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -4560,7 +4598,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -4702,7 +4740,7 @@ obj
 						var/obj/ranged/eye_laser/l = new
 						src.segments += l
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -5087,7 +5125,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -5283,7 +5321,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -5464,7 +5502,7 @@ obj
 						sleep(spd)
 					*/
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					//var/clear = 0
@@ -6003,7 +6041,7 @@ obj
 					if(src)
 						src.info = "Allows the merging of two beings' genetic data to create a new offspring template.\nRequires both parties to consent."
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6059,7 +6097,7 @@ obj
 							var/mob/m = src.loc
 							m.skill_telepathy = src
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6086,7 +6124,7 @@ obj
 						s.icon_state = "Pyrokinesis"
 						s.active = 1
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6306,7 +6344,7 @@ obj
 							sleep(0.1)
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6352,7 +6390,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
@@ -6590,7 +6628,7 @@ obj
 								src.shotforsound = 0
 							sleep(0.1)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6794,7 +6832,7 @@ obj
 								return
 							sleep(0.1)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6896,7 +6934,7 @@ obj
 							b.fired = 1
 							b.go(80,di)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6999,7 +7037,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7095,7 +7133,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7152,7 +7190,7 @@ obj
 
 					if(src.disable_sleep) return
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7266,7 +7304,7 @@ obj
 								return*/
 					if(m.started == 0) return
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7357,7 +7395,7 @@ obj
 									view(8,m) << output("<font color = green> [m] fails to tighten their grip on [t]'s [m.grab_part]!", "chat.local")
 									return
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7406,7 +7444,7 @@ obj
 									t.Death("[m]")
 									m.target = null
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7531,7 +7569,7 @@ obj
 					if(m.active_attack == src) m.active_attack = null
 					m.icon_state = m.state()
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7698,7 +7736,7 @@ obj
 					m.icon_state = m.state()
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7775,7 +7813,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7823,6 +7861,28 @@ obj
 			// Used to hide power from others
 			// Used to power up for extra damage
 			// Used to return power to normal
+			proc
+				reset_power_control(var/mob/m, var/show_message = 1, var/revert_form = 1, var/reset_power_percent = 1)
+					if(!m)
+						return
+					if(revert_form && m.transformed)
+						m.revert_transformation()
+					if(reset_power_percent)
+						m.power_percent = (100 * m.death_power_mod)
+					src.icon_state = "Profusion off"
+					remove_overlay(m, src.aura)
+					m.powering_up = 0
+					if(m.current_attack == src)
+						m.current_attack = null
+					src.active = 0
+					stage = 0
+					if(m.client) m.recov_sources -= "From Power Control skill"
+					if(show_message)
+						if(reset_power_percent)
+							m.shockwave()
+							m << output("You return your power to normal.","actionoutput")
+						else
+							m << output("You stop powering up.","actionoutput")
 			New()
 				..()
 				category = list("Energy","Power","Buff")
@@ -7863,6 +7923,9 @@ obj
 									if(m.power_percent <= 0) m.power_percent = 0;
 									if(src.active >= 1 && m.power_percent > 100 && stage == 1)
 										var/drain=10*(m.power_percent-100)/pick(1,m.mod_recovery)
+										if(m.meditating)
+											reset_power_control(m, 1,0,0)
+											return
 										if(m.energy >= drain)
 											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
@@ -7989,26 +8052,12 @@ obj
 							 //Power down
 							// FIRST: stop powering up if currently powering up
 							if(src.active == 1)
-								src.active = 0
-								m.powering_up = 0
-								m << output("You stop powering up.","actionoutput")
-								src.icon_state = "Profusion off"
-								remove_overlay(m, src.aura)
+								reset_power_control(m, 1,0,0)
 								return
 
 							// SECOND: return power to normal if above/below 100
-							if(m.transformed)
-								m.revert_transformation()
 							if(m.power_percent != 100)
-								m.power_percent = 100
-								m.shockwave()
-								m << output("You return your power to normal.","actionoutput")
-								src.icon_state = "Profusion off"
-								remove_overlay(m, src.aura)
-								m.powering_up = 0
-								src.active = 0
-								stage = 0
-								if(m.client) m.recov_sources -= "From Power Control skill"
+								reset_power_control(m, 1,1,1)
 								return
 
 							// THIRD: start powering down
@@ -8221,7 +8270,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8325,7 +8374,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8376,7 +8425,7 @@ obj
 
 					if(src.disable_sleep) return
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8458,7 +8507,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8621,7 +8670,7 @@ obj
 										if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8776,7 +8825,7 @@ obj
 										if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8956,7 +9005,7 @@ obj
 										if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -9190,7 +9239,7 @@ obj
 											if(src && src.active && m) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -9622,7 +9671,7 @@ obj
 										call(src.act)(m,src)
 							sleep(15)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -9791,7 +9840,7 @@ obj
 											if(src && src.active && m) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -9843,7 +9892,7 @@ obj
 				if(src.disable_sleep) return
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10062,7 +10111,7 @@ obj
 									if(m.reflection) animate(m.reflection,pixel_y = 0, time = 11)
 							sleep(5)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10267,7 +10316,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10429,7 +10478,7 @@ obj
 									if(m.reflection) animate(m.reflection,pixel_y = 0, time = 11)
 							sleep(5)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10646,7 +10695,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10815,7 +10864,7 @@ obj
 									if(m.reflection) animate(m.reflection,pixel_y = 0, time = 11)
 							sleep(5)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11033,7 +11082,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11171,7 +11220,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11309,7 +11358,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11507,7 +11556,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11584,7 +11633,7 @@ obj
 						s.active = 0
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11657,7 +11706,7 @@ obj
 						s.active = 0
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12129,7 +12178,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12302,7 +12351,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12432,7 +12481,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12562,7 +12611,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12704,7 +12753,7 @@ obj
 										animate(m)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12930,7 +12979,7 @@ obj
 											if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12997,7 +13046,7 @@ obj
 							sleep(10)
 							*/
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13070,7 +13119,7 @@ obj
 
 							sleep(10)*/
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13183,7 +13232,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13287,7 +13336,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13314,7 +13363,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13424,7 +13473,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13513,7 +13562,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13565,7 +13614,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13607,7 +13656,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13649,7 +13698,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13691,7 +13740,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13732,7 +13781,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13841,7 +13890,7 @@ obj
 									else call(src.act)(m,src)
 								sleep(spd)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13889,7 +13938,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13959,6 +14008,10 @@ obj
 					if(world.time < s.last_activate_time + 30)
 						return
 					s.last_activate_time = world.time
+					if(!s.active && m.dead && !m.kept_body)
+						m << output("<font color = teal>While dead without your kept body, you cannot self-train.</font>","chat.system")
+						m.set_alert("Cannot self-train",s.icon,s.icon_state)
+						return
 					if(m.skill_sleep && m.skill_sleep.active || m.meditating ) return
 					if(m && s && m.skill_selftrain == null) m.skill_selftrain = s
 					if(s.active)
@@ -14105,7 +14158,7 @@ obj
 
 			Click(location,control,params)
 				//world << "[src]'s loc is [src.loc]"
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -14174,6 +14227,7 @@ obj
 						if(m.skill_quicksilver && m.skill_quicksilver.active) call(m.skill_quicksilver.act)(m,m.skill_quicksilver)
 						if(m.skill_active_meditation && m.skill_active_meditation.active) call(m.skill_active_meditation.act)(m,m.skill_active_meditation)
 						if(m.skill_selftrain && m.skill_selftrain.active) call(m.skill_selftrain.act)(m,m.skill_selftrain)
+						if(m.skill_kaioken && m.skill_kaioken.active) call(m.skill_kaioken.act)(m,m.skill_kaioken)
 						for(var/obj/skills/Incubation/inc in m)
 							if(inc.active) animate(m)
 						m.Move(m.loc,SOUTH,m.step_x,m.step_y)
@@ -14389,7 +14443,7 @@ obj
 							sleep(1)
 			Click(location,control,params)
 				//world << "[src]'s loc is [src.loc]"
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -14503,7 +14557,7 @@ obj
 									//	call(src.act)(m,src)
 							sleep(spd)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -14610,7 +14664,7 @@ obj
 							sleep(spd)
 			Click(location,control,params)
 				//world << "[src]'s loc is [src.loc]"
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -14929,7 +14983,7 @@ obj
 											if(src && src.active && m) call(src.act)(m,src)
 								sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15006,7 +15060,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15108,7 +15162,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15259,7 +15313,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15333,7 +15387,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15442,7 +15496,7 @@ obj
 										call(src.act)(m,src)
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15498,7 +15552,7 @@ obj
 
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15546,7 +15600,7 @@ obj
 
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15605,7 +15659,7 @@ obj
 
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15707,21 +15761,30 @@ obj
 									var/e = 10
 									if(m.trait_ef) e = 1
 									var/removes = (e/m.mod_recovery) + (e/src.skill_lvl)
+									var/flight_mastery = src.skill_lvl / 100
+									if(flight_mastery < 0) flight_mastery = 0
+									if(flight_mastery > 1) flight_mastery = 1
+									var/drain_multiplier = 1 - flight_mastery
+									var/flight_drain = max(0, (removes * 3) * drain_multiplier)
 									if(m.race == "Kai" && m.wings_hidden == 0)
 										if(m.z == 2 || m.z == 6) removes = 0
-									if(m.energy >= e)
+									if(m.race == "Kai" && m.wings_hidden == 0)
+										if(m.z == 2 || m.z == 6) flight_drain = 0
+									if(m.energy >= flight_drain)
 										//m.gain_stat("energy",1,0.1,"Flight")
 										//m.gain_stat("power",1,1,"Flight")
 										m.overlays -= /obj/effects/superfly
 										//m.overlays += /obj/effects/superfly
 										if(m.super_fly)
-											m.energy -= (removes*3)
+											if(flight_drain > 0)
+												m.energy -= flight_drain
 											//world << "[removes] energy removed by [src]"
 											//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										else
 											if(m.trait_ef == null)
 												//m.energy -= 1+((m.energy_max*0.25)/src.skill_lvl/m.mod_energy)
-												m.energy -= removes*3
+												if(flight_drain > 0)
+													m.energy -= flight_drain
 												//world << "[removes] energy removed by [src]"
 												//m << output("<font color = teal>[removes] energy removed by [src]","chat.system")
 										//src.skill_exp += (10/src.skill_lvl)*m.mod_skill
@@ -15736,7 +15799,7 @@ obj
 										call(src.act)(m,src)
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return

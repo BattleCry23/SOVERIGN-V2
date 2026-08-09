@@ -1,5 +1,5 @@
 #define _CSS "<style type='text/css'></style>"
-var global/regex/ScreenLocParser = regex("^(?:(?!\[0-9]+:)(\\w+):)?(\\d+)(?::(\\d+))?,(\\d+)(?::(\\d+))?$")
+var/global/regex/ScreenLocParser = regex("^(?:(\\w+):)?(\\d+)(?::(-?\\d+))?,(\\d+)(?::(-?\\d+))?$")
 
 client
 	show_popup_menus = 0
@@ -78,9 +78,9 @@ client
 			var/map_tiles_y = max(1, round(map_px_y / 32, 1))
 
 			// --- current view size in tiles (client.view like "17x11") ---
-			var/view_size = view
-			var/vx = text2num(copytext(view_size, 1, findtext(view_size, "x")))
-			var/vy = text2num(copytext(view_size, findtext(view_size, "x") + 1, 0))
+			var/list/view_tiles = GetViewTileSize(src)
+			var/vx = view_tiles[1]
+			var/vy = view_tiles[2]
 
 			// half extents (how many tiles from center to edge)
 			var/half_x = floor(vx / 2)
@@ -243,6 +243,7 @@ client
 			var/s
 			if(islist(params)) s = params["screen-loc"]
 			else s = params2list(params)["screen-loc"]
+			if(!s) return
 
 			var/x = 0
 			var/y = 0
@@ -251,22 +252,38 @@ client
 			var/s2 = copytext(s,length(s1)+2,0)
 
 			var/colon1 = findtext(s1,":",1,0)
-			var/colon2 = findtext(s1,":",colon1+1,0)
+			var/x_second_colon = findtext(s1,":",colon1+1,0)
+			var/y_colon
+			var/map_id
+			var/tile_x
+			var/step_x
+			var/tile_y
+			var/step_y
 
-			if(colon2)
-				x = (text2num(copytext(s1,colon1+1,colon2))-1) *TILE_WIDTH
-				x += text2num(copytext(s1,colon2+1,0))-1
+			if(x_second_colon)
+				map_id = copytext(s1, 1, colon1)
+				tile_x = text2num(copytext(s1,colon1+1,x_second_colon))
+				step_x = text2num(copytext(s1,x_second_colon+1,0))
+				x = (tile_x-1) *TILE_WIDTH
+				x += step_x-1
 
 			else
-				x = (text2num(copytext(s1,1,colon1))-1) * TILE_WIDTH
-				x += text2num(copytext(s1,colon1+1,0))-1
+				tile_x = text2num(copytext(s1,1,colon1))
+				step_x = text2num(copytext(s1,colon1+1,0))
+				x = (tile_x-1) * TILE_WIDTH
+				x += step_x-1
 
-			colon2 = findtext(s2,":",1,0)
-			y = (text2num(copytext(s2,1,colon2))-1) * TILE_HEIGHT
-			y += text2num(copytext(s2,colon2+1,0))-1
+			y_colon = findtext(s2,":",1,0)
+			tile_y = text2num(copytext(s2,1,y_colon))
+			step_y = text2num(copytext(s2,y_colon+1,0))
+			y = (tile_y-1) * TILE_HEIGHT
+			y += step_y-1
 
 
-			client_mouse_screen_loc = s
+			if(colon1 && y_colon)
+				client_mouse_screen_loc = BuildScreenLoc(tile_x, step_x, tile_y, step_y, map_id)
+			else
+				client_mouse_screen_loc = s
 			client_mouse_x = x
 			client_mouse_y = y
 
@@ -909,5 +926,3 @@ mob
 
 			spawn(3) // Adjust repeat speed
 				skill_macro_loop(t)
-
-

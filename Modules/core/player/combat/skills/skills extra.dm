@@ -116,7 +116,7 @@ obj/skills/Cyberize
 
 		m << "Cyberization successful."
 	Click(location,control,params)
-		..()
+		if(..()) return
 		if(ismob(src.loc))
 			var/mob/m = src.loc
 			if(m.koed) return
@@ -285,7 +285,7 @@ obj/skills/Destructo_Disk
         src.info = text_destructo_disk
 
     Click(location,control,params)
-        ..()
+        if(..()) return
         if(ismob(src.loc))
             var/mob/m = src.loc
             if(m.koed) return

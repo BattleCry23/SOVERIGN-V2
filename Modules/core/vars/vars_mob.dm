@@ -148,6 +148,7 @@ mob
 	var/tmp/confirming = 0
 	var/tmp/last_pickup_time = 0
 	var/list/installed_cybernetics = list()
+	var/list/runechat_entries = null
 	var/tmp/next_gravity_damage = 0
 	var/tmp/last_gravity_tick = 0
 	var
@@ -274,6 +275,9 @@ mob
 		mob_prepping=0
 		saved_icon = ""
 		death_location
+		corpse_x = 0
+		corpse_y = 0
+		corpse_z = 0
 		respawn_type // for npcs
 		respawnloc // for npcs
 
@@ -1405,6 +1409,7 @@ mob
 		tmp/atom/target_go = null
 		tmp/obj/active_attack = null
 		tmp/attack_anim_lock_until = 0
+		tmp/corpse_load_guard_until = 0
 		tmp/last_attacked = null
 		tmp/mouse_degree = 0
 		tmp/locked_mouse_degree = 0
@@ -1461,7 +1466,7 @@ mob
 
 		//Skills Stuff
 		tmp/kaioken_pl = 1
-		tmp/death_power_mod = 1
+		death_power_mod = 1
 		tmp/dead_ki_lock = 0
 		tmp/list/dead_skill_levels = null
 		tmp/kaiosoku_boost = 0
@@ -1563,6 +1568,7 @@ mob
 
 		//HUD
 		body_version = 0
+		corpse_cleanup_version = 0
 		//DEBUG
 		obj/debug_mouse = null
 

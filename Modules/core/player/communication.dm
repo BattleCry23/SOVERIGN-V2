@@ -1,4 +1,5 @@
 var/regex/quote = new/regex("(?:\\x22)(\[^\\x22]*)(?:\\x22|$)","g")
+
 proc
 	quotify(msg,color)
 		return quote.Replace(msg,{""<font color=[color]>$1</font>""})
@@ -65,7 +66,7 @@ mob/proc/GetPortraitIcon()
 	return I
 
 
-mob/proc/format_message(var/mob/M,message,src.text_color_ic)
+mob/proc/format_message(var/mob/M, message, text_color)
 	var/formatted_name="<font color=[src.text_color_ic]>[src.name]</font>"
 	var/formatted_message="<font color=yellow>[message]</font>"
 	var/regex/quote_regex = new/regex(".*")             //@{"(["'])(?:(?=(\\?))\2.)*?\1"}) //""([^"]*)""})
@@ -244,12 +245,11 @@ proc
 		return html_encode(t)
 	replace_quotations(text, open, close)
 		if(!text || !open || !close) return
-		var
-			const/quotation = "\""
-			is_open = FALSE
-			position = 0
-			last_start
-			result = ""
+		var/quotation = "\""
+		var/is_open = FALSE
+		var/position = 0
+		var/last_start
+		var/result = ""
 		for()
 			last_start = position + 1
 			position = findtext(text, quotation, last_start)
@@ -1017,7 +1017,8 @@ mob
 			set name = ".emote"
 			if(usr.typing) return
 			var/msg = winget(usr,"emote.input_emote","text")
-			var/speaker = usr
+			var/raw_runechat_msg = msg
+			var/mob/speaker = usr
 			if(usr.projection) speaker = usr.projection
 			for(var/mob/M in hearers(ViewX,speaker))
 				if(M.client)
@@ -1036,9 +1037,11 @@ mob
 			var/RP = rand(0.08,0.15)
 
 			msg = replace_quotations(msg, "\"<font color=[usr.text_color_ic]>", "</font>\"")
-			//msg = FilterString(msg)
-			//usr.count_words(msg,"\"<font color=[usr.text_color_ic]>", "</font>\"")
-			//world << "DEBUG words = [count_words(msg,"\"<font color=[usr.text_color_ic]>", "</font>\"")]"
+			if(length(raw_runechat_msg))
+				var/list/runechat_viewers = hearers(ViewX, speaker)
+				if(!(usr in runechat_viewers))
+					runechat_viewers += usr
+				speaker.show_runechat("*[raw_runechat_msg]*", usr.text_color_ic ? usr.text_color_ic : "#FFFFFF", 1, runechat_viewers)
 			for(var/mob/M in hearers(ViewX,speaker))
 				if(M.ref && ismob(M.ref))
 					var/mob/x = M.ref
@@ -1576,6 +1579,7 @@ mob
 			if(!msg) return
 			if(TryWhisper(msg)) return
 			var/obj/Quotations/B=new
+			var/raw_runechat_msg = msg
 
 			usr.last_message = msg
 			var/learned_name=0
@@ -1592,7 +1596,10 @@ mob
 			if(process_chat_command(msg)) return
 
 			var/mob/speaker = usr.projection ? usr.projection : usr
+			if(usr.SendInlineEmote(raw_runechat_msg, speaker))
+				return
 			if(!findtext(msg,"oocly") && usr.critical_throat)
+				raw_runechat_msg = "..."
 				msg = "*Mumbles incoherently*..."
 
 			// Pre-cache visuals
@@ -1601,7 +1608,9 @@ mob
 
 			//var/speaker_name = speaker.get_strangername(speaker)
 			var/speaker_color = usr.text_color_ic ? usr.text_color_ic : "#FFFFFF"
-
+			var/runechat_color = usr.text_color_ic ? usr.text_color_ic : "#FFFFFF"
+			if(usr.projection && usr.client.admin_mode)
+				speaker_color = lowertext(usr.client.admin_color)
 			//spawn() usr.save_chat_log(msg, 0)
 
 			// Admin echo
@@ -1619,6 +1628,8 @@ mob
 				var/list/hearing = hearers(14, usr.projection)
 				if (!(usr in hearing))
 					hearing += usr
+				if(length(raw_runechat_msg))
+					speaker.show_runechat(raw_runechat_msg, runechat_color, FALSE, hearing, TRUE)
 
 				for (var/mob/M in hearing)
 					M << output("<IMG CLASS=image SRC=\ref[speaker_avatar] STYLE='width:34px; height:34px;'><font color=[lowertext(usr.client.admin_color)]>[usr.client.admin_name]<IMG CLASS=image SRC=\ref[B.icon] STYLE='width:32px; height:32px;' ICONSTATE='' ICONFRAME=1> [msg]", "actionoutput")
@@ -1634,6 +1645,11 @@ mob
 					spawn(1) M.saveToLog("[usr]([key]): [msg]\n")*/
 
 			else
+				var/list/runechat_viewers = hearers(14, speaker)
+				if(!(usr in runechat_viewers))
+					runechat_viewers += usr
+				if(length(raw_runechat_msg))
+					speaker.show_runechat(raw_runechat_msg, runechat_color, FALSE, runechat_viewers, TRUE)
 				for(var/mob/M in hearers(14, speaker))
 					if(!M || M.npc || M.boss) continue
 
@@ -1642,10 +1658,8 @@ mob
 					if(findtext(msg,"(")) Hear = 1
 					//if(M.key == "VOXTECH") M.known_people -= M.fullname
 					if(learned_name && !(speaker.real_name in M.known_people))
-
 						M.known_people += speaker.real_name
-							M<<"<i>You've learned the name of [usr].</i>"
-						//world << "KNOWN LIST FOR [M]: [M.known_people]"
+						M << "<i>You've learned the name of [usr].</i>"
 
 					if(Hear)
 						if(M.client.admin_mode)
@@ -1671,16 +1685,18 @@ mob/proc/TryWhisper(var/msg)
 	else
 		return FALSE
 
-	msg = text_trim(msg)
+	msg = msg
 	if(!msg) return TRUE
 
 	// Get nearby players (3 tile radius)
 	var/list/targets = hearers(3, src)
 	if(!(src in targets))
 		targets += src
-
+	if(src.SendInlineEmote(msg, src, targets))
+		return TRUE
 	var/speaker_avatar = get_chatbox_render(src, src.client)
 	var/speaker_color = src.text_color_ic ? src.text_color_ic : "#FFFFFF"
+	src.show_runechat(msg, speaker_color, 1, targets, TRUE)
 
 	for(var/mob/M in targets)
 		if(!M.client) continue
@@ -1725,15 +1741,172 @@ mob/proc/SendAdminChat(var/message)
 		if(M.client && M.client.admin_level > 0)
 			M << "<font color=#ff4da6><b>[src.key]</b> (Admin): [message]</font>"
 // Modular sub-proc for command parsing
-/proc/text_trim(t as text)
-	if(!t) return ""
-	while(length(t) && copytext(t,1,2) == " ")
-		t = copytext(t,2)
-		sleep(0.1)
-	while(length(t) && copytext(t,length(t),length(t)+1) == " ")
-		t = copytext(t,1,length(t))
-		sleep(0.1)
-	return t
+/proc/extract_inline_emote(t as text)
+	t = t
+	if(!t || length(t) < 2)
+		return null
+	var/inner = null
+	if(length(t) >= 5 && copytext(t, 1, 3) == "**" && copytext(t, length(t) - 1, length(t) + 1) == "**")
+		inner = copytext(t, 3, length(t) - 1)
+	else if(copytext(t, 1, 2) == "*")
+		inner = copytext(t, 2)
+	if(!length(inner))
+		return null
+	return inner
+mob/proc/SendInlineEmote(var/message, var/mob/speaker_override = null, var/list/viewers = null)
+	var/emote_text = extract_inline_emote(message)
+	if(!emote_text)
+		return FALSE
+
+	var/mob/speaker = speaker_override ? speaker_override : (src.projection ? src.projection : src)
+	if(!viewers)
+		viewers = hearers(ViewX, speaker)
+		if(!(src in viewers))
+			viewers += src
+
+	var/display_msg = replace_quotations(emote_text, "\"<font color=[src.text_color_ic]>", "</font>\"")
+	speaker.show_runechat("*[emote_text]*", src.text_color_ic ? src.text_color_ic : "#FFFFFF", 1, viewers)
+
+	for(var/mob/M in viewers)
+		if(M.ref && ismob(M.ref))
+			var/mob/x = M.ref
+			M = x
+		if(!M || !M.client)
+			continue
+
+		M << output("<font color = yellow><BIG>\icon[src.icon]</BIG><font size=[M.text_size]>*[src] [display_msg]*", "actionoutput")
+		spawn(1)
+			M.saveToLog("[src]([key]): *[display_msg]*\n")
+
+	return TRUE
+mob/proc/refresh_runechat(var/mob/viewer)
+	if(!viewer || !viewer.client || !src.runechat_entries || !length(src.runechat_entries))
+		return
+
+	var/offset_y = 36
+	for(var/i = length(src.runechat_entries), i >= 1, i--)
+		var/obj/effects/txt/runechat/entry = src.runechat_entries[i]
+		if(!entry || entry.viewer != viewer || !entry.display_image)
+			continue
+
+		animate(entry.display_image, pixel_y = offset_y, time = 2)
+		offset_y += max(entry.maptext_height, 18) + 2
+
+mob/proc/remove_runechat(var/obj/effects/txt/runechat/entry, var/fade_time = 6)
+	if(!entry || entry.fading)
+		return
+
+	entry.fading = 1
+	if(src.runechat_entries && entry in src.runechat_entries)
+		src.runechat_entries -= entry
+		if(entry.viewer)
+			src.refresh_runechat(entry.viewer)
+
+	if(entry.display_image)
+		animate(entry.display_image, alpha = 0, pixel_z = 8, time = fade_time)
+	spawn(fade_time)
+		if(entry.viewer && entry.display_image)
+			var/mob/v = entry.viewer
+			if(v && v.client)
+				v.client.images -= entry.display_image
+		if(entry)
+			del(entry)
+
+mob/proc/show_runechat(var/message, var/text_color = "#FFFFFF", var/is_emote = 0, var/list/viewers = null, var/use_language_barrier = FALSE)
+	if(!src || !src.loc || !message)
+		return
+
+	message = "[message]"
+	if(!length(message))
+		return
+
+	var/auto_caps = findtext(message, "!!") ? TRUE : FALSE
+
+	if(length(message) > 140)
+		message = "[copytext(message, 1, 138)]..."
+
+	if(!src.runechat_entries)
+		src.runechat_entries = list()
+
+	if(!viewers)
+		viewers = view(8, src)
+		if(!(src in viewers))
+			viewers += src
+
+	for(var/mob/viewer in viewers)
+		if(!viewer || !viewer.client)
+			continue
+
+		var/rendered_message = message
+		if(use_language_barrier && !is_emote && viewer.lan)
+			rendered_message = src.LanguageSay(rendered_message, viewer.lan, viewer.lan.Mastery, viewer)
+		rendered_message = rendered_message
+		if(auto_caps)
+			rendered_message = uppertext(rendered_message)
+		if(!length(rendered_message))
+			continue
+
+		var/obj/effects/txt/runechat/entry = new
+		entry.viewer = viewer
+
+		var/safe_message = html_safe(rendered_message)
+		var/font_wrapper_open = ""
+		var/font_wrapper_close = ""
+		if(auto_caps)
+			font_wrapper_open += "<b>"
+			font_wrapper_close = "</b>[font_wrapper_close]"
+		if(is_emote)
+			font_wrapper_open += "<i>"
+			font_wrapper_close = "</i>[font_wrapper_close]"
+		var/rendered = "[css_outline]<font face='Verdana' size = 1><center><font color=[text_color]>[font_wrapper_open][safe_message][font_wrapper_close]</font>"
+
+		entry.maptext = rendered
+
+		var/text_width = entry.maptext_width
+		var/text_height = entry.maptext_height
+		var/measure = viewer.client.MeasureText(rendered, width = 160)
+		var/x_pos = findtext(measure, "x")
+		if(x_pos)
+			var/measured_width = text2num(copytext(measure, 1, x_pos))
+			var/measured_height = text2num(copytext(measure, x_pos + 1, 0))
+			if(measured_width > 0)
+				text_width = min(max(measured_width + 4, 72), 180)
+			if(measured_height > 0)
+				text_height = min(max(measured_height + 2, 16), 72)
+		else
+			text_width = min(max(length(rendered_message) * 6, 72), 180)
+			text_height = min(max(16 + round(length(rendered_message) / 28) * 12, 16), 72)
+
+		entry.maptext_width = text_width
+		entry.maptext_height = text_height
+		entry.maptext_x = -round((text_width - 32) / 2)
+
+		var/image/display = image(entry, src)
+		display.alpha = 0
+		display.pixel_z = -8
+		display.pixel_y = 36
+		entry.display_image = display
+
+		src.runechat_entries += entry
+		viewer.client.images += display
+
+		var/list/viewer_entries = list()
+		for(var/obj/effects/txt/runechat/existing in src.runechat_entries)
+			if(existing && existing.viewer == viewer)
+				viewer_entries += existing
+
+		while(length(viewer_entries) > 3)
+			var/obj/effects/txt/runechat/oldest = viewer_entries[1]
+			viewer_entries.Cut(1, 2)
+			src.remove_runechat(oldest, 2)
+
+		src.refresh_runechat(viewer)
+		animate(display, alpha = 255, pixel_z = 0, time = 2)
+
+		var/lifetime = 26 + min(length(rendered_message), 36)
+		spawn(lifetime)
+			if(src && entry)
+				src.remove_runechat(entry)
 mob/proc/process_chat_command(var/msg)
 	// -----------------------------
 	// ADMIN CHAT VIA //

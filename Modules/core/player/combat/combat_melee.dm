@@ -522,13 +522,20 @@ mob
 					b.step_x = src.step_x
 					b.step_y = src.step_y
 					b.icon_state = "KO"
-					b.owner = src
+					b.owner = src.real_name
+					b.owner_name = src.real_name
+					b.owner_key = src.key
+					b.owner_id = src.id
 					b.dir = src.dir
 					b.name = "[src.real_name]'s corpse"
 					i.dir = b.dir
 					b.overlays+=i
 					items += b
 					b.hp = src.psionic_power*src.endurance
+					src.death_location = locate(b.x,b.y,b.z)
+					src.corpse_x = b.x
+					src.corpse_y = b.y
+					src.corpse_z = b.z
 
 				//Drop cybertech
 				src.drop_cybertech()
@@ -628,6 +635,7 @@ mob
 						//if(already_dead == 0) src.disable_parts(null,1,1,1,"Death")
 					src.client.perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
 					src.client.eye = t
+					src.ensure_screen_text_obj()
 					src.screen_text.maptext = "<font size = 3><center>You have died. However this is not the end for you. If you feel like you your death was done in foul play, please gather any evidence and collectives you need and send them to an admin! If you plan to dispute your death, please pause your IC until an admin gives a decision."
 					animate(src.screen_text,alpha = 255,time = 120)
 					src<<"<font color=red>You have died. However this is not the end for you. If you feel like you your death was done in foul play, please gather any evidence and collectives you need and send them to an admin! If you plan to dispute your death, please pause your IC until an admin gives a decision.</font>"
@@ -640,6 +648,7 @@ mob
 					if(src)
 						src.client.perspective = MOB_PERSPECTIVE | EDGE_PERSPECTIVE //initial(src.client.perspective)
 						src.client.eye = src
+						src.ensure_screen_text_obj()
 						src.screen_text.alpha = 0;
 						src.dir = SOUTH
 						animate(src.vision,alpha = 0,time = 30)
@@ -709,7 +718,10 @@ mob
 					b.step_x = src.step_x
 					b.step_y = src.step_y
 					b.icon_state = "KO"
-					b.owner = src
+					b.owner = src.real_name
+					b.owner_name = src.real_name
+					b.owner_key = src.key
+					b.owner_id = src.id
 					b.dir = src.dir
 					b.name = "[src]'s corpse"
 					i.dir = b.dir
@@ -717,17 +729,10 @@ mob
 					items += b
 					b.hp = src.psionic_power*src.endurance
 					src.death_location = locate(b.x,b.y,b.z)
+					src.corpse_x = b.x
+					src.corpse_y = b.y
+					src.corpse_z = b.z
 
-				if(src.kept_body)
-					src.death_power_mod = 0.5
-					src.power_percent = (100 * src.death_power_mod)
-					for(var/obj/items/misc/body/B in world)
-						if(B.owner == src || B.owner == src.real_name)
-							spawn(200)
-								for(var/alpha = 255; alpha > 0; alpha -= 10)
-									B.alpha = alpha
-									sleep(2)
-								B.destroy()
 				if(!src.boss)
 				/*	var/obj/items/misc/item_container/ic = new
 					ic.name = "[src]'s items"
@@ -779,9 +784,13 @@ mob
 				//Drop items
 
 
-				//if(src.keep_body == 0) src.has_body = 0;
-				src.has_body = 0;
-				src.alpha = 80
+				if(src.kept_body)
+					src.Body_kept_while_dead()
+				else
+					src.has_body = 0;
+					src.alpha = 50
+					src.power_percent = (100 * src.death_power_mod)
+
 				if(!src.npc && !src.boss)
 					if(src.shadow) src.shadow.loc = null
 					var/mob/clone = null;
@@ -854,6 +863,7 @@ mob
 						//if(already_dead == 0) src.disable_parts(null,1,1,1,"Death")
 					src.client.perspective = EYE_PERSPECTIVE | EDGE_PERSPECTIVE
 					src.client.eye = t
+					src.ensure_screen_text_obj()
 					src.screen_text.maptext = "<font size = 3><center>You have died. However this is not the end for you. If you feel like you your death was done in foul play, please gather any evidence and collectives you need and send them to an admin! If you plan to dispute your death, please pause your IC until an admin gives a decision."
 					animate(src.screen_text,alpha = 255,time = 75)
 					src<<output("<font color=red>You have died. However this is not the end for you. If you feel like you your death was done in foul play, please gather any evidence and collectives you need and send them to an admin! If you plan to dispute your death, please pause your IC until an admin gives a decision.</font>","actionoutput")
@@ -863,6 +873,7 @@ mob
 					spawn(30)
 						src.client.perspective = MOB_PERSPECTIVE //| EDGE_PERSPECTIVE //initial(src.client.perspective)
 						src.client.eye = src
+						src.ensure_screen_text_obj()
 						src.screen_text.alpha = 0;
 						src.dir = SOUTH
 						animate(src,alpha = 200,time = 10)
@@ -945,13 +956,28 @@ mob
 			if(src.has_body == 0)
 				animate(src,alpha = 255, time = 30)
 				src.icon_state = ""
+				src.ensure_screen_text_obj()
 				src.screen_text.maptext = "<font size = 4><center>Your body was restored!"
 				src.has_body = 1;
-				src.death_power_mod = 0.5
+				//src.death_power_mod = 0.5
 				animate(src.screen_text,alpha = 255,time = 60)
 				animate(alpha = 0,time = 60)
 				src.disable_parts(null,1,0)
 				winset(src,null,"stats_other.label_has_body.text=\"Has Body: Yes\"")
+
+		Body_kept_while_dead()
+			if(src.kept_body)
+				src.Body()
+				src.death_power_mod = 0.5
+				src.power_percent = (100 * src.death_power_mod)
+				src.alpha = 150
+				for(var/obj/items/misc/body/B in world)
+					if(B.matches_owner(src))
+						spawn(200)
+							for(var/alpha = 255; alpha > 0; alpha -= 10)
+								B.alpha = alpha
+								sleep(2)
+							B.destroy()
 
 		TempRevive(var/energyconsumption,var/mob/caster)
 			if(src)
@@ -961,6 +987,7 @@ mob
 				src.power_percent = (100 * src.death_power_mod)
 				animate(src,alpha = 255, time = 30)
 				src.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=src.auracolor)
+				src.ensure_screen_text_obj()
 				src.screen_text.maptext = "<font size = 6><center>Soul temporarily restored"
 				animate(src.screen_text,alpha = 255,time = 60)
 				animate(alpha = 0,time = 60)
@@ -980,11 +1007,26 @@ mob
 				caster.reprievee = src
 				//if(src.debuff_dead && src.debuff_dead.active) call(src.debuff_dead.act)(src,src.debuff_dead)
 		Revive()
+			if(src.has_body == 0)
+				src.Body()
 			src.dead = 0;
 			src.dead_ki_lock = 0
 			src.dead_skill_levels = null
+			if(src.debuff_dead && src.debuff_dead.active)
+				src.debuff_dead.active = 0
+				if(src.client) src.client.screen -= src.debuff_dead
+			src.koed = 0
+			src.idle_state = null
+			src.lifeforce = 100
+			src.stunned = 0
+			src.can_attack = 1
+			src.recovering = 0
+			if(src.can_move == 0) src.can_move = 1
+			if(src.percent_health <= 0) src.percent_health = 100
+			if(src.energy <= 0) src.energy = 1
 			animate(src,alpha = 255, time = 30)
 			src.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=src.auracolor)
+			src.ensure_screen_text_obj()
 			src.screen_text.maptext = "<font size = 4><center>You were revived."
 			animate(src.screen_text,alpha = 255,time = 60)
 			animate(alpha = 0,time = 60)
@@ -1002,24 +1044,40 @@ mob
 			src.death_power_mod = 1
 			src.power_percent = (100 * src.death_power_mod)
 			src.alpha = 255
+			src.icon_state = src.state()
+			if(src.client)
+				src.client.color = null
+				src.client.images -= src.bar_ko
 			for(var/obj/items/misc/body/b in world)
-				if(b.owner == src)
+				if(b.matches_owner(src))
 					animate(b, alpha = 0, time = 20)
-					sleep(20)
-					if(b)
-						items -= b
-						b.destroy(b)
-					break
-			if(src.death_location)
+					spawn(20)
+						if(b)
+							items -= b
+							b.destroy(b)
+			var/turf/revive_turf = src.death_location
+			if(!revive_turf && src.corpse_x && src.corpse_y && src.corpse_z)
+				revive_turf = locate(src.corpse_x, src.corpse_y, src.corpse_z)
+			if(revive_turf)
 				if(src.kept_body)
-					src.death_location = AdminPickSpawnTurf(src.home_planet)
+					revive_turf = AdminPickSpawnTurf(src.home_planet)
 				else
-					src.loc=src.death_location
+					src.loc = revive_turf
 				src.check_glow_planes()
 				src.death_location = null
 				src.kept_body = 0
+			src.corpse_x = 0
+			src.corpse_y = 0
+			src.corpse_z = 0
+			src.update_looks()
 
 			//if(src.debuff_dead && src.debuff_dead.active) call(src.debuff_dead.act)(src,src.debuff_dead)
+		ensure_screen_text_obj()
+			if(!src.screen_text)
+				src.screen_text = new /obj/effects/screen_text
+			if(src.client && !(src.screen_text in src.client.screen))
+				src.client.screen += src.screen_text
+			return src.screen_text
 		KO(var/loggedin = 0,var/un_koed=0)
 			if(src.koed && !un_koed) return
 			if(src.eating) src.cancel_eat()
@@ -1156,6 +1214,10 @@ mob
 				else
 					flick("LPunch",src)
 		Attack()
+			if(src.dead && !src.kept_body)
+				src << output("<font color = teal>While dead without your kept body, you cannot attack.</font>","chat.system")
+				src.set_alert("Cannot attack",'alert.dmi',"alert")
+				return
 			if(src.koed || src.stunned || src.recovering || src.selftraining || src.meditating) //If the player is ko, stunned, ect, they can't attack.
 				//world << output("unable to attack - KO'ed, stunned, ect.","chat.local")
 				return

@@ -160,3 +160,3120 @@ DEBUG - the ok's Save was last saved on 04/08/2026
 DEBUG - ok(VOXTECH)'s Saved character to slot 1
 AuctionHouse: Saving all auction data before shutdown...
 AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16021
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (68,121,9) (/turf/snows/snow5)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16021
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (68,121,9) (/turf/snows/snow5)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16035
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (68,121,9) (/turf/snows/snow5)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3822
+  usr: the ok (/mob/races/Changeling)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the ok (/mob/races/Changeling)
+  call stack:
+Beam (/obj/skills/Beam): activate(the ok (/mob/races/Changeling), Beam (/obj/skills/Beam))
+the ok (/mob/races/Changeling): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16042
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (68,121,9) (/turf/snows/snow5)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16042
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (68,121,9) (/turf/snows/snow5)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16042
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (68,121,9) (/turf/snows/snow5)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16056
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (68,121,9) (/turf/snows/snow5)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+Cybertech Created.
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16059
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (68,121,9) (/turf/snows/snow5)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16060
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (68,121,9) (/turf/snows/snow5)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+(Admin Log): Admin Purple healed the ok
+(Admin Log): Admin Purple healed the ok
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 472 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+(Admin Log): Admin Purple killed the ok
+(Admin Log): Admin Purple healed the ok
+runtime error: list index out of bounds
+proc name: Changeling Superform2ndForm Effect (/mob/proc/Changeling_Superform2ndForm_Effect)
+  source file: Modules/core/player/combat/transformations/Transformations.dm,1386
+  usr: (src)
+  src: the ok (/mob/races/Changeling)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the ok (/mob/races/Changeling): Changeling Superform2ndForm Effect()
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the ok (/mob/races/Changeling): update limb hud()
+the ok (/mob/races/Changeling): check body health()
+the ok (/mob/races/Changeling): stats()
+the ok (/mob/races/Changeling): process stats()
+the ok (/mob/races/Changeling): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16064
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+File Read(the ok)!
+File Read(the ok)!
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the ok (/mob/races/Changeling): update limb hud()
+the ok (/mob/races/Changeling): check body health()
+the ok (/mob/races/Changeling): stats()
+the ok (/mob/races/Changeling): process stats()
+the ok (/mob/races/Changeling): process stats()
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+File Read(the ok)!
+File Read(the ok)!
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+File Read(the ok)!
+DEBUG - the ok login with /mob/races/Changeling mob
+File Read(the ok)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16060
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the grass (420,53,2) (/turf/grass)
+  call stack:
+the ok (/mob/races/Changeling): skillbar()
+the ok (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the ok) Loaded!
+VOXTECH logs in.</font>
+(Admin Log): Admin Purple transformed the ok
+runtime error: Cannot modify null.images.
+proc name: RunAdminCommand (/mob/proc/RunAdminCommand)
+  source file: Modules/core/admin/New admin panel.dm,1376
+  usr: (src)
+  src: the ok (/mob/races/Changeling)
+  src.loc: the grass (421,53,2) (/turf/grass)
+  call stack:
+the ok (/mob/races/Changeling): RunAdminCommand("Boot")
+VOXTECH (/client): Topic("src=\\refthe%20ok;admin_cmd=Bo...", /list (/list))
+DEBUG - the ok's Save was last saved on 07/08/2026
+DEBUG - ok(VOXTECH)'s Saved character to slot 1
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the ok (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the ok (/mob/races/Changeling): update limb hud()
+the ok (/mob/races/Changeling): check body health()
+the ok (/mob/races/Changeling): stats()
+the ok (/mob/races/Changeling): process stats()
+the ok (/mob/races/Changeling): process stats()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+File Read(the ok)!
+File Read(the ok)!
+File Read(the ok)!
+File Read(the ok)!
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - Changeling login with /mob/races/Changeling mob
+DEBUG - the poop's Save was last saved on 07/08/2026
+DEBUG - poop(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple killed the poop
+(Admin Log): Admin Purple healed the poop
+runtime error: list index out of bounds
+proc name: Changeling Superform2ndForm Effect (/mob/proc/Changeling_Superform2ndForm_Effect)
+  source file: Modules/core/player/combat/transformations/Transformations.dm,1386
+  usr: (src)
+  src: the poop (/mob/races/Changeling)
+  src.loc: the grass (421,57,2) (/turf/grass)
+  call stack:
+the poop (/mob/races/Changeling): Changeling Superform2ndForm Effect()
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 472 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+DEBUG - the poop's Save was last saved on 07/08/2026
+DEBUG - poop(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Changeling login with /mob/races/Changeling mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the o login with /mob/races/Changeling mob
+File Read(the o)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16036
+  usr: VOXTECH (/mob)
+  src: the o (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (450,90,9) (/turf/snows/snow5)
+  call stack:
+the o (/mob/races/Changeling): skillbar()
+the o (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the o) Loaded!
+Drugs Created.
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the o login with /mob/races/Changeling mob
+File Read(the o)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16039
+  usr: VOXTECH (/mob)
+  src: the o (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (450,90,9) (/turf/snows/snow5)
+  call stack:
+the o (/mob/races/Changeling): skillbar()
+the o (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the o) Loaded!
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+(Admin Log): Admin Purple killed the o
+(Admin Log): Admin Purple healed the o
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1005
+  usr: (src)
+  src: the o (/mob/races/Changeling)
+  src.loc: the grass (417,50,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): Revive()
+the o (/mob/races/Changeling): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20o;admin_cmd=Rev...", /list (/list))
+(Admin Log): Admin Purple revived the o
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+DEBUG - the o login with /mob/races/Changeling mob
+File Read(the o)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the o (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the snow5 (450,90,9) (/turf/snows/snow5)
+  call stack:
+the o (/mob/races/Changeling): skillbar()
+the o (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the o) Loaded!
+VOXTECH logs in.</font>
+(Admin Log): Admin Purple killed the o
+(Admin Log): Admin Purple healed the o
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the o login with /mob/races/Changeling mob
+File Read(the o)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the o (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the grass (418,51,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): skillbar()
+the o (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the o) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+File Read(the o)!
+File Read(the o)!
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: AdminSortTextAlpha (/proc/AdminSortTextAlpha)
+  source file: Modules/core/admin/New admin panel.dm,505
+  usr: the o (/mob/races/Changeling)
+  src: null
+  usr.loc: the grass (417,50,2) (/turf/grass)
+  call stack:
+AdminSortTextAlpha(/list (/list))
+AdminGetSortedVarNames(the o (/mob/races/Changeling))
+the o (/mob/races/Changeling): OpenAdminPlayerPanel(the o (/mob/races/Changeling))
+the o (/mob/races/Changeling): RunAdminCommand("Edit")
+VOXTECH (/client): Topic("src=\\refthe%20o;admin_cmd=Edi...", /list (/list))
+(Admin Log): Admin Purple opened Player Panel on the o
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+File Read(the o)!
+DEBUG - the o login with /mob/races/Changeling mob
+File Read(the o)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the o (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the grass (417,50,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): skillbar()
+the o (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the o) Loaded!
+VOXTECH logs in.</font>
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1005
+  usr: (src)
+  src: the o (/mob/races/Changeling)
+  src.loc: the grass (417,50,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): Revive()
+the o (/mob/races/Changeling): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20o;admin_cmd=Rev...", /list (/list))
+(Admin Log): Admin Purple revived the o
+(Admin Log): Admin Purple killed the o
+(Admin Log): Admin Purple healed the o
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the o login with /mob/races/Changeling mob
+File Read(the o)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the o (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): skillbar()
+the o (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the o) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+File Read(the o)!
+DEBUG - the o login with /mob/races/Changeling mob
+File Read(the o)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the o (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the grass (417,53,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): skillbar()
+the o (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the o) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,988
+  usr: (src)
+  src: the o (/mob/races/Changeling)
+  src.loc: the grass (416,52,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): Revive()
+the o (/mob/races/Changeling): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20o;admin_cmd=Rev...", /list (/list))
+(Admin Log): Admin Purple revived the o
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+File Read(the o)!
+File Read(the o)!
+DEBUG - the o login with /mob/races/Changeling mob
+File Read(the o)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the o (/mob/races/Changeling)
+  usr.loc: null
+  src.loc: the grass (414,53,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): skillbar()
+the o (/mob/races/Changeling): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the o) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+File Read(the o)!
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: AdminSortTextAlpha (/proc/AdminSortTextAlpha)
+  source file: Modules/core/admin/New admin panel.dm,505
+  usr: the o (/mob/races/Changeling)
+  src: null
+  usr.loc: the grass (414,53,2) (/turf/grass)
+  call stack:
+AdminSortTextAlpha(/list (/list))
+AdminGetSortedVarNames(the o (/mob/races/Changeling))
+the o (/mob/races/Changeling): OpenAdminPlayerPanel(the o (/mob/races/Changeling))
+the o (/mob/races/Changeling): RunAdminCommand("Edit")
+VOXTECH (/client): Topic("src=\\refthe%20o;admin_cmd=Edi...", /list (/list))
+(Admin Log): Admin Purple opened Player Panel on the o
+runtime error: Cannot modify null.maptext.
+proc name: Death (/mob/proc/Death)
+  source file: Modules/core/player/combat/combat_melee.dm,863
+  usr: (src)
+  src: the o (/mob/races/Changeling)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): Death("Admin Killed", 1)
+the o (/mob/races/Changeling): RunAdminCommand("Kill")
+VOXTECH (/client): Topic("src=\\refthe%20o;admin_cmd=Kil...", /list (/list))
+(Admin Log): Admin Purple killed the o
+(Admin Log): Admin Purple healed the o
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,994
+  usr: (src)
+  src: the o (/mob/races/Changeling)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the o (/mob/races/Changeling): Revive()
+the o (/mob/races/Changeling): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20o;admin_cmd=Rev...", /list (/list))
+(Admin Log): Admin Purple revived the o
+DEBUG - the o's Save was last saved on 08/08/2026
+DEBUG - o(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Lvl Overlays Created.
+Furrows Created.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=17;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=17;icon-y=17;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=13;left=1;but...")
+DEBUG - the lol's Save was last saved on 08/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple killed the lol
+(Admin Log): Admin Purple healed the lol
+DEBUG - the lol's Save was last saved on 08/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the lol login with /mob/races/Saiyan mob
+File Read(the lol)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the lol (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the lol (/mob/races/Saiyan): skillbar()
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the lol) Loaded!
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+(Admin Log): Admin Purple killed the lol
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,994
+  usr: (src)
+  src: the lol (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the lol (/mob/races/Saiyan): Revive()
+the lol (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20lol;admin_cmd=R...", /list (/list))
+(Admin Log): Admin Purple revived the lol
+(Admin Log): Admin Purple healed the lol
+DEBUG - the lol's Save was last saved on 08/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the lol login with /mob/races/Saiyan mob
+File Read(the lol)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the lol (/mob/races/Saiyan): update looks(null)
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the lol (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (419,53,2) (/turf/grass)
+  call stack:
+the lol (/mob/races/Saiyan): skillbar()
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the lol) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the lol's Save was last saved on 08/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=22;icon-y=19;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=22;icon-y=19;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=17;icon-y=14;left=1;but...")
+DEBUG - the pll's Save was last saved on 08/08/2026
+DEBUG - pll(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple killed the pll
+(Admin Log): Admin Purple healed the pll
+DEBUG - the pll's Save was last saved on 08/08/2026
+DEBUG - pll(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the pll login with /mob/races/Saiyan mob
+File Read(the pll)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the pll (/mob/races/Saiyan): update looks(null)
+the pll (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the pll (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the pll (/mob/races/Saiyan): skillbar()
+the pll (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the pll) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,994
+  usr: (src)
+  src: the pll (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the pll (/mob/races/Saiyan): Revive()
+the pll (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20pll;admin_cmd=R...", /list (/list))
+(Admin Log): Admin Purple revived the pll
+DEBUG - the pll's Save was last saved on 08/08/2026
+DEBUG - pll(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=17;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=17;icon-y=18;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("-")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("-")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("-")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("-")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("-")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("-")
+the arrow left (/obj/hud/menus/char_creation_background/arrow_left): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow left (/obj/hud/menus/char_creation_background/arrow_left), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+DEBUG - the pool's Save was last saved on 08/08/2026
+DEBUG - pool(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple killed the pool
+(Admin Log): Admin Purple healed the pool
+DEBUG - the pool's Save was last saved on 08/08/2026
+DEBUG - pool(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the pool login with /mob/races/Saiyan mob
+File Read(the pool)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the pool (/mob/races/Saiyan): update looks(null)
+the pool (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16075
+  usr: VOXTECH (/mob)
+  src: the pool (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the pool (/mob/races/Saiyan): skillbar()
+the pool (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the pool) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot modify null.maptext.
+proc name: Body (/mob/proc/Body)
+  source file: Modules/core/player/combat/combat_melee.dm,954
+  usr: (src)
+  src: the pool (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the pool (/mob/races/Saiyan): Body()
+the pool (/mob/races/Saiyan): Revive()
+the pool (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20pool;admin_cmd=...", /list (/list))
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1008
+  usr: (src)
+  src: the pool (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the pool (/mob/races/Saiyan): Revive()
+the pool (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20pool;admin_cmd=...", /list (/list))
+(Admin Log): Admin Purple revived the pool
+DEBUG - the pool's Save was last saved on 08/08/2026
+DEBUG - pool(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=19;icon-y=18;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=19;icon-y=18;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=13;left=1;but...")
+DEBUG - the lool's Save was last saved on 08/08/2026
+DEBUG - lool(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple killed the lool
+(Admin Log): Admin Purple healed the lool
+DEBUG - the lool's Save was last saved on 08/08/2026
+DEBUG - lool(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Loading Player(voxtech)..
+DEBUG - the lool login with /mob/races/Saiyan mob
+File Read(the lool)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the lool (/mob/races/Saiyan): update looks(null)
+the lool (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the lool (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the lool (/mob/races/Saiyan): skillbar()
+the lool (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the lool) Loaded!
+VOXTECH logs in.</font>
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot modify null.maptext.
+proc name: Body (/mob/proc/Body)
+  source file: Modules/core/player/combat/combat_melee.dm,954
+  usr: (src)
+  src: the lool (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the lool (/mob/races/Saiyan): Body()
+the lool (/mob/races/Saiyan): Revive()
+the lool (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20lool;admin_cmd=...", /list (/list))
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1008
+  usr: (src)
+  src: the lool (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the lool (/mob/races/Saiyan): Revive()
+the lool (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20lool;admin_cmd=...", /list (/list))
+(Admin Log): Admin Purple revived the lool
+runtime error: Cannot modify null.maptext.
+proc name: Death (/mob/proc/Death)
+  source file: Modules/core/player/combat/combat_melee.dm,863
+  usr: (src)
+  src: the lool (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the lool (/mob/races/Saiyan): Death("Admin Killed", 1)
+the lool (/mob/races/Saiyan): RunAdminCommand("Kill")
+VOXTECH (/client): Topic("src=\\refthe%20lool;admin_cmd=...", /list (/list))
+(Admin Log): Admin Purple killed the lool
+(Admin Log): Admin Purple healed the lool
+runtime error: Cannot modify null.maptext.
+proc name: Body (/mob/proc/Body)
+  source file: Modules/core/player/combat/combat_melee.dm,954
+  usr: (src)
+  src: the lool (/mob/races/Saiyan)
+  src.loc: the grass (417,49,2) (/turf/grass)
+  call stack:
+the lool (/mob/races/Saiyan): Body()
+the lool (/mob/races/Saiyan): Revive()
+the lool (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20lool;admin_cmd=...", /list (/list))
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1008
+  usr: (src)
+  src: the lool (/mob/races/Saiyan)
+  src.loc: the grass (417,49,2) (/turf/grass)
+  call stack:
+the lool (/mob/races/Saiyan): Revive()
+the lool (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20lool;admin_cmd=...", /list (/list))
+(Admin Log): Admin Purple revived the lool
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: AdminSortTextAlpha (/proc/AdminSortTextAlpha)
+  source file: Modules/core/admin/New admin panel.dm,505
+  usr: the lool (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (417,49,2) (/turf/grass)
+  call stack:
+AdminSortTextAlpha(/list (/list))
+AdminGetSortedVarNames(the lool (/mob/races/Saiyan))
+the lool (/mob/races/Saiyan): OpenAdminPlayerPanel(the lool (/mob/races/Saiyan))
+the lool (/mob/races/Saiyan): RunAdminCommand("Edit")
+VOXTECH (/client): Topic("src=\\refthe%20lool;admin_cmd=...", /list (/list))
+(Admin Log): Admin Purple opened Player Panel on the lool
+DEBUG - the lool's Save was last saved on 08/08/2026
+DEBUG - lool(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=14;icon-y=17;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=14;icon-y=17;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=12;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=12;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+ skin")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=14;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=14;icon-y=11;left=1;but...")
+DEBUG - the lol's Save was last saved on 08/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple killed the lol
+(Admin Log): Admin Purple healed the lol
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1029
+  usr: (src)
+  src: the lol (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the lol (/mob/races/Saiyan): Revive()
+the lol (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20lol;admin_cmd=R...", /list (/list))
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: the lol (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: the cracked ground (100,456,10) (/turf/cracked_ground)
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the lol (/mob/races/Saiyan): update looks(null)
+the lol (/mob/races/Saiyan): Revive()
+the lol (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20lol;admin_cmd=R...", /list (/list))
+(Admin Log): Admin Purple revived the lol
+DEBUG - the lol's Save was last saved on 08/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the lol login with /mob/races/Saiyan mob
+File Read(the lol)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the lol (/mob/races/Saiyan): update looks(null)
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the lol (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (100,456,10) (/turf/cracked_ground)
+  call stack:
+the lol (/mob/races/Saiyan): skillbar()
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the lol) Loaded!
+Cybertech Created.
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot modify null.maptext.
+proc name: Death (/mob/proc/Death)
+  source file: Modules/core/player/combat/combat_melee.dm,869
+  usr: (src)
+  src: the lol (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the lol (/mob/races/Saiyan): Death("Admin Killed", 1)
+the lol (/mob/races/Saiyan): RunAdminCommand("Kill")
+VOXTECH (/client): Topic("src=\\refthe%20lol;admin_cmd=K...", /list (/list))
+(Admin Log): Admin Purple killed the lol
+(Admin Log): Admin Purple healed the lol
+DEBUG - the lol's Save was last saved on 08/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the lol login with /mob/races/Saiyan mob
+File Read(the lol)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the lol (/mob/races/Saiyan): update looks(null)
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the lol (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (417,49,2) (/turf/grass)
+  call stack:
+the lol (/mob/races/Saiyan): skillbar()
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the lol) Loaded!
+VOXTECH logs in.</font>
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot modify null.maptext.
+proc name: Body (/mob/proc/Body)
+  source file: Modules/core/player/combat/combat_melee.dm,960
+  usr: (src)
+  src: the lol (/mob/races/Saiyan)
+  src.loc: the grass (417,49,2) (/turf/grass)
+  call stack:
+the lol (/mob/races/Saiyan): Body()
+the lol (/mob/races/Saiyan): Revive()
+the lol (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20lol;admin_cmd=R...", /list (/list))
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1014
+  usr: (src)
+  src: the lol (/mob/races/Saiyan)
+  src.loc: the grass (417,49,2) (/turf/grass)
+  call stack:
+the lol (/mob/races/Saiyan): Revive()
+the lol (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20lol;admin_cmd=R...", /list (/list))
+(Admin Log): Admin Purple revived the lol
+DEBUG - the lol's Save was last saved on 08/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=13;icon-y=13;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=13;icon-y=13;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+DEBUG - the dragon's Save was last saved on 08/08/2026
+DEBUG - dragon(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple killed the dragon
+DEBUG - the dragon's Save was last saved on 08/08/2026
+DEBUG - dragon(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the dragon login with /mob/races/Saiyan mob
+File Read(the dragon)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the dragon (/mob/races/Saiyan): update looks(null)
+the dragon (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the dragon (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the dragon (/mob/races/Saiyan): skillbar()
+the dragon (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+Corpse cleanup: VOXTECH/dragon dead=1 kept=0 has_body=0 corpses=1 corpse_turf=the grass5 death_loc=the grass5 corpse_xyz=(225,90,10)
+Corpse cleanup: keeping corpse for VOXTECH/dragon at 225,90,10
+(the dragon) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot modify null.maptext.
+proc name: Body (/mob/proc/Body)
+  source file: Modules/core/player/combat/combat_melee.dm,961
+  usr: (src)
+  src: the dragon (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the dragon (/mob/races/Saiyan): Body()
+the dragon (/mob/races/Saiyan): Revive()
+the dragon (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20dragon;admin_cm...", /list (/list))
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1015
+  usr: (src)
+  src: the dragon (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the dragon (/mob/races/Saiyan): Revive()
+the dragon (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20dragon;admin_cm...", /list (/list))
+(Admin Log): Admin Purple revived the dragon
+DEBUG - the dragon's Save was last saved on 08/08/2026
+DEBUG - dragon(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=18;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=18;icon-y=15;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=15;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=15;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=15;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=15;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=15;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=15;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=15;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=15;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=12;icon-y=11;left=1;but...")
+DEBUG - the opp's Save was last saved on 08/08/2026
+DEBUG - opp(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple killed the opp
+(Admin Log): Admin Purple healed the opp
+DEBUG - the opp's Save was last saved on 08/08/2026
+DEBUG - opp(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the opp login with /mob/races/Saiyan mob
+File Read(the opp)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the opp (/mob/races/Saiyan): update looks(null)
+the opp (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the opp (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the opp (/mob/races/Saiyan): skillbar()
+the opp (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+Corpse cleanup: VOXTECH/opp dead=1 kept=0 has_body=0 corpses=1 corpse_turf=the cracked ground death_loc=the cracked ground corpse_xyz=(90,450,10)
+Corpse cleanup: keeping corpse for VOXTECH/opp at 90,450,10
+(the opp) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot modify null.maptext.
+proc name: Body (/mob/proc/Body)
+  source file: Modules/core/player/combat/combat_melee.dm,955
+  usr: (src)
+  src: the opp (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the opp (/mob/races/Saiyan): Body()
+the opp (/mob/races/Saiyan): Revive()
+the opp (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20opp;admin_cmd=R...", /list (/list))
+runtime error: Cannot modify null.maptext.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1023
+  usr: (src)
+  src: the opp (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the opp (/mob/races/Saiyan): Revive()
+the opp (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20opp;admin_cmd=R...", /list (/list))
+(Admin Log): Admin Purple revived the opp
+DEBUG - the opp's Save was last saved on 08/08/2026
+DEBUG - opp(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+Saiyan (/mob/races/Saiyan): update looks(null)
+VOXTECH (/mob): switch race("Saiyan")
+the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan): Click(null, "map.map", "icon-x=15;icon-y=16;left=1;but...")
+VOXTECH (/client): Click(the race button saiyan (/obj/hud/menus/char_creation_background/race_button_saiyan), null, "map.map", "icon-x=15;icon-y=16;left=1;but...")
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+VOXTECH (/mob/races/Saiyan): update looks("+")
+the arrow right (/obj/hud/menus/char_creation_background/arrow_right): Click(null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+VOXTECH (/client): Click(the arrow right (/obj/hud/menus/char_creation_background/arrow_right), null, "map.map", "icon-x=13;icon-y=15;left=1;but...")
+DEBUG - the omh's Save was last saved on 08/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+(Admin Log): Admin Purple killed the omh
+(Admin Log): Admin Purple healed the omh
+DEBUG - the omh's Save was last saved on 08/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16068
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: run one time corpse cleanup (/mob/proc/run_one_time_corpse_cleanup)
+  source file: Modules/core/procs/procs_mob.dm,114
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): run one time corpse cleanup()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+Corpse cleanup: VOXTECH/omh dead=1 kept=0 has_body=0 corpses=1 corpse_turf=the cracked ground death_loc=the cracked ground corpse_xyz=(450,90,10)
+Corpse cleanup: keeping corpse for VOXTECH/omh at 450,90,10
+(the omh) Loaded!
+VOXTECH logs in.</font>
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: Revive (/mob/proc/Revive)
+  source file: Modules/core/player/combat/combat_melee.dm,1051
+  usr: (src)
+  src: the omh (/mob/races/Saiyan)
+  src.loc: the grass (418,49,2) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): Revive()
+the omh (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20omh;admin_cmd=R...", /list (/list))
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: the omh (/mob/races/Saiyan)
+  src: /icon (/icon)
+  usr.loc: the cracked ground (450,90,10) (/turf/cracked_ground)
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): Revive()
+the omh (/mob/races/Saiyan): RunAdminCommand("Revive")
+VOXTECH (/client): Topic("src=\\refthe%20omh;admin_cmd=R...", /list (/list))
+(Admin Log): Admin Purple revived the omh
+DEBUG - the omh's Save was last saved on 08/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.

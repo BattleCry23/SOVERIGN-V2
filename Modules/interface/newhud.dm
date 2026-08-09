@@ -24027,13 +24027,24 @@ mob
 
 			var/current_x = src.mouse_x+shift_x
 			var/current_y = src.mouse_y+shift_y
+			var/tooltip_x = src.mouse_x
+			var/tooltip_px = src.mouse_pix_x
+			var/tooltip_y = src.mouse_y
+			var/tooltip_py = src.mouse_pix_y
 
 			if(current_x >= 30 && current_y >= 18)
-				src.mouse_screen_loc = "[src.mouse_x-shift_x]:[(src.mouse_pix_x-shift_x_pix)-8],[shift_ver]:[src.mouse_pix_y-shift_y_pix]"
+				tooltip_x = max(1, src.mouse_x-shift_x)
+				tooltip_px = (src.mouse_pix_x-shift_x_pix)-8
+				tooltip_y = max(1, shift_ver)
+				tooltip_py = src.mouse_pix_y-shift_y_pix
 			else if(current_x >= 30)
-				src.mouse_screen_loc = "[src.mouse_x-shift_x]:[(src.mouse_pix_x-shift_x_pix)-8],[src.mouse_y]:[src.mouse_pix_y]"
+				tooltip_x = max(1, src.mouse_x-shift_x)
+				tooltip_px = (src.mouse_pix_x-shift_x_pix)-8
 			else if(current_y >= 18)
-				src.mouse_screen_loc = "[src.mouse_x]:[src.mouse_pix_x],[shift_ver]:[src.mouse_pix_y-shift_y_pix]"
+				tooltip_y = max(1, shift_ver)
+				tooltip_py = src.mouse_pix_y-shift_y_pix
+
+			src.mouse_screen_loc = BuildScreenLoc(tooltip_x, tooltip_px, tooltip_y, tooltip_py)
 
 			src.info_box1.screen_loc = src.mouse_screen_loc
 			src.info_box2.screen_loc = src.mouse_screen_loc
