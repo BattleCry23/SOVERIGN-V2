@@ -95,7 +95,31 @@ obj
 			over.pixel_y = -1
 			src.img_over = over
 
+		proc
+			is_dead_without_kept_body_blocked(mob/m)
+				if(!m || !m.dead || m.kept_body || src.active)
+					return 0
+				if(istype(src,/obj/skills/Self_Train))
+					return 1
+				if(src.info_energy_cost)
+					return 1
+				return 0
+
+			show_dead_without_kept_body_block(mob/m)
+				if(!m) return
+				if(istype(src,/obj/skills/Self_Train))
+					m << output("<font color = teal>While dead without your kept body, you cannot self-train.</font>","chat.system")
+					m.set_alert("Cannot self-train",src.icon,src.icon_state)
+				else
+					m << output("<font color = teal>While dead without your kept body, you cannot use energy-based skills.</font>","chat.system")
+					m.set_alert("Cannot use energy skills",src.icon,src.icon_state)
+
 		Click()
+			if(ismob(src.loc))
+				var/mob/m = src.loc
+				if(src.is_dead_without_kept_body_blocked(m))
+					src.show_dead_without_kept_body_block(m)
+					return 1
 			//usr.check_quest("tutorial_use_skill",1)
 			if(src.loc == null && usr.hud_unlocks || usr.hud_unlocks && src.passive_skill == 1)
 				usr.skill_selected = src
@@ -918,7 +942,7 @@ obj
 					//	src.skill_lvl = m.android_skill
 				//	sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -967,7 +991,7 @@ obj
 					//	src.skill_lvl = m.android_skill
 				//	sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1176,7 +1200,7 @@ obj
 										//m.client.screen += src.bar_inner
 							sleep(t)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1253,7 +1277,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1420,7 +1444,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1601,7 +1625,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1698,7 +1722,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -1913,7 +1937,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2080,7 +2104,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2238,7 +2262,7 @@ obj
 										if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2444,7 +2468,7 @@ obj
 										call(src.act)(m,src)*/
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2488,7 +2512,7 @@ obj
 				category = list("Excercise")
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -2705,7 +2729,7 @@ obj
 				category = list("Strength", "Utility")
 
 			Click(location, control, params)
-				..()
+				if(..()) return
 				if (ismob(src.loc))
 					var/mob/m = src.loc
 					if (m.koed) return
@@ -2861,7 +2885,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3043,7 +3067,7 @@ obj
 							if(m.shadow && m.skill_invis == null || m.skill_invis && m.skill_invis.active == 0) m.shadow.alpha = 255
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3199,7 +3223,7 @@ obj
 									if(m.reflection) animate(m.reflection,pixel_y = 0, time = 11)
 							sleep(5)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3236,7 +3260,7 @@ obj
 				..()
 				category = list("Force","Agility","Buff")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3277,7 +3301,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					return
 					var/mob/m = src.loc
@@ -3340,7 +3364,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -3911,7 +3935,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -4078,7 +4102,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -4574,7 +4598,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -4716,7 +4740,7 @@ obj
 						var/obj/ranged/eye_laser/l = new
 						src.segments += l
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -5101,7 +5125,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -5297,7 +5321,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -5478,7 +5502,7 @@ obj
 						sleep(spd)
 					*/
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					//var/clear = 0
@@ -6017,7 +6041,7 @@ obj
 					if(src)
 						src.info = "Allows the merging of two beings' genetic data to create a new offspring template.\nRequires both parties to consent."
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6073,7 +6097,7 @@ obj
 							var/mob/m = src.loc
 							m.skill_telepathy = src
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6100,7 +6124,7 @@ obj
 						s.icon_state = "Pyrokinesis"
 						s.active = 1
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6320,7 +6344,7 @@ obj
 							sleep(0.1)
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6366,7 +6390,7 @@ obj
 				..()
 				category = list("Force","Offence")
 			Click(location,control,params)
-				..()
+				if(..()) return
 				return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
@@ -6604,7 +6628,7 @@ obj
 								src.shotforsound = 0
 							sleep(0.1)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6808,7 +6832,7 @@ obj
 								return
 							sleep(0.1)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -6910,7 +6934,7 @@ obj
 							b.fired = 1
 							b.go(80,di)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7013,7 +7037,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7109,7 +7133,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7166,7 +7190,7 @@ obj
 
 					if(src.disable_sleep) return
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7280,7 +7304,7 @@ obj
 								return*/
 					if(m.started == 0) return
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7371,7 +7395,7 @@ obj
 									view(8,m) << output("<font color = green> [m] fails to tighten their grip on [t]'s [m.grab_part]!", "chat.local")
 									return
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7420,7 +7444,7 @@ obj
 									t.Death("[m]")
 									m.target = null
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7545,7 +7569,7 @@ obj
 					if(m.active_attack == src) m.active_attack = null
 					m.icon_state = m.state()
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7712,7 +7736,7 @@ obj
 					m.icon_state = m.state()
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7789,7 +7813,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -7900,7 +7924,7 @@ obj
 									if(src.active >= 1 && m.power_percent > 100 && stage == 1)
 										var/drain=10*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.meditating)
-											reset_power_control(m,1,0,0)
+											reset_power_control(m, 1,0,0)
 											return
 										if(m.energy >= drain)
 											m.energy -= drain
@@ -8246,7 +8270,7 @@ obj
 							//CHECK_TICK
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8350,7 +8374,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8401,7 +8425,7 @@ obj
 
 					if(src.disable_sleep) return
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8483,7 +8507,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8646,7 +8670,7 @@ obj
 										if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8801,7 +8825,7 @@ obj
 										if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -8981,7 +9005,7 @@ obj
 										if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -9215,7 +9239,7 @@ obj
 											if(src && src.active && m) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -9647,7 +9671,7 @@ obj
 										call(src.act)(m,src)
 							sleep(15)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -9816,7 +9840,7 @@ obj
 											if(src && src.active && m) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -9868,7 +9892,7 @@ obj
 				if(src.disable_sleep) return
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10087,7 +10111,7 @@ obj
 									if(m.reflection) animate(m.reflection,pixel_y = 0, time = 11)
 							sleep(5)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10292,7 +10316,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10454,7 +10478,7 @@ obj
 									if(m.reflection) animate(m.reflection,pixel_y = 0, time = 11)
 							sleep(5)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10671,7 +10695,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -10840,7 +10864,7 @@ obj
 									if(m.reflection) animate(m.reflection,pixel_y = 0, time = 11)
 							sleep(5)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11058,7 +11082,7 @@ obj
 											call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11196,7 +11220,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11334,7 +11358,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11532,7 +11556,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11609,7 +11633,7 @@ obj
 						s.active = 0
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -11682,7 +11706,7 @@ obj
 						s.active = 0
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12154,7 +12178,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12327,7 +12351,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12457,7 +12481,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12587,7 +12611,7 @@ obj
 
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12729,7 +12753,7 @@ obj
 										animate(m)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -12955,7 +12979,7 @@ obj
 											if(src.active) call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13022,7 +13046,7 @@ obj
 							sleep(10)
 							*/
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13095,7 +13119,7 @@ obj
 
 							sleep(10)*/
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13208,7 +13232,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13312,7 +13336,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13339,7 +13363,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13449,7 +13473,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13538,7 +13562,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13590,7 +13614,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13632,7 +13656,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13674,7 +13698,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13716,7 +13740,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13757,7 +13781,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13866,7 +13890,7 @@ obj
 									else call(src.act)(m,src)
 								sleep(spd)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13914,7 +13938,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -13984,6 +14008,10 @@ obj
 					if(world.time < s.last_activate_time + 30)
 						return
 					s.last_activate_time = world.time
+					if(!s.active && m.dead && !m.kept_body)
+						m << output("<font color = teal>While dead without your kept body, you cannot self-train.</font>","chat.system")
+						m.set_alert("Cannot self-train",s.icon,s.icon_state)
+						return
 					if(m.skill_sleep && m.skill_sleep.active || m.meditating ) return
 					if(m && s && m.skill_selftrain == null) m.skill_selftrain = s
 					if(s.active)
@@ -14130,7 +14158,7 @@ obj
 
 			Click(location,control,params)
 				//world << "[src]'s loc is [src.loc]"
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -14199,6 +14227,7 @@ obj
 						if(m.skill_quicksilver && m.skill_quicksilver.active) call(m.skill_quicksilver.act)(m,m.skill_quicksilver)
 						if(m.skill_active_meditation && m.skill_active_meditation.active) call(m.skill_active_meditation.act)(m,m.skill_active_meditation)
 						if(m.skill_selftrain && m.skill_selftrain.active) call(m.skill_selftrain.act)(m,m.skill_selftrain)
+						if(m.skill_kaioken && m.skill_kaioken.active) call(m.skill_kaioken.act)(m,m.skill_kaioken)
 						for(var/obj/skills/Incubation/inc in m)
 							if(inc.active) animate(m)
 						m.Move(m.loc,SOUTH,m.step_x,m.step_y)
@@ -14414,7 +14443,7 @@ obj
 							sleep(1)
 			Click(location,control,params)
 				//world << "[src]'s loc is [src.loc]"
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -14528,7 +14557,7 @@ obj
 									//	call(src.act)(m,src)
 							sleep(spd)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -14635,7 +14664,7 @@ obj
 							sleep(spd)
 			Click(location,control,params)
 				//world << "[src]'s loc is [src.loc]"
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -14954,7 +14983,7 @@ obj
 											if(src && src.active && m) call(src.act)(m,src)
 								sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15031,7 +15060,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15133,7 +15162,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15284,7 +15313,7 @@ obj
 
 
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15358,7 +15387,7 @@ obj
 										call(src.act)(m,src)
 							sleep(10)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15467,7 +15496,7 @@ obj
 										call(src.act)(m,src)
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15523,7 +15552,7 @@ obj
 
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15571,7 +15600,7 @@ obj
 
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15630,7 +15659,7 @@ obj
 
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return
@@ -15770,7 +15799,7 @@ obj
 										call(src.act)(m,src)
 							sleep(30)
 			Click(location,control,params)
-				..()
+				if(..()) return
 				if(ismob(src.loc))
 					var/mob/m = src.loc
 					if(m.koed) return

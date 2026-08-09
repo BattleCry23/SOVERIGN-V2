@@ -1,6 +1,72 @@
 
 mob
 	proc
+		wipe_object_save_refs(var/savefile/F)
+			if(!F) return
+			var/old_cd = F.cd
+			F.cd = "/Player"
+			F.dir.Remove("vat")
+			F.dir.Remove("map_sense")
+			F.dir.Remove("divine_elec")
+			F.dir.Remove("hair")
+			F.dir.Remove("horns")
+			F.dir.Remove("body_horns")
+			F.dir.Remove("tail")
+			F.dir.Remove("halo")
+			F.dir.Remove("eyes_white")
+			F.dir.Remove("eyes")
+			F.dir.Remove("eyes_white_copy")
+			F.dir.Remove("eyes_copy")
+			F.dir.Remove("water")
+			F.dir.Remove("hp_bar_clone")
+			F.dir.Remove("mouse_over_tooltip")
+			F.dir.Remove("mouse_over_visual")
+			F.dir.Remove("part_selected")
+			F.dir.Remove("part_focus")
+			F.dir.Remove("current_shop")
+			F.dir.Remove("vision")
+			F.dir.Remove("screen_text")
+			F.dir.Remove("screen_text2")
+			F.dir.Remove("debug_mouse")
+			F.dir.Remove("slice_hp")
+			F.dir.Remove("slice_eng")
+			F.dir.Remove("slice_o2")
+			F.dir.Remove("lift_bar")
+			F.dir.Remove("lift_pointer")
+			F.dir.Remove("lift_range")
+			F.dir.Remove("lift_multi")
+			F.dir.Remove("loadout_button")
+			F.cd = old_cd
+
+		sanitize_loaded_object_refs()
+			src.vat = null
+			src.map_sense = null
+			src.divine_elec = null
+			src.hair = null
+			src.horns = null
+			src.body_horns = null
+			src.tail = null
+			src.halo = null
+			src.eyes_white = null
+			src.eyes = null
+			src.eyes_white_copy = null
+			src.eyes_copy = null
+			src.water = null
+			src.hp_bar_clone = null
+			src.mouse_over_tooltip = null
+			src.mouse_over_visual = null
+			src.part_selected = null
+			src.part_focus = null
+			src.current_shop = null
+			src.vision = null
+			src.screen_text = null
+			src.screen_text2 = null
+			src.debug_mouse = null
+			src.slice_hp = null
+			src.slice_eng = null
+			src.slice_o2 = null
+			src.loadout_button = null
+
 		save_load(var/n)
 			if(src.started == 0)
 				src.sav_active = n
@@ -229,6 +295,7 @@ mob
 				T["X"] << src.save_x
 				T["Y"] << src.save_y
 				T["Z"] << src.save_z
+				src.wipe_object_save_refs(T)
 				if(src.client)
 					T["DokuroCoins"] << src.client.dokuro_points
 					T["MaxChildSlots"] << src.client.max_childslots
@@ -261,6 +328,7 @@ mob
 				S["X"] << src.save_x
 				S["Y"] << src.save_y
 				S["Z"] << src.save_z
+				src.wipe_object_save_refs(S)
 
 				//Want to make sure these don't save, since we have a seperate save which handles this info
 				//Write(S)
@@ -579,7 +647,10 @@ mob
 			src.vis_contents = null
 			src.name_txt()
 
-			src.redraw_appearance()
+			src.update_looks()
+			if(src.dead)
+				if(!src.halo) src.halo = new /obj/overlay/halo
+				add_overlay(src, src.halo)
 			src.show_ui()
 			//src.check_admin()
 			//src.enable_planes()
@@ -615,13 +686,20 @@ mob
 			if(src.stunned) src.stunned = 0
 			if(src.stunned_pending) src.stunned_pending = 0
 
-			if(src.koed)
+			if(src.dead)
+				src.koed = 0
+			else if(src.koed)
 				src.koed = 0
 				src.KO(1)
 			if(src.hud_unlocks)
 				src.hud_unlocks.check_status(src)
 				src.hud_unlocks.switch_tab(src.hud_unlocks.selected,src)
 
+			src.run_one_time_corpse_cleanup()
+			if(src.dead && !src.kept_body)
+				src.corpse_load_guard_until = world.time + 300
+			else
+				src.corpse_load_guard_until = 0
 			src.check_splits()
 			//if(src.client) winset(src,"stats.tab_stats","tabs=[url_encode("+")]updates")
 			if(src.dead)
@@ -936,6 +1014,7 @@ mob/Write(savefile/S)
 mob/Read(savefile/S)
 	if(npc) return
 	..()
+	src.sanitize_loaded_object_refs()
 	loc = locate(S["X"],S["Y"],S["Z"])
 	world.log << "File Read([src])!"
 	if(loc == null)

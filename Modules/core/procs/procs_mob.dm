@@ -109,6 +109,79 @@ mob/proc/migrate_body_system()
     if(src.hud_body)
         src.hud_body.color_paperdoll(src)
     src.body_version = 2
+mob/proc/run_one_time_corpse_cleanup()
+	var/list/matching_corpses = list()
+	for(var/obj/items/misc/body/B in world)
+		if(B.matches_owner(src))
+			B.owner = src.real_name
+			B.owner_name = src.real_name
+			B.owner_key = src.key
+			B.owner_id = src.id
+			matching_corpses += B
+	if(!src.dead)
+		if(src.corpse_cleanup_version < 1)
+			for(var/obj/items/misc/body/B in matching_corpses)
+				if(B) qdel(B)
+			src.death_location = null
+			src.corpse_x = 0
+			src.corpse_y = 0
+			src.corpse_z = 0
+		src.corpse_cleanup_version = 1
+		return
+	if(!src.kept_body)
+		src.has_body = 0
+	var/turf/corpse_turf = null
+	if(src.death_location) corpse_turf = src.death_location
+	else if(src.corpse_x && src.corpse_y && src.corpse_z) corpse_turf = locate(src.corpse_x, src.corpse_y, src.corpse_z)
+	if(src.dead && !src.kept_body)
+		world.log << "Corpse cleanup: [src.key]/[src.real_name] dead=[src.dead] kept=[src.kept_body] has_body=[src.has_body] corpses=[matching_corpses.len] corpse_turf=[corpse_turf] death_loc=[src.death_location] corpse_xyz=([src.corpse_x],[src.corpse_y],[src.corpse_z])"
+	if(!matching_corpses.len && !src.kept_body && corpse_turf)
+		var/obj/items/misc/body/rebuilt_corpse = new
+		var/obj/i = new
+		i.icon = 'deathblood.dmi'
+		i.dir = src.dir
+		rebuilt_corpse.appearance = src.appearance
+		rebuilt_corpse.loc = corpse_turf
+		rebuilt_corpse.step_x = 0
+		rebuilt_corpse.step_y = 0
+		rebuilt_corpse.icon_state = "KO"
+		rebuilt_corpse.owner = src.real_name
+		rebuilt_corpse.owner_name = src.real_name
+		rebuilt_corpse.owner_key = src.key
+		rebuilt_corpse.owner_id = src.id
+		rebuilt_corpse.dir = src.dir
+		rebuilt_corpse.name = "[src.real_name]'s corpse"
+		if(src.halo) rebuilt_corpse.overlays -= src.halo
+		rebuilt_corpse.overlays += i
+		items += rebuilt_corpse
+		rebuilt_corpse.hp = src.psionic_power * src.endurance
+		matching_corpses += rebuilt_corpse
+		world.log << "Corpse cleanup: rebuilt corpse for [src.key]/[src.real_name] at [rebuilt_corpse.x],[rebuilt_corpse.y],[rebuilt_corpse.z]"
+	var/obj/items/misc/body/kept_corpse = null
+	if(matching_corpses.len)
+		if(src.death_location)
+			for(var/obj/items/misc/body/B in matching_corpses)
+				if(B.loc == src.death_location)
+					kept_corpse = B
+					break
+		if(!kept_corpse)
+			for(var/obj/items/misc/body/B in matching_corpses)
+				if(!B.spoiled)
+					kept_corpse = B
+					break
+		if(!kept_corpse)
+			kept_corpse = matching_corpses[1]
+		for(var/obj/items/misc/body/B in matching_corpses)
+			if(B != kept_corpse && B)
+				qdel(B)
+		if(kept_corpse && !src.death_location)
+			src.death_location = locate(kept_corpse.x, kept_corpse.y, kept_corpse.z)
+		if(kept_corpse)
+			src.corpse_x = kept_corpse.x
+			src.corpse_y = kept_corpse.y
+			src.corpse_z = kept_corpse.z
+			world.log << "Corpse cleanup: keeping corpse for [src.key]/[src.real_name] at [kept_corpse.x],[kept_corpse.y],[kept_corpse.z]"
+	src.corpse_cleanup_version = 1
 mob/proc/FixScreenOffset()
 	var/option = input("Select your offset\nRecommended: Auto") in list("Auto","Zero","Custom","Client Custom")
 

@@ -202,11 +202,11 @@ mob
 			src.save_x = src.x
 			src.save_y = src.y
 			src.save_z = src.z
-			if(src.dead) src.loc = null // Remove dead mob from world so it doesn't appear as a clone while offline
 		//	src.overlays -= /obj/effects/afk
 			//src.afk = 0
 			//winset(src,"chat.afk","is-checked=false")
 			src.Mob_Save(1)
+			if(src.dead) src.loc = null // Remove dead mob from world after save so dead state persists cleanly
 			src.started=0
 			if(old_z == 2)src.apply_afterlife_glow(0)
 			if(old_z == 6)src.apply_hell_glow(0)
@@ -220,6 +220,9 @@ mob
 			players -= src
 			src.key_save()
 			src.full_cleanup()
+			if(src.dead)
+				spawn(1)
+					if(src) del(src)
 			del(src.client)
 			return
 
