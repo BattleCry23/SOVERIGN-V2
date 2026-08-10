@@ -3743,3 +3743,1479 @@ Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), B
 the omh (/mob/races/Saiyan): disable skills()
 AuctionHouse: Saving all auction data before shutdown...
 AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16092
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the omh) Loaded!
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16092
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the omh) Loaded!
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16092
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the omh) Loaded!
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+Cybertech Created.
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16092
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the omh) Loaded!
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16092
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the omh) Loaded!
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16092
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the omh) Loaded!
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16095
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: run one time corpse cleanup (/mob/proc/run_one_time_corpse_cleanup)
+  source file: Modules/core/procs/procs_mob.dm,114
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): run one time corpse cleanup()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+(the omh) Loaded!
+VOXTECH logs in.</font>
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (53,388,1) (/turf/grass): MouseDown(the grass (53,388,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (51,387,1) (/turf/grass): MouseDown(the grass (51,387,1) (/turf/grass), "map.map", /list (/list))
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: null
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: Cannot read null.density_factor
+proc name: activate (/obj/skills/Beam/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,3850
+  usr: the omh (/mob/races/Saiyan)
+  src: Beam (/obj/skills/Beam)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16096
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: run one time corpse cleanup (/mob/proc/run_one_time_corpse_cleanup)
+  source file: Modules/core/procs/procs_mob.dm,114
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): run one time corpse cleanup()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: VOXTECH (/mob)
+  src: null
+  usr.loc: null
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+(the omh) Loaded!
+VOXTECH logs in.</font>
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (54,392,1) (/turf/grass): MouseDown(the grass (54,392,1) (/turf/grass), "map.map", /list (/list))
+(Admin Log): Admin Purple healed the omh
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (52,391,1) (/turf/grass): MouseDown(the grass (52,391,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (53,387,1) (/turf/grass): MouseDown(the grass (53,387,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (49,383,1) (/turf/grass): MouseDown(the grass (49,383,1) (/turf/grass), "map.map", /list (/list))
+(Admin Log): Admin Purple healed the omh
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (54,390,1) (/turf/grass): MouseDown(the grass (54,390,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (53,388,1) (/turf/grass): MouseDown(the grass (53,388,1) (/turf/grass), "map.map", /list (/list))
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16135
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: run one time corpse cleanup (/mob/proc/run_one_time_corpse_cleanup)
+  source file: Modules/core/procs/procs_mob.dm,114
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): run one time corpse cleanup()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: VOXTECH (/mob)
+  src: null
+  usr.loc: null
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan), Beam (/obj/skills/Beam))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+(the omh) Loaded!
+VOXTECH logs in.</font>
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (52,391,1) (/turf/grass): MouseDown(the grass (52,391,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (53,384,1) (/turf/grass): MouseDown(the grass (53,384,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (63,383,1) (/turf/grass): MouseDown(the grass (63,383,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (53,394,1) (/turf/grass): MouseDown(the grass (53,394,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (52,375,1) (/turf/grass): MouseDown(the grass (52,375,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (54,375,1) (/turf/grass): MouseDown(the grass (54,375,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (52,375,1) (/turf/grass): MouseDown(the grass (52,375,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (55,374,1) (/turf/grass): MouseDown(the grass (55,374,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (54,374,1) (/turf/grass): MouseDown(the grass (54,374,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (53,375,1) (/turf/grass): MouseDown(the grass (53,375,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (55,376,1) (/turf/grass): MouseDown(the grass (55,376,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (53,376,1) (/turf/grass): MouseDown(the grass (53,376,1) (/turf/grass), "map.map", /list (/list))
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 472 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (53,375,1) (/turf/grass): MouseDown(the grass (53,375,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#4dac1e", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (52,377,1) (/turf/grass): MouseDown(the grass (52,377,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (53,397,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#9900ff", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (54,376,1) (/turf/grass): MouseDown(the grass (54,376,1) (/turf/grass), "map.map", /list (/list))
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16135
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,381,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the omh) Loaded!
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16135
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,381,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the omh) Loaded!
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the omh login with /mob/races/Saiyan mob
+File Read(the omh)!
+Loading Prepration(voxtech)..
+runtime error: bad icon operation
+proc name: New (/icon/New)
+  usr: VOXTECH (/mob)
+  src: /icon (/icon)
+  usr.loc: null
+  call stack:
+/icon (/icon): New(Saiyan Tail (/obj/overlay/tails/saiyan/brown_tail), "Meditate", 2, 1, 0)
+the omh (/mob/races/Saiyan): update looks(null)
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16135
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the grass (53,381,1) (/turf/grass)
+  call stack:
+the omh (/mob/races/Saiyan): skillbar()
+the omh (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the omh) Loaded!
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: VOXTECH (/mob)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 472 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+runtime error: bad color
+proc name: apply beam appearance (/proc/apply_beam_appearance)
+  source file: Modules/core/procs/skills/beam appearnce.dm,96
+  usr: the omh (/mob/races/Saiyan)
+  src: null
+  usr.loc: the grass (153,422,1) (/turf/grass)
+  call stack:
+apply beam appearance(the obj (/obj), the obj (/obj), the obj (/obj), the obj (/obj), "#9900ff", the obj (/obj), null)
+Beam (/obj/skills/Beam): activate(the omh (/mob/races/Saiyan))
+the grass (154,425,1) (/turf/grass): MouseDown(the grass (154,425,1) (/turf/grass), "map.map", /list (/list))
+DEBUG - the omh's Save was last saved on 09/08/2026
+DEBUG - omh(VOXTECH)'s Saved character to slot 1
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: type mismatch: 10 += Bone Breaker (/obj/skills/Bone_Breaker)
+proc name: activate (/obj/skills/Bone_Breaker/proc/activate)
+  source file: Modules/core/player/combat/skills/skills.dm,882
+  usr: the omh (/mob/races/Saiyan)
+  src: Bone Breaker (/obj/skills/Bone_Breaker)
+  usr.loc: null
+  src.loc: the omh (/mob/races/Saiyan)
+  call stack:
+Bone Breaker (/obj/skills/Bone_Breaker): activate(the omh (/mob/races/Saiyan), Bone Breaker (/obj/skills/Bone_Breaker))
+the omh (/mob/races/Saiyan): disable skills()
+runtime error: bad client
+proc name: update limb hud (/mob/proc/update_limb_hud)
+  source file: Modules/core/procs/procs_atoms.dm,212
+  usr: VOXTECH (/mob)
+  src: the omh (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: null
+  call stack:
+the omh (/mob/races/Saiyan): update limb hud()
+the omh (/mob/races/Saiyan): check body health()
+the omh (/mob/races/Saiyan): stats()
+the omh (/mob/races/Saiyan): process stats()
+the omh (/mob/races/Saiyan): process stats()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.

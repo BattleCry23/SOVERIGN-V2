@@ -3410,6 +3410,41 @@ obj
 			var/tmp/last_gain_time = 0
 			var/gain_cd = 25  // cooldown in ticks (2.5 seconds)
 			proc
+				calculate_beam_head_offset(var/angle)
+					// Calculates pixel offsets for beam head to align properly with omni-directional firing
+					// Returns list with pixel_x and pixel_y adjustments based on angle
+					var/list/offset = list("x" = 0, "y" = 0)
+					
+					// Snap angle to octants for better visual alignment
+					var/octant = round(angle / 45)
+					
+					switch(octant)
+						if(0, 8)  // EAST
+							offset["x"] = 16
+							offset["y"] = 0
+						if(1)  // SE
+							offset["x"] = 12
+							offset["y"] = -12
+						if(2)  // SOUTH
+							offset["x"] = 0
+							offset["y"] = -16
+						if(3)  // SW
+							offset["x"] = -12
+							offset["y"] = -12
+						if(4)  // WEST
+							offset["x"] = -16
+							offset["y"] = 0
+						if(5)  // NW
+							offset["x"] = -12
+							offset["y"] = 12
+						if(6)  // NORTH
+							offset["x"] = 0
+							offset["y"] = 16
+						if(7)  // NE
+							offset["x"] = 12
+							offset["y"] = 12
+					
+					return offset
 				cycle_custom_beams(var/mob/m,obj/skills/Beam/s)
 					if(s.customs.len == 0)
 						m<<output("You do not have any custom Beam techniques.","actionoutput")
@@ -3821,6 +3856,10 @@ obj
 											var/speaker_avatar = get_chatbox_render(m, m.client)
 											for(var/mob/mx in view(25,m))
 												mx<<output("<BIG><IMG CLASS=image SRC=\ref[speaker_avatar] STYLE='width:32px; height:32px;' ICONSTATE='' ICONDIR=SOUTH ICONFRAME=2></BIG><font color = [m.text_color_ic]><b>[m.real_name] shouts, '</font><b><font color = [custom_color]>[beamname]!'</b></font>","actionoutput")
+											if(chant)
+												m.show_runechat("[chant]!!", custom_color, 0, view(25, m))
+											else
+												m.show_runechat("[beamname]!!", custom_color, 0, view(25, m))
 											chanted=0
 										view(12,m)<<S
 										fired = 1
@@ -3884,10 +3923,14 @@ obj
 											var/head_distance = (pix_max * 32) + 16
 											var/b_x = head_distance * cos(m.locked_mouse_degree)
 											var/b_y = head_distance * sin(m.locked_mouse_degree)
-											ball.Move(m.loc, 0, m.step_x + b_x, m.step_y - b_y)
+										
+											// Calculate directional offset for proper beam head alignment
+											var/list/head_offset = src.calculate_beam_head_offset(m.locked_mouse_degree)
+										
+											ball.Move(m.loc, 0, m.step_x + b_x + head_offset["x"], m.step_y - b_y + head_offset["y"])
 											ball.dir = beam_dir
 											ball.layer = FLOAT_LAYER + 1
-											ball_hit.Move(m.loc, 0, m.step_x + b_x, m.step_y - b_y)
+											ball_hit.Move(m.loc, 0, m.step_x + b_x + head_offset["x"], m.step_y - b_y + head_offset["y"])
 											ball_hit.layer = FLOAT_LAYER + 1
 										else
 											ball.loc = null

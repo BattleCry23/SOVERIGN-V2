@@ -274,6 +274,7 @@ window "chat"
 		size = 160x154
 		anchor1 = 0,0
 		anchor2 = 100,100
+		font-family = "Pixeled Regular"
 		text-color = #ffffff
 		background-color = #000000
 		saved-params = ""

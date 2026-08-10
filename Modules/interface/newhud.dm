@@ -22244,6 +22244,9 @@ obj
 					plane = 34
 			main
 				plane=29
+				var
+					tooltip_shift_x = -10
+					tooltip_shift_y = 28
 				toggle_skillbar_button
 					icon = 'loadout_swap.dmi'
 					icon_state = "1" // You can define this state in the icon
@@ -24025,12 +24028,19 @@ mob
 			var/shift_y_pix = round(L_y % 32)
 			var/shift_ver = 18-shift_y
 
-			var/current_x = src.mouse_x+shift_x
-			var/current_y = src.mouse_y+shift_y
 			var/tooltip_x = src.mouse_x
 			var/tooltip_px = src.mouse_pix_x
 			var/tooltip_y = src.mouse_y
 			var/tooltip_py = src.mouse_pix_y
+			var/tooltip_shift_x = 0
+			var/tooltip_shift_y = 0
+			if(istype(h, /obj/hud/buttons/main))
+				var/obj/hud/buttons/main/hub_button = h
+				// Keep docked hub button tooltips from sitting too low against the HUD bar.
+				tooltip_shift_x = hub_button.tooltip_shift_x
+				tooltip_shift_y = hub_button.tooltip_shift_y
+			var/current_x = tooltip_x+shift_x
+			var/current_y = tooltip_y+shift_y
 
 			if(current_x >= 30 && current_y >= 18)
 				tooltip_x = max(1, src.mouse_x-shift_x)
@@ -24043,6 +24053,8 @@ mob
 			else if(current_y >= 18)
 				tooltip_y = max(1, shift_ver)
 				tooltip_py = src.mouse_pix_y-shift_y_pix
+			tooltip_px += tooltip_shift_x
+			tooltip_py += tooltip_shift_y
 
 			src.mouse_screen_loc = BuildScreenLoc(tooltip_x, tooltip_px, tooltip_y, tooltip_py)
 

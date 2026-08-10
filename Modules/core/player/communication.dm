@@ -1858,7 +1858,7 @@ mob/proc/show_runechat(var/message, var/text_color = "#FFFFFF", var/is_emote = 0
 		if(is_emote)
 			font_wrapper_open += "<i>"
 			font_wrapper_close = "</i>[font_wrapper_close]"
-		var/rendered = "[css_outline]<font face='Verdana' size = 1><center><font color=[text_color]>[font_wrapper_open][safe_message][font_wrapper_close]</font>"
+		var/rendered = "[css_outline]<font face='Segoe UI' size = 1><center><font color=[text_color]>[font_wrapper_open][safe_message][font_wrapper_close]</font>"
 
 		entry.maptext = rendered
 
@@ -1883,8 +1883,9 @@ mob/proc/show_runechat(var/message, var/text_color = "#FFFFFF", var/is_emote = 0
 
 		var/image/display = image(entry, src)
 		display.alpha = 0
-		display.pixel_z = -8
-		display.pixel_y = 36
+		display.pixel_z = 16
+		display.pixel_y = 48
+		display.transform = matrix(0.7, 0, 0, 0, 0.7, 0)
 		entry.display_image = display
 
 		src.runechat_entries += entry
@@ -1901,7 +1902,7 @@ mob/proc/show_runechat(var/message, var/text_color = "#FFFFFF", var/is_emote = 0
 			src.remove_runechat(oldest, 2)
 
 		src.refresh_runechat(viewer)
-		animate(display, alpha = 255, pixel_z = 0, time = 2)
+		animate(display, alpha = 255, pixel_z = 32, pixel_y = 56, transform = matrix(), time = 3, easing = CUBIC_EASING)
 
 		var/lifetime = 26 + min(length(rendered_message), 36)
 		spawn(lifetime)
