@@ -10,6 +10,7 @@
 #define ANNOYED_THRESHOLD 110
 #define SLIGHTLY_ANGRY_THRESHOLD 115
 #define ANGRY_THRESHOLD 123
+
 mob/proc
 	set_path_type()
 		if(src)
@@ -1034,13 +1035,21 @@ mob
 			//	return
 			if(target)
 				target.filters = null
-				if(target.hair) target.overlays -= target.hair
+				if(target.hair) remove_overlay(target,target.hair)
+				if(target.eyebrows)
+					remove_overlay(target,target.eyebrows)
+					//target.eyebrows = null
 
 
 			if(target.midget && target.age>12.9)
 				return
 			//Reset hair for some races, since they don't have any.
 			var/obj/h = null
+			target.age_is_adult = (target.age >= 13 || target.age == null || target.age == 1 || target.age == 21)
+			target.age_is_kid = (target.age >= 4 && target.age < 13)
+			target.age_is_baby = (target.age <= 0 || target.age == 0.1)
+			target.age_is_under4age = (target.age > 0.1 && target.age < 4)
+			//var/obj/eb = null
 			if(target)
 				/*if(target.race == "Saiyan" && target.skin_pos == 2)
 					h = null
@@ -1049,39 +1058,38 @@ mob
 						target.hair = null
 						target.hair_icon = null*/
 				if(target.race == "Oni")
-					if(age>=13) h = hairs_male[target.hair_pos]
-					else if(age<13) h = kid_hairs_male[target.hair_pos]
+					if(age_is_adult) h = hairs_male[target.hair_pos]
+					else if(age_is_kid) h = kid_hairs_male[target.hair_pos]
 
 				else if(target.race == "Namekian")
-					if(age>=13) h = hairs_male[target.hair_pos]
-					else if(age<13) h = kid_hairs_male[target.hair_pos]
+					if(age_is_adult) h = hairs_male[target.hair_pos]
+					else if(age_is_kid) h = kid_hairs_male[target.hair_pos]
 				else if(target.gen == "Male")
-					if(age>=13) h = hairs_male[target.hair_pos]
-					else if (age<13) h = kid_hairs_male[target.hair_pos]
+					if(age_is_adult) h = hairs_male[target.hair_pos]
+					else if (age_is_kid) h = kid_hairs_male[target.hair_pos]
 				else if(target.gen == "Female")
-					if(age>=13) h = hairs_female[target.hair_pos]
-					else if (age<13) h = kid_hairs_female[target.hair_pos]
+					if(age_is_adult) h = hairs_female[target.hair_pos]
+					else if (age_is_kid) h = kid_hairs_female[target.hair_pos]
 
 
 			var/icon/i_race
 			var/icon/i_horn
 			var/obj/horn = new
-			var/age_is_adult = (age >= 13 || age == null || age == 1 || age == 21)
-			var/age_is_kid = (age >= 4 && age < 13)
+
 			if(target)
 				//Celestial icon creation
 
 				if(target.race == "Spirit Doll")
 					target.has_hair = 1
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult)
 							i_race = 'spiritdoll.dmi'
-						else if(age>=4 && age <13) i_race= 'spiritdoll_kid.dmi'
-						else if(age<=0||age==0.1) i_race ='human_babymale.dmi'
+						else if(age_is_kid) i_race= 'spiritdoll_kid.dmi'
+						else if(age_is_baby) i_race ='human_babymale.dmi'
 
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race = 'spiritdoll_tan.dmi'
 						else if(age>=4 && age <13) i_race= 'spiritdoll_kidtan.dmi'
 						else if(age<=0||age==0.1) i_race ='human_babymale.dmi'
@@ -1115,25 +1123,25 @@ mob
 				if(target.race == "Makyo")
 					target.has_hair = 1
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race = 'makyo.dmi'
 						else if(age>=4 && age <13) i_race= 'makyo_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race = 'makyo_red.dmi'
 						else if(age>=4 && age <13) i_race= 'makyo_kidred.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race = 'makyo_tan.dmi'
 						else if(age>=4 && age <13) i_race= 'makyo_kidtan.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 					if(target.skin_pos == 4)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race = 'makyo_purple.dmi'
 						else if(age>=4 && age <13) i_race= 'makyo_kidpurple.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
@@ -1144,13 +1152,13 @@ mob
 				if(target.race == "Kai")
 					target.has_hair = 1
 					if(target.gen == "Male")
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race = 'humanoid_no_colour2.dmi'
 						else if(age>=4 && age <13) i_race= 'humanoid_no_colour2_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 					if(target.gen == "Female")
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race = 'humanoid_no_colour_female2.dmi'
 						else if(age>=4 && age <13) i_race= 'humanoid_no_colour_female2_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
@@ -1161,60 +1169,60 @@ mob
 				if(target.race == "Alien")
 					target.has_hair = 1
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race = 'Alien_Captin_Ginyu_Naked.dmi'
 						else if(age>=4 && age <13) i_race= 'alien_captginyu_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race =  'Alien_Immecka_Naked.dmi'
 						else if(age>=4 && age <13) i_race = 'alien_immecka_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 
 					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race = 'Alien_Kanassa_Naked.dmi'
 						else if(age>=4 && age <13) i_race = 'alien_kanassa_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 
 					if(target.skin_pos == 4)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race ='Alien_Kui_Naked.dmi'
 						else if(age>=4 && age <13) i_race = 'alien_kui_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 					if(target.skin_pos == 5)
-						if(age>=13||age==null||age==21)
+						if(age_is_adult||age==null||age==21)
 							i_race ='Alien_Yardrat_Naked.dmi'
 						else if(age>=4 && age <13) i_race = 'alien_yardrat_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'alien_egg.dmi'
 
 					if(target.skin_pos == 6)
-						if(age>=13||age==null||age==1||age==21)
-							i_race = 'NewMalesWhite.dmi'
+						if(age_is_adult||age==null||age==1||age==21)
+							i_race = 'NewMalesWhite(faceless).dmi'
 						else if(age>=4 && age <13) i_race = 'human_male_white_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'human_babymale.dmi'
 
 
 					if(target.skin_pos == 7)
-						if(age>=13||age==null||age==1||age==21)
-							i_race = 'NewMalesTan.dmi'
+						if(age_is_adult||age==null||age==1||age==21)
+							i_race = 'NewMalesTan(faceless).dmi'
 						else if(age>=4 && age <13) i_race = 'human_male_tan_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'human_babymale_tan.dmi'
 
 
 					if(target.skin_pos == 8)
-						if(age>=13||age==null||age==1||age==21)
-							i_race = 'NewMalesBlack.dmi'
+						if(age_is_adult||age==null||age==1||age==21)
+							i_race = 'NewMalesBlack(faceless).dmi'
 						else if(age>=4 && age <13) i_race = 'human_male_black_kid.dmi'
 						else if(age<=0||age==0.1) i_race = 'human_babymale_black.dmi'
 
 				if(target.race == "Demon")
 					target.has_hair =1
-					if(target.age>=13)
+					if(target.age_is_adult)
 						i_horn = 'Demonic Horns.dmi'
 						target.horn_pos = 1
 					else if(target.age<=12.9)
@@ -1222,7 +1230,7 @@ mob
 						target.horn_pos = 2
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'demon_default_male.dmi'
 								target.horn_pos = 1
 								if(target.horn_pos == 1) i_horn = 'Demonic Horns.dmi'
@@ -1237,7 +1245,7 @@ mob
 								i_race = 'alien_egg.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								target.horn_pos = 1
 								if(target.horn_pos == 1) i_horn = 'Demonic Horns.dmi'
 								i_race = 'demon_male.dmi'
@@ -1252,10 +1260,10 @@ mob
 								if(target.horn_pos == 2) i_horn = 'demonic_horns_kid.dmi'
 								i_race = 'alien_egg.dmi'
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								target.horn_pos = 1
 								if(target.horn_pos == 1) i_horn = 'Demonic Horns.dmi'
-								i_race = 'NewMalesWhite.dmi'
+								i_race = 'NewMalesWhite(faceless).dmi'
 								target.overlays += target.body_horns
 							else if(age>=4 && age <13)
 								target.horn_pos = 2
@@ -1267,10 +1275,10 @@ mob
 								i_race = 'human_babymale.dmi'
 
 						if(target.skin_pos == 4)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								target.horn_pos = 1
 								if(target.horn_pos == 1) i_horn = 'Demonic Horns.dmi'
-								i_race = 'NewMalesTan.dmi'
+								i_race = 'NewMalesTan(faceless).dmi'
 							//	target.overlays += target.body_horns
 							else if(age>=4 && age <13)
 								target.horn_pos = 2
@@ -1282,10 +1290,10 @@ mob
 								i_race = 'human_babymale_tan.dmi'
 
 						if(target.skin_pos == 5)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								target.horn_pos = 1
 								if(target.horn_pos == 1) i_horn = 'Demonic Horns.dmi'
-								i_race = 'NewMalesBlack.dmi'
+								i_race = 'NewMalesBlack(faceless).dmi'
 							//	target.overlays += target.body_horns
 							else if(age>=4 && age <13)
 								target.horn_pos = 2
@@ -1298,7 +1306,7 @@ mob
 
 					if(target.gen == "Female")
 						target.has_hair = 1
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							target.horn_pos = 1
 							if(target.horn_pos == 1) i_horn = 'Demonic Horns.dmi'
 						//	target.overlays += target.body_horns
@@ -1316,7 +1324,7 @@ mob
 							i_race = 'demon_female.dmi'
 							target.has_hair = 1
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								target.horn_pos = 1
 								if(target.horn_pos == 1) i_horn = 'Demonic Horns.dmi'
 								i_race = 'FemaleBaseWhite.dmi'
@@ -1330,7 +1338,7 @@ mob
 								if(target.horn_pos == 2) i_horn = 'demonic_horns_kid.dmi'
 								i_race = 'human_babyfemale.dmi'
 						if(target.skin_pos == 4)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								target.horn_pos = 1
 								if(target.horn_pos == 1) i_horn = 'Demonic Horns.dmi'
 								i_race = 'FemaleBaseTan.dmi'
@@ -1344,7 +1352,7 @@ mob
 								if(target.horn_pos == 2) i_horn = 'demonic_horns_kid.dmi'
 								i_race = 'human_babyfemale_tan.dmi'
 						if(target.skin_pos == 5)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								target.horn_pos = 1
 								if(target.horn_pos == 1) i_horn = 'Demonic Horns.dmi'
 								i_race = 'FemaleBaseBlack.dmi'
@@ -1366,7 +1374,7 @@ mob
 					if(target.horn_pos == 3) i_horn = 'horns_yukopian_03.dmi'
 					if(target.horn_pos == 4) i_horn = 'horns_yukopian_04.dmi' */
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							i_race = 'NewNamekianAdult4.dmi'
 						else if(age>=4 && age <13)
 							i_race = 'NewKidNamekian4.dmi'
@@ -1375,7 +1383,7 @@ mob
 							i_race = 'namekian_egg.dmi'
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							i_race = 'NewNamekianAdult3.dmi'
 						else if(age>=4 && age <13)
 							i_race = 'NewKidNamekian3.dmi'
@@ -1386,7 +1394,7 @@ mob
 
 
 					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							i_race = 'NewNamekianAdult2.dmi'
 						else if(age>=4 && age <13)
 							i_race = 'NewKidNamekian2.dmi'
@@ -1396,7 +1404,7 @@ mob
 
 
 					if(target.skin_pos == 4)
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							i_race = 'NewNamekianAdult1.dmi'
 						else if(age>=4 && age <13)
 							i_race = 'NewKidNamekian1.dmi'
@@ -1405,7 +1413,7 @@ mob
 							i_race = 'namekian_egg.dmi'
 
 					if(target.skin_pos == 5)
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							i_race = 'NewNamekianAdult1.dmi'
 						else if(age>=4 && age <13)
 							i_race = 'NewKidNamekian1.dmi'
@@ -1414,7 +1422,7 @@ mob
 							i_race = 'namekian_egg.dmi'
 
 					if(!i_race)
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							i_race = 'NewNamekianAdult1.dmi'
 						else if(age>=4 && age <13)
 							i_race = 'NewKidNamekian1.dmi'
@@ -1425,39 +1433,43 @@ mob
 				//Android icon creation
 				if(target.race == "Saiyan")
 					target.has_hair = 1
-					i_horn = 'SaiyanTailBrown.dmi'
+					if(target.is_hybrid)
+						i_horn = new /obj/overlay/tails/saiyan/colorable_tail
+						color_overlay(i_horn, target.hair_c, blend_mode = BLEND_MULTIPLY)
+					else
+						i_horn = new /obj/overlay/tails/saiyan/brown_tail
 					//i_horn = 'SaiyanTailBlack.dmi'
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
-								i_race = 'NewMalesWhite.dmi'
+							if(age_is_adult||age==null||age==1||age==21)
+								i_race = 'NewMalesWhite(faceless).dmi'
 							else if(age>=4 && age <13) i_race = 'human_male_white_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babymale.dmi'
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
-								i_race = 'NewMalesTan.dmi'
+							if(age_is_adult||age==null||age==1||age==21)
+								i_race = 'NewMalesTan(faceless).dmi'
 							else if(age>=4 && age <13) i_race = 'human_male_tan_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babymale_tan.dmi'
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
-								i_race = 'NewMalesBlack.dmi'
+							if(age_is_adult||age==null||age==1||age==21)
+								i_race = 'NewMalesBlack(faceless).dmi'
 							else if(age>=4 && age <13) i_race = 'human_male_black_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babymale_black.dmi'
 
 					if(target.gen == "Female")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'FemaleBaseWhite.dmi'
 							else if(age>=4 && age <13) i_race = 'human_female_white_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babyfemale.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'FemaleBaseTan.dmi'
 							else if(age>=4 && age <13) i_race = 'human_female_tan_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babyfemale_tan.dmi'
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'FemaleBaseBlack.dmi'
 							else if(age>=4 && age <13) i_race = 'human_female_black_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babyfemale_black.dmi'
@@ -1465,9 +1477,9 @@ mob
 				if(target.race == "Half God")
 					target.has_hair = 1
 					if(target.gen == "Male")
-						if(target.skin_pos == 1) i_race = 'NewMalesWhite.dmi'
-						if(target.skin_pos == 2) i_race = 'NewMalesTan.dmi'
-						if(target.skin_pos == 3) i_race = 'NewMalesBlack.dmi'
+						if(target.skin_pos == 1) i_race = 'NewMalesWhite(faceless).dmi'
+						if(target.skin_pos == 2) i_race = 'NewMalesTan(faceless).dmi'
+						if(target.skin_pos == 3) i_race = 'NewMalesBlack(faceless).dmi'
 					if(target.gen == "Female")
 						if(target.skin_pos == 1) i_race = 'FemaleBaseWhite.dmi'
 						if(target.skin_pos == 2) i_race = 'FemaleBaseTan.dmi'
@@ -1476,36 +1488,36 @@ mob
 					target.has_hair = 1
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
-								i_race = 'NewMalesWhite.dmi'
+							if(age_is_adult||age==null||age==1||age==21)
+								i_race = 'NewMalesWhite(faceless).dmi'
 							else if(age>=4 && age <13) i_race = 'human_male_white_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babymale.dmi'
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
-								i_race = 'NewMalesTan.dmi'
+							if(age_is_adult||age==null||age==1||age==21)
+								i_race = 'NewMalesTan(faceless).dmi'
 							else if(age>=4 && age <13) i_race = 'human_male_tan_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babymale_tan.dmi'
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
-								i_race = 'NewMalesBlack.dmi'
+							if(age_is_adult||age==null||age==1||age==21)
+								i_race = 'NewMalesBlack(faceless).dmi'
 							else if(age>=4 && age <13) i_race = 'human_male_black_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babymale_black.dmi'
 
 
 					if(target.gen == "Female")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'FemaleBaseWhite.dmi'
 							else if(age>=4 && age <13) i_race = 'human_female_white_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babyfemale.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'FemaleBaseTan.dmi'
 							else if(age>=4 && age <13) i_race = 'human_female_tan_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babyfemale_tan.dmi'
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'FemaleBaseBlack.dmi'
 							else if(age>=4 && age <13) i_race = 'human_female_black_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babyfemale_black.dmi'
@@ -1515,35 +1527,35 @@ mob
 					target.has_hair = 1
 					if(target.gen == "Male")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
-								i_race = 'NewMalesWhite.dmi'
+							if(age_is_adult||age==null||age==1||age==21)
+								i_race = 'NewMalesWhite(faceless).dmi'
 							else if(age>=4 && age <13) i_race = 'human_male_white_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babymale.dmi'
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
-								i_race = 'NewMalesTan.dmi'
+							if(age_is_adult||age==null||age==1||age==21)
+								i_race = 'NewMalesTan(faceless).dmi'
 							else if(age>=4 && age <13) i_race = 'human_male_tan_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babymale_tan.dmi'
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
-								i_race = 'NewMalesBlack.dmi'
+							if(age_is_adult||age==null||age==1||age==21)
+								i_race = 'NewMalesBlack(faceless).dmi'
 							else if(age>=4 && age <13) i_race = 'human_male_black_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babymale_black.dmi'
 
 					if(target.gen == "Female")
 						if(target.skin_pos == 1)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'FemaleBaseWhite.dmi'
 							else if(age>=4 && age <13) i_race = 'human_female_white_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babyfemale.dmi'
 
 						if(target.skin_pos == 2)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'FemaleBaseTan.dmi'
 							else if(age>=4 && age <13) i_race = 'human_female_tan_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babyfemale_tan.dmi'
 						if(target.skin_pos == 3)
-							if(age>=13||age==null||age==1||age==21)
+							if(age_is_adult||age==null||age==1||age==21)
 								i_race = 'FemaleBaseBlack.dmi'
 							else if(age>=4 && age <13) i_race = 'human_female_black_kid.dmi'
 							else if(age<=0||age==0.1) i_race = 'human_babyfemale_black.dmi'
@@ -1551,7 +1563,7 @@ mob
 				if(target.race == "Oni")
 					i_horn = 'OniHorns.dmi'
 					if(target.skin_pos == 1)
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							i_race = 'oni_male_light.dmi'
 							target.horn_pos = 1
 							if(target.horn_pos == 1) i_horn = 'OniHorns.dmi'
@@ -1567,7 +1579,7 @@ mob
 							i_race = 'alien_egg.dmi'
 
 					if(target.skin_pos == 2)
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							target.horn_pos = 1
 							if(target.horn_pos == 1) i_horn = 'OniHorns.dmi'
 							i_race = 'oni_male_dark.dmi'
@@ -1582,7 +1594,7 @@ mob
 							i_race = 'alien_egg.dmi'
 						target.has_hair = 1
 					if(target.skin_pos == 3)
-						if(age>=13||age==null||age==1||age==21)
+						if(age_is_adult||age==null||age==1||age==21)
 							target.horn_pos = 1
 							if(target.horn_pos == 1) i_horn = 'OniHorns.dmi'
 							i_race = 'oni_male_light.dmi'
@@ -1641,11 +1653,11 @@ mob
 					else if(target.skin_pos == 5)
 						i_race = age_is_adult ? 'Alien_Yardrat_Naked.dmi' : (age_is_kid ? 'alien_yardrat_kid.dmi' : 'alien_egg.dmi')
 					else if(target.skin_pos == 6)
-						i_race = age_is_adult ? 'NewMalesWhite.dmi' : (age_is_kid ? 'human_male_white_kid.dmi' : 'human_babymale.dmi')
+						i_race = age_is_adult ? 'NewMalesWhite(faceless).dmi' : (age_is_kid ? 'human_male_white_kid.dmi' : 'human_babymale.dmi')
 					else if(target.skin_pos == 7)
-						i_race = age_is_adult ? 'NewMalesTan.dmi' : (age_is_kid ? 'human_male_tan_kid.dmi' : 'human_babymale_tan.dmi')
+						i_race = age_is_adult ? 'NewMalesTan(faceless).dmi' : (age_is_kid ? 'human_male_tan_kid.dmi' : 'human_babymale_tan.dmi')
 					else if(target.skin_pos == 8)
-						i_race = age_is_adult ? 'NewMalesBlack.dmi' : (age_is_kid ? 'human_male_black_kid.dmi' : 'human_babymale_black.dmi')
+						i_race = age_is_adult ? 'NewMalesBlack(faceless).dmi' : (age_is_kid ? 'human_male_black_kid.dmi' : 'human_babymale_black.dmi')
 					else
 						i_race = age_is_adult ? 'Alien_Captin_Ginyu_Naked.dmi' : (age_is_kid ? 'alien_captginyu_kid.dmi' : 'alien_egg.dmi')
 				else if(target.race == "Oni")
@@ -1670,11 +1682,14 @@ mob
 
 				var/icon/E = icon(h.icon,"",SOUTH,1,0)
 				var/icon/E_hair = icon(h.icon)
+				var/obj/overlay/hairs/normal/eye_brows/eyebrow_template = new
+				var/icon/Eb_eyebrows = icon(eyebrow_template.icon, eyebrow_template.icon_state)
 				E.Scale(128,128)
 
 				if(target && target.hair_c)
 					E.Blend(target.hair_c)
 					E_hair.Blend(target.hair_c)
+					Eb_eyebrows.Blend(target.hair_c)
 
 				I.Blend(E,ICON_OVERLAY,1,13)
 
@@ -1683,33 +1698,41 @@ mob
 					new_hair.icon = E_hair
 					target.hair = new_hair
 					target.hair_icon = new_hair.icon
-					target.overlays = null
-					target.overlays += target.hair
-					target.vis_contents += E_hair
+					add_overlay(target, target.hair)
+
+					var/obj/new_eyebrows = new /obj/overlay/hairs/normal/eye_brows
+					new_eyebrows.icon = Eb_eyebrows
+					target.eyebrows = new_eyebrows
+					//target.eyebrows.color = target.hair_c
+					add_overlay(target, target.eyebrows)
 
 			//target.set_icon(target)
 
 			//Do eye color next
 			if(target.eyes)
-				target.vis_contents -= target.eyes
+				remove_overlay(target, target.eyes)
 				target.eyes = null
 			if(target.eyes_white)
-				target.vis_contents -= target.eyes_white
+				remove_overlay(target, target.eyes_white)
 				target.eyes_white = null
-			var/i_white = 'eye_whites.dmi'
-			var/i_iris = 'eye_pupils.dmi'
-			if(target.age<13 && target.age >3.9) i_white = 'eye_whites_kid.dmi'
-			if(target.age<13 && target.age >3.9) i_iris = 'eye_pupils_kid.dmi'
+			var/i_white = new /obj/overlay/sclera
+			var/i_iris = new /obj/overlay/eyes_iris
+			if(target.age_is_kid && target.age >3.9) i_white = 'eye_whites_kid.dmi'
+			if(target.age_is_kid && target.age >3.9) i_iris = 'eye_pupils_kid.dmi'
 			/*if(target.race == "Android" && target.skin_pos == 1)
 				i_white = 'humanoid_eyes_iris_android.dmi'
 				i_iris = 'humanoid_eyes_iris_android.dmi'*/
 			if(target.race == "Oni")
-				if(target.age<13 && target.age >3.9) i_white = 'eye_whites_kid.dmi'
-				if(target.age<13 && target.age >3.9) i_iris = 'eye_pupils_kid.dmi'
-				i_white = 'eye_whites.dmi'
-				i_iris = 'eye_pupils.dmi'
+				if(target.age_is_kid && target.age >3.9) i_white = new /obj/overlay/sclera/kid
+				if(target.age_is_kid && target.age >3.9) i_iris = new /obj/overlay/eyes_iris/kid
+				i_white = new /obj/overlay/sclera
+				i_iris = new /obj/overlay/eyes_iris
 			var/icon/P_white = icon(i_white,"",SOUTH,1,0)
 			var/icon/P_eyecolor = icon(i_iris,"",SOUTH,1,0)
+			if(target.race == "Android" && target.skin_pos == 2)
+				target.has_eyes = 0
+			else
+				target.has_eyes = 1
 			if(target.has_eyes)
 				var/proceed_eyes = 1
 
@@ -1721,45 +1744,48 @@ mob
 						P_white.Scale(128,128)
 						I.Blend(P_white,ICON_OVERLAY)
 
+					var/final_eye_c = target.eye_c
+					if(target.race == "Saiyan" || (target.saiyan_dna))
+						if(target.superform > 0)
+							final_eye_c = rgb(0, 168, 107)
+						else
+							final_eye_c = target.saved_eye_c
+					if(!final_eye_c)
+						final_eye_c = rgb(0,0,155)
 					P_eyecolor.Scale(128,128)
-					if(target.eye_c) P_eyecolor.Blend(target.eye_c)
-					else P_eyecolor.Blend(rgb(0,0,155))
+					P_eyecolor.Blend(final_eye_c)
 					I.Blend(P_eyecolor,ICON_OVERLAY)
 
 					if(has_white)
-						var/obj/eye_white = new
+						var/obj/overlay/sclera/eye_white = new
 						eye_white.icon = i_white
-						eye_white.layer = 10
-						eye_white.vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_ICON_STATE// | VIS_INHERIT_ID
-						if(target.age>=13)
-							target.eyes_white = eye_white
-							target.vis_contents += target.eyes_white
+						target.eyes_white = eye_white
+						target.vis_contents += target.eyes_white
+						add_overlay(target, target.eyes_white)
 
-					var/obj/eye_iris = new
+					var/obj/overlay/eyes_iris/eye_iris = new
 					eye_iris.icon = i_iris
 					var/icon/eye = new(eye_iris.icon)
-					if(target.eye_c) eye.icon *= eye_c
+					if(target.eye_c) eye.Blend(target.eye_c, ICON_MULTIPLY)
 						//eye.Blend(target.eye_c)
 					eye_iris.icon = eye
-					eye_iris.layer = 11
-					eye_iris.vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_ICON_STATE// | VIS_INHERIT_ID // | VIS_INHERIT_DIR// | VIS_INHERIT_LAYER
-					target.eyes = eye_iris
-					if(target.age>=13)
+					if(age_is_adult)
 						target.eyes.pixel_x = 0
-						target.eyes_white.pixel_y = 0
-						target.vis_contents += target.eyes_white
+						if(target.eyes_white)
+							target.eyes_white.pixel_y = 0
 						target.vis_contents += target.eyes
-						target.overlays+= target.eyes_white
-						target.overlays += target.eyes
-					if(target.age<13)
-						target.eyes_white.pixel_x = -1
-						target.eyes_white.pixel_y = -5
+						if(target.eyes_white) add_overlay(target, target.eyes_white)
+						add_overlay(target, target.eyes)
+					if(age_is_kid)
+						if(target.eyes_white)
+							target.eyes_white.pixel_x = -1
+							target.eyes_white.pixel_y = -5
 						target.eyes.pixel_x = -1
 						target.eyes.pixel_y = -5
-						target.vis_contents += target.eyes_white
+						if(target.eyes_white) target.vis_contents += target.eyes_white
 						target.vis_contents += target.eyes
-						target.overlays+= target.eyes_white
-						target.overlays += target.eyes
+						if(target.eyes_white) add_overlay(target, target.eyes_white)
+						add_overlay(target, target.eyes)
 					//target.overlays += P_eyecolor
 
 				/*
@@ -1771,43 +1797,67 @@ mob
 						target.eyes_white = null
 				*/
 			if(target.race == "Demon")
-				if(target.age>=13 || target.age == null || target.age == 1)
+				if(target.age_is_adult || target.age == null || target.age == 1)
 					target.overlays += 'Demonic Horns.dmi'
 				else if(target.age<=4)
 					target.overlays += 'demonic_horns_kid.dmi'
 			else if(target.race == "Oni")
-				if(target.age>=13 || target.age == null || target.age == 1)
+				if(target.age_is_adult || target.age == null || target.age == 1)
 					target.overlays += 'OniHorns.dmi'
 				else if(target.age<=4)
 					target.overlays += 'oni_horns_kid.dmi'
 			//Now set the actual in game portrait
 			if(i_horn)
 				var/icon/race = icon(i_race,"",SOUTH,1,0)
-				var/icon/horns = icon(i_horn,"",SOUTH,1,0)
+				var/icon/horns
+				if(isobj(i_horn))
+					var/obj/i_horn_obj_for_icon = i_horn
+					if(i_horn_obj_for_icon.icon)
+						horns = icon(i_horn_obj_for_icon.icon, "", SOUTH, 1, 0)
+				else
+					horns = icon(i_horn,"",SOUTH,1,0)
 				var/obj/hrn_chosen
 				if(target.race == "Saiyan") hrn_chosen = saiyan_tails[target.horn_pos]
 				if(target.race == "Oni") hrn_chosen = horns_oni[target.horn_pos]
 				if(target.race == "Demon") hrn_chosen = body_horns[target.horn_pos]
-				var/icon/hrn = icon(hrn_chosen.icon)
-				horn.icon = hrn
-				//horn.pixel_x = -8
-				horn.layer = 25
-				race.Shift(EAST,8)
-				horns.Blend(race,ICON_UNDERLAY)
-				P_white.Scale(88,88)
-				P_eyecolor.Scale(88,88)
-				P_white.Shift(EAST,20)
-				P_eyecolor.Shift(EAST,20)
-				P_white.Shift(SOUTH,2)
-				P_eyecolor.Shift(SOUTH,2)
-				horns.Scale(128,128)
-				horns.Blend(P_white,ICON_OVERLAY)
-				horns.Blend(P_eyecolor,ICON_OVERLAY)
-				target.save_icon = horns
+				var/icon/hrn
+				var/hrn_layer = horn.layer
+				if(hrn_chosen && hrn_chosen.icon)
+					hrn = icon(hrn_chosen.icon)
+					hrn_layer = hrn_chosen.layer
+				else if(i_horn)
+					hrn = icon(i_horn)
+				if(hrn)
+					horn.icon = hrn
+					horn.layer = hrn_layer
+				if(horns)
+					race.Shift(EAST,8)
+					horns.Blend(race,ICON_UNDERLAY)
+					if(P_white)
+						P_white.Scale(88,88)
+						P_white.Shift(EAST,20)
+						P_white.Shift(SOUTH,2)
+						horns.Blend(P_white,ICON_OVERLAY)
+					if(P_eyecolor)
+						P_eyecolor.Scale(88,88)
+						P_eyecolor.Shift(EAST,20)
+						P_eyecolor.Shift(SOUTH,2)
+						horns.Blend(P_eyecolor,ICON_OVERLAY)
+					horns.Scale(128,128)
+					target.save_icon = horns
 
-				target.horns = horn
-				//target.overlays = null
-				target.overlays += target.horns
+				if(target.race == "Saiyan")
+					target.tail = horn
+					target.horns = null
+				else
+					target.horns = horn
+					target.tail = null
+
+			if(target)
+				target.redraw_appearance()
+				target.set_icon(target)
+				if(!target.port || (target.client && !(target.port in target.client.screen)))
+					General_Portrait_Fix(target)
 
 mob
 	proc
@@ -5572,6 +5622,9 @@ mob
 		redraw_appearance()
 			src.overlays = null
 			if(src.hair) add_overlay(src, src.hair)
+			if(src.eyebrows) add_overlay(src, src.eyebrows)
+			if(src.tail) add_overlay(src, src.tail)
+			if(src.body_horns) add_overlay(src, src.body_horns)
 			if(src.horns) add_overlay(src, src.horns)
 			if(src.halo) add_overlay(src, src.halo)
 			if(src.eyes_white) add_overlay(src, src.eyes_white)
@@ -8194,7 +8247,7 @@ mob/proc/update_beard_icon()
 
 	// Remove old beard overlay
 	if(src.beard_overlay)
-		src.overlays -= src.beard_overlay
+		remove_overlay(src, src.beard_overlay)
 		src.beard_overlay = null
 
 	// Build new recolored beard overlay
@@ -8204,7 +8257,8 @@ mob/proc/update_beard_icon()
 
 	var/image/new_beard = image(icon = I)
 	src.beard_overlay = new_beard
-	src.overlays += src.beard_overlay
+	new_beard.layer = HAIR_LAYER
+	add_overlay(src, src.beard_overlay)
 	src.update_icon(src)
 	// Update portrait too
 	//src.update_portrait_beard()
@@ -8336,7 +8390,7 @@ mob/proc/update_beard_color_from_hair()
 mob/proc/beard_growth()
 	set background = 1
 	while(src)
-		sleep(36000) // Roughly one in-game month or year tick depending on your system
+		sleep(30 * DAYS) // Roughly one in-game month or year tick depending on your system
 		src.age++
 		src.beard_checker()
 

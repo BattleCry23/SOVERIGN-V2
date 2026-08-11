@@ -4499,7 +4499,7 @@ world
 			nose_portrait_female = list(new /:portrait_nose1_female,new /:portrait_nose2_female, new /:portrait_nose3_male)
 			mouth_portrait_male = list(new /:portrait_mouth1_male,new /:portrait_mouth2_male,new /:portrait_mouth3_male,new /:portrait_mouth4_male)
 			mouth_portrait_female = list(new /:portrait_mouth1_female,new /:portrait_mouth2_female,new /:portrait_mouth3_female,new /:portrait_mouth4_female,new /:portrait_mouth5_female)
-			skins_human_male = list('NewMalesWhite.dmi','NewMalesWhite.dmi','NewMalesWhite.dmi')
+			skins_human_male = list('NewMalesWhite(faceless).dmi','NewMalesWhite(faceless).dmi','NewMalesWhite(faceless).dmi')
 			skins_human_female = list('FemaleBaseWhite.dmi','FemaleBaseWhite.dmi','FemaleBaseWhite.dmi')
 			imp_ears = list("ears_curled","ears_down","ears_pointed")
 			imp_skin = list("imp_blue_","imp_brown_","imp_grey_")

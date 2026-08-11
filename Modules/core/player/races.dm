@@ -20,7 +20,7 @@ mob
 		Human
 
 			race = "Human"
-			icon = 'NewMalesWhite.dmi'
+			icon = 'NewMalesWhite(faceless).dmi'
 			home_planet = "Earth"
 			mortal = 1
 			pixel_x_og = 0
@@ -495,7 +495,7 @@ mob
 
 		Tuffle
 			race = "Tuffle"
-			icon = 'NewMalesWhite.dmi'
+			icon = 'NewMalesWhite(faceless).dmi'
 			home_planet = "Vegeta"
 			mortal = 1
 			pixel_x_og = 0
@@ -676,7 +676,7 @@ mob
 		HalfGod
 			//Demi-gods?
 			race = "Half God"
-			icon = 'NewMalesWhite.dmi'
+			icon = 'NewMalesWhite(faceless).dmi'
 			mortal = 1
 			pixel_x_og = 0
 			pixel_y_og = 0
@@ -1003,7 +1003,7 @@ mob
 					*/
 		Saiyan
 			race = "Saiyan"
-			icon = 'NewMalesWhite.dmi'
+			icon = 'NewMalesWhite(faceless).dmi'
 			home_planet = "Vegeta"
 			mortal = 1
 			pixel_x_og = 0

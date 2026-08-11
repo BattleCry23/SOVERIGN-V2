@@ -152,6 +152,10 @@ mob
 	var/tmp/next_gravity_damage = 0
 	var/tmp/last_gravity_tick = 0
 	var
+		age_is_adult = 0
+		age_is_kid = 0
+		age_is_baby = 0
+		age_is_under4age = 0
 		LSSJ = 0
 		scouter_on = 0
 		obj/items/tech/Scouters/current_scouter = null
@@ -312,6 +316,7 @@ mob
 		oozaru_form = 0
 		c_type_mutation = 0
 		hidden_potential = 0
+		allowed_zenkai = 0
 		lssj_form = 0
 		lssj_mastery = 0
 		looking_at_moon=0
@@ -895,6 +900,7 @@ mob
 		age_text = "Kid"
 		grey_hair = 0
 		hair_icon = null
+		eyebrows_icon = null
 		lifespan = 80
 		oldage = 50
 		prime = 1
@@ -1124,6 +1130,7 @@ mob
 
 		obj/divine_elec = null
 		obj/hair = null
+		obj/eyebrows = null
 		obj/horns = null
 		obj/body_horns = null
 		obj/tail = null

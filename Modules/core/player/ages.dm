@@ -111,10 +111,15 @@ obj
 				activate(var/mob/m,var/obj/s)
 					if(s.active == 0)
 						m.aged = s
+						m.age_selected = s
 						s.active = 1
 						m.age = 0.1
 						m.age_soul = 0.1
 						m.birth_year = year
+						m.age_is_adult = (m.age >= 13 || m.age == null || m.age == 1 || m.age == 21)
+						m.age_is_kid = (m.age >= 4 && m.age < 13)
+						m.age_is_baby = (m.age <= 0 || m.age == 0.1)
+						m.age_is_under4age = (m.age > 0.1 && m.age < 4)
 						//give psionic_power boost of 10xs
 						switch(m.race)
 							if("Human")
@@ -167,6 +172,7 @@ obj
 								icon='human_babymale.dmi'
 							if("Changeling")
 								icon='alien_egg.dmi'
+						m.update_looks()
 		kid
 			act = /obj/ages/adult/proc/activate
 			//banned_races = list("Namekian","Cerebroid","Android","Demon","Kai","Oni")
@@ -178,10 +184,15 @@ obj
 				activate(var/mob/m,var/obj/s)
 					if(s.active == 0)
 						m.aged = s
+						m.age_selected = s
 						s.active = 1
 						m.age = 4
 						m.age_soul = 4
 						m.birth_year = year-4
+						m.age_is_adult = (m.age >= 13 || m.age == null || m.age == 1 || m.age == 21)
+						m.age_is_kid = (m.age >= 4 && m.age < 13)
+						m.age_is_baby = (m.age <= 0 || m.age == 0.1)
+						m.age_is_under4age = (m.age > 0.1 && m.age < 4)
 						//give psionic_power boost of 10xs
 						switch(m.race)
 							if("Human")
@@ -239,6 +250,7 @@ obj
 								icon='spiritdoll_kid.dmi'
 							if("Changeling")
 								icon='Frieza_1st_form_kid.dmi'
+						m.update_looks()
 		teen
 			act = /obj/ages/adult/proc/activate
 			//banned_races = list("Namekian","Cerebroid","Android","Demon","Kai","Oni")
@@ -250,16 +262,21 @@ obj
 				activate(var/mob/m,var/obj/s)
 					if(s.active == 0)
 						m.aged = s
+						m.age_selected = s
 						s.active = 1
 						m.age = 13
 						m.age_soul = 13
 						m.birth_year = year-13
+						m.age_is_adult = (m.age >= 13 || m.age == null || m.age == 1 || m.age == 21)
+						m.age_is_kid = (m.age >= 4 && m.age < 13)
+						m.age_is_baby = (m.age <= 0 || m.age == 0.1)
+						m.age_is_under4age = (m.age > 0.1 && m.age < 4)
 						//give psionic_power boost of 10xs
 						switch(m.race)
 							if("Human")
 								switch(m.gender)
 									if("Male")
-										icon='NewMalesWhite.dmi'
+										icon='NewMalesWhite(faceless).dmi'
 									if("Female")
 										icon='FemaleBaseWhite.dmi'
 
@@ -285,7 +302,7 @@ obj
 							if("Saiyan")
 								switch(m.gender)
 									if("Male")
-										icon='NewMalesWhite.dmi'
+										icon='NewMalesWhite(faceless).dmi'
 									if("Female")
 										icon='FemaleBaseWhite.dmi'
 
@@ -296,20 +313,21 @@ obj
 							if("Tuffle")
 								switch(m.gender)
 									if("Male")
-										icon='NewMalesWhite.dmi'
+										icon='NewMalesWhite(faceless).dmi'
 									if("Female")
 										icon='FemaleBaseWhite.dmi'
 
 							if("Half God")
 								switch(m.gender)
 									if("Male")
-										icon='NewMalesWhite.dmi'
+										icon='NewMalesWhite(faceless).dmi'
 									if("Female")
 										icon='FemaleBaseWhite.dmi'
 							if("Spirit Doll")
 								icon='spiritdoll.dmi'
 							if("Changeling")
 								icon='Frieza_1st_form.dmi'
+						m.update_looks()
 		adult
 			act = /obj/ages/adult/proc/activate
 			//banned_races = list("Namekian","Cerebroid","Android","Demon","Kai","Oni")
@@ -321,16 +339,21 @@ obj
 				activate(var/mob/m,var/obj/s)
 					if(s.active == 0)
 						m.aged = s
+						m.age_selected = s
 						s.active = 1
 						m.age = 21
 						m.age_soul = 21
 						m.birth_year = year-21
+						m.age_is_adult = (m.age >= 13 || m.age == null || m.age == 1 || m.age == 21)
+						m.age_is_kid = (m.age >= 4 && m.age < 13)
+						m.age_is_baby = (m.age <= 0 || m.age == 0.1)
+						m.age_is_under4age = (m.age > 0.1 && m.age < 4)
 						//give psionic_power boost of 10xs
 						switch(m.race)
 							if("Human")
 								switch(m.gender)
 									if("Male")
-										icon='NewMalesWhite.dmi'
+										icon='NewMalesWhite(faceless).dmi'
 									if("Female")
 										icon='FemaleBaseWhite.dmi'
 
@@ -356,7 +379,7 @@ obj
 							if("Saiyan")
 								switch(m.gender)
 									if("Male")
-										icon='NewMalesWhite.dmi'
+										icon='NewMalesWhite(faceless).dmi'
 									if("Female")
 										icon='FemaleBaseWhite.dmi'
 
@@ -367,18 +390,18 @@ obj
 							if("Tuffle")
 								switch(m.gender)
 									if("Male")
-										icon='NewMalesWhite.dmi'
+										icon='NewMalesWhite(faceless).dmi'
 									if("Female")
 										icon='FemaleBaseWhite.dmi'
 
 							if("Half God")
 								switch(m.gender)
 									if("Male")
-										icon='NewMalesWhite.dmi'
+										icon='NewMalesWhite(faceless).dmi'
 									if("Female")
 										icon='FemaleBaseWhite.dmi'
 							if("Spirit Doll")
 								icon='spiritdoll.dmi'
 							if("Changeling")
 								icon='Frieza_1st_form.dmi'
-
+						m.update_looks()

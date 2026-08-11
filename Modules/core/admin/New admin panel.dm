@@ -614,7 +614,7 @@
 	html += "<table><tr><th>Var</th><th>Preview</th><th>Action</th></tr>"
 	for(var/v in mob_vars)
 		var/preview = AdminFormatVarPreview(choice.vars[v])
-		html += "<tr class='mob-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?command=edit;target=\\ref[choice];type=edit;var=[v]'>Edit Var</a></td></tr>"
+		html += "<tr class='mob-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Edit_Specific_Var;target=\\ref[choice];var_name=[v]'>Edit Var</a></td></tr>"
 	html += "</table></div>"
 
 	if(choice.client)
@@ -624,20 +624,59 @@
 		html += "<table><tr><th>Var</th><th>Preview</th><th>Action</th></tr>"
 		for(var/v in client_vars)
 			var/preview = AdminFormatVarPreview(choice.client.vars[v])
-			html += "<tr class='client-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?command=edit;target=\\ref[choice.client];type=edit;var=[v]'>Edit Var</a></td></tr>"
+			html += "<tr class='client-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Edit_Specific_Var;target=\\ref[choice.client];var_name=[v]'>Edit Var</a></td></tr>"
 		html += "</table></div>"
 
 	html += "</body></html>"
 	src << browse(html, "window=admin_player_panel;size=980x700")
 
-/mob/proc/RunAdminPanelAction(var/action, var/mob/choice)
+/mob/proc/AdminEditSpecificVar(var/datum/target, var/var_name)
+	if(!target || !var_name)
+		src << "Missing target or variable name."
+		return 0
+	if(!(var_name in target.vars))
+		src << "That variable is no longer available."
+		return 0
+
+	var/current = target.vars[var_name]
+	var/new_value = null
+
+	if(isnum(current))
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var", current) as null|num
+	else if(istext(current) || isnull(current))
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var", current) as null|text
+	else if(isicon(current))
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var") as null|icon
+	else if(isfile(current))
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var") as null|file
+	else
+		src << "This variable type should be edited with the full VV editor."
+		return 0
+
+	if(isnull(new_value))
+		return 0
+
+	target.vars[var_name] = new_value
+	world.log << "(Admin Log): [src.client.admin_name] edited [var_name] on [target]"
+	return 1
+
+/mob/proc/RunAdminPanelAction(var/action, var/datum/target, var/var_name = null)
 	if(!(src.key in StaffTeam))
 		src << "Access denied."
 		return
-	if(!choice) return
+	if(!target) return
 	var/level = src.client ? src.client.admin_level : 0
+	var/mob/choice = ismob(target) ? target : null
 
 	switch(action)
+		if("Edit_Specific_Var")
+			if(level < 2)
+				src << "Access denied."
+				return
+			if(!src.AdminEditSpecificVar(target, var_name))
+				return
+			return
+
 		if("Rename_Player")
 			if(level < 1)
 				src << "Access denied."

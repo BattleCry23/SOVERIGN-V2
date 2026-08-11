@@ -52,7 +52,7 @@ mob/proc/age_update_extra()
 	if(src.aged.info_name == "Baby" && src.age >= 4)
 		src.aged.info_name = "Kid"
 		spawn(1) src.update_body_age()
-	else if(src.aged.info_name == "Kid" && src.age >= 13)
+	else if(src.aged.info_name == "Kid" && src.age_is_adult == 0 && src.age >= 13)
 		src.aged.info_name = "Teen"
 		spawn(1) src.update_body_age()
 	else if(src.age >= 21 && src.aged.info_name != "Adult")

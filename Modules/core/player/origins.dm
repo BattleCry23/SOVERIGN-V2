@@ -158,17 +158,17 @@ obj
 
 					var/teen_icons = list(
 						"Makyo" = alist(1='makyo.dmi', 2='makyo_red.dmi', 3='makyo_tan.dmi', 4='makyo_purple.dmi'),
-						"Human" = list("Male"=alist(1='NewMalesWhite.dmi', 2='NewMalesTan.dmi', 3='NewMalesBlack.dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
-						"Demon" = alist("Male"=alist(1='demon_default_male.dmi', 2='demon_male.dmi', 3='NewMalesWhite.dmi', 4='NewMalesTan.dmi', 5='NewMalesBlack.dmi'), "Female"=alist(1='demon_default_female.dmi', 2='demon_female.dmi', 3='FemaleBaseWhite.dmi', 4='FemaleBaseTan.dmi', 5='FemaleBaseBlack.dmi')),
+						"Human" = list("Male"=alist(1='NewMalesWhite(faceless).dmi', 2='NewMalesTan(faceless).dmi', 3='NewMalesBlack(faceless).dmi'), "Female"=alist(1='FemaleBaseWhite(faceless).dmi', 2='FemaleBaseTan(faceless).dmi', 3='FemaleBaseBlack(faceless).dmi')),
+						"Demon" = alist("Male"=alist(1='demon_default_male.dmi', 2='demon_male.dmi', 3='NewMalesWhite(faceless).dmi', 4='NewMalesTan(faceless).dmi', 5='NewMalesBlack(faceless).dmi'), "Female"=alist(1='demon_default_female.dmi', 2='demon_female.dmi', 3='FemaleBaseWhite.dmi', 4='FemaleBaseTan.dmi', 5='FemaleBaseBlack.dmi')),
 						"Kai" = list("Male"='humanoid_no_colour2.dmi', "Female"='humanoid_no_colour_female2.dmi'),
 						"Oni" = alist(1='oni_male_light.dmi', 2='oni_male_dark.dmi', 3='oni_male_light.dmi'),
-						"Saiyan" = list("Male"=alist(1='NewMalesWhite.dmi', 2='NewMalesTan.dmi', 3='NewMalesBlack.dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
+						"Saiyan" = list("Male"=alist(1='NewMalesWhite(faceless).dmi', 2='NewMalesTan(faceless).dmi', 3='NewMalesBlack(faceless).dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
 						"Namekian" = alist(1='NewNamekianAdult4.dmi', 2='NewNamekianAdult3.dmi', 3='NewNamekianAdult2.dmi', 4='NewNamekianAdult1.dmi'),
-						"Tuffle" = list("Male"=alist(1='NewMalesWhite.dmi', 2='NewMalesTan.dmi', 3='NewMalesBlack.dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
-						"Half God" = alist("Male"='NewMalesWhite.dmi', "Female"='FemaleBaseWhite.dmi'),
+						"Tuffle" = list("Male"=alist(1='NewMalesWhite(faceless).dmi', 2='NewMalesTan(faceless).dmi', 3='NewMalesBlack(faceless).dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
+						"Half God" = alist("Male"='NewMalesWhite(faceless).dmi', "Female"='FemaleBaseWhite.dmi'),
 						"Spirit Doll" = alist(1='spiritdoll.dmi', 2='spiritdoll_tan.dmi'),
 						"Changeling" = alist(1='Frieza_1st_form.dmi', 2='1stFriezaBlue.dmi', 3='1stFriezaGreen.dmi', 4='1stFriezaOrange.dmi', 5='1stFriezaRed.dmi'),
-						"Alien" = alist(1='Alien_Captin_Ginyu_Naked.dmi', 2='Alien_Immecka_Naked.dmi', 3='Alien_Kanassa_Naked.dmi', 4='Alien_Kui_Naked.dmi', 5='Alien_Yardrat_Naked.dmi', 6='NewMalesWhite.dmi', 7='NewMalesTan.dmi', 8='NewMalesBlack.dmi')
+						"Alien" = alist(1='Alien_Captin_Ginyu_Naked.dmi', 2='Alien_Immecka_Naked.dmi', 3='Alien_Kanassa_Naked.dmi', 4='Alien_Kui_Naked.dmi', 5='Alien_Yardrat_Naked.dmi', 6='NewMalesWhite(faceless).dmi', 7='NewMalesTan(faceless).dmi', 8='NewMalesBlack(faceless).dmi')
 					)
 					if(m.race in teen_icons)
 						var/race_data = teen_icons[m.race]
@@ -209,17 +209,17 @@ obj
 					//give psionic_power boost of 10xs
 					var/adult_icons = list(
 						"Makyo" = alist(1='makyo.dmi', 2='makyo_red.dmi', 3='makyo_tan.dmi', 4='makyo_purple.dmi'),
-						"Human" = list("Male"=alist(1='NewMalesWhite.dmi', 2='NewMalesTan.dmi', 3='NewMalesBlack.dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
-						"Demon" = alist("Male"=alist(1='demon_default_male.dmi', 2='demon_male.dmi', 3='NewMalesWhite.dmi', 4='NewMalesTan.dmi', 5='NewMalesBlack.dmi'), "Female"=alist(1='demon_default_female.dmi', 2='demon_female.dmi', 3='FemaleBaseWhite.dmi', 4='FemaleBaseTan.dmi', 5='FemaleBaseBlack.dmi')),
+						"Human" = list("Male"=alist(1='NewMalesWhite(faceless).dmi', 2='NewMalesTan(faceless).dmi', 3='NewMalesBlack(faceless).dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
+						"Demon" = alist("Male"=alist(1='demon_default_male.dmi', 2='demon_male.dmi', 3='NewMalesWhite(faceless).dmi', 4='NewMalesTan(faceless).dmi', 5='NewMalesBlack(faceless).dmi'), "Female"=alist(1='demon_default_female.dmi', 2='demon_female.dmi', 3='FemaleBaseWhite.dmi', 4='FemaleBaseTan.dmi', 5='FemaleBaseBlack.dmi')),
 						"Kai" = list("Male"='humanoid_no_colour2.dmi', "Female"='humanoid_no_colour_female2.dmi'),
 						"Oni" = alist(1='oni_male_light.dmi', 2='oni_male_dark.dmi', 3='oni_male_light.dmi'),
-						"Saiyan" = list("Male"=alist(1='NewMalesWhite.dmi', 2='NewMalesTan.dmi', 3='NewMalesBlack.dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
+						"Saiyan" = list("Male"=alist(1='NewMalesWhite(faceless).dmi', 2='NewMalesTan(faceless).dmi', 3='NewMalesBlack(faceless).dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
 						"Namekian" = alist(1='NewNamekianAdult4.dmi', 2='NewNamekianAdult3.dmi', 3='NewNamekianAdult2.dmi', 4='NewNamekianAdult1.dmi'),
-						"Tuffle" = list("Male"=alist(1='NewMalesWhite.dmi', 2='NewMalesTan.dmi', 3='NewMalesBlack.dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
-						"Half God" = alist("Male"='NewMalesWhite.dmi', "Female"='FemaleBaseWhite.dmi'),
+						"Tuffle" = list("Male"=alist(1='NewMalesWhite(faceless).dmi', 2='NewMalesTan(faceless).dmi', 3='NewMalesBlack(faceless).dmi'), "Female"=alist(1='FemaleBaseWhite.dmi', 2='FemaleBaseTan.dmi', 3='FemaleBaseBlack.dmi')),
+						"Half God" = alist("Male"='NewMalesWhite(faceless).dmi', "Female"='FemaleBaseWhite.dmi'),
 						"Spirit Doll" = alist(1='spiritdoll.dmi', 2='spiritdoll_tan.dmi'),
 						"Changeling" = alist(1='Frieza_1st_form.dmi', 2='1stFriezaBlue.dmi', 3='1stFriezaGreen.dmi', 4='1stFriezaOrange.dmi', 5='1stFriezaRed.dmi'),
-						"Alien" = alist(1='Alien_Captin_Ginyu_Naked.dmi', 2='Alien_Immecka_Naked.dmi', 3='Alien_Kanassa_Naked.dmi', 4='Alien_Kui_Naked.dmi', 5='Alien_Yardrat_Naked.dmi', 6='NewMalesWhite.dmi', 7='NewMalesTan.dmi', 8='NewMalesBlack.dmi')
+						"Alien" = alist(1='Alien_Captin_Ginyu_Naked.dmi', 2='Alien_Immecka_Naked.dmi', 3='Alien_Kanassa_Naked.dmi', 4='Alien_Kui_Naked.dmi', 5='Alien_Yardrat_Naked.dmi', 6='NewMalesWhite(faceless).dmi', 7='NewMalesTan(faceless).dmi', 8='NewMalesBlack(faceless).dmi')
 					)
 					if(m.race in adult_icons)
 						var/race_data = adult_icons[m.race]
@@ -238,6 +238,11 @@ obj
 	parent_type = /obj/origins
 	//category = "Mutation"
 	banned_races = list("Android","Kai") // You can customize this per mutation if needed
+
+/obj/origins/traits
+	parent_type = /obj/origins
+	//category = "Trait"
+	//set_genetic = list("android_dna","kai_dna") // Can also be set by DNA
 mob
 	var/zenkai_pool = 0        // current pool charge
 	var/max_zenkai_pool = 100  // cap; scales with endurance and willpower
@@ -372,6 +377,37 @@ mob/proc/process_zenkai_on_ko()
 
     // end loop - either recovered or pool empty
     return
+
+/*traits
+	var
+		info_name
+		rarity
+		info
+		active = 0
+		set_genetic
+
+	proc
+		activate(var/mob/M)
+			//	M << "Activated"
+		apply_racial_trait(var/mob/target, var/raced = 0)
+			if(raced == 0)
+				var/list/racials = list()
+				for (var/A in typesof(/traits/racial/))
+					if (A == /traits/racial)
+						continue
+					var/list/excluded_races = initial(A:set_genetic)
+					if(excluded_races in excluded_races)
+						continue
+					racials += A
+				apply_trait(target, racials)
+
+			
+			apply_trait(var/mob/target, var/list/racials)
+				for (var/A in racials)
+					if (A != /traits && A != /traits/racial)  // Apply the race's full trait set
+						var/traits/Instance = new A(target) // Create the trait instance and give it to the target
+						target.traits += Instance // Add trait to target's traits list
+						Instance.activate(target)*/
 mutations
 	var
 		info_name
@@ -1764,15 +1800,20 @@ obj
 			// Invented something super high tech, but died while testing it.
 		regeneration
 			info_name = "Regeneration"
-			info = "*UNFINISHED*"
 			act = /obj/origins/regeneration/proc/activate
 			banned_races = list("Human","Namekian","Cerebroid","Saiyan","Demon","Kai","Imp")
 			icon_state = "unfinished"
+			New()
+				..()
+				src.info = "Your body is unnaturally difficult to put down. Whether this was an alien quirk, a lab-grown adaptation or something far stranger, your flesh keeps stitching itself back together when it should stay broken.\n\nWith this origin, you gain improved [css_regen]Regeneration<font color = white> and enter a fake-death recovery state whenever you are knocked out. While KO'd, you automatically heal your health and damaged limbs until your body can get back up on its own."
 			proc
 				activate(var/mob/m,var/obj/s)
 					if(s.active == 0)
 						s.active = 1
 						m.origin = s
+						m.mod_regeneration += 1
+						m.gains_trained_regen_mod += 1
+						m.extra_regen = 1
 			// Alien only
 			// Higher regen
 			// Death regen

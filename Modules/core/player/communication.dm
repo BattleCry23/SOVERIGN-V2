@@ -1448,17 +1448,20 @@ mob
 
 						usr.particles = null //Keep this for a while, I think saving them makes the player crash.
 
-						var/list/screen_mobs = list()
+						var/list/screen_atoms = list()
 						if(usr && usr.client)
-							for(var/mob/m in src.client.screen)
-								usr.client.screen -= m
-								screen_mobs += m
+							for(var/atom/movable/a in src.client.screen)
+								if(ismob(a))
+									usr.client.screen -= a
+									continue
+								usr.client.screen -= a
+								screen_atoms += a
 
 
 
 
-						for(var/mob/m in screen_mobs)
-							if(src.client) src.client.screen += m
+						for(var/atom/movable/a in screen_atoms)
+							if(src.client) src.client.screen += a
 						if(src.skill_divine_weapon)
 							for(var/mob/s in src.skill_divine_weapon.active_splits)
 								s.filters += filter(type="outline",size=1, color=rgb(204,236,255))
@@ -1593,7 +1596,7 @@ mob
 			//msg = html_encode(msg)
 			msg = html_safe(msg)
 
-			if(process_chat_command(msg)) return
+			if(process_chat_command(raw_runechat_msg)) return
 
 			var/mob/speaker = usr.projection ? usr.projection : usr
 			if(usr.SendInlineEmote(raw_runechat_msg, speaker))
@@ -1926,7 +1929,7 @@ mob/proc/process_chat_command(var/msg)
 
 		SendAdminChat(text)
 		return 1
-	if(findtext(msg, "/sc")) return scouter_speak(msg)
+	if(copytext(lowertext(msg), 1, 5) == "/sc " || lowertext(msg) == "/sc") return scouter_speak(msg)
 	if(findtext(msg, "/cd")) return handle_countdown()
 	if(findtext(msg, "/lethal")) return toggle_lethality()
 	if(findtext(msg, "/adminmode")) return toggle_adminmode()
@@ -2000,28 +2003,56 @@ mob/proc/process_chat_command(var/msg)
 		return 1 */
 
 mob/proc/scouter_speak(var/msg)
-	var/text = copytext(msg, 4) // everything after /sc
+	var/text = copytext(msg, 5) // everything after "/sc "
 
 	if(!src.current_scouter)
 		src << output("You are not wearing a scouter!", "actionoutput")
-		return
+		return 1
+
+	if(!length(text))
+		src << output("Usage: /sc \[message\]", "actionoutput")
+		return 1
 
 	var/channel = src.current_scouter.Channel
-	var/message = "<font color=[src.text_color_ic]>--Scouter Channel#[channel]-- [src.get_strangername(src)] speaks '[text]'"
+	var/mob/speaker = src.projection ? src.projection : src
+	var/speaker_avatar = get_chatbox_render(speaker, speaker.client)
+	var/speaker_color = src.text_color_ic ? src.text_color_ic : "#FFFFFF"
+	var/quoted_text = say_quote(text)
 
+	var/list/local_hearers = hearers(14, speaker)
+	if(!(src in local_hearers))
+		local_hearers += src
+	if(length(text))
+		speaker.show_runechat(text, speaker_color, FALSE, local_hearers, TRUE)
+
+	var/list/scouter_listeners = list()
 	for(var/mob/races/m in players)
 		if(m.client && m.scouter_on && m.current_scouter && m.current_scouter.Channel == channel)
-			m << output(message, "actionoutput")
-			sleep(world.tick_lag)
+			scouter_listeners += m
+
+	for(var/mob/M in local_hearers)
+		if(!M || !M.client || M.npc || M.boss) continue
+		if(M in scouter_listeners)
+			M << output("<IMG CLASS=image SRC=\ref[speaker_avatar] STYLE='width:32px; height:32px;' ICONSTATE='' ICONDIR=SOUTH ICONFRAME=2'><font color=[speaker_color]><b>[channel]</b> [M.get_strangername(src)] says into their scouter, [src.ICText(quoted_text, src)]", "actionoutput")
+			scouter_listeners -= M
+		else
+			M << output("<IMG CLASS=image SRC=\ref[speaker_avatar] STYLE='width:32px; height:32px;' ICONSTATE='' ICONDIR=SOUTH ICONFRAME=2'><font color=[speaker_color]>[M.get_strangername(src)] says into their scouter, [src.ICText(quoted_text, src)]", "actionoutput")
+		spawn(1) M.saveToLog("[src]([key]): [text]\n")
+
+	for(var/mob/races/m in scouter_listeners)
+		m << output("<font color=[speaker_color]><b>[channel]</b> [m.get_strangername(src)] says over the scouter, [src.ICText(quoted_text, src)]", "actionoutput")
+		spawn(1) m.saveToLog("[src]([key]) [channel]: [text]\n")
+
+	return 1
 
 // Admin command stubs
 mob/proc/handle_countdown()
 	var/total_time
 
 	var/preset = input(src, "Pick a preset duration.") in list("30", "60", "90")
-	if(preset == "30")total_time = 300
-	if(preset == "60") total_time = 600
-	if(preset == "90") total_time = 900
+	if(preset == "30")total_time = 30 * SECONDS
+	if(preset == "60") total_time = 60 * SECONDS
+	if(preset == "90") total_time = 90 * SECONDS
 	var/show_final_countdown = input(src, "Show final 10-second countdown visually?") in list("Yes", "No")
 
 	// Notify everyone nearby
@@ -2222,11 +2253,14 @@ mob/proc/handle_admin_chat()
 mob/proc/general_fix()
 	src.particles = null //Keep this for a while, I think saving them makes the player crash.
 
-	var/list/screen_mobs = list()
+	var/list/screen_atoms = list()
 	if(src && src.client)
-		for(var/mob/m in src.client.screen)
-			src.client.screen -= m
-			screen_mobs += m
+		for(var/atom/movable/a in src.client.screen)
+			if(ismob(a))
+				src.client.screen -= a
+				continue
+			src.client.screen -= a
+			screen_atoms += a
 	//if(src.filters) src.filters = null
 	src.rebuild_menus()
 	src.hud_char.update_portrait_transform()
@@ -2333,11 +2367,14 @@ mob/proc/open_settings()
 
 			src.particles = null //Keep this for a while, I think saving them makes the player crash.
 			src.hud_char.update_portrait_transform()
-			var/list/screen_mobs = list()
+			var/list/screen_atoms = list()
 			if(src && src.client)
-				for(var/mob/m in src.client.screen)
-					src.client.screen -= m
-					screen_mobs += m
+				for(var/atom/movable/a in src.client.screen)
+					if(ismob(a))
+						src.client.screen -= a
+						continue
+					src.client.screen -= a
+					screen_atoms += a
 		//	if(src.filters) src.filters = null
 
 			if(client.custom_view)
@@ -2355,8 +2392,8 @@ mob/proc/open_settings()
 				client.pixel_x = 0
 				client.pixel_y = 0
 
-			for(var/mob/m in screen_mobs)
-				if(src.client) src.client.screen += m
+			for(var/atom/movable/a in screen_atoms)
+				if(src.client) src.client.screen += a
 			if(src.skill_divine_weapon)
 				for(var/mob/s in src.skill_divine_weapon.active_splits)
 					s.filters += filter(type="outline",size=1, color=rgb(204,236,255))

@@ -3726,6 +3726,8 @@ obj
 							src.vis_contents -= player.babyport
 					update_portrait_transform()
 						var/mob/player = src.loc
+						for(var/mob/m in src.vis_contents)
+							src.vis_contents -= m
 						if(player.port)
 							src.vis_contents -= player.port
 							src.vis_contents += player.port
@@ -3798,7 +3800,7 @@ obj
 									src.avatar_holder = ava_holder
 
 									var/obj/ava = new
-									ava.icon = 'NewMalesWhite.dmi'
+									ava.icon = 'NewMalesWhite(faceless).dmi'
 									ava.hud_x = 180
 									ava.hud_y = 484
 									ava.layer = 33

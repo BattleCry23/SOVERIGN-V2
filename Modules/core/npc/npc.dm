@@ -4162,7 +4162,7 @@ mob
 				src.set_lists()
 				sleep(100)
 				//src.Human()
-				var/obj/hairs/male/Hair7/h = new
+				var/obj/overlay/hairs/normal/male/Hair7/h = new
 				src.hair = h
 				src.overlays += h
 				src.name_txt()

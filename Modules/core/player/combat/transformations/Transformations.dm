@@ -1901,6 +1901,7 @@ mob/proc/Changeling_Superform4thForm_Effect()
 					form_preview = 'cooler_4Red.dmi'
 				else
 					form_preview = 'cooler_4.dmi'
+		o.icon = form_preview
 		rays.icon = 'fx_ray_large.dmi'
 		rays.pixel_x = -284
 		rays.pixel_y = -284
@@ -1931,7 +1932,6 @@ mob/proc/Changeling_Superform4thForm_Effect()
 
 			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
 			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = form_preview
 			o.icon_state = ""
 			o.overlays = m.overlays
 			o.loc = m.loc
@@ -1971,7 +1971,6 @@ mob/proc/Changeling_Superform4thForm_Effect()
 		animate(transform = turn(matrix(),120), time = 5)
 		animate(transform = null, time = 5)
 
-	var/icon/form_preview = 'Frieza_4th_form.dmi'
 	spawn(120)
 		if(pixs && islist(pixs))
 			for(var/obj/v in pixs)

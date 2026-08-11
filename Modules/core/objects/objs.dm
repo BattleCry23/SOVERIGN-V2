@@ -4835,7 +4835,7 @@ obj
 							var/obj/h = null
 							var/list/adult_list = list("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Nach","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Vomi","Android 18","Android 17")
 							var/list/kid_list = list("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Android 18","Android 17")
-							if(m.age>=13)
+							if(m.age_is_adult)
 								switch(input("Pick a hairstyle.") in adult_list) //("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Nach","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Android 18","Android 17"))
 									if("Bald")
 										remove_overlay(m, usr.hair)
@@ -4843,99 +4843,99 @@ obj
 										m.vis_contents -= usr.hair
 										m.hair_pos=16
 									if("Goku")
-										if(m.age>=13) h = hairs_male[1]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[1]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[1]
 										m.hair_pos=1
 									if("Vegeta")
-										if(m.age>=13) h = hairs_male[2]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[2]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[2]
 										m.hair_pos=2
 									if("Yamcha")
-										if(m.age>=13) h = hairs_male[3]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[3]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[3]
 										m.hair_pos=3
 									if("Uub")
-										if(m.age>=13) h = hairs_male[4]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[4]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[4]
 										m.hair_pos=4
 
 									if("Long")
-										if(m.age>=13) h = hairs_male[5]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[5]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[5]
 										m.hair_pos=5
 									if("Afro")
-										if(m.age>=13) h = hairs_male[6]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[6]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[6]
 										m.hair_pos=6
 									if("Kidd")
-										if(m.age>=13) h = hairs_male[7]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[7]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[7]
 										m.hair_pos=7
 									if("Raditz")
-										if(m.age>=13) h = hairs_male[8]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[8]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[8]
 										m.hair_pos=8
 									if("Muse")
-										if(m.age>=13) h = hairs_male[9]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[9]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[9]
 										m.hair_pos=9
 									if("Goten")
-										if(m.age>=13) h = hairs_male[10]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[10]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[10]
 										m.hair_pos=10
 									if("Short")
-										if(m.age>=13) h = hairs_male[11]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[11]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[11]
 										m.hair_pos=11
 									if("Spikey")
-										if(m.age>=13) h = hairs_male[13]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[13]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[13]
 										m.hair_pos=13
 									if("Nach")
-										if(m.age>=13) h = hairs_male[14]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[14]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[14]
 										m.hair_pos=14
 									if("Stylish Long")
-										if(m.age>=13) h = hairs_male[15]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[15]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[15]
 										m.hair_pos=15
 									if("Yamcha GT")
-										if(m.age>=13) h = hairs_male[12]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[12]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[12]
 										usr.hair_pos=12
 									if("Kale")
-										if(m.age>=13) h = hairs_female[1]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[1]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[1]
 										m.hair_pos=1
 									if("Female 1")
-										if(m.age>=13) h = hairs_female[3]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[3]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[3]
 										m.hair_pos=3
 									if("Female 2")
-										if(m.age>=13) h = hairs_female[2]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[2]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[2]
 										m.hair_pos=2
 									if("Caulifa")
-										if(m.age>=13) h = hairs_female[9]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[9]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[4]
 										usr.hair_pos=9
 									if("Vomi")
@@ -4943,16 +4943,16 @@ obj
 										m.hair_pos=16
 
 									if("Android 17")
-										if(m.age>=13) h = hairs_female[10]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[10]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[5]
 										//usr.hair_pos=17
 									if("Android 18")
-										if(m.age>=13) h = hairs_female[11]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[11]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[6]
 										//usr.hair_pos=18
-							else if(m.age<13 && m.age>3.9)
+							else if(m.age_is_kid && m.age>3.9)
 								switch(input("Pick a hairstyle.") in kid_list)//list ("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Nach","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Android 18","Android 17"))
 									if("Bald")
 										remove_overlay(m, usr.hair)
@@ -4960,106 +4960,106 @@ obj
 										m.vis_contents -= m.hair
 										m.hair_pos=16
 									if("Goku")
-										if(m.age>=13) h = hairs_male[1]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[1]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[1]
 										m.hair_pos=1
 									if("Vegeta")
-										if(m.age>=13) h = hairs_male[2]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[2]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[2]
 										m.hair_pos=2
 									if("Yamcha")
-										if(m.age>=13) h = hairs_male[3]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[3]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[3]
 										m.hair_pos=3
 									if("Uub")
-										if(m.age>=13) h = hairs_male[4]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[4]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[4]
 										m.hair_pos=4
 
 									if("Long")
-										if(m.age>=13) h = hairs_male[5]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[5]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[5]
 										m.hair_pos=5
 									if("Afro")
-										if(m.age>=13) h = hairs_male[6]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[6]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[6]
 										m.hair_pos=6
 									if("Kidd")
-										if(m.age>=13) h = hairs_male[7]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[7]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[7]
 										m.hair_pos=7
 									if("Raditz")
-										if(m.age>=13) h = hairs_male[8]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[8]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[8]
 										m.hair_pos=8
 									if("Muse")
-										if(usr.age>=13) h = hairs_male[9]
-										else if(usr.age<13)
+										if(usr.age_is_adult) h = hairs_male[9]
+										else if(usr.age_is_kid)
 											h = kid_hairs_male[9]
 										m.hair_pos=9
 									if("Goten")
-										if(m.age>=13) h = hairs_male[10]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[10]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[10]
 										m.hair_pos=10
 									if("Short")
-										if(m.age>=13) h = hairs_male[11]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[11]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[11]
 										m.hair_pos=11
 									if("Spikey")
-										if(m.age>=13) h = hairs_male[13]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[13]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[13]
 										m.hair_pos=13
 
 									if("Stylish Long")
-										if(m.age>=13) h = hairs_male[15]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[15]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[15]
 										m.hair_pos=15
 									if("Yamcha GT")
-										if(m.age>=13) h = hairs_male[12]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_male[12]
+										else if(m.age_is_kid)
 											h = kid_hairs_male[12]
 										m.hair_pos=12
 									if("Kale")
-										if(m.age>=13) h = hairs_female[1]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[1]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[1]
 										m.hair_pos=1
 									if("Female 1")
-										if(m.age>=13) h = hairs_female[3]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[3]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[3]
 										m.hair_pos=3
 									if("Female 2")
-										if(m.age>=13) h = hairs_female[2]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[2]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[2]
 										m.hair_pos=2
 									if("Caulifa")
-										if(m.age>=13) h = hairs_female[9]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[9]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[4]
 										m.hair_pos=9
 
 									if("Android 17")
-										if(m.age>=13) h = hairs_female[10]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[10]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[5]
 										//usr.hair_pos=17
 									if("Android 18")
-										if(m.age>=13) h = hairs_female[11]
-										else if(m.age<13)
+										if(m.age_is_adult) h = hairs_female[11]
+										else if(m.age_is_kid)
 											h = kid_hairs_female[6]
 										//usr.hair_pos=18
 
@@ -13418,7 +13418,7 @@ obj
 							usr.pickup(I,2)
 						src.destroy()
 			body
-				icon = 'NewMalesWhite.dmi'
+				icon = 'NewMalesWhite(faceless).dmi'
 				icon_state = "KO"
 				hashadow = 0
 				var/spoiled = 0
@@ -20254,11 +20254,11 @@ obj
 								return
 							if(!i.suffix)
 								if(findtext(i.name,"(Kid)"))
-									if(m.age>=13)
+									if(m.age_is_adult)
 										m<<"You cannot fit this item."
 										return
 								if(!findtext(i.name,"(Kid)"))
-									if(m.age<13)
+									if(m.age_is_kid)
 										m<<"You cannot fit this item."
 										return
 
@@ -20334,11 +20334,11 @@ obj
 								return
 							if(!i.suffix)
 								if(findtext(i.name,"(Kid)"))
-									if(m.age>=13)
+									if(m.age_is_adult)
 										m<<"You cannot fit this item."
 										return
 								if(!findtext(i.name,"(Kid)"))
-									if(m.age<13)
+									if(m.age_is_kid)
 										m<<"You cannot fit this item."
 										return
 
@@ -20426,11 +20426,11 @@ obj
 							else
 								//Wear
 								if(findtext(i.name,"(Kid)"))
-									if(m.age>=13)
+									if(m.age_is_adult)
 										m<< "You cannot fit this item."
 										return
 								if(!findtext(i.name,"(Kid)"))
-									if(m.age<13)
+									if(m.age_is_kid)
 										m<< "You cannot fit this item."
 										return
 								//var/lift_raw = m.strength + (m.endurance * 4)
@@ -22141,11 +22141,11 @@ obj
 								return
 							if(!i.suffix)
 								if(findtext(i.name,"(Kid)"))
-									if(m.age>=13)
+									if(m.age_is_adult)
 										m<<"You cannot fit this item."
 										return
 								if(!findtext(i.name,"(Kid)"))
-									if(m.age<13)
+									if(m.age_is_kid)
 										m<<"You cannot fit this item."
 										return
 								m.bandaged=1
@@ -22222,11 +22222,11 @@ obj
 								return
 							if(!i.suffix)
 								if(findtext(i.name,"(Kid)"))
-									if(m.age>=13)
+									if(m.age_is_adult)
 										m<<"You cannot fit this item."
 										return
 								if(!findtext(i.name,"(Kid)"))
-									if(m.age<13)
+									if(m.age_is_kid)
 										m<<"You cannot fit this item."
 										return
 								m.bandaged=1
@@ -22308,11 +22308,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									i.suffix = "equipped"
@@ -22400,11 +22400,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									i.suffix = "equipped"
@@ -22488,11 +22488,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									i.suffix = "equipped"
@@ -22579,11 +22579,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									i.suffix = "equipped"
@@ -22801,11 +22801,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:scan_power == 1 ) i:scan_power = i.level
@@ -22954,11 +22954,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:scan_power == 1 ) i:scan_power = i.level
@@ -24154,11 +24154,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:armor_health >0 ) i:armor_health = (i.level*0.10)
@@ -24243,11 +24243,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:armor_health >0 ) i:armor_health = (i.level*0.10)
@@ -24330,11 +24330,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:armor_health >0 ) i:armor_health = (i.level*0.10)
@@ -24418,11 +24418,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:armor_health >0 ) i:armor_health = (i.level*0.10)
@@ -24505,11 +24505,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									i.suffix = "equipped"
@@ -24590,11 +24590,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									i.suffix = "equipped"
@@ -24674,11 +24674,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:armor_health >0 ) i:armor_health = (i.level*0.10)
@@ -24761,11 +24761,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:armor_health >0 ) i:armor_health = (i.level*0.10)
@@ -24848,11 +24848,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:armor_health >0 ) i:armor_health = (i.level*0.10)
@@ -24934,11 +24934,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									if(i:armor_health >0 ) i:armor_health = (i.level*0.10)
@@ -25020,11 +25020,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									i.suffix = "equipped"
@@ -25103,11 +25103,11 @@ obj
 									return
 								if(!i.suffix)
 									if(findtext(i.name,"(Kid)"))
-										if(m.age>=13)
+										if(m.age_is_adult)
 											m<<"You cannot fit this item."
 											return
 									if(!findtext(i.name,"(Kid)"))
-										if(m.age<13)
+										if(m.age_is_kid)
 											m<<"You cannot fit this item."
 											return
 									i.suffix = "equipped"
@@ -27066,198 +27066,6 @@ obj
 					icon_state = "hair8"
 				portrait_Hair9_female
 					icon_state = "hair9"
-	hairs
-		layer = HAIR_LAYER
-		density_factor = 0
-		//appearance_flags = KEEP_TOGETHER
-		female
-			Hair1_female
-				icon = 'Kale_Hair.dmi'
-				name = "Hair1"
-			Hair2_female
-				icon = 'hair_female2.dmi'
-				name = "Hair2"
-			Hair3_female
-				icon = 'hair_female1.dmi'
-				name = "Hair3"
-			Hair4_female
-				icon = 'hair_04_female.dmi'
-				name = "Hair4"
-			Hair5_female
-				icon = 'hair_long.dmi'
-				name = "Hair5"
-			Hair6_female
-				icon = 'hair_06_female.dmi'
-				name = "Hair6"
-			Hair7_female
-				icon = 'hair_07_female.dmi'
-				name = "Hair7"
-			Hair8_female
-				icon = 'hair_08_female.dmi'
-				name = "Hair8"
-			Hair9_female
-				icon = 'NewCauliflaHair.dmi'
-				name ="Hair9"
-			Hair10_female
-				icon = 'Android17h.dmi'
-				name ="Hair10"
-
-			Hair11_female
-				icon = 'Android_18.dmi'
-				name ="Hair11"
-		female_kid
-			Hair1_female_kid
-				icon = 'Kale_Hair_kid.dmi'
-				name = "Hair1"
-			Hair2_female_kid
-				icon = 'hair_female2_kid.dmi'
-				name = "Hair2"
-			Hair3_female_kid
-				icon = 'hair_female1_kid.dmi'
-				name = "Hair3"
-			Hair4_female_kid
-				icon = 'hair_04_female.dmi'
-				name = "Hair4"
-			Hair5_female_kid
-				icon = 'hair_long.dmi'
-				name = "Hair5"
-			Hair6_female_kid
-				icon = 'hair_06_female.dmi'
-				name = "Hair6"
-			Hair7_female_kid
-				icon = 'hair_07_female.dmi'
-				name = "Hair7"
-			Hair8_female_kid
-				icon = 'hair_08_female.dmi'
-				name = "Hair8"
-			Hair9_female_kid
-				icon = 'NewCauliflaHairKid.dmi'
-				name ="Hair9"
-			Hair10_female_kid
-				icon = 'Android17hKid.dmi'
-				name ="Hair10"
-			Hair11_female_kid
-				icon = 'Android_18_kid.dmi'
-				name ="Hair11"
-		male
-
-			Hair1
-				icon = 'GokuRHair.dmi'
-			Hair2
-				icon = 'hair_vegeta.dmi'
-			Hair3
-				icon = 'hair_yamcha.dmi'
-			Hair4
-				icon = 'UubHair.dmi'
-			Hair5
-				icon = 'hair_long.dmi'
-			Hair6
-				icon = 'hair_afro.dmi'
-			Hair7
-				icon = 'hair_kidd.dmi'
-			Hair8
-				icon = 'hair_raditz.dmi'
-			Hair9
-				icon = 'hair_muse.dmi'
-			Hair10
-				icon = 'hair_goten.dmi'
-			Hair11
-				icon = 'hair_short.dmi'
-			Hair12
-				icon = 'hair_vegetajr.dmi'
-			Hair13
-				icon = 'hair_strange.dmi'
-			Hair13
-				icon = 'hair_lan.dmi'
-			Hair14
-				icon = 'hair_kidgohan.dmi'
-			Hair15
-				icon = 'hair_trunks.dmi'
-			Hair16
-				icon = 'hair_futuregohan.dmi'
-			Hair17
-				icon = 'hair_adultgohan.dmi'
-			Hair18
-				icon = 'FT_Trunks_Hair.dmi'
-			Hair19
-				icon = 'GranolaHair.dmi'
-			Hair20
-				icon = 'Shallot_Hair.dmi'
-			Hair21
-				icon = 'TeenGohanHair (1).dmi'
-			Hair22
-				icon = 'YamchaGT.dmi'
-			Hair23
-				icon = 'YamchaS.dmi'
-			Hair24
-				icon = 'NewSpikeyH1.dmi'
-			Hair25
-				icon = 'nach_hair.dmi'
-			Hair26
-				icon = 'Stylish_Long_Hair.dmi'
-			Hair27
-				icon = 'VomiHair.dmi'
-
-
-			None
-		male_kid
-			Hair1_kid
-				name = "Hair1"
-				icon = 'GokuRkidhair.dmi'
-			Hair2_kid
-				icon = 'hair_vegeta_kid.dmi'
-			Hair3_kid
-				icon = 'hair_yamcha_kid.dmi'
-			Hair4_kid
-				icon = 'UubHairkid.dmi'
-			Hair5_kid
-				icon = 'hair_long_kid.dmi'
-			Hair6_kid
-				icon = 'hair_afro_kid.dmi'
-			Hair7_kid
-				icon = 'hair_kidd_kid.dmi'
-			Hair8_kid
-				icon = 'hair_raditz_kid.dmi'
-			Hair9_kid
-				icon = 'hair_muse_kid.dmi'
-			Hair10_kid
-				icon = 'hair_goten_kid.dmi'
-			Hair11_kid
-				icon = 'hair_short_kid.dmi'
-			Hair12_kid
-				icon = 'hair_vegetajr_kid.dmi'
-			Hair13_kid
-				icon = 'hair_strange_kid.dmi'
-			Hair13_kid
-				icon = 'hair_lan_kid.dmi'
-			Hair14_kid
-				icon = 'hair_kidgohan_kid.dmi'
-			Hair15_kid
-				icon = 'hair_trunks_kid.dmi'
-			Hair16_kid
-				icon = 'hair_futuregohan_kid.dmi'
-			Hair17_kid
-				icon = 'hair_adultgohan_kid.dmi'
-			Hair18_kid
-				icon = 'FT_Trunks_Hair_Kid.dmi'
-			Hair19_kid
-				icon = 'GranolaKid.dmi'
-			Hair20_kid
-				icon = 'Shallot_Hair_Kid.dmi'
-			Hair21_kid
-				icon = 'KidTeenGohanHair.dmi'
-			Hair22_kid
-				icon = 'YamchaGTKid.dmi'
-			Hair23_kid
-				icon = 'YamchaSKid.dmi'
-			Hair24_kid
-				icon = 'NewSpikeyH1Kid.dmi'
-			Hair25_kid
-				icon = 'nach_hair.dmi'
-				New()
-					pixel_y=-5
-			Hair26_kid
-				icon = 'Stylish_Long_Hair_Kid.dmi'
 
 
 obj/items/consumables/food

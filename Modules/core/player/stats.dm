@@ -218,19 +218,9 @@ mob
 						// Limb Regeneration (New System)
 						// =============================
 						src.check_body_health()
-
-
-
-
-
-
-
-
-
-
 					/*	for(var/obj/body_related/p in src.hurt_limbs)
-							if(p.disabled_perma == 0)
-								if(src.bandaged == 0)
+						if(p.disabled_perma == 0)
+							if(src.bandaged == 0)
 									p.hp += (0.06*mod_regeneration)*rand(1,1.3)
 									if(icon_state == "Meditate") p.hp += (0.08*mod_regeneration)*rand(1,1.5)
 								if(src.bandaged == 1)
@@ -253,6 +243,13 @@ mob
 									src.hurt_limbs -= p*/
 				else if(src.toxicity >= 200)
 					src.Death("Toxicity buildup",1)
+				else if(src.extra_regen && src.dead == 0)
+					if(src.percent_health < 100)
+						src.percent_health += 0.45 * src.mod_regeneration
+						if(src.percent_health > 100) src.percent_health = 100
+					src.check_body_health()
+					if(src.ko_time > 30 && src.percent_health >= 35)
+						src.ko_time = 30
 			//Dynamically adjust hp bars
 			if(src.change_hp != src.percent_health && src.hud_hp_bar_inner)
 				var/obj/bar_hp = src.hud_hp_bar_inner
@@ -336,7 +333,9 @@ mob
 				var/heal_amount = 0
 
 			    // Base regen
-				if(src.bandaged)
+				if(src.koed && src.extra_regen && src.dead == 0)
+					heal_amount = 0.08 * src.mod_regeneration
+				else if(src.bandaged)
 					heal_amount = 0.10 * src.mod_regeneration
 				else
 					heal_amount = 0.025 * src.mod_regeneration

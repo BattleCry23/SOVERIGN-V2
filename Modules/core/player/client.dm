@@ -633,7 +633,7 @@ client
                 return
             var/action = href_list["admin_panel_action"]
             var/target_ref = href_list["target"]
-            var/mob/target = locate(target_ref)
+            var/datum/target = locate(target_ref)
             if(!target)
                 var/target_ckey = href_list["target_ckey"]
                 if(target_ckey)
@@ -644,7 +644,7 @@ client
             if(!target)
                 src.mob << "Admin panel action failed: target not found."
                 return
-            src.mob.RunAdminPanelAction(action, target)
+            src.mob.RunAdminPanelAction(action, target, href_list["var_name"])
             return
 
         if(href_list["dokuro_buy"])
