@@ -370,7 +370,8 @@ mob
 
 						// Too far? Follow using Eternia�s logic
 						if(dist > src.attack_range)
-							src.updateFollow(src.target, 0, src.follow_delay)
+							if(!src._npc_move_toward(src.target, src.attack_range))
+								src.updateFollow(src.target, 0, src.follow_delay)
 							sleep(src.follow_delay)
 							continue
 
@@ -412,7 +413,7 @@ mob
 						if(src.agressive && prob(35))
 							var/tx = src.start_loc.x + rand(-3,3)
 							var/ty = src.start_loc.y + rand(-3,3)
-							step_towards(src, locate(tx, ty, src.z))
+							src._npc_move_toward(locate(tx, ty, src.z), 0)
 						sleep(src.patrol_delay)
 						continue
 					sleep(0.2)
@@ -423,7 +424,8 @@ mob
 				if(src.Follow)
 					if(get_dist(src,A) <= src.chase_range)
 						src.Follow = A
-						walk_to(src, src.Follow, 1, delay)
+						if(!src._npc_move_toward(A, min))
+							walk_to(src, src.Follow, 1, delay)
 						return 1
 					else
 						src.Follow = null
@@ -432,7 +434,8 @@ mob
 				else
 					if(get_dist(src,A) <= src.chase_range)
 						src.Follow = A
-						walk_to(src, src.Follow, 1, delay)
+						if(!src._npc_move_toward(A, min))
+							walk_to(src, src.Follow, 1, delay)
 						src.FollowLoop(A, min, delay)
 						return 1
 				return 0
@@ -467,6 +470,38 @@ mob
 					if(M.npc) continue
 					if(istype(M, /mob/races)) return M
 				return null
+
+			_npc_move_toward(atom/target, var/min_dist = 0)
+				if(!src || !target || src.koed || src.stunned || !src.loc || !target.loc)
+					return 0
+				if(target.z != src.z)
+					return 0
+				if(get_dist(src, target) <= min_dist)
+					return 1
+
+				var/dir_to_target = get_dir(src, target)
+				var/list/candidate_dirs = list(dir_to_target)
+				var/list/backup_dirs = list()
+
+				switch(dir_to_target)
+					if(NORTH, SOUTH)
+						backup_dirs += list(EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+					if(EAST, WEST)
+						backup_dirs += list(NORTH, SOUTH, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+					else
+						backup_dirs += list(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+
+				for(var/d in backup_dirs)
+					if(!(d in candidate_dirs))
+						candidate_dirs += d
+
+				for(var/d in candidate_dirs)
+					if(!d)
+						continue
+					if(step(src, d))
+						return 1
+
+				return 0
 
 			_npc_melee_strike(var/mob/T)
 				if(!src || !T || T.koed) return
@@ -510,7 +545,7 @@ mob
 							// === If a target is found, step toward them ===
 							if(src.target)
 								if(get_dist(src, src.target) > 32)
-									step_towards(src, src.target)
+									src._npc_move_toward(src.target, 0)
 								else
 									src.Attack()
 

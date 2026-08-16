@@ -4477,12 +4477,16 @@ world
 			saiyan_tails = list(new /:brown_tail,new /:black_tail)
 			body_horns = list(new /:horns1_demon,new /:horns2_demon,new/:horns2_demon_kid)
 			horns_oni= list(new /:oni_horns1, new/:oni_horns1_kid)
-			kid_hairs_male = list(new /:Hair1_kid,new /:Hair2_kid,new /:Hair3_kid,new /:Hair4_kid,new /:Hair5_kid,new /:Hair6_kid,new /:Hair7_kid,new /:Hair8_kid,new /:Hair9_kid,new /:Hair10_kid, new /:Hair11_kid, new /:Hair22_kid, new /:Hair24_kid, new /:Hair25_kid, new /:Hair26_kid, new /:None)
+			//Android 17 hair (Hair18/Android17_kid) is appended after None so existing saved hair_pos values don't shift.
+			kid_hairs_male = list(new /:Hair1_kid,new /:Hair2_kid,new /:Hair3_kid,new /:Hair4_kid,new /:Hair5_kid,new /:Hair6_kid,new /:Hair7_kid,new /:Hair8_kid,new /:Hair9_kid,new /:Hair10_kid, new /:Hair11_kid, new /:Hair22_kid, new /:Hair24_kid, new /:Hair25_kid, new /:Hair26_kid, new /:None, new /:Android17_kid)
 			kid_hairs_female = list(new /:Hair1_female_kid,new /:Hair2_female_kid,new /:Hair3_female_kid, new /:Hair9_female_kid,new /:Hair10_female_kid, new /:Hair11_female_kid, new /:None)
-			hairs_male = list(new /:Hair1,new /:Hair2,new /:Hair3,new /:Hair4,new /:Hair5,new /:Hair6,new /:Hair7,new /:Hair8,new /:Hair9,new /:Hair10, new /:Hair11, new /:Hair22, new /:Hair24, new /:Hair25, new /:Hair26,new /:Hair27, new /:None)
-			hairs_portrait_male = list(new /:portrait_Hair1_male,new /:portrait_Hair2_male,new /:portrait_Hair3_male,new /:portrait_Hair4_male,new /:portrait_Hair5_male,new /:portrait_Hair6_male,new /:portrait_Hair7_male,new /:portrait_Hair8_male,new /:portrait_Hair9_male,new /:portrait_Hair10_male, new /:portrait_Hair11_male, new /:portrait_Hair22_male, new /:portrait_Hair24_male, new /:portrait_Hair25_male, new /:portrait_Hair26_male, new /:portrait_Hair27_male, new /:None)
+			hairs_male = list(new /:Hair1,new /:Hair2,new /:Hair3,new /:Hair4,new /:Hair5,new /:Hair6,new /:Hair7,new /:Hair8,new /:Hair9,new /:Hair10, new /:Hair11, new /:Hair22, new /:Hair24, new /:Hair25, new /:Hair26,new /:Hair27, new /:None, new /:Hair18)
+			//Must stay index-aligned with hairs_male. Android 17 (index 18) has no male portrait sprite, so None.
+			hairs_portrait_male = list(new /:portrait_Hair1_male,new /:portrait_Hair2_male,new /:portrait_Hair3_male,new /:portrait_Hair4_male,new /:portrait_Hair5_male,new /:portrait_Hair6_male,new /:portrait_Hair7_male,new /:portrait_Hair8_male,new /:portrait_Hair9_male,new /:portrait_Hair10_male, new /:portrait_Hair11_male, new /:portrait_Hair22_male, new /:portrait_Hair24_male, new /:portrait_Hair25_male, new /:portrait_Hair26_male, new /:portrait_Hair27_male, new /:None, new /:None)
 			hairs_female = list(new /:Hair1_female,new /:Hair2_female,new /:Hair3_female,new /:Hair9_female,new /:Hair10_female, new /:Hair11_female, new /:None)
-			hairs_portrait_female = list(new /:portrait_Hair1_female,new /:portrait_Hair2_female,new /:portrait_Hair3_female,new /:portrait_Hair9_female,new /:None)
+			//Must stay index-aligned with hairs_female. Android 17/18 have no portrait sprite yet, so they
+			//fall back to None rather than running off the end of the list.
+			hairs_portrait_female = list(new /:portrait_Hair1_female,new /:portrait_Hair2_female,new /:portrait_Hair3_female,new /:portrait_Hair9_female, new /:None, new /:None, new /:None)
 			eyes_portrait_female_demon = list(new /:portrait_female_demon_eyes1)
 			eyes_portrait_makyo = list (new /:portrait_makyo_eyes1, new /:portrait_makyo_eyes2)
 			eyes_portrait_spiritdoll = list (new /:portrait_spiritdoll_eyes1, new /:portrait_spiritdoll_eyes2)

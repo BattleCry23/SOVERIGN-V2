@@ -26,6 +26,47 @@ mob/proc
 				if("Changeling") src.path_type = "mob/races/Changeling"
 				if("Tuffle") src.path_type = "mob/races/Tuffle"
 				if("Makyo") src.path_type = "mob/races/Makyo"
+
+	has_trait(var/trait)
+		if(!trait)
+			return FALSE
+		if(!src.traits)
+			src.traits = list()
+		if(ispath(trait, /obj/traits))
+			for(var/obj/traits/T in src.traits)
+				if(T.type == trait)
+					return TRUE
+			return FALSE
+		if(istype(trait, /obj/traits))
+			for(var/obj/traits/T in src.traits)
+				if(T == trait)
+					return TRUE
+			return FALSE
+		return FALSE
+
+	add_trait(var/trait)
+		if(!trait)
+			return FALSE
+		var/obj/traits/trait_obj = null
+		if(ispath(trait, /obj/traits))
+			if(src.has_trait(trait))
+				return FALSE
+			trait_obj = new trait
+		else if(istype(trait, /obj/traits))
+			trait_obj = trait
+			if(src.has_trait(trait_obj.type))
+				return FALSE
+		else
+			return FALSE
+		if(!src.traits)
+			src.traits = list()
+		if(trait_obj.loc != src)
+			trait_obj.loc = src
+		src.traits += trait_obj
+		if(trait_obj.act)
+			call(trait_obj.act)(src, trait_obj)
+		return TRUE
+	
 mob/proc/open_wool_ui(obj/items/wool/w)
     if(!w) return
 
@@ -110,6 +151,7 @@ mob/proc/migrate_body_system()
     if(src.hud_body)
         src.hud_body.color_paperdoll(src)
     src.body_version = 2
+
 mob/proc/run_one_time_corpse_cleanup()
 	var/list/matching_corpses = list()
 	for(var/obj/items/misc/body/B in world)
@@ -640,24 +682,12 @@ mob/proc/TextPercent(num)
 
 mob/proc
 	admin_cmd_check(var/text)
-		if(text == "/tp")
-			if(src.key in StaffTeam)
-				switch(input(src,"Where do you wish to teleport?") in list ("Earth","Namek","Vegeta","Icer","Space","Other Realm","Dark Realm"))
-					if("Earth")
-						src.loc=locate(rand(5,490),rand(5,490),1)
-					if("Namek")
-						src.loc=locate(rand(5,490),rand(5,490),3)
-					if("Vegeta")
-						src.loc=locate(rand(5,490),rand(5,490),10)
-					if("Icer")
-						src.loc=locate(rand(5,490),rand(5,490),9)
-					if("Space")
-						src.loc=locate(rand(5,490),rand(5,490),18)
-					if("Other Realm")
-						src.loc=locate(rand(5,490),rand(5,490),2)
-					if("Dark Realm")
-						src.loc=locate(rand(5,490),rand(5,490),6)
-				return
+		if(text != "/tp" || !(src.key in StaffTeam)) return
+		var/list/destinations = list("Earth"=1, "Namek"=3, "Vegeta"=10, "Icer"=9, "Space"=18, "Other Realm"=2, "Dark Realm"=6)
+		var/destination = input(src,"Where do you wish to teleport?") in destinations
+		var/z_level = destinations[destination]
+		if(z_level)
+			src.loc = locate(rand(5,490), rand(5,490), z_level)
 	admin_kill(var/mob/m as mob in players)
 		if(!src.key in StaffTeam) return
 		if(m)
@@ -2439,7 +2469,6 @@ mob
 							m.redraw_appearance()
 							m.oozaru_disable(m)
 							m.pixel_x = 0
-
 
 		auto_skill_learning()
 			set background = 1
@@ -8763,3 +8792,37 @@ mob/proc/ValidatePassiveTree()
 					//	s.create_login_menus()
 						newandroid.set_shadow()
 						*/
+
+mob/proc
+
+	TransformO(var/mob/o)
+		if(!o.oozaru_form)
+			o.oozaru_form = 1
+			o.icon_state = "Superform"
+			animate(o,color = "black",time = 20)
+			animate(o,color=null,alpha = 50, time = 10)
+			spawn(30 * world.tick_lag)
+				o.pixel_x -= 32
+				o.pixel_y -= 32
+				o.stunned += 1
+				animate(o,alpha = 50,transform = matrix()*0.5,time = 0)
+				animate(o,transform = matrix()*1,alpha = 255,pixel_z=o.pixel_z,time = 10,easing = SINE_EASING)
+				spawn(25 * world.tick_lag)
+					if(o)
+						o.icon_state=""
+						o.stunned -= 1
+
+	ReverseO(var/mob/m)
+		if(m.oozaru_form)
+			m.oozaru_form = 0
+			m.pixel_x = -32
+			m.pixel_y = -32
+			animate(m,alpha = 50,transform = matrix()*0.5,time = 10,pixel_z=m.pixel_z,easing = SINE_EASING)
+			spawn(15 * world.tick_lag)
+				if(m)
+					m.pixel_x = 0
+					m.pixel_y = -32
+					m.icon = m.saved_icon
+					animate(m,alpha = 255,time = 10,pixel_z=32,easing = SINE_EASING)
+
+

@@ -317,7 +317,41 @@ mob
 				bar_eng.transform = m
 				var/obj/hud/bars/player_eng/eng = bar_eng.loc
 				if(eng && eng.txt_percent) eng.txt_percent.maptext = "<font size = 1> <text align=center valign=top>[css_outline][round(src.percent_energy)]%"
+			if(!src.stamina_max) src.stamina_max = 100
+			if(src.dead)
+				src.stamina = src.stamina_max
+				if(src.stamina_max > 0) src.percent_stamina = 100
+			else
+				if(src.stamina > src.stamina_max) src.stamina = src.stamina_max
+				if(src.stamina < 0) src.stamina = 0
+				var/stamina_threshold = 35
+				var/stamina_regen = 0
+				if(src.hunger >= stamina_threshold && src.thirst >= stamina_threshold && src.restedness >= stamina_threshold)
+					stamina_regen += 0.12 + (src.mod_recovery * 0.06)
+				if((src.meditating || (src.skill_meditation && src.skill_meditation.active)) && !src.dead && !src.koed)
+					stamina_regen += 0.35 + (src.mod_recovery * 0.12)
+				if(stamina_regen > 0 && src.stamina < src.stamina_max)
+					src.stamina += stamina_regen
+					if(src.stamina > src.stamina_max) src.stamina = src.stamina_max
+				src.percent_stamina = (src.stamina / src.stamina_max) * 100
+				if(src.percent_stamina > 100) src.percent_stamina = 100
+				if(src.percent_stamina < 0) src.percent_stamina = 0
+				if(src.change_stamina != src.percent_stamina && src.hud_stamina_bar_inner)
+					var/obj/bar_stamina = src.hud_stamina_bar_inner
+					var/matrix/stm = matrix()
+					stm.Scale(src.percent_stamina*2,1)
+					stm.Translate(src.percent_stamina,0)
+					bar_stamina.transform = stm
+			if(src.dead)
+				src.percent_stamina = 100
+				if(src.change_stamina != src.percent_stamina && src.hud_stamina_bar_inner)
+					var/obj/bar_stamina = src.hud_stamina_bar_inner
+					var/matrix/stm = matrix()
+					stm.Scale(200,1)
+					stm.Translate(100,0)
+					bar_stamina.transform = stm
 			src.change_eng = src.percent_energy
+			src.change_stamina = src.percent_stamina
 			src.change_hp = src.percent_health
 			src.tech_unlocking(src)
 

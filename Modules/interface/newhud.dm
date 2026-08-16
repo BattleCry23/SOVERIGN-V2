@@ -240,6 +240,19 @@ obj
 				layer = 7
 				mouse_opacity = 0
 				icon_state = "mp"
+			player_stamina_inner
+				icon = 'hud_bar_new_inner.dmi'
+				screen_loc = "3:2,17:3"
+				layer = 7
+				mouse_opacity = 0
+				icon_state = "mp"
+				color = rgb(50, 205, 50)
+			player_stamina
+				icon = 'hud_bar_new.dmi'
+				screen_loc = "3:1,17:17"
+				layer = 6
+				icon_state = "bar holder"
+				color = rgb(50, 205, 50)
 			cft_button
 				icon = 'TBMS.dmi'
 				screen_loc = "1:55,15:13"

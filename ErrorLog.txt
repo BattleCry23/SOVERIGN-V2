@@ -6863,3 +6863,1177 @@ System Loading.....
 DEBUG - Saiyan login with /mob/races/Saiyan mob
 AuctionHouse: Saving all auction data before shutdown...
 AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+System Loading.....
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - Guest-1472937037 login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+runtime error: bad client
+proc name: BasicCheck (/mob/proc/BasicCheck)
+  source file: Modules/core/player/login.dm,138
+  usr: (src)
+  src: Guest-1472937037 (/mob)
+  src.loc: null
+  call stack:
+Guest-1472937037 (/mob): BasicCheck()
+Guest-1472937037 (/mob): Login()
+runtime error: bad client
+proc name: Login (/mob/Login)
+  source file: Modules/core/player/login.dm,280
+  usr: (src)
+  src: Guest-1472937037 (/mob)
+  src.loc: null
+  call stack:
+Guest-1472937037 (/mob): Login()
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Cybertech Created.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+DEBUG - the lol's Save was last saved on 13/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+DEBUG - the lol's Save was last saved on 13/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Loading Player(voxtech)..
+DEBUG - the lol login with /mob/races/Saiyan mob
+File Read(the lol)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16114
+  usr: VOXTECH (/mob)
+  src: the lol (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (17,93,10) (/turf/cracked_ground)
+  call stack:
+the lol (/mob/races/Saiyan): skillbar()
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the lol) Loaded!
+VOXTECH logs in.</font>
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+DEBUG - the lol's Save was last saved on 13/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the lol login with /mob/races/Saiyan mob
+File Read(the lol)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16114
+  usr: VOXTECH (/mob)
+  src: the lol (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (17,93,10) (/turf/cracked_ground)
+  call stack:
+the lol (/mob/races/Saiyan): skillbar()
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the lol) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the lol's Save was last saved on 13/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the lol login with /mob/races/Saiyan mob
+File Read(the lol)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16114
+  usr: VOXTECH (/mob)
+  src: the lol (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (17,93,10) (/turf/cracked_ground)
+  call stack:
+the lol (/mob/races/Saiyan): skillbar()
+the lol (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the lol) Loaded!
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the lol's Save was last saved on 13/08/2026
+DEBUG - lol(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+DEBUG - Saiyan login with /mob/races/Saiyan mob
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the oppla's Save was last saved on 13/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: AdminSortTextAlpha (/proc/AdminSortTextAlpha)
+  source file: Modules/core/admin/New admin panel.dm,504
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (276,162,10) (/turf/cracked_ground)
+  call stack:
+AdminSortTextAlpha(/list (/list))
+AdminGetSortedVarNames(the oppla (/mob/races/Saiyan))
+the oppla (/mob/races/Saiyan): OpenAdminPlayerPanel(the oppla (/mob/races/Saiyan))
+the oppla (/mob/races/Saiyan): RunAdminCommand("Edit")
+VOXTECH (/client): Topic("src=\\refthe%20oppla;admin_cmd...", /list (/list))
+(Admin Log): Admin Purple opened Player Panel on the oppla
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 472 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+DEBUG - the oppla's Save was last saved on 13/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (436,431,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Cached 472 concrete item types.
+(Admin Log): VOXTECH created Scissors
+runtime error: Cannot read null.icon
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,5071
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (436,431,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=25;icon-y=3;left=1;butt...")
+Found Maps.
+World Authorized!
+Immersion Shop RNG rolled: /list
+World Initialized.
+Cached 472 concrete item types.
+AuctionHouse: setup complete & loaded.
+Galaxy Created.
+Years Started.
+runtime error: Cannot read null.icon
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,5071
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (436,431,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=31;icon-y=11;left=1;but...")
+DEBUG - the oppla's Save was last saved on 13/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (438,432,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot execute null.remove item from inventory().
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4860
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (438,432,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=28;icon-y=7;left=1;butt...")
+Cached 472 concrete item types.
+(Admin Log): VOXTECH created Scissors
+DEBUG - the oppla's Save was last saved on 13/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (437,432,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: Cannot execute null.remove item from inventory().
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4860
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (437,432,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=31;icon-y=11;left=1;but...")
+DEBUG - the oppla's Save was last saved on 13/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (437,432,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+Infinite loop suspected--switching proc to background.
+If it is not an infinite loop, either do 'set background=1' or set world.loop_checks=0.
+proc name: run one time corpse cleanup (/mob/proc/run_one_time_corpse_cleanup)
+  source file: Modules/core/procs/procs_mob.dm,115
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (437,432,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): run one time corpse cleanup()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Cached 472 concrete item types.
+(Admin Log): VOXTECH created Scissors
+runtime error: Cannot read null.icon
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4913
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (437,432,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=13;icon-y=11;left=1;but...")
+runtime error: list index out of bounds
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4883
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (437,432,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=23;icon-y=11;left=1;but...")
+runtime error: Cannot execute null.remove item from inventory().
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4924
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (437,433,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=12;icon-y=14;left=1;but...")
+DEBUG - the oppla's Save was last saved on 13/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (436,433,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Cached 472 concrete item types.
+(Admin Log): VOXTECH created Scissors
+runtime error: list index out of bounds
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4894
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (436,433,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=9;icon-y=11;left=1;butt...")
+runtime error: Cannot execute null.remove item from inventory().
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4860
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (436,433,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=16;icon-y=12;left=1;but...")
+DEBUG - the oppla's Save was last saved on 13/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (436,433,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+Cached 472 concrete item types.
+(Admin Log): VOXTECH created Scissors
+runtime error: Cannot execute null.remove item from inventory().
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4891
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (436,433,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=22;icon-y=2;left=1;butt...")
+(Admin Log): VOXTECH created Scissors
+runtime error: Cannot execute null.remove item from inventory().
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4891
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (436,432,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=31;icon-y=6;left=1;butt...")
+DEBUG - the oppla's Save was last saved on 13/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (437,432,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Drugs Created.
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+runtime error: type mismatch: 0 & the cracked ground (437,432,10) (/turf/cracked_ground)
+proc name: Click (/obj/hud/menus/options_background/option_settings/Click)
+  source file: Modules/interface/newhud.dm,1704
+  usr: the oppla (/mob/races/Saiyan)
+  src: the option settings (/obj/hud/menus/options_background/option_settings)
+  usr.loc: the cracked ground (437,432,10) (/turf/cracked_ground)
+  src.loc: null
+  call stack:
+the option settings (/obj/hud/menus/options_background/option_settings): Click(null, "map.map", "icon-x=38;icon-y=8;left=1;butt...")
+Cached 472 concrete item types.
+(Admin Log): VOXTECH created Scissors
+runtime error: Cannot execute null.remove item from inventory().
+proc name: use (/obj/items/Scissors/proc/use)
+  source file: Modules/core/objects/objs.dm,4893
+  usr: the oppla (/mob/races/Saiyan)
+  src: null
+  usr.loc: the cracked ground (437,430,10) (/turf/cracked_ground)
+  call stack:
+use(the oppla (/mob/races/Saiyan), Scissors (/obj/items/Scissors))
+the inv button use (/obj/hud/menus/inventory_background/inv_button_use): Click(null, "map.map", "icon-x=31;icon-y=6;left=1;butt...")
+DEBUG - the oppla's Save was last saved on 13/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (455,391,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the oppla's Save was last saved on 15/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (455,391,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the oppla's Save was last saved on 15/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (455,391,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+Lvl Overlays Created.
+VOXTECH logs in.</font>
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the oppla's Save was last saved on 15/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.
+Backgrounds Created.
+Bodyparts Created.
+Tech Tree bars Created.
+Stat xp bar created.
+Dark Realm Gravity Created.
+DEBUG - VOXTECH login with /mob mob
+Hell Gravity Created.
+Bodies Created.
+Builings Created.
+Help Created.
+Dust Created.
+Blasts Created.
+Tech Created.
+Orbs Created.
+Beams Created.
+Skills Created.
+Stances Created.
+Lightning Created.
+Traits Created.
+Player Shells Created.
+Cybertech Created.
+Drugs Created.
+Loading Player(voxtech)..
+DEBUG - the oppla login with /mob/races/Saiyan mob
+File Read(the oppla)!
+Loading Prepration(voxtech)..
+runtime error: list index out of bounds
+proc name: skillbar (/mob/proc/skillbar)
+  source file: Modules/core/player/combat/skills/skills.dm,16121
+  usr: VOXTECH (/mob)
+  src: the oppla (/mob/races/Saiyan)
+  usr.loc: null
+  src.loc: the cracked ground (455,391,10) (/turf/cracked_ground)
+  call stack:
+the oppla (/mob/races/Saiyan): skillbar()
+the oppla (/mob/races/Saiyan): mob prep()
+VOXTECH (/client): Load("saves/players/VOXTECH/sav1.sav")
+(the oppla) Loaded!
+VOXTECH logs in.</font>
+Lvl Overlays Created.
+Furrows Created.
+Races Created.
+Loaded Objs.
+Eyes/Furrows/Bubbles/Spawn Lists Created.
+Industrial Smoke Created.
+Year Loaded.
+Children Loaded.
+Bans Loaded.
+World Time Loaded.
+World Clock Loaded.
+System Loading.....
+DEBUG - the oppla's Save was last saved on 15/08/2026
+DEBUG - oppla(VOXTECH)'s Saved character to slot 1
+AuctionHouse: Saving all auction data before shutdown...
+AuctionHouse: All listings and mail saved.

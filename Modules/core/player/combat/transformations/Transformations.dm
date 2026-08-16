@@ -639,6 +639,27 @@ mob/proc/transformation_drain(var/mob/container)
 			if(final_drain > 0 && prob(20))
 				container.energy -= final_drain
 
+			if(container.stamina_max > 0)
+				var/initial_stamina_hit = rand(2, 5)
+				var/stamina_drain = max(0.1, final_drain * 0.25)
+				if(container.stamina > 0)
+					if(saiyan_dna && container.superform == 1)
+						if(mastery >= 100)
+							initial_stamina_hit = 0
+							stamina_drain = rand(0.05, 0)
+						else
+							container.stamina -= initial_stamina_hit
+
+					if(container.race == "Changeling" && mastery >= 100)
+						initial_stamina_hit = 0
+						stamina_drain = 0
+						
+					if(container.stamina < 0) 
+						container.stamina = 0
+					else
+						container.stamina -= stamina_drain
+						if(container.stamina < 0) container.stamina = 0
+
 			var/unmastered_ratio = max(0, (100 - mastery) / 100)
 			if(apply_backlash && unmastered_ratio > 0)
 				var/form_pressure = max(0.5, form_multiplier - 0.5)

@@ -416,11 +416,32 @@ proc/export_limb_icon(var/mob/m, var/which_limb)
 	var/icon/full_icon = new(m.icon)
 	var/icon/icon_out = new()
 
-	var/list/coords = list()
-	coords["SOUTH"] = alist("Right Arm" = list(22, 9, 26, 17), "Left Arm" = list(9, 16, 12, 9), "Right Leg" = list(19, 1, 24, 8), "Left Leg" = list(9, 1, 14, 8))
-	coords["EAST"] = alist("Right Arm" = list(23, 9, 27, 17), "Left Arm" = list(6, 16, 10, 9), "Right Leg" = list(20, 1, 25, 8), "Left Leg" = list(8, 1, 13, 8))
-	coords["NORTH"] = alist("Right Arm" = list(22, 10, 26, 17), "Left Arm" = list(9, 16, 12, 9), "Right Leg" = list(19, 1, 24, 8), "Left Leg" = list(9, 1, 14, 8))
-	coords["WEST"] = alist("Right Arm" = list(21, 9, 25, 17), "Left Arm" = list(6, 9, 10, 17), "Right Leg" = list(18, 1, 23, 8), "Left Leg" = list(10, 1, 15, 8))
+	var/list/coords = list(
+		"SOUTH" = list(
+			"Right Arm" = list(22, 9, 26, 17),
+			"Left Arm" = list(9, 16, 12, 9),
+			"Right Leg" = list(19, 1, 24, 8),
+			"Left Leg" = list(9, 1, 14, 8)
+		),
+		"EAST" = list(
+			"Right Arm" = list(23, 9, 27, 17),
+			"Left Arm" = list(6, 16, 10, 9),
+			"Right Leg" = list(20, 1, 25, 8),
+			"Left Leg" = list(8, 1, 13, 8)
+		),
+		"NORTH" = list(
+			"Right Arm" = list(22, 10, 26, 17),
+			"Left Arm" = list(9, 16, 12, 9),
+			"Right Leg" = list(19, 1, 24, 8),
+			"Left Leg" = list(9, 1, 14, 8)
+		),
+		"WEST" = list(
+			"Right Arm" = list(21, 9, 25, 17),
+			"Left Arm" = list(6, 9, 10, 17),
+			"Right Leg" = list(18, 1, 23, 8),
+			"Left Leg" = list(10, 1, 15, 8)
+		)
+	)
 	for(var/state in full_icon.IconStates())
 	//	world << "⚙️ Processing state: [state]"
 		var/icon/new_state = new()

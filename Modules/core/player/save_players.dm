@@ -678,8 +678,10 @@ mob
 			if(src.screen_text) src.client.screen += src.screen_text
 			if(src.hud_hp_bar) src.client.screen += src.hud_hp_bar
 			if(src.hud_eng_bar) src.client.screen += src.hud_eng_bar
+			if(src.hud_stamina_bar) src.client.screen += src.hud_stamina_bar
 			if(src.hud_hp_bar_inner) src.client.screen += src.hud_hp_bar_inner
 			if(src.hud_eng_bar_inner) src.client.screen += src.hud_eng_bar_inner
+			if(src.hud_stamina_bar_inner) src.client.screen += src.hud_stamina_bar_inner
 			if(src.hud_pp) src.client.screen += src.hud_pp
 			if(src.hud_info) src.client.screen += src.hud_info
 			if(src.hud_chat) src.client.screen += src.hud_chat

@@ -120,9 +120,9 @@ obj/overlay/hairs
 			Hair16
 				icon = 'hair_futuregohan.dmi'
 			Hair17
-				icon = 'hair_adultgohan.dmi'
+				icon = 'GohanUAdult.dmi'
 			Hair18
-				icon = 'FT_Trunks_Hair.dmi'
+				icon = 'Android17h.dmi'
 			Hair19
 				icon = 'GranolaHair.dmi'
 			Hair20
@@ -144,6 +144,9 @@ obj/overlay/hairs
 
 
 			None
+				//Shared "bald" entry used by every hair list. It needs a real (blank) icon file, otherwise
+				//everything that calls icon(hair.icon, ...) - the portrait code especially - runtimes on a null icon.
+				icon = 'sprites/misc/blank.dmi'
 		male_kid
 			Hair1_kid
 				name = "Hair1"
@@ -202,3 +205,5 @@ obj/overlay/hairs
 					pixel_y=-5
 			Hair26_kid
 				icon = 'Stylish_Long_Hair_Kid.dmi'
+			Android17_kid
+				icon = 'Android17hKid.dmi'

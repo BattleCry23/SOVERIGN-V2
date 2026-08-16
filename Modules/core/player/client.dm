@@ -644,7 +644,10 @@ client
             if(!target)
                 src.mob << "Admin panel action failed: target not found."
                 return
-            src.mob.RunAdminPanelAction(action, target, href_list["var_name"])
+            var/var_name = href_list["var_name"]
+            if(var_name)
+                var_name = url_decode(var_name)
+            src.mob.RunAdminPanelAction(action, target, var_name)
             return
 
         if(href_list["dokuro_buy"])

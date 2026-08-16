@@ -952,6 +952,9 @@ mob
 
 		//percents
 		percent_energy = 100
+		stamina = 100
+		stamina_max = 100
+		percent_stamina = 100
 		//percent_power = 100
 		percent_ko = 0
 
@@ -1510,6 +1513,8 @@ mob
 		obj/hud_hp_bar_inner
 		obj/hud_eng_bar
 		obj/hud_eng_bar_inner
+		obj/hud_stamina_bar
+		obj/hud_stamina_bar_inner
 		obj/hud_pp
 		obj/hud_passivetree
 		obj/hud_immersionshop
@@ -1552,6 +1557,7 @@ mob
 
 		tmp/change_hp = 0 // Keeps track of whether hp changed since last tick, so the hp bar isn't updated constantly
 		tmp/change_eng = 0 // Keeps track of whether eng changed since last tick, so the eng bar isn't updated constantly
+		tmp/change_stamina = 0 // Keeps track of whether stamina changed since last tick, so the stamina bar isn't updated constantly
 
 		//Save stuff
 		online = 0;

@@ -2751,6 +2751,24 @@ mob
 				m.transform = mt
 				m.loc = b2
 				src.hud_eng_bar_inner = m
+
+			if(src.hud_stamina_bar == null)
+				var/obj/hud/bars/player_stamina/sb = new
+				src.hud_stamina_bar = sb
+
+				var/obj/hud/bars/player_stamina_inner/si = new
+				if(!src.stamina_max) src.stamina_max = 100
+				if(src.stamina > src.stamina_max) src.stamina = src.stamina_max
+				if(src.stamina < 0) src.stamina = 0
+				src.percent_stamina = (src.stamina / src.stamina_max) * 100
+				if(src.percent_stamina > 100) src.percent_stamina = 100
+				var/matrix/stm = matrix()
+				stm.Scale(src.percent_stamina*2,1)
+				stm.Translate(src.percent_stamina,0)
+				si.transform = stm
+				si.loc = sb
+				src.hud_stamina_bar_inner = si
+				src.change_stamina = src.percent_stamina
 			if(src.hud_passivetree == null)
 				var/obj/hud/bars/passivetree/p1 = new
 				src.hud_passivetree = p1
@@ -2798,6 +2816,8 @@ mob
 				src.client.screen += src.hud_dokushop
 				src.client.screen += src.hud_eng_bar
 				src.client.screen += src.hud_eng_bar_inner
+				src.client.screen += src.hud_stamina_bar
+				src.client.screen += src.hud_stamina_bar_inner
 				src.client.screen += src.hud_pp
 				src.client.screen += src.hud_passivetree
 			//	src.client.screen += src.hud_rptree
@@ -4569,7 +4589,13 @@ mob
 			I.Scale(128,128)
 
 			//Do hair and hair color
-			if(h)
+			if(istype(h, /obj/overlay/hairs/normal/male/None))
+				//Bald. There is no sprite to build here, so just strip whatever hair is currently worn.
+				if(target)
+					if(target.hair) remove_overlay(target, target.hair)
+					target.hair = null
+					target.hair_icon = null
+			else if(h)
 				var/icon/E = icon(h.icon,"",SOUTH,1,0)
 				var/icon/E_hair = icon(h.icon)
 				var/obj/overlay/hairs/normal/eye_brows/eyebrow_template = new
@@ -4660,16 +4686,17 @@ mob
 						proceed_eyes = 0
 
 				if(proceed_eyes)
+					var/final_eye_c
 					var/is_adult_eyes = (target.age >= 13)
-					var/final_eye_c = target.eye_c
-					if(target.race == "Saiyan" || target.saiyan_dna)
-						if(target.superform > 0)
-							final_eye_c = rgb(0, 168, 107)
+					if(target.race == "Saiyan" || (target.saiyan_dna))
+						if(!target.is_hybrid)
+							target.eye_c = target.saved_eye_c = rgb(10,10,10)
 						else
-							final_eye_c = target.saved_eye_c
-					if(!final_eye_c)
-						final_eye_c = rgb(0,0,155)
-					target.eye_c = final_eye_c
+							target.eye_c = target.saved_eye_c
+						final_eye_c = target.superform > 0 ? rgb(25, 172, 131) : target.saved_eye_c
+					else
+						final_eye_c = target.eye_c
+					target.eye_c = final_eye_c || rgb(0,0,155)
 					//P_eyecolor = final_eye_c
 					if(P_white)
 						P_white.Scale(128,128)
@@ -4769,7 +4796,7 @@ mob
 					target.save_icon = horns
 				//if(target.skin_c) target.icon *= target.skin_c
 
-				if(target.race == "Saiyan")
+				if(target.race == "Saiyan" || target.saiyan_dna)
 					target.tail = horn
 					target.horns = null
 				else

@@ -7967,6 +7967,21 @@ obj
 									if(src.active >= 1 && m.icon_state != "meditate" && stage == 5) m.power_percent += 6*m.mod_recovery
 									if(src.active == -1 ) m.power_percent -= 1*m.mod_recovery
 									if(m.power_percent <= 0) m.power_percent = 0;
+									if(src.active >= 1 && m.power_percent < 100)
+										var/stamina_cost = max(1, round((1 + stage) * max(1, m.mod_recovery)))
+										if(m.stamina < stamina_cost)
+											m.stamina = 0
+											m.power_percent = 100
+											m << output("You ran out of stamina.","actionoutput")
+											reset_power_control(m, 1,0,0)
+											return
+										m.stamina -= stamina_cost
+										if(m.stamina < 0) m.stamina = 0
+										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+										if(src.skill_exp >= 100 && src.skill_lvl < 100)
+											src.skill_exp = 1
+											src.skill_lvl += 1
+											src.skill_up(m)
 									if(src.active >= 1 && m.power_percent > 100 && stage == 1)
 										var/drain=10*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.meditating)

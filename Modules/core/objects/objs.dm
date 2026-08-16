@@ -85,6 +85,55 @@ obj/effects/roleplaymode_icon
 	can_pocket = 0
 	hashadow=0
 	appearance_flags = KEEP_TOGETHER
+/obj/items/consumables
+    name = "Consumable"
+    can_pocket = 1
+    stacks = 1
+    active = 1
+    density_factor = 0
+    hashadow = 0
+
+    proc/restore_stamina_full(var/mob/m, var/obj/item)
+        if(!m || !item)
+            return
+
+        if(!m.stamina_max)
+            m.stamina_max = 100
+
+        m.stamina = m.stamina_max
+        m.percent_stamina = 100
+        m.change_stamina = 100
+
+        if(m.hud_stamina_bar_inner)
+            var/obj/bar_stamina = m.hud_stamina_bar_inner
+            var/matrix/stm = matrix()
+            stm.Scale(200, 1)
+            stm.Translate(100, 0)
+            bar_stamina.transform = stm
+
+        if(m.client)
+            m << output("You eat a Senzu Bean and restore all stamina.", "actionoutput")
+
+        if(item in m)
+            remove_item_from_inventory(m, item)
+            if(item.loc)
+                item.loc = null
+            qdel(item)
+
+/obj/items/consumables/senzu
+    name = "Senzu Bean"
+    desc = "A mystical bean that fully restores stamina."
+    icon = 'Misc2.dmi'
+    icon_state = "bean"
+    can_pocket = 1
+    stacks = 1
+    active = 1
+    act = /obj/items/consumables/senzu/proc/use
+
+    proc/use(var/mob/m, var/obj/items/consumables/senzu/i)
+        src.restore_stamina_full(m, i)
+
+
 /obj/items/custom_icon_object
     name = "Custom Icon Object"
     icon = 'artifacts_small.dmi'
@@ -4777,325 +4826,130 @@ obj
 			desc = "A reliable tool used to change your hairstyle."
 			tech_tree = "Engineering"
 			act = /obj/items/Scissors/proc/use
-			//act_drop = /obj/items/Scissors/proc/drop
 			appearance_flags = KEEP_TOGETHER
+
 			proc
 				use(var/mob/m,var/obj/items/Scissors/i)
-					if(i in m)
-						if(m.race == "Namekian" || m.has_hair == 0 || m.race == "Changeling" )
-							m<<"You cannot use these."
-							return
-						var/choice = input("Select a grooming option") in list ("Cut Hair","Shave")
+					if(!m || !i || !(i in m))
+						return
+					if(m.race == "Namekian" || m.has_hair == 0 || m.race == "Changeling")
+						m << "You cannot use these."
+						return
 
-						if(choice == "Shave")
-							if(!m.has_beard || m.beard <= 0)
-								m << "You don't have any facial hair to shave."
+					var/choice = input(m, "Select a grooming option.", "Scissors") in list("Cut Hair", "Shave", "Change Hairstyle", "Cancel")
+					if(!choice || choice == "Cancel")
+						return
+
+					if(choice == "Shave")
+						if(!m.has_beard || m.beard <= 0)
+							m << "You don't have any facial hair to shave."
+							return
+
+						var/list/options = list()
+						switch(m.beard)
+							if(1) options = list("Shave Clean")
+							if(2) options = list("Moustache", "Shave Clean")
+							if(3) options = list("Goatee", "Moustache", "Shave Clean")
+							if(4) options = list("Short Beard", "Goatee", "Moustache", "Shave Clean")
+							if(5) options = list("Full Beard", "Short Beard", "Goatee", "Moustache", "Shave Clean")
+							else
+								m << "You don't have a beard style to trim."
 								return
 
-							var/list/options = list()
-							switch(usr.beard)
-								if(1) options = list("Shave Clean")
-								if(2) options = list("Moustache", "Shave Clean")
-								if(3) options = list("Goatee", "Moustache", "Shave Clean")
-								if(4) options = list("Short Beard", "Goatee", "Moustache", "Shave Clean")
-								if(5) options = list("Full Beard", "Short Beard", "Goatee", "Moustache", "Shave Clean")
-
-
-							var/selection = input("Choose how much to shave off:") in options
-
-							switch(selection)
-								if("Shave Clean")
-									m.remove_beard()
-									m << "You shave your beard completely clean."
-								if("Moustache")
-									m.remove_beard()
-									sleep(1)
-									m.set_beard_stage(1)
-									m << "You trim your beard down to a moustache."
-								if("Goatee")
-									m.remove_beard()
-									sleep(1)
-									m.set_beard_stage(2)
-									m << "You trim your beard down to a goatee."
-								if("Short Beard")
-									m.remove_beard()
-									sleep(1)
-									m.set_beard_stage(3)
-									m << "You trim your beard down to a short beard."
-								if("Full Beard")
-									m.remove_beard()
-									sleep(1)
-									m.set_beard_stage(4)
-									m << "You trim your beard down to a full beard."
-
-							m.update_beard_icon()
-							m.update_portrait_beard()
+						var/selection = input(m, "Choose how much to shave off:", "Scissors") in options
+						if(!selection)
 							return
+
+						switch(selection)
+							if("Shave Clean")
+								m.remove_beard()
+								m << "You shave your beard completely clean."
+							if("Moustache")
+								m.remove_beard()
+								sleep(1)
+								m.set_beard_stage(1)
+								m << "You trim your beard down to a moustache."
+							if("Goatee")
+								m.remove_beard()
+								sleep(1)
+								m.set_beard_stage(2)
+								m << "You trim your beard down to a goatee."
+							if("Short Beard")
+								m.remove_beard()
+								sleep(1)
+								m.set_beard_stage(3)
+								m << "You trim your beard down to a short beard."
+							if("Full Beard")
+								m.remove_beard()
+								sleep(1)
+								m.set_beard_stage(4)
+								m << "You trim your beard down to a full beard."
+
+						m.update_beard_icon()
+						m.update_portrait_beard()
+						return
+
+					//Hairstyles are driven entirely through hair_pos. update_looks() rebuilds the hair overlay
+					//from hair_pos every time it runs, so assigning m.hair directly is thrown away again the
+					//moment the character is refreshed (aging, transforming, relogging).
+					var/use_male_hair = (m.race == "Oni" || m.race == "Namekian" || m.gen == "Male")
+					var/is_adult = (m.age >= 13)
+
+					//Style name -> index into the exact list update_looks() will read from for this mob.
+					var/list/styles = list()
+					if(use_male_hair)
+						styles = list("Goku" = 1, "Vegeta" = 2, "Yamcha" = 3, "Uub" = 4, "Long" = 5, "Afro" = 6, "Raditz" = 8, "Muse" = 9, "Short" = 11, "Yamcha GT" = 12, "Spikey" = 13, "Stylish Long" = 15)
+						if(is_adult)
+							styles["Nach"] = 14
+							styles["Vomi"] = 16
+							styles["Bald"] = 17
+							styles["Android 17"] = 18
 						else
-							var/obj/h = null
-							var/list/adult_list = list("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Nach","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Vomi","Android 18","Android 17")
-							var/list/kid_list = list("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Android 18","Android 17")
-							if(m.age_is_adult)
-								switch(input("Pick a hairstyle.") in adult_list) //("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Nach","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Android 18","Android 17"))
-									if("Bald")
-										remove_overlay(m, usr.hair)
-										m.hair=null
-										m.vis_contents -= usr.hair
-										m.hair_pos=16
-									if("Goku")
-										if(m.age_is_adult) h = hairs_male[1]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[1]
-										m.hair_pos=1
-									if("Vegeta")
-										if(m.age_is_adult) h = hairs_male[2]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[2]
-										m.hair_pos=2
-									if("Yamcha")
-										if(m.age_is_adult) h = hairs_male[3]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[3]
-										m.hair_pos=3
-									if("Uub")
-										if(m.age_is_adult) h = hairs_male[4]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[4]
-										m.hair_pos=4
+							styles["Bald"] = 16
+							styles["Android 17"] = 17
+					else
+						styles = list("Kale" = 1, "Female 2" = 2, "Female 1" = 3, "Caulifa" = 4, "Android 17" = 5, "Android 18" = 6, "Bald" = 7)
 
-									if("Long")
-										if(m.age_is_adult) h = hairs_male[5]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[5]
-										m.hair_pos=5
-									if("Afro")
-										if(m.age_is_adult) h = hairs_male[6]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[6]
-										m.hair_pos=6
-									if("Kidd")
-										if(m.age_is_adult) h = hairs_male[7]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[7]
-										m.hair_pos=7
-									if("Raditz")
-										if(m.age_is_adult) h = hairs_male[8]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[8]
-										m.hair_pos=8
-									if("Muse")
-										if(m.age_is_adult) h = hairs_male[9]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[9]
-										m.hair_pos=9
-									if("Goten")
-										if(m.age_is_adult) h = hairs_male[10]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[10]
-										m.hair_pos=10
-									if("Short")
-										if(m.age_is_adult) h = hairs_male[11]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[11]
-										m.hair_pos=11
-									if("Spikey")
-										if(m.age_is_adult) h = hairs_male[13]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[13]
-										m.hair_pos=13
-									if("Nach")
-										if(m.age_is_adult) h = hairs_male[14]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[14]
-										m.hair_pos=14
-									if("Stylish Long")
-										if(m.age_is_adult) h = hairs_male[15]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[15]
-										m.hair_pos=15
-									if("Yamcha GT")
-										if(m.age_is_adult) h = hairs_male[12]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[12]
-										usr.hair_pos=12
-									if("Kale")
-										if(m.age_is_adult) h = hairs_female[1]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[1]
-										m.hair_pos=1
-									if("Female 1")
-										if(m.age_is_adult) h = hairs_female[3]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[3]
-										m.hair_pos=3
-									if("Female 2")
-										if(m.age_is_adult) h = hairs_female[2]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[2]
-										m.hair_pos=2
-									if("Caulifa")
-										if(m.age_is_adult) h = hairs_female[9]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[4]
-										usr.hair_pos=9
-									if("Vomi")
-										h = hairs_male[16]
-										m.hair_pos=16
+					var/bald_pos = styles["Bald"]
+					var/new_pos = 0
 
-									if("Android 17")
-										if(m.age_is_adult) h = hairs_female[10]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[5]
-										//usr.hair_pos=17
-									if("Android 18")
-										if(m.age_is_adult) h = hairs_female[11]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[6]
-										//usr.hair_pos=18
-							else if(m.age_is_kid && m.age>3.9)
-								switch(input("Pick a hairstyle.") in kid_list)//list ("Bald","Goku","Vegeta","Yamcha","Uub","Long","Afro","Raditz","Muse","Short","Spikey","Nach","Stylish Long","Yamcha GT","Kale","Female 1","Female 2","Caulifa","Android 18","Android 17"))
-									if("Bald")
-										remove_overlay(m, usr.hair)
-										m.hair=null
-										m.vis_contents -= m.hair
-										m.hair_pos=16
-									if("Goku")
-										if(m.age_is_adult) h = hairs_male[1]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[1]
-										m.hair_pos=1
-									if("Vegeta")
-										if(m.age_is_adult) h = hairs_male[2]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[2]
-										m.hair_pos=2
-									if("Yamcha")
-										if(m.age_is_adult) h = hairs_male[3]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[3]
-										m.hair_pos=3
-									if("Uub")
-										if(m.age_is_adult) h = hairs_male[4]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[4]
-										m.hair_pos=4
+					if(choice == "Cut Hair")
+						new_pos = bald_pos
+					else
+						var/list/options = styles.Copy()
+						options += "Cancel"
+						var/selected_style = input(m, "Pick a hairstyle.", "Scissors") in options
+						if(!selected_style || selected_style == "Cancel")
+							return
+						new_pos = styles[selected_style]
 
-									if("Long")
-										if(m.age_is_adult) h = hairs_male[5]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[5]
-										m.hair_pos=5
-									if("Afro")
-										if(m.age_is_adult) h = hairs_male[6]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[6]
-										m.hair_pos=6
-									if("Kidd")
-										if(m.age_is_adult) h = hairs_male[7]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[7]
-										m.hair_pos=7
-									if("Raditz")
-										if(m.age_is_adult) h = hairs_male[8]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[8]
-										m.hair_pos=8
-									if("Muse")
-										if(usr.age_is_adult) h = hairs_male[9]
-										else if(usr.age_is_kid)
-											h = kid_hairs_male[9]
-										m.hair_pos=9
-									if("Goten")
-										if(m.age_is_adult) h = hairs_male[10]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[10]
-										m.hair_pos=10
-									if("Short")
-										if(m.age_is_adult) h = hairs_male[11]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[11]
-										m.hair_pos=11
-									if("Spikey")
-										if(m.age_is_adult) h = hairs_male[13]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[13]
-										m.hair_pos=13
+					if(!new_pos)
+						m << "That hairstyle is not available for your current form."
+						return
+					if(m.hair_pos == new_pos)
+						if(new_pos == bald_pos) m << "Your head is already shaved bare."
+						else m << "You already have that hairstyle."
+						return
 
-									if("Stylish Long")
-										if(m.age_is_adult) h = hairs_male[15]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[15]
-										m.hair_pos=15
-									if("Yamcha GT")
-										if(m.age_is_adult) h = hairs_male[12]
-										else if(m.age_is_kid)
-											h = kid_hairs_male[12]
-										m.hair_pos=12
-									if("Kale")
-										if(m.age_is_adult) h = hairs_female[1]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[1]
-										m.hair_pos=1
-									if("Female 1")
-										if(m.age_is_adult) h = hairs_female[3]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[3]
-										m.hair_pos=3
-									if("Female 2")
-										if(m.age_is_adult) h = hairs_female[2]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[2]
-										m.hair_pos=2
-									if("Caulifa")
-										if(m.age_is_adult) h = hairs_female[9]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[4]
-										m.hair_pos=9
+					m.hair_pos = new_pos
+					m.update_looks()
+					if(m.port && m.hud_char)
+						m.hud_char.update_portrait_transform()
+					if(new_pos == bald_pos) m << "You shave your head bare."
+					else m << "You cut your hair!"
+					i.use_obj(m)
+					if(i && i.stacks <= 0)
+						remove_item_from_inventory(m, i)
+					m.refresh_inv()
 
-									if("Android 17")
-										if(m.age_is_adult) h = hairs_female[10]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[5]
-										//usr.hair_pos=17
-									if("Android 18")
-										if(m.age_is_adult) h = hairs_female[11]
-										else if(m.age_is_kid)
-											h = kid_hairs_female[6]
-										//usr.hair_pos=18
-
-							if(m && usr.has_hair >= 1)
-								remove_overlay(m, m.hair)
-							//	m.hair=null
-								//usr.vis_contents -= usr.hair
-								//var/icon/E = icon(h.icon,"",SOUTH,1,0)
-								var/icon/E_hair = icon(h.icon)
-								E_hair.Blend(m.hair_c)
-								//E.Scale(128,128)
-								var/obj/new_hair = new h.type
-								//new_hair.icon = E_hair
-								new_hair.icon = E_hair
-								m.hair = new_hair
-							//	m.update_icon("change hair")
-								m.overlays += m.hair
-								//m.vis_contents += E_hair
-								m<<"You cut your hair!"
-								m.update_looks(m)
-								i.use_obj(m)
-								if( i && i.stacks <= 0) remove_item_from_inventory(m,i)
-
-
-							//	if(usr.port && usr.hud_char)
-									//Adjust players portrait first.
-								//	usr.hud_char.update_portrait_transform()
-
-
-				drop(var/mob/m,var/obj/items/tech/i)
+				drop(var/mob/m,var/obj/items/Scissors/i)
 					if(i in m.accessing)
 						if(i.suffix)
 							i.suffix = null
 							i.name = "Scissors"
 						i.overlays -= /obj/effects/select_item
 						m.drop(i)
+
 			New()
 				tag = name
 				var/image/sel = image('fx.dmi',src,"select item",1000)
@@ -5103,20 +4957,19 @@ obj
 
 			Click(location,control,params)
 				..()
-				//Removes this item from the global Items list.
 				if(items)
 					if(src in items) items -= src
 				params = params2list(params)
 				if(params["left"])
 					if(isturf(src.loc))
 						usr.pickup(src)
-						if(ismob(src.loc)) view(15,usr)<<output("[usr] picks up x[src.stacks] [src]","actionoutput")
+						if(ismob(src.loc)) view(15,usr) << output("[usr] picks up x[src.stacks] [src]","actionoutput")
 					else if(ismob(src.loc))
 						if(usr.item_selected) usr.item_selected.overlays -= /obj/effects/select_item
 						usr.item_selected = src
 						src.overlays -= /obj/effects/select_item
 						src.overlays += /obj/effects/select_item
-						usr.refresh_inv()
+						usr.refresh_inv()		
 		Wood
 			name = "Wood"
 			icon='roomobj.dmi'
@@ -12117,28 +11970,28 @@ obj
 					//src.desc_extra = "[src.create_item_desc()]\n\n"
 				proc
 					use(var/mob/m,var/obj/items/i)
-						if(i in m)
-							if(m.has_stomach == 0)
-								m.set_alert("Unable to eat food",'alert.dmi',"alert")
-
-								return
-							if(m.hunger > 99)
-								m.set_alert("Already full",'alert.dmi',"alert")
-
-								return
-							if(m.eating)
-								m.set_alert("Already eating",'alert.dmi',"alert")
-
-								return
-							if(i.toxic)
-								var/repeat = i.apply_same_drug(m)
-								if(repeat == 0) i.create_drug_buff(m)
-							var/T = world.time
-							i.apply_item_stats(m,T)
-							if(i && m && i.loc == m && i.stacks > 0 && i == m.eating && i.time_eaten == T)
-								i.use_obj(m)
-								m.refresh_inv()
-								if(m) m.eating = null
+						if(!m || !i)
+							return
+						if(!(i in m))
+							return
+						if(m.has_stomach == 0)
+							m.set_alert("Unable to eat food",'alert.dmi',"alert")
+							return
+						if(m.hunger > 99)
+							m.set_alert("Already full",'alert.dmi',"alert")
+							return
+						if(m.eating)
+							m.set_alert("Already eating",'alert.dmi',"alert")
+							return
+						if(i.toxic)
+							var/repeat = i.apply_same_drug(m)
+							if(repeat == 0) i.create_drug_buff(m)
+						var/T = world.time
+						i.apply_item_stats(m,T)
+						if(i && m && i.loc == m && i.stacks > 0 && i == m.eating && i.time_eaten == T)
+							i.use_obj(m)
+							m.refresh_inv()
+							if(m) m.eating = null
 					drop(var/mob/m,var/obj/items/i)
 						m.drop(i)
 				Click(location,control,params)
@@ -12186,25 +12039,25 @@ obj
 					//src.desc_extra = "[src.create_item_desc()]\n\n"
 				proc
 					use(var/mob/m,var/obj/items/i)
-						if(i in m)
-							if(m.has_stomach == 0)
-								m.set_alert("Unable to eat food",'alert.dmi',"alert")
-
-								return
-							if(m.hunger > 99)
-								m.set_alert("Already full",'alert.dmi',"alert")
-
-								return
-							if(m.eating)
-								m.set_alert("Already eating",'alert.dmi',"alert")
-
-								return
-							var/T = world.time
-							i.apply_item_stats(m,T)
-							if(i && m && i.loc == m && i.stacks > 0 && i == m.eating && i.time_eaten == T)
-								i.use_obj(m)
-								m.refresh_inv()
-								if(m) m.eating = null
+						if(!m || !i)
+							return
+						if(!(i in m))
+							return
+						if(m.has_stomach == 0)
+							m.set_alert("Unable to eat food",'alert.dmi',"alert")
+							return
+						if(m.hunger > 99)
+							m.set_alert("Already full",'alert.dmi',"alert")
+							return
+						if(m.eating)
+							m.set_alert("Already eating",'alert.dmi',"alert")
+							return
+						var/T = world.time
+						i.apply_item_stats(m,T)
+						if(i && m && i.loc == m && i.stacks > 0 && i == m.eating && i.time_eaten == T)
+							i.use_obj(m)
+							m.refresh_inv()
+							if(m) m.eating = null
 					drop(var/mob/m,var/obj/items/i)
 						m.drop(i)
 				Click(location,control,params)
@@ -12253,25 +12106,25 @@ obj
 					//src.desc_extra = "[src.create_item_desc()]\n\n"
 				proc
 					use(var/mob/m,var/obj/items/i)
-						if(i in m)
-							if(m.has_stomach == 0)
-								m.set_alert("Unable to eat food",'alert.dmi',"alert")
-
-								return
-							if(m.hunger > 99)
-								m.set_alert("Already full",'alert.dmi',"alert")
-
-								return
-							if(m.eating)
-								m.set_alert("Already eating",'alert.dmi',"alert")
-
-								return
-							var/T = world.time
-							i.apply_item_stats(m,T)
-							if(i && m && i.loc == m && i.stacks > 0 && i == m.eating && i.time_eaten == T)
-								i.use_obj(m)
-								m.refresh_inv()
-								if(m) m.eating = null
+						if(!m || !i)
+							return
+						if(!(i in m))
+							return
+						if(m.has_stomach == 0)
+							m.set_alert("Unable to eat food",'alert.dmi',"alert")
+							return
+						if(m.hunger > 99)
+							m.set_alert("Already full",'alert.dmi',"alert")
+							return
+						if(m.eating)
+							m.set_alert("Already eating",'alert.dmi',"alert")
+							return
+						var/T = world.time
+						i.apply_item_stats(m,T)
+						if(i && m && i.loc == m && i.stacks > 0 && i == m.eating && i.time_eaten == T)
+							i.use_obj(m)
+							m.refresh_inv()
+							if(m) m.eating = null
 					drop(var/mob/m,var/obj/items/i)
 						m.drop(i)
 				Click(location,control,params)
@@ -12374,25 +12227,25 @@ obj
 					//src.desc_extra = "[src.create_item_desc()]\n\n"
 				proc
 					use(var/mob/m,var/obj/items/i)
-						if(i in m)
-							if(m.has_stomach == 0 )
-								m.set_alert("Unable to eat food",'alert.dmi',"alert")
-
-								return
-							if(m.hunger > 99)
-								m.set_alert("Already full",'alert.dmi',"alert")
-
-								return
-							if(m.eating)
-								m.set_alert("Already eating",'alert.dmi',"alert")
-
-								return
-							var/T = world.time
-							i.apply_item_stats(m,T)
-							if(i && m && i.loc == m && i.stacks > 0 && i == m.eating && i.time_eaten == T)
-								i.use_obj(m)
-								m.refresh_inv()
-								if(m) m.eating = null
+						if(!m || !i)
+							return
+						if(!(i in m))
+							return
+						if(m.has_stomach == 0 )
+							m.set_alert("Unable to eat food",'alert.dmi',"alert")
+							return
+						if(m.hunger > 99)
+							m.set_alert("Already full",'alert.dmi',"alert")
+							return
+						if(m.eating)
+							m.set_alert("Already eating",'alert.dmi',"alert")
+							return
+						var/T = world.time
+						i.apply_item_stats(m,T)
+						if(i && m && i.loc == m && i.stacks > 0 && i == m.eating && i.time_eaten == T)
+							i.use_obj(m)
+							m.refresh_inv()
+							if(m) m.eating = null
 					drop(var/mob/m,var/obj/items/i)
 						m.drop(i)
 				Click(location,control,params)
