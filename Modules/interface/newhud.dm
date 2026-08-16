@@ -253,6 +253,24 @@ obj
 				layer = 6
 				icon_state = "bar holder"
 				color = rgb(50, 205, 50)
+				var/obj/txt_percent
+				MouseEntered()
+					if(src.txt_percent)
+						usr.client.screen += src.txt_percent
+				MouseExited()
+					if(src.txt_percent)
+						usr.client.screen -= src.txt_percent
+				New()
+					..()
+					var/obj/txt = new
+					txt.maptext = "<font size = 1> <text align=center valign=top>[css_outline]100%"
+					txt.maptext_width = 128
+					txt.screen_loc = "4,28:03"
+					txt.layer = 25
+					txt.loc = src
+					src.txt_percent = txt
+					src.txt_percent.layer = 999
+					src.txt_percent.plane = 30
 			cft_button
 				icon = 'TBMS.dmi'
 				screen_loc = "1:55,15:13"
@@ -23549,13 +23567,14 @@ obj
 
 									if("Heal")
 										var/mob/races/choice = input("Select a player:") as null|anything in race_mobs
+										if(!choice) return
 										if(choice.koed==1||choice.koed||choice.icon_state=="KO")
 											choice.KO(0,1)
 										sleep(1)
 										choice.percent_health= 100
-										choice.energy = choice.energy_max
 										choice.stunned = 0
 										choice.stunned_pending = 0
+										choice.refresh_vital_bars(TRUE)
 										world.log << "(Admin Log): [usr.client.admin_name] [usr] healed [choice]"
 
 									if("Observe")

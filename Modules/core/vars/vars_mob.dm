@@ -1046,6 +1046,7 @@ mob
 		obj/skills/Reincarnation/skill_reformation
 		obj/skills/Ressurect/skill_revive
 		obj/skills/Kaiosoku/skill_quicksilver
+		obj/kaioken_overlay
 		obj/skills/Kaioken/skill_kaioken
 		obj/skills/Kaioenjin/skill_kaioenjin
 		obj/skills/Spirit_Reprieve/skill_reprieve

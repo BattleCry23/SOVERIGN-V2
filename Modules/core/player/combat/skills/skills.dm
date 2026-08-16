@@ -7959,6 +7959,7 @@ obj
 
 								if(ismob(src.loc))
 									//var/mob/m = src.loc
+									var/pre_tick_power = m.power_percent
 									if(src.active >= 1 && m.icon_state != "meditate" && !stage) m.power_percent += 1*m.mod_recovery
 									if(src.active >= 1 && m.icon_state != "meditate" && stage == 1) m.power_percent += 2*m.mod_recovery
 									if(src.active >= 1 && m.icon_state != "meditate" && stage == 2) m.power_percent += 3*m.mod_recovery
@@ -7967,27 +7968,30 @@ obj
 									if(src.active >= 1 && m.icon_state != "meditate" && stage == 5) m.power_percent += 6*m.mod_recovery
 									if(src.active == -1 ) m.power_percent -= 1*m.mod_recovery
 									if(m.power_percent <= 0) m.power_percent = 0;
-									if(src.active >= 1 && m.power_percent < 100)
+									if(src.active >= 1 && pre_tick_power < 100)
+										// Stamina-fueled phase: the climb caps at exactly 100%; past that the energy-drain phase takes over
+										if(m.power_percent > 100) m.power_percent = 100
 										var/stamina_cost = max(1, round((1 + stage) * max(1, m.mod_recovery)))
 										if(m.stamina < stamina_cost)
-											m.stamina = 0
-											m.power_percent = 100
+											if(m.stamina < 0) m.stamina = 0
 											m << output("You ran out of stamina.","actionoutput")
 											reset_power_control(m, 1,0,0)
-											return
-										m.stamina -= stamina_cost
-										if(m.stamina < 0) m.stamina = 0
-										src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
-										if(src.skill_exp >= 100 && src.skill_lvl < 100)
-											src.skill_exp = 1
-											src.skill_lvl += 1
-											src.skill_up(m)
+										else
+											m.stamina -= stamina_cost
+											if(m.stamina < 0) m.stamina = 0
+											// Powering up below 100% gathers your energy back toward its cap
+											if(m.energy < m.energy_max)
+												m.energy = min(m.energy_max, m.energy + (m.energy_max * 0.02 * max(1, m.mod_recovery)))
+											src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+											if(src.skill_exp >= 100 && src.skill_lvl < 100)
+												src.skill_exp = 1
+												src.skill_lvl += 1
+												src.skill_up(m)
 									if(src.active >= 1 && m.power_percent > 100 && stage == 1)
 										var/drain=10*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.meditating)
 											reset_power_control(m, 1,0,0)
-											return
-										if(m.energy >= drain)
+										else if(m.energy >= drain)
 											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
 											//m << output("Psionic power now at [m.psionic_power]","chat.local")
@@ -10000,6 +10004,10 @@ obj
 						s.icon_state = "kaioken off"
 					//	if(m.race == "Alien") m.overlays -= /obj/effects/elec_cerebroid
 						remove_overlay(m, /obj/overlay/auras/kaioken)
+						if(m.kaioken_overlay)
+							remove_overlay(m, m.kaioken_overlay)
+							m.kaioken_overlay.loc = null
+							m.kaioken_overlay = null
 						if(m.buff_kaioken && m.buff_kaioken.active)
 							m.buff_kaioken:activate(m,m.buff_kaioken)
 						m.med_pixel = 1
@@ -10045,12 +10053,23 @@ obj
 							m.mod_strength *= (round(s.times_multi * 0.55))
 							m.mod_offence *= (round(s.times_multi * 0.55))
 							m.mod_agility *= (round(s.times_multi * 0.55))
+							if(m.stamina > 0)
+								var/kaioken_ignition_energy_drain = max(1, round(s.times_multi * 2) - (s.skill_lvl / 100 * 0.5))
+								var/kaioken_ignition_stamina_cost = max(0.5, kaioken_ignition_energy_drain * 0.5)
+								m.stamina = max(0, m.stamina - kaioken_ignition_stamina_cost)
 							var/turf/t = m.loc
-							if(!t.liquid)
-								var/obj/effects/dust_medium/d = new
+							if(!t || !t.liquid)
+								var/obj/effects/dust_medium/d = new(m.loc)
+								d.loc = m.loc
 								d.SetCenter(m)
-							remove_overlay(m, /obj/overlay/auras/kaioken)
-							add_overlay(m, /obj/overlay/auras/kaioken)
+							if(!m.kaioken_overlay)
+								m.kaioken_overlay = new /obj/overlay/auras/kaioken()
+							m.kaioken_overlay.loc = m
+							m.kaioken_overlay.pixel_x = -16
+							m.kaioken_overlay.pixel_y = -4
+							if(m.kaioken_overlay)
+								remove_overlay(m, m.kaioken_overlay)
+							add_overlay(m, m.kaioken_overlay)
 							//for(var/mob/h in view(8,m))
 								//h << sound('focus1.mp3',0,1,10,100)
 							m.shock_chance = 25
@@ -10130,6 +10149,10 @@ obj
 											m.damage_limb(m,1,0,limb_hit_damage)
 										m.percent_health -= kaiodmg
 										if(m.percent_health < 0) m.KO()
+
+									if(src.skill_lvl < src.max_level && src.skill_lvl > 0 && m.stamina > 0)
+										var/kaioken_stamina_drain = max(0.25, removes * 0.5)
+										m.stamina = max(0, m.stamina - kaioken_stamina_drain)
 
 									if(m.energy >= removes)
 										//world << "DEBUG: Energy check passed - removing [removes] energy"

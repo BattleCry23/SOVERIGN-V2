@@ -751,7 +751,7 @@
 				choice.KO(0,1)
 			sleep(1)
 			choice.percent_health = 100
-			choice.energy = choice.energy_max
+			choice.refresh_vital_bars(TRUE)
 			choice.stunned = 0
 			choice.stunned_pending = 0
 			world.log << "(Admin Log): [src.client.admin_name] healed [choice]"
@@ -765,13 +765,13 @@
 				choice.KO(0,1)
 			sleep(1)
 			choice.percent_health = 100
-			choice.energy = choice.energy_max
 			choice.thirst = 99
 			choice.hunger = 99
 			choice.toxicity = 0
 			choice.restedness = 99
 			choice.stunned = 0
 			choice.stunned_pending = 0
+			choice.refresh_vital_bars(TRUE)
 			if(choice.heal_all_limbs())
 				choice << "Your [choice] has been fully healed by an admin."
 			world.log << "(Admin Log): [src.client.admin_name] healed everything of [choice]"
@@ -1730,9 +1730,9 @@
 				choice.KO(0,1)
 			sleep(1)
 			choice.percent_health = 100
-			choice.energy = choice.energy_max
 			choice.stunned = 0
 			choice.stunned_pending = 0
+			choice.refresh_vital_bars(TRUE)
 			world.log << "(Admin Log): [src.client.admin_name] healed [choice]"
 
 		if("Heal_Everything")
@@ -1742,13 +1742,13 @@
 				choice.KO(0,1)
 			sleep(1)
 			choice.percent_health = 100
-			choice.energy = choice.energy_max
 			choice.thirst = 99
 			choice.hunger = 99
 			choice.toxicity = 0
 			choice.restedness = 99
 			choice.stunned = 0
 			choice.stunned_pending = 0
+			choice.refresh_vital_bars(TRUE)
 			if(choice.heal_all_limbs())
 				choice << "Your [choice] has been fully healed by an admin."
 			world.log << "(Admin Log): [src.client.admin_name] healed everything of [choice]"

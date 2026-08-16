@@ -103,13 +103,7 @@ obj/effects/roleplaymode_icon
         m.stamina = m.stamina_max
         m.percent_stamina = 100
         m.change_stamina = 100
-
-        if(m.hud_stamina_bar_inner)
-            var/obj/bar_stamina = m.hud_stamina_bar_inner
-            var/matrix/stm = matrix()
-            stm.Scale(200, 1)
-            stm.Translate(100, 0)
-            bar_stamina.transform = stm
+        m.update_stamina_bar(TRUE)
 
         if(m.client)
             m << output("You eat a Senzu Bean and restore all stamina.", "actionoutput")

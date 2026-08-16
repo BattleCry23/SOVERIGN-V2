@@ -336,24 +336,59 @@ mob
 				src.percent_stamina = (src.stamina / src.stamina_max) * 100
 				if(src.percent_stamina > 100) src.percent_stamina = 100
 				if(src.percent_stamina < 0) src.percent_stamina = 0
-				if(src.change_stamina != src.percent_stamina && src.hud_stamina_bar_inner)
-					var/obj/bar_stamina = src.hud_stamina_bar_inner
-					var/matrix/stm = matrix()
-					stm.Scale(src.percent_stamina*2,1)
-					stm.Translate(src.percent_stamina,0)
-					bar_stamina.transform = stm
-			if(src.dead)
-				src.percent_stamina = 100
-				if(src.change_stamina != src.percent_stamina && src.hud_stamina_bar_inner)
-					var/obj/bar_stamina = src.hud_stamina_bar_inner
-					var/matrix/stm = matrix()
-					stm.Scale(200,1)
-					stm.Translate(100,0)
-					bar_stamina.transform = stm
+			src.update_stamina_bar()
 			src.change_eng = src.percent_energy
 			src.change_stamina = src.percent_stamina
 			src.change_hp = src.percent_health
 			src.tech_unlocking(src)
+
+		update_stamina_bar(var/force = FALSE)
+			if(!src) return
+			if(src.stamina_max <= 0) src.stamina_max = 100
+			if(src.dead)
+				src.stamina = src.stamina_max
+				src.percent_stamina = 100
+			else
+				src.stamina = clamp(src.stamina, 0, src.stamina_max)
+				src.percent_stamina = round((src.stamina / src.stamina_max) * 100, 1)
+				if(src.percent_stamina > 100) src.percent_stamina = 100
+				if(src.percent_stamina < 0) src.percent_stamina = 0
+			if(force || src.change_stamina != src.percent_stamina)
+				if(src.hud_stamina_bar_inner)
+					var/obj/bar_stamina = src.hud_stamina_bar_inner
+					var/matrix/stm = matrix()
+					var/width = clamp(src.percent_stamina, 0, 100)
+					stm.Scale(width * 2, 1)
+					stm.Translate(width, 0)
+					bar_stamina.transform = stm
+					var/obj/hud/bars/player_stamina/stamina_holder = bar_stamina.loc
+					if(stamina_holder && stamina_holder.txt_percent)
+						stamina_holder.txt_percent.maptext = "<font size = 1> <text align=center valign=top>[css_outline][round(src.percent_stamina)]%"
+			src.change_stamina = src.percent_stamina
+
+		//Force-redraws the energy and stamina bars. Used by any code path that writes
+		//these values directly (admin heals, senzu, revives) instead of waiting on stats().
+		refresh_vital_bars(var/full_restore = FALSE)
+			if(!src) return
+			if(full_restore)
+				if(src.energy_max > 0) src.energy = src.energy_max
+				if(src.stamina_max <= 0) src.stamina_max = 100
+				src.stamina = src.stamina_max
+			if(src.energy_max > 0)
+				src.percent_energy = round((src.energy / src.energy_max) * 100, 1)
+				if(src.percent_energy > 100) src.percent_energy = 100
+				if(src.percent_energy < 0) src.percent_energy = 0
+			if(src.hud_eng_bar_inner)
+				var/obj/bar_eng = src.hud_eng_bar_inner
+				var/matrix/em = matrix()
+				em.Scale(src.percent_energy*2,1)
+				em.Translate(src.percent_energy,0)
+				bar_eng.transform = em
+				var/obj/hud/bars/player_eng/eng = bar_eng.loc
+				if(eng && eng.txt_percent)
+					eng.txt_percent.maptext = "<font size = 1> <text align=center valign=top>[css_outline][round(src.percent_energy)]%"
+			src.change_eng = src.percent_energy
+			src.update_stamina_bar(TRUE)
 
 		check_body_health()
 			set background = 1
