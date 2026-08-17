@@ -1369,6 +1369,8 @@ atom
 				var/mob/m = A.grabbed_by
 				m.grab = null
 				m.grab_part = null
+				m.tail_grab = FALSE
+				m.tail_grab_effect_time = 0
 				m.wrestle_stage = null
 				A.grabbed_by = null
 			while(A.KB)

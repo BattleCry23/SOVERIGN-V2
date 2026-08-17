@@ -955,6 +955,7 @@ mob
 		stamina = 100
 		stamina_max = 100
 		percent_stamina = 100
+		tail_mastery = 0
 		//percent_power = 100
 		percent_ko = 0
 
@@ -1385,6 +1386,9 @@ mob
 		tmp/obj/mouse_skill = null
 		tmp/atom/movable/grab = null //The obj you grabbed.
 		tmp/obj/body_related/grab_part //The part of a mob you grabbed
+		tmp/tail_grab = FALSE
+		tmp/tail_grab_effect_time = 0
+		tmp/tail_grab_stunned = FALSE
 		tmp/wrestle_stage = null
 		tmp/impact_cd = 0
 		tmp/knocked_back = 0

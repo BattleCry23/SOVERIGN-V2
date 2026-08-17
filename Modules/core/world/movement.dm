@@ -88,6 +88,8 @@ mob
 						if(Evasion&&prob(5))
 							view(src)<<"[src] breaks free of [src.grabbed_by]!"
 							src.grabbed_by.grab = null
+							src.grabbed_by.tail_grab = FALSE
+							src.grabbed_by.tail_grab_effect_time = 0
 							src.grabbed_by = null
 
 						else

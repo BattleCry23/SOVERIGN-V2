@@ -7977,11 +7977,10 @@ obj
 											m << output("You ran out of stamina.","actionoutput")
 											reset_power_control(m, 1,0,0)
 										else
-											m.stamina -= stamina_cost
-											if(m.stamina < 0) m.stamina = 0
 											// Powering up below 100% gathers your energy back toward its cap
 											if(m.energy < m.energy_max)
 												m.energy = min(m.energy_max, m.energy + (m.energy_max * 0.02 * max(1, m.mod_recovery)))
+											m.stamina -= stamina_cost
 											src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
 											if(src.skill_exp >= 100 && src.skill_lvl < 100)
 												src.skill_exp = 1
@@ -14129,7 +14128,7 @@ obj
 						m.open_close_eyes(0)
 						m<<output("You stop training.","actionoutput")
 					else
-						if(m.energy<=2) return
+						if(m.energy<=2 || m.stamina<=0) return
 						if(m.skill_flight && m.skill_flight.active) call(m.skill_flight.act)(m,m.skill_flight)
 						if(m.skill_levitation && m.skill_levitation.active) call(m.skill_levitation.act)(m,m.skill_levitation)
 						if(m.skill_quicksilver && m.skill_quicksilver.active) call(m.skill_quicksilver.act)(m,m.skill_quicksilver)
@@ -14201,11 +14200,17 @@ obj
 									//if(m.energy !=0 || m.energy >=1 ) // energy recovery while meditating
 									//	m.energy -= (0.01*m.energy_max*m.mod_recovery)+(src.skill_lvl/100)
 										//else m.energy += 0.001*m.energy_max*m.mod_recovery+(src.skill_lvl/100)
-										if(m.energy <= (m.energy_max*0.05))
-											m.energy = 0
+										var/exertion_scale = ((max(1, m.weight)*0.125)**0.1)
+										var/stamina_drain = max(0.1, (0.0025*m.stamina_max/max(0.1, m.mod_recovery))*exertion_scale)
+										if(m.energy <= (m.energy_max*0.05) || m.stamina < stamina_drain)
+											if(m.energy <= (m.energy_max*0.05))
+												m.energy = 0
+												m<<output("You ran out of energy","actionoutput")
+											else
+												m.stamina = 0
+												m<<output("You ran out of stamina","actionoutput")
 											src.active=0
 											m.selftraining=0
-											m<<output("You ran out of energy","actionoutput")
 											m.icon_state = m.state()
 											src.icon_state = "Self Train off"
 											var/turf/t = m.loc
@@ -14237,7 +14242,8 @@ obj
 											m.open_close_eyes(0)
 										else
 										//	m.energy -= (1000/rand(10,20))*(m.mod_recovery)*((m.weight*0.125)**0.1)
-											m.energy -= (300/m.mod_recovery)*((m.weight*0.125)**0.1)
+											m.energy -= (300/max(0.1, m.mod_recovery))*exertion_scale
+											m.stamina = max(0, m.stamina - stamina_drain)
 							sleep(1)
 
 			Click(location,control,params)
@@ -14515,13 +14521,17 @@ obj
 
 												//var/L = length(m.buffs)
 												//if(L == 0)
+												var/gain_resources = 0
+												if(m.mortal) gain_resources = 1
+												else if(m.z == 2 || m.z == 6) gain_resources = 1
 												if(m.energy < m.energy_max) // energy recovery while meditating
-													var/gain_eng = 0
-													if(m.mortal) gain_eng = 1
-													else if(m.z == 2 || m.z == 6) gain_eng = 1
-													if(gain_eng) m.energy += 0.01*m.energy_max*m.mod_recovery+(src.skill_lvl/100)
-													else m.energy += 0.001*m.energy_max*m.mod_recovery+(src.skill_lvl/100)
+													if(gain_resources) m.energy += (0.01*m.energy_max*m.mod_recovery+(src.skill_lvl/100))*0.5
+													else m.energy += (0.001*m.energy_max*m.mod_recovery+(src.skill_lvl/100))*0.5
 													if(m.energy > m.energy_max) m.energy = m.energy_max
+												if(m.stamina < m.stamina_max) // stamina recovery while meditating
+													if(gain_resources) m.stamina += (0.01*m.stamina_max*m.mod_regeneration+(src.skill_lvl/100))*0.5
+													else m.stamina += (0.001*m.stamina_max*m.mod_regeneration+(src.skill_lvl/100))*0.5
+													if(m.stamina > m.stamina_max) m.stamina = m.stamina_max
 												src.last_gain_time = world.time
 							end
 							sleep(1)
@@ -14565,7 +14575,7 @@ obj
 					else
 					//	m.check_quest("tutorial_sleep",1)
 
-						if(m.restedness >= 100)
+						if(m.restedness >= 100 && m.stamina >= m.stamina_max)
 							m<<output("You are already fully rested.","actionoutput")
 							return
 
@@ -16095,10 +16105,15 @@ mob/proc/check_skillbar(obj/o)
 				*/
 mob
 	proc
+		get_skillbar_slot(var/list/bar, var/slot_name)
+			var/list/slot = bar ? bar[slot_name] : null
+			if(!islist(slot) || !slot.len)
+				return null
+			return slot[1]
+
 		skillbar()
 			if(!src || !src.client) return
 
-    clear_skillbar_screen()
 			clear_skillbar_screen() // Ensures stale icons are removed
 			var/list/bar = skillbar_slots[active_skillbar]
 			//var/bar = skillbar_slots[active_skillbar]
@@ -16107,70 +16122,70 @@ mob
 				var/obj/skill
 
 				if(istype(h,/obj/hud/buttons/skillbar/skillbar_one))
-					skill = bar["one"] ? bar["one"][1] : null
+					skill = get_skillbar_slot(bar, "one")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_one_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_two))
-					skill = bar["two"] ? bar["two"][1] : null
+					skill = get_skillbar_slot(bar, "two")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_two_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_three))
-					skill = bar["three"] ? bar["three"][1] : null
+					skill = get_skillbar_slot(bar, "three")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_three_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_four))
-					skill = bar["four"] ? bar["four"][1] : null
+					skill = get_skillbar_slot(bar, "four")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_four_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_five))
-					skill = bar["five"] ? bar["five"][1] : null
+					skill = get_skillbar_slot(bar, "five")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_five_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_six))
-					skill = bar["six"] ? bar["six"][1] : null
+					skill = get_skillbar_slot(bar, "six")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_six_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_seven))
-					skill = bar["seven"] ? bar["seven"][1] : null
+					skill = get_skillbar_slot(bar, "seven")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_seven_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_eight))
-					skill = bar["eight"] ? bar["eight"][1] : null
+					skill = get_skillbar_slot(bar, "eight")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_eight_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_nine))
-					skill = bar["nine"] ? bar["nine"][1] : null
+					skill = get_skillbar_slot(bar, "nine")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_nine_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_zero))
-					skill = bar["zero"] ? bar["zero"][1] : null
+					skill = get_skillbar_slot(bar, "zero")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_zero_overlay

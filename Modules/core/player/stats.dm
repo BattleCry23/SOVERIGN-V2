@@ -330,6 +330,10 @@ mob
 					stamina_regen += 0.12 + (src.mod_recovery * 0.06)
 				if((src.meditating || (src.skill_meditation && src.skill_meditation.active)) && !src.dead && !src.koed)
 					stamina_regen += 0.35 + (src.mod_recovery * 0.12)
+				if(src.skill_sleep && src.skill_sleep.active && !src.dead && !src.koed)
+					stamina_regen += 0.5 + (src.mod_recovery * 0.2)
+				else if(src.resting && !src.dead && !src.koed)
+					stamina_regen += 0.25 + (src.mod_recovery * 0.08)
 				if(stamina_regen > 0 && src.stamina < src.stamina_max)
 					src.stamina += stamina_regen
 					if(src.stamina > src.stamina_max) src.stamina = src.stamina_max

@@ -566,5 +566,3 @@ mob
 		obj/trait_ip
 		obj/trait_ur
 		obj/trait_u
-
-

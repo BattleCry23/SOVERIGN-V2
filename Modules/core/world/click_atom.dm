@@ -469,6 +469,8 @@ atom
 				var/d = usr.GetAngle(src)
 				var/atom/a = usr.grab
 				usr.grab = null
+				usr.tail_grab = FALSE
+				usr.tail_grab_effect_time = 0
 				switch(rand(1,2))
 					if(1)flick(pick("RPunch","LPunch"),usr)
 					if(2)flick(pick("RKick","LKick"),usr)

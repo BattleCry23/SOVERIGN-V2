@@ -1786,7 +1786,7 @@ mob/proc/refresh_runechat(var/mob/viewer)
 	if(!viewer || !viewer.client || !src.runechat_entries || !length(src.runechat_entries))
 		return
 
-	var/offset_y = 36
+	var/offset_y = src.maptext_height
 	for(var/i = length(src.runechat_entries), i >= 1, i--)
 		var/obj/effects/txt/runechat/entry = src.runechat_entries[i]
 		if(!entry || entry.viewer != viewer || !entry.display_image)
@@ -1806,7 +1806,7 @@ mob/proc/remove_runechat(var/obj/effects/txt/runechat/entry, var/fade_time = 6)
 			src.refresh_runechat(entry.viewer)
 
 	if(entry.display_image)
-		animate(entry.display_image, alpha = 0, pixel_z = 8, time = fade_time)
+		animate(entry.display_image, alpha = 0, time = fade_time)
 	spawn(fade_time)
 		if(entry.viewer && entry.display_image)
 			var/mob/v = entry.viewer
@@ -1865,29 +1865,22 @@ mob/proc/show_runechat(var/message, var/text_color = "#FFFFFF", var/is_emote = 0
 
 		entry.maptext = rendered
 
-		var/text_width = entry.maptext_width
 		var/text_height = entry.maptext_height
-		var/measure = viewer.client.MeasureText(rendered, width = 160)
+		var/measure = viewer.client.MeasureText(rendered, width = 112)
 		var/x_pos = findtext(measure, "x")
 		if(x_pos)
-			var/measured_width = text2num(copytext(measure, 1, x_pos))
 			var/measured_height = text2num(copytext(measure, x_pos + 1, 0))
-			if(measured_width > 0)
-				text_width = min(max(measured_width + 4, 72), 180)
 			if(measured_height > 0)
-				text_height = min(max(measured_height + 2, 16), 72)
+				text_height = max(measured_height, 16)
 		else
-			text_width = min(max(length(rendered_message) * 6, 72), 180)
-			text_height = min(max(16 + round(length(rendered_message) / 28) * 12, 16), 72)
+			text_height = max(16 + round(length(rendered_message) / 18) * 12, 16)
 
-		entry.maptext_width = text_width
+		entry.maptext_width = 112
 		entry.maptext_height = text_height
-		entry.maptext_x = -round((text_width - 32) / 2)
+		entry.maptext_x = -round((entry.maptext_width - src.bound_width) / 2)
 
 		var/image/display = image(entry, src)
 		display.alpha = 0
-		display.pixel_z = 16
-		display.pixel_y = 48
 		display.transform = matrix(0.7, 0, 0, 0, 0.7, 0)
 		entry.display_image = display
 
@@ -1905,7 +1898,7 @@ mob/proc/show_runechat(var/message, var/text_color = "#FFFFFF", var/is_emote = 0
 			src.remove_runechat(oldest, 2)
 
 		src.refresh_runechat(viewer)
-		animate(display, alpha = 255, pixel_z = 32, pixel_y = 56, transform = matrix(), time = 3, easing = CUBIC_EASING)
+		animate(display, alpha = 255, transform = matrix(), time = 2)
 
 		var/lifetime = 26 + min(length(rendered_message), 36)
 		spawn(lifetime)

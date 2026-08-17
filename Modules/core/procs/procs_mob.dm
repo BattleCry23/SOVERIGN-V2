@@ -3592,18 +3592,27 @@ mob
 					if(proceed)
 						var/turf/t = A.loc
 						if(t.liquid) A.submerge(0,1,t)
-						if(!ismob(A)) animate(A, pixel_z = 16, flags = ANIMATION_PARALLEL,time = 1)
+						if(!ismob(A))
+							animate(A, pixel_z = 16, flags = ANIMATION_PARALLEL,time = 1)
 						else
-
 							var/mob/m = A
 							var/Evasion=src.evasion(src,m)//(src.psionic_power*(src.offence+(src.mod_agility*0.2)))/(m.psionic_power*(m.defence+(m.mod_agility*0.22)))
 							if(m.icon_state != "Meditate" && Evasion == 1)
 								return
 							if(m.eating) m.cancel_eat()
 
-							if(m.bodyparts && length(m.bodyparts) > 0)
+							src.tail_grab = FALSE
+							if((m.race == "Saiyan" || m.saiyan_dna) && m.tail && get_dir(m, src) == turn(m.dir, 180))
+								src.tail_grab = TRUE
+								src.tail_grab_effect_time = world.time + 10
+								src.grab_part = null
+								view(8,src) << output("<font color=yellow>[src] grabs [m] by the tail!</font>", "actionoutput")
+								m << output("<font color=yellow>Your tail mastery is [round(m.tail_mastery, 0.1)]%.</font>", "chat.system")
+							else if(m.bodyparts && length(m.bodyparts) > 0)
 								src.grab_part = pick(m.bodyparts)
 								view(8,src) << output("[src] grabs [m] by the [src.grab_part]", "actionoutput")
+							else
+								src.tail_grab = FALSE
 						A.density_factor = 0
 						src.grab = A
 						//world << "DEBUG - grabbed [A]"
@@ -3636,6 +3645,41 @@ mob
 								m.icon_state = "grabbed"
 								m.dir = get_dir(m,src)
 								m.KB = 0
+								if(src.tail_grab)
+									var/mastery_ratio = clamp(m.tail_mastery, 0, 100) / 100
+									var/drain_rate = 0.05 * (1 - mastery_ratio)
+									var/drain_interval = max(world.tick_lag, 0.1) / 10
+									if(drain_rate > 0)
+										m.stamina = max(0, m.stamina - (m.stamina_max * drain_rate * drain_interval))
+										m.energy = max(0, m.energy - (m.energy_max * drain_rate * drain_interval))
+									if(world.time >= src.tail_grab_effect_time)
+										src.tail_grab_effect_time = world.time + 10
+										var/old_mastery = m.tail_mastery
+										m.tail_mastery = min(100, m.tail_mastery + 0.1)
+										if(floor(old_mastery / 5) < floor(m.tail_mastery / 5))
+											m << output("<font color=yellow>Your tail mastery has increased to [round(m.tail_mastery, 0.1)]%.</font>", "chat.system")
+
+										var/body_damage = 0.5 * (1 - mastery_ratio)
+										if(body_damage > 0 && m.body && length(m.body))
+											m.damage_limb(m, 1, 0, body_damage)
+
+										var/stun_chance = 35 * (1 - mastery_ratio)
+										if(!m.tail_grab_stunned && prob(stun_chance))
+											m.tail_grab_stunned = TRUE
+											m.stunned += 1
+											m.stunned_pending += 1
+											m << output("<font color=yellow>The pressure on your tail leaves you stunned!</font>", "chat.system")
+											spawn(10)
+												if(m)
+													m.stunned = max(0, m.stunned - 1)
+													m.stunned_pending = max(0, m.stunned_pending - 1)
+													m.tail_grab_stunned = FALSE
+									if(m.stamina <= 0 || m.energy <= 0)
+										view(8,m) << output("<font color=yellow>[m] loses their strength and collapses from having their tail grabbed!</font>", "actionoutput")
+										m.refresh_vital_bars()
+										m.KO()
+										src.letgo()
+										break
 								if(m.map_blip)
 									m.map_blip.pixel_x = m.x-3
 									m.map_blip.pixel_y = m.y-3
@@ -6349,6 +6393,8 @@ mob
 					m.icon_state = m.state()
 				src.grab = null
 				src.grab_part = null
+				src.tail_grab = FALSE
+				src.tail_grab_effect_time = 0
 				src.wrestle_stage = null
 				src.lift_multiplier = 0
 				a.grabbed_by = null
@@ -8824,5 +8870,3 @@ mob/proc
 					m.pixel_y = -32
 					m.icon = m.saved_icon
 					animate(m,alpha = 255,time = 10,pixel_z=32,easing = SINE_EASING)
-
-
