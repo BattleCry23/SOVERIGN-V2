@@ -511,6 +511,28 @@
 				sorted[j + 1] = temp
 	return sorted
 
+/proc/AdminSortItemDisplayNames(list/raw_paths)
+	if(!raw_paths || !raw_paths.len) return list()
+	var/list/by_display_name = list()
+	for(var/path in raw_paths)
+		if(!path)
+			continue
+		var/atom/A = path
+		var/display_name = initial(A.name)
+		if(!display_name || !length(display_name))
+			display_name = "[path]"
+		if(by_display_name[display_name])
+			display_name = "[display_name] ([path])"
+		by_display_name[display_name] = path
+	var/list/sorted_names = list()
+	for(var/name in by_display_name)
+		sorted_names += name
+	sorted_names = AdminSortTextAlpha(sorted_names)
+	var/list/sorted_choices = list()
+	for(var/name in sorted_names)
+		sorted_choices[name] = by_display_name[name]
+	return sorted_choices
+
 /proc/AdminGetSortedVarNames(datum/D)
 	var/list/names = list()
 	if(!D) return names
@@ -614,7 +636,8 @@
 	html += "<table><tr><th>Var</th><th>Preview</th><th>Action</th></tr>"
 	for(var/v in mob_vars)
 		var/preview = AdminFormatVarPreview(choice.vars[v])
-		html += "<tr class='mob-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?command=edit;target=\\ref[choice];type=edit;var=[v]'>Edit Var</a></td></tr>"
+		var/encoded_var = url_encode("[v]")
+		html += "<tr class='mob-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Edit_Specific_Var;target=\\ref[choice];var_name=[encoded_var]'>Edit Var</a></td></tr>"
 	html += "</table></div>"
 
 	if(choice.client)
@@ -624,20 +647,74 @@
 		html += "<table><tr><th>Var</th><th>Preview</th><th>Action</th></tr>"
 		for(var/v in client_vars)
 			var/preview = AdminFormatVarPreview(choice.client.vars[v])
-			html += "<tr class='client-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?command=edit;target=\\ref[choice.client];type=edit;var=[v]'>Edit Var</a></td></tr>"
+			var/encoded_var = url_encode("[v]")
+			html += "<tr class='client-var-row' data-var='[lowertext("[v]")]'><td>[v]</td><td>[preview]</td><td><a class='btn' href='byond://?src=\\ref[src];admin_panel_action=Edit_Specific_Var;target=\\ref[choice.client];var_name=[encoded_var]'>Edit Var</a></td></tr>"
 		html += "</table></div>"
 
 	html += "</body></html>"
 	src << browse(html, "window=admin_player_panel;size=980x700")
 
-/mob/proc/RunAdminPanelAction(var/action, var/mob/choice)
+/mob/proc/AdminEditSpecificVar(var/datum/target, var/var_name)
+	if(!target || !var_name)
+		src << "Missing target or variable name."
+		return 0
+	var_name = "[var_name]"
+	if(!(var_name in target.vars))
+		for(var/v in target.vars)
+			if(lowertext("[v]") == lowertext(var_name))
+				var_name = "[v]"
+				break
+		if(!(var_name in target.vars))
+			src << "That variable is no longer available."
+			return 0
+
+	var/current = target.vars[var_name]
+	var/new_value = null
+
+	if(isnum(current))
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var", current) as null|num
+	else if(istext(current) || isnull(current))
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var", current) as null|text
+	else if(isicon(current))
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var") as null|icon
+	else if(isfile(current))
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var") as null|file
+	else if(ispath(current))
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var", current) as null|text
+		if(!isnull(new_value))
+			new_value = text2path(new_value)
+	else
+		new_value = input(src, "Set [var_name] on [target].", "Edit Var", current) as null|text
+		if(!isnull(new_value))
+			if(isnum(text2num(new_value)))
+				new_value = text2num(new_value)
+			else if(istext(current) || isnull(current))
+				new_value = "[new_value]"
+
+	if(isnull(new_value))
+		return 0
+
+	target.vars[var_name] = new_value
+	world.log << "(Admin Log): [src.client.admin_name] edited [var_name] on [target]"
+	return 1
+
+/mob/proc/RunAdminPanelAction(var/action, var/datum/target, var/var_name = null)
 	if(!(src.key in StaffTeam))
 		src << "Access denied."
 		return
-	if(!choice) return
+	if(!target) return
 	var/level = src.client ? src.client.admin_level : 0
+	var/mob/choice = ismob(target) ? target : null
 
 	switch(action)
+		if("Edit_Specific_Var")
+			if(level < 2)
+				src << "Access denied."
+				return
+			if(!src.AdminEditSpecificVar(target, var_name))
+				return
+			return
+
 		if("Rename_Player")
 			if(level < 1)
 				src << "Access denied."
@@ -674,7 +751,7 @@
 				choice.KO(0,1)
 			sleep(1)
 			choice.percent_health = 100
-			choice.energy = choice.energy_max
+			choice.refresh_vital_bars(TRUE)
 			choice.stunned = 0
 			choice.stunned_pending = 0
 			world.log << "(Admin Log): [src.client.admin_name] healed [choice]"
@@ -688,13 +765,13 @@
 				choice.KO(0,1)
 			sleep(1)
 			choice.percent_health = 100
-			choice.energy = choice.energy_max
 			choice.thirst = 99
 			choice.hunger = 99
 			choice.toxicity = 0
 			choice.restedness = 99
 			choice.stunned = 0
 			choice.stunned_pending = 0
+			choice.refresh_vital_bars(TRUE)
 			if(choice.heal_all_limbs())
 				choice << "Your [choice] has been fully healed by an admin."
 			world.log << "(Admin Log): [src.client.admin_name] healed everything of [choice]"
@@ -1411,9 +1488,22 @@
 			src.left_click_function = "delete stuff"
 			return
 		if("Create_Item")
-			var/typepath = input(src,"Select an item to create:","Admin Item Creation") as null|anything in ALL_ITEM_TYPES
+			if(!ALL_ITEM_TYPES || !ALL_ITEM_TYPES.len)
+				BuildItemTypeCache()
+			var/list/item_choices = AdminSortItemDisplayNames(ALL_ITEM_TYPES)
+			if(!item_choices || !item_choices.len)
+				src << "No item types are available to create."
+				return
+			var/selected_item = input(src,"Select an item to create:","Admin Item Creation") as null|anything in item_choices
+			if(!selected_item) return
+			var/typepath = item_choices[selected_item]
+			if(!typepath)
+				typepath = selected_item
 			if(!typepath) return
 			var/obj/items/I = new typepath(src.loc)
+			if(!I)
+				src << "That item could not be created."
+				return
 			I.alpha = 0
 			I.pixel_z = 32
 			I.level = src.intxp
@@ -1640,9 +1730,9 @@
 				choice.KO(0,1)
 			sleep(1)
 			choice.percent_health = 100
-			choice.energy = choice.energy_max
 			choice.stunned = 0
 			choice.stunned_pending = 0
+			choice.refresh_vital_bars(TRUE)
 			world.log << "(Admin Log): [src.client.admin_name] healed [choice]"
 
 		if("Heal_Everything")
@@ -1652,13 +1742,13 @@
 				choice.KO(0,1)
 			sleep(1)
 			choice.percent_health = 100
-			choice.energy = choice.energy_max
 			choice.thirst = 99
 			choice.hunger = 99
 			choice.toxicity = 0
 			choice.restedness = 99
 			choice.stunned = 0
 			choice.stunned_pending = 0
+			choice.refresh_vital_bars(TRUE)
 			if(choice.heal_all_limbs())
 				choice << "Your [choice] has been fully healed by an admin."
 			world.log << "(Admin Log): [src.client.admin_name] healed everything of [choice]"

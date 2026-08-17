@@ -3410,6 +3410,41 @@ obj
 			var/tmp/last_gain_time = 0
 			var/gain_cd = 25  // cooldown in ticks (2.5 seconds)
 			proc
+				calculate_beam_head_offset(var/angle)
+					// Calculates pixel offsets for beam head to align properly with omni-directional firing
+					// Returns list with pixel_x and pixel_y adjustments based on angle
+					var/list/offset = list("x" = 0, "y" = 0)
+					
+					// Snap angle to octants for better visual alignment
+					var/octant = round(angle / 45)
+					
+					switch(octant)
+						if(0, 8)  // EAST
+							offset["x"] = 16
+							offset["y"] = 0
+						if(1)  // SE
+							offset["x"] = 12
+							offset["y"] = -12
+						if(2)  // SOUTH
+							offset["x"] = 0
+							offset["y"] = -16
+						if(3)  // SW
+							offset["x"] = -12
+							offset["y"] = -12
+						if(4)  // WEST
+							offset["x"] = -16
+							offset["y"] = 0
+						if(5)  // NW
+							offset["x"] = -12
+							offset["y"] = 12
+						if(6)  // NORTH
+							offset["x"] = 0
+							offset["y"] = 16
+						if(7)  // NE
+							offset["x"] = 12
+							offset["y"] = 12
+					
+					return offset
 				cycle_custom_beams(var/mob/m,obj/skills/Beam/s)
 					if(s.customs.len == 0)
 						m<<output("You do not have any custom Beam techniques.","actionoutput")
@@ -3530,7 +3565,7 @@ obj
 							ball.icon *= custom_color
 							ball.icon_state = "psionic"
 							ball.plane = 15
-							ball.layer = FLOAT_LAYER + 1
+							ball.layer = FLOAT_LAYER + 15
 							ball.appearance_flags = PIXEL_SCALE
 							for(var/obj/body_related/ascension_milestones/a in m.ascensions)
 								if(a.major_ascension && a.icon_state == "ascension" && a.level > 0)
@@ -3554,7 +3589,7 @@ obj
 							ball_hit.icon *= custom_color
 							ball_hit.icon_state = ""
 							ball_hit.plane = 15
-							ball_hit.layer = FLOAT_LAYER + 1
+							ball_hit.layer = FLOAT_LAYER + 15
 							ball_hit.appearance_flags = PIXEL_SCALE
 							if(ball_hit.icon_state==null||ball_hit.icon_state=="") ball_hit.icon_state = "psionic"
 							ball_hit.pixel_x = -48
@@ -3602,6 +3637,7 @@ obj
 							ray.filters += filter(type="rays",x=0,y=0,size=96,color=rgb(255,255,255),offset=0,density=10,threshold=0.7,factor=0,flags=FILTER_OVERLAY)
 							animate(ray.filters[1],offset = 100,time = 1000, loop = -1)
 							animate(offset = 0,time = 0)
+							apply_beam_appearance(beam, ball, ball_hit, ray, custom_color, chargeball)
 
 							src.parts = list(chargeball,ball,ball_hit,beam,checker,ray)
 
@@ -3820,6 +3856,10 @@ obj
 											var/speaker_avatar = get_chatbox_render(m, m.client)
 											for(var/mob/mx in view(25,m))
 												mx<<output("<BIG><IMG CLASS=image SRC=\ref[speaker_avatar] STYLE='width:32px; height:32px;' ICONSTATE='' ICONDIR=SOUTH ICONFRAME=2></BIG><font color = [m.text_color_ic]><b>[m.real_name] shouts, '</font><b><font color = [custom_color]>[beamname]!'</b></font>","actionoutput")
+											if(chant)
+												m.show_runechat("[chant]!!", custom_color, 0, view(25, m))
+											else
+												m.show_runechat("[beamname]!!", custom_color, 0, view(25, m))
 											chanted=0
 										view(12,m)<<S
 										fired = 1
@@ -3883,10 +3923,14 @@ obj
 											var/head_distance = (pix_max * 32) + 16
 											var/b_x = head_distance * cos(m.locked_mouse_degree)
 											var/b_y = head_distance * sin(m.locked_mouse_degree)
-											ball.Move(m.loc, 0, m.step_x + b_x, m.step_y - b_y)
+										
+											// Calculate directional offset for proper beam head alignment
+											var/list/head_offset = src.calculate_beam_head_offset(m.locked_mouse_degree)
+										
+											ball.Move(m.loc, 0, m.step_x + b_x + head_offset["x"], m.step_y - b_y + head_offset["y"])
 											ball.dir = beam_dir
 											ball.layer = FLOAT_LAYER + 1
-											ball_hit.Move(m.loc, 0, m.step_x + b_x, m.step_y - b_y)
+											ball_hit.Move(m.loc, 0, m.step_x + b_x + head_offset["x"], m.step_y - b_y + head_offset["y"])
 											ball_hit.layer = FLOAT_LAYER + 1
 										else
 											ball.loc = null
@@ -4332,6 +4376,7 @@ obj
 					ray.pixel_x = -144; ray.pixel_y = -144
 					ray.filters += filter(type="rays", x=0, y=0, size=96, color=rgb(255,255,255), offset=0, density=10, threshold=0.7, factor=0, flags=FILTER_OVERLAY)
 					animate(ray.filters[1], offset=100, time=1000, loop=-1)
+					apply_ctf_beam_appearance(ball, beam, null, ball_hit, ray, custom_color)
 
 					src.parts = beam_parts
 
@@ -4858,6 +4903,7 @@ obj
 				ray.filters += filter(type="rays",x=0,y=0,size=96,color=rgb(255,255,255),offset=0,density=10,threshold=0.7,factor=0,flags=FILTER_OVERLAY)
 				animate(ray.filters[1],offset = 100,time = 1000, loop = -1)
 				animate(offset = 0,time = 0)
+				apply_beam_appearance(ball, beam, null, ball_hit, ray, custom_color)
 
 				src.parts = list(ball,ball_hit,beam,checker,ray)
 
@@ -7913,6 +7959,7 @@ obj
 
 								if(ismob(src.loc))
 									//var/mob/m = src.loc
+									var/pre_tick_power = m.power_percent
 									if(src.active >= 1 && m.icon_state != "meditate" && !stage) m.power_percent += 1*m.mod_recovery
 									if(src.active >= 1 && m.icon_state != "meditate" && stage == 1) m.power_percent += 2*m.mod_recovery
 									if(src.active >= 1 && m.icon_state != "meditate" && stage == 2) m.power_percent += 3*m.mod_recovery
@@ -7921,12 +7968,29 @@ obj
 									if(src.active >= 1 && m.icon_state != "meditate" && stage == 5) m.power_percent += 6*m.mod_recovery
 									if(src.active == -1 ) m.power_percent -= 1*m.mod_recovery
 									if(m.power_percent <= 0) m.power_percent = 0;
+									if(src.active >= 1 && pre_tick_power < 100)
+										// Stamina-fueled phase: the climb caps at exactly 100%; past that the energy-drain phase takes over
+										if(m.power_percent > 100) m.power_percent = 100
+										var/stamina_cost = max(1, round((1 + stage) * max(1, m.mod_recovery)))
+										if(m.stamina < stamina_cost)
+											if(m.stamina < 0) m.stamina = 0
+											m << output("You ran out of stamina.","actionoutput")
+											reset_power_control(m, 1,0,0)
+										else
+											// Powering up below 100% gathers your energy back toward its cap
+											if(m.energy < m.energy_max)
+												m.energy = min(m.energy_max, m.energy + (m.energy_max * 0.02 * max(1, m.mod_recovery)))
+											m.stamina -= stamina_cost
+											src.skill_exp += (2.5-(src.skill_lvl/40)*m.mod_skill)+0.025
+											if(src.skill_exp >= 100 && src.skill_lvl < 100)
+												src.skill_exp = 1
+												src.skill_lvl += 1
+												src.skill_up(m)
 									if(src.active >= 1 && m.power_percent > 100 && stage == 1)
 										var/drain=10*(m.power_percent-100)/pick(1,m.mod_recovery)
 										if(m.meditating)
 											reset_power_control(m, 1,0,0)
-											return
-										if(m.energy >= drain)
+										else if(m.energy >= drain)
 											m.energy -= drain
 											//m << output("Now at [m.power_percent]% power","chat.local")
 											//m << output("Psionic power now at [m.psionic_power]","chat.local")
@@ -9939,6 +10003,10 @@ obj
 						s.icon_state = "kaioken off"
 					//	if(m.race == "Alien") m.overlays -= /obj/effects/elec_cerebroid
 						remove_overlay(m, /obj/overlay/auras/kaioken)
+						if(m.kaioken_overlay)
+							remove_overlay(m, m.kaioken_overlay)
+							m.kaioken_overlay.loc = null
+							m.kaioken_overlay = null
 						if(m.buff_kaioken && m.buff_kaioken.active)
 							m.buff_kaioken:activate(m,m.buff_kaioken)
 						m.med_pixel = 1
@@ -9984,12 +10052,23 @@ obj
 							m.mod_strength *= (round(s.times_multi * 0.55))
 							m.mod_offence *= (round(s.times_multi * 0.55))
 							m.mod_agility *= (round(s.times_multi * 0.55))
+							if(m.stamina > 0)
+								var/kaioken_ignition_energy_drain = max(1, round(s.times_multi * 2) - (s.skill_lvl / 100 * 0.5))
+								var/kaioken_ignition_stamina_cost = max(0.5, kaioken_ignition_energy_drain * 0.5)
+								m.stamina = max(0, m.stamina - kaioken_ignition_stamina_cost)
 							var/turf/t = m.loc
-							if(!t.liquid)
-								var/obj/effects/dust_medium/d = new
+							if(!t || !t.liquid)
+								var/obj/effects/dust_medium/d = new(m.loc)
+								d.loc = m.loc
 								d.SetCenter(m)
-							remove_overlay(m, /obj/overlay/auras/kaioken)
-							add_overlay(m, /obj/overlay/auras/kaioken)
+							if(!m.kaioken_overlay)
+								m.kaioken_overlay = new /obj/overlay/auras/kaioken()
+							m.kaioken_overlay.loc = m
+							m.kaioken_overlay.pixel_x = -16
+							m.kaioken_overlay.pixel_y = -4
+							if(m.kaioken_overlay)
+								remove_overlay(m, m.kaioken_overlay)
+							add_overlay(m, m.kaioken_overlay)
 							//for(var/mob/h in view(8,m))
 								//h << sound('focus1.mp3',0,1,10,100)
 							m.shock_chance = 25
@@ -10069,6 +10148,10 @@ obj
 											m.damage_limb(m,1,0,limb_hit_damage)
 										m.percent_health -= kaiodmg
 										if(m.percent_health < 0) m.KO()
+
+									if(src.skill_lvl < src.max_level && src.skill_lvl > 0 && m.stamina > 0)
+										var/kaioken_stamina_drain = max(0.25, removes * 0.5)
+										m.stamina = max(0, m.stamina - kaioken_stamina_drain)
 
 									if(m.energy >= removes)
 										//world << "DEBUG: Energy check passed - removing [removes] energy"
@@ -14045,7 +14128,7 @@ obj
 						m.open_close_eyes(0)
 						m<<output("You stop training.","actionoutput")
 					else
-						if(m.energy<=2) return
+						if(m.energy<=2 || m.stamina<=0) return
 						if(m.skill_flight && m.skill_flight.active) call(m.skill_flight.act)(m,m.skill_flight)
 						if(m.skill_levitation && m.skill_levitation.active) call(m.skill_levitation.act)(m,m.skill_levitation)
 						if(m.skill_quicksilver && m.skill_quicksilver.active) call(m.skill_quicksilver.act)(m,m.skill_quicksilver)
@@ -14117,11 +14200,17 @@ obj
 									//if(m.energy !=0 || m.energy >=1 ) // energy recovery while meditating
 									//	m.energy -= (0.01*m.energy_max*m.mod_recovery)+(src.skill_lvl/100)
 										//else m.energy += 0.001*m.energy_max*m.mod_recovery+(src.skill_lvl/100)
-										if(m.energy <= (m.energy_max*0.05))
-											m.energy = 0
+										var/exertion_scale = ((max(1, m.weight)*0.125)**0.1)
+										var/stamina_drain = max(0.1, (0.0025*m.stamina_max/max(0.1, m.mod_recovery))*exertion_scale)
+										if(m.energy <= (m.energy_max*0.05) || m.stamina < stamina_drain)
+											if(m.energy <= (m.energy_max*0.05))
+												m.energy = 0
+												m<<output("You ran out of energy","actionoutput")
+											else
+												m.stamina = 0
+												m<<output("You ran out of stamina","actionoutput")
 											src.active=0
 											m.selftraining=0
-											m<<output("You ran out of energy","actionoutput")
 											m.icon_state = m.state()
 											src.icon_state = "Self Train off"
 											var/turf/t = m.loc
@@ -14153,7 +14242,8 @@ obj
 											m.open_close_eyes(0)
 										else
 										//	m.energy -= (1000/rand(10,20))*(m.mod_recovery)*((m.weight*0.125)**0.1)
-											m.energy -= (300/m.mod_recovery)*((m.weight*0.125)**0.1)
+											m.energy -= (300/max(0.1, m.mod_recovery))*exertion_scale
+											m.stamina = max(0, m.stamina - stamina_drain)
 							sleep(1)
 
 			Click(location,control,params)
@@ -14431,13 +14521,17 @@ obj
 
 												//var/L = length(m.buffs)
 												//if(L == 0)
+												var/gain_resources = 0
+												if(m.mortal) gain_resources = 1
+												else if(m.z == 2 || m.z == 6) gain_resources = 1
 												if(m.energy < m.energy_max) // energy recovery while meditating
-													var/gain_eng = 0
-													if(m.mortal) gain_eng = 1
-													else if(m.z == 2 || m.z == 6) gain_eng = 1
-													if(gain_eng) m.energy += 0.01*m.energy_max*m.mod_recovery+(src.skill_lvl/100)
-													else m.energy += 0.001*m.energy_max*m.mod_recovery+(src.skill_lvl/100)
+													if(gain_resources) m.energy += (0.01*m.energy_max*m.mod_recovery+(src.skill_lvl/100))*0.5
+													else m.energy += (0.001*m.energy_max*m.mod_recovery+(src.skill_lvl/100))*0.5
 													if(m.energy > m.energy_max) m.energy = m.energy_max
+												if(m.stamina < m.stamina_max) // stamina recovery while meditating
+													if(gain_resources) m.stamina += (0.01*m.stamina_max*m.mod_regeneration+(src.skill_lvl/100))*0.5
+													else m.stamina += (0.001*m.stamina_max*m.mod_regeneration+(src.skill_lvl/100))*0.5
+													if(m.stamina > m.stamina_max) m.stamina = m.stamina_max
 												src.last_gain_time = world.time
 							end
 							sleep(1)
@@ -14481,7 +14575,7 @@ obj
 					else
 					//	m.check_quest("tutorial_sleep",1)
 
-						if(m.restedness >= 100)
+						if(m.restedness >= 100 && m.stamina >= m.stamina_max)
 							m<<output("You are already fully rested.","actionoutput")
 							return
 
@@ -16011,10 +16105,15 @@ mob/proc/check_skillbar(obj/o)
 				*/
 mob
 	proc
+		get_skillbar_slot(var/list/bar, var/slot_name)
+			var/list/slot = bar ? bar[slot_name] : null
+			if(!islist(slot) || !slot.len)
+				return null
+			return slot[1]
+
 		skillbar()
 			if(!src || !src.client) return
 
-    clear_skillbar_screen()
 			clear_skillbar_screen() // Ensures stale icons are removed
 			var/list/bar = skillbar_slots[active_skillbar]
 			//var/bar = skillbar_slots[active_skillbar]
@@ -16023,70 +16122,70 @@ mob
 				var/obj/skill
 
 				if(istype(h,/obj/hud/buttons/skillbar/skillbar_one))
-					skill = bar["one"] ? bar["one"][1] : null
+					skill = get_skillbar_slot(bar, "one")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_one_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_two))
-					skill = bar["two"] ? bar["two"][1] : null
+					skill = get_skillbar_slot(bar, "two")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_two_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_three))
-					skill = bar["three"] ? bar["three"][1] : null
+					skill = get_skillbar_slot(bar, "three")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_three_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_four))
-					skill = bar["four"] ? bar["four"][1] : null
+					skill = get_skillbar_slot(bar, "four")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_four_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_five))
-					skill = bar["five"] ? bar["five"][1] : null
+					skill = get_skillbar_slot(bar, "five")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_five_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_six))
-					skill = bar["six"] ? bar["six"][1] : null
+					skill = get_skillbar_slot(bar, "six")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_six_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_seven))
-					skill = bar["seven"] ? bar["seven"][1] : null
+					skill = get_skillbar_slot(bar, "seven")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_seven_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_eight))
-					skill = bar["eight"] ? bar["eight"][1] : null
+					skill = get_skillbar_slot(bar, "eight")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_eight_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_nine))
-					skill = bar["nine"] ? bar["nine"][1] : null
+					skill = get_skillbar_slot(bar, "nine")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_nine_overlay
 						client.screen += skill
 
 				else if(istype(h,/obj/hud/buttons/skillbar/skillbar_zero))
-					skill = bar["zero"] ? bar["zero"][1] : null
+					skill = get_skillbar_slot(bar, "zero")
 					h.overlays = null
 					if(skill)
 						h.overlays += /obj/hud/buttons/skillbar/skillbar_zero_overlay

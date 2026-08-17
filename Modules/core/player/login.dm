@@ -184,6 +184,14 @@ mob
 			src.LOYear = year
 			src.online = 0
 			src.remove_player_blip() //Put this here so blips are not deleted on player save, only on logout.
+			if(src.percent_health <= 0 && !src.koed && !src.dead)
+				src.KO()
+			if(src.koed && !src.dead && src.has_active_combat_tag())
+				var/seconds_left = round(max((src.combat_tag_until - world.time) / 10, 0), 0.1)
+				var/source_name = src.combat_tag_source
+				if(!source_name) source_name = "an opponent"
+				world << output("<font color=red>[src] combat logged against [source_name] while KO'd ([seconds_left]s tag remaining) and was killed.</font>", "actionoutput")
+				src.Death("combat logging while KO'd against [source_name]")
 			if(src.dead) src.koed = 0 // Prevent KO death timer from firing after logout on dead players
 			src.disable_skills()
 			if(src.oozaru_form) src.oozaru_disable()

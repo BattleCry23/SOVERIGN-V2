@@ -7,73 +7,203 @@ obj/overlay/hairs
 	name = "hair"
 	transform = null
 	ID = 3
-	var
-		tmp/gdkid = 0
-		prevgdki = 0//this is for hair changes pretaining to future use of godki, but it can also be used for other things like the ssj2 hair or something like that if I decide to add it in the future.
 
-		rssjed = 0
-		lssjed = 0
-		wrathed = 0//this is for wrathful state, the plan is to use the ssj hairs but turn it black sort of like Giji.
+	normal
+		density_factor = 0
+		//appearance_flags = KEEP_TOGETHER
+		eye_brows
+			icon = 'eyebrows.dmi'
+			name = "Eyebrows"
+		female
+			Hair1_female
+				icon = 'Kale_Hair.dmi'
+				name = "Hair1"
+			Hair2_female
+				icon = 'hair_female2.dmi'
+				name = "Hair2"
+			Hair3_female
+				icon = 'hair_female1.dmi'
+				name = "Hair3"
+			Hair4_female
+				icon = 'hair_04_female.dmi'
+				name = "Hair4"
+			Hair5_female
+				icon = 'hair_long.dmi'
+				name = "Hair5"
+			Hair6_female
+				icon = 'hair_06_female.dmi'
+				name = "Hair6"
+			Hair7_female
+				icon = 'hair_07_female.dmi'
+				name = "Hair7"
+			Hair8_female
+				icon = 'hair_08_female.dmi'
+				name = "Hair8"
+			Hair9_female
+				icon = 'NewCauliflaHair.dmi'
+				name ="Hair9"
+			Hair10_female
+				icon = 'Android17h.dmi'
+				name ="Hair10"
 
-		list/added_color = list(0,0,0)
-		list/prev_color = list(0,0,0)
+			Hair11_female
+				icon = 'Android_18.dmi'
+				name ="Hair11"
+		female_kid
+			Hair1_female_kid
+				icon = 'Kale_Hair_kid.dmi'
+				name = "Hair1"
+			Hair2_female_kid
+				icon = 'hair_female2_kid.dmi'
+				name = "Hair2"
+			Hair3_female_kid
+				icon = 'hair_female1_kid.dmi'
+				name = "Hair3"
+			Hair4_female_kid
+				icon = 'hair_04_female.dmi'
+				name = "Hair4"
+			Hair5_female_kid
+				icon = 'hair_long.dmi'
+				name = "Hair5"
+			Hair6_female_kid
+				icon = 'hair_06_female.dmi'
+				name = "Hair6"
+			Hair7_female_kid
+				icon = 'hair_07_female.dmi'
+				name = "Hair7"
+			Hair8_female_kid
+				icon = 'hair_08_female.dmi'
+				name = "Hair8"
+			Hair9_female_kid
+				icon = 'NewCauliflaHairKid.dmi'
+				name ="Hair9"
+			Hair10_female_kid
+				icon = 'Android17hKid.dmi'
+				name ="Hair10"
+			Hair11_female_kid
+				icon = 'Android_18_kid.dmi'
+				name ="Hair11"
+		male
 
-	proc/applyrssj()
-		rssjed = 1
+			Hair1
+				icon = 'GokuRHair.dmi'
+			Hair2
+				icon = 'hair_vegeta.dmi'
+			Hair3
+				icon = 'hair_yamcha.dmi'
+			Hair4
+				icon = 'UubHair.dmi'
+			Hair5
+				icon = 'hair_long.dmi'
+			Hair6
+				icon = 'hair_afro.dmi'
+			Hair7
+				icon = 'hair_kidd.dmi'
+			Hair8
+				icon = 'hair_raditz.dmi'
+			Hair9
+				icon = 'hair_muse.dmi'
+			Hair10
+				icon = 'hair_goten.dmi'
+			Hair11
+				icon = 'hair_short.dmi'
+			Hair12
+				icon = 'hair_vegetajr.dmi'
+			Hair13
+				icon = 'hair_strange.dmi'
+			Hair13
+				icon = 'hair_lan.dmi'
+			Hair14
+				icon = 'hair_kidgohan.dmi'
+			Hair15
+				icon = 'hair_trunks.dmi'
+			Hair16
+				icon = 'hair_futuregohan.dmi'
+			Hair17
+				icon = 'GohanUAdult.dmi'
+			Hair18
+				icon = 'Android17h.dmi'
+			Hair19
+				icon = 'GranolaHair.dmi'
+			Hair20
+				icon = 'Shallot_Hair.dmi'
+			Hair21
+				icon = 'TeenGohanHair (1).dmi'
+			Hair22
+				icon = 'YamchaGT.dmi'
+			Hair23
+				icon = 'YamchaS.dmi'
+			Hair24
+				icon = 'NewSpikeyH1.dmi'
+			Hair25
+				icon = 'nach_hair.dmi'
+			Hair26
+				icon = 'Stylish_Long_Hair.dmi'
+			Hair27
+				icon = 'VomiHair.dmi'
 
-	proc/removerssj()
-		rssjed = 0
 
-	proc/applylssj()
-		lssjed = 1
-
-	proc/removelssj()
-		lssjed = 0
-
-	proc/gdki_me()
-		gdkid = 1
-
-	proc/ungdki_me()
-		gdkid = 0
-
-	proc/update_color()
-		icon -= rgb(prev_color[1],prev_color[2],prev_color[3])
-		icon += rgb(added_color[1],added_color[2],added_color[3])
-
-	proc/activate_proc()
-		return
-	
-	proc/deactivate_proc()
-		return
-
-	proc/toggle_form(form_type, var/active, var/activate_proc, var/deactivate_proc, var/state_var)
-		if(active)
-			if(!state_var)
-				state_var = 1
-				call(src, activate_proc)()
-				update_color()
-		else
-			if(state_var)
-				state_var = 0
-				call(src, deactivate_proc)()
-	
-	EffectorLoop()
-		alpha = container.oozaru_form ? 1 : 255
-		
-		toggle_form("rssj", container.rssj_form, /obj/overlay/hairs/proc/applyrssj, /obj/overlay/hairs/proc/removerssj, rssjed)
-		toggle_form("lssj", container.lssj_form, /obj/overlay/hairs/proc/applylssj, /obj/overlay/hairs/proc/removelssj, lssjed)
-
-		EffectStarter()
-	..()
-
-	EffectStarter()
-		.=..()
-		if(!rssjed)
-			rssjed = 1
-			applyrssj()
-			color_overlay(icon, SSJ_COLOR)
-
-		if(!lssjed)
-			lssjed = 1
-			applylssj()
-			update_color()
+			None
+				//Shared "bald" entry used by every hair list. It needs a real (blank) icon file, otherwise
+				//everything that calls icon(hair.icon, ...) - the portrait code especially - runtimes on a null icon.
+				icon = 'sprites/misc/blank.dmi'
+		male_kid
+			Hair1_kid
+				name = "Hair1"
+				icon = 'GokuRkidhair.dmi'
+			Hair2_kid
+				icon = 'hair_vegeta_kid.dmi'
+			Hair3_kid
+				icon = 'hair_yamcha_kid.dmi'
+			Hair4_kid
+				icon = 'UubHairkid.dmi'
+			Hair5_kid
+				icon = 'hair_long_kid.dmi'
+			Hair6_kid
+				icon = 'hair_afro_kid.dmi'
+			Hair7_kid
+				icon = 'hair_kidd_kid.dmi'
+			Hair8_kid
+				icon = 'hair_raditz_kid.dmi'
+			Hair9_kid
+				icon = 'hair_muse_kid.dmi'
+			Hair10_kid
+				icon = 'hair_goten_kid.dmi'
+			Hair11_kid
+				icon = 'hair_short_kid.dmi'
+			Hair12_kid
+				icon = 'hair_vegetajr_kid.dmi'
+			Hair13_kid
+				icon = 'hair_strange_kid.dmi'
+			Hair13_kid
+				icon = 'hair_lan_kid.dmi'
+			Hair14_kid
+				icon = 'hair_kidgohan_kid.dmi'
+			Hair15_kid
+				icon = 'hair_trunks_kid.dmi'
+			Hair16_kid
+				icon = 'hair_futuregohan_kid.dmi'
+			Hair17_kid
+				icon = 'hair_adultgohan_kid.dmi'
+			Hair18_kid
+				icon = 'FT_Trunks_Hair_Kid.dmi'
+			Hair19_kid
+				icon = 'GranolaKid.dmi'
+			Hair20_kid
+				icon = 'Shallot_Hair_Kid.dmi'
+			Hair21_kid
+				icon = 'KidTeenGohanHair.dmi'
+			Hair22_kid
+				icon = 'YamchaGTKid.dmi'
+			Hair23_kid
+				icon = 'YamchaSKid.dmi'
+			Hair24_kid
+				icon = 'NewSpikeyH1Kid.dmi'
+			Hair25_kid
+				icon = 'nach_hair.dmi'
+				New()
+					pixel_y=-5
+			Hair26_kid
+				icon = 'Stylish_Long_Hair_Kid.dmi'
+			Android17_kid
+				icon = 'Android17hKid.dmi'

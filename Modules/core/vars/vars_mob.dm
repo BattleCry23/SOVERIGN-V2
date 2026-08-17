@@ -152,6 +152,10 @@ mob
 	var/tmp/next_gravity_damage = 0
 	var/tmp/last_gravity_tick = 0
 	var
+		age_is_adult = 0
+		age_is_kid = 0
+		age_is_baby = 0
+		age_is_under4age = 0
 		LSSJ = 0
 		scouter_on = 0
 		obj/items/tech/Scouters/current_scouter = null
@@ -312,6 +316,7 @@ mob
 		oozaru_form = 0
 		c_type_mutation = 0
 		hidden_potential = 0
+		allowed_zenkai = 0
 		lssj_form = 0
 		lssj_mastery = 0
 		looking_at_moon=0
@@ -895,6 +900,7 @@ mob
 		age_text = "Kid"
 		grey_hair = 0
 		hair_icon = null
+		eyebrows_icon = null
 		lifespan = 80
 		oldage = 50
 		prime = 1
@@ -946,6 +952,10 @@ mob
 
 		//percents
 		percent_energy = 100
+		stamina = 100
+		stamina_max = 100
+		percent_stamina = 100
+		tail_mastery = 0
 		//percent_power = 100
 		percent_ko = 0
 
@@ -1037,6 +1047,7 @@ mob
 		obj/skills/Reincarnation/skill_reformation
 		obj/skills/Ressurect/skill_revive
 		obj/skills/Kaiosoku/skill_quicksilver
+		obj/kaioken_overlay
 		obj/skills/Kaioken/skill_kaioken
 		obj/skills/Kaioenjin/skill_kaioenjin
 		obj/skills/Spirit_Reprieve/skill_reprieve
@@ -1124,6 +1135,7 @@ mob
 
 		obj/divine_elec = null
 		obj/hair = null
+		obj/eyebrows = null
 		obj/horns = null
 		obj/body_horns = null
 		obj/tail = null
@@ -1374,6 +1386,9 @@ mob
 		tmp/obj/mouse_skill = null
 		tmp/atom/movable/grab = null //The obj you grabbed.
 		tmp/obj/body_related/grab_part //The part of a mob you grabbed
+		tmp/tail_grab = FALSE
+		tmp/tail_grab_effect_time = 0
+		tmp/tail_grab_stunned = FALSE
 		tmp/wrestle_stage = null
 		tmp/impact_cd = 0
 		tmp/knocked_back = 0
@@ -1411,6 +1426,8 @@ mob
 		tmp/attack_anim_lock_until = 0
 		tmp/corpse_load_guard_until = 0
 		tmp/last_attacked = null
+		tmp/combat_tag_until = 0
+		tmp/combat_tag_source = null
 		tmp/mouse_degree = 0
 		tmp/locked_mouse_degree = 0
 		tmp/obj/ranged/ball = null
@@ -1501,6 +1518,8 @@ mob
 		obj/hud_hp_bar_inner
 		obj/hud_eng_bar
 		obj/hud_eng_bar_inner
+		obj/hud_stamina_bar
+		obj/hud_stamina_bar_inner
 		obj/hud_pp
 		obj/hud_passivetree
 		obj/hud_immersionshop
@@ -1543,6 +1562,7 @@ mob
 
 		tmp/change_hp = 0 // Keeps track of whether hp changed since last tick, so the hp bar isn't updated constantly
 		tmp/change_eng = 0 // Keeps track of whether eng changed since last tick, so the eng bar isn't updated constantly
+		tmp/change_stamina = 0 // Keeps track of whether stamina changed since last tick, so the stamina bar isn't updated constantly
 
 		//Save stuff
 		online = 0;

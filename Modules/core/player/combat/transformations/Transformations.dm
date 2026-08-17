@@ -639,6 +639,27 @@ mob/proc/transformation_drain(var/mob/container)
 			if(final_drain > 0 && prob(20))
 				container.energy -= final_drain
 
+			if(container.stamina_max > 0)
+				var/initial_stamina_hit = rand(2, 5)
+				var/stamina_drain = max(0.1, final_drain * 0.25)
+				if(container.stamina > 0)
+					if(saiyan_dna && container.superform == 1)
+						if(mastery >= 100)
+							initial_stamina_hit = 0
+							stamina_drain = rand(0.05, 0)
+						else
+							container.stamina -= initial_stamina_hit
+
+					if(container.race == "Changeling" && mastery >= 100)
+						initial_stamina_hit = 0
+						stamina_drain = 0
+						
+					if(container.stamina < 0) 
+						container.stamina = 0
+					else
+						container.stamina -= stamina_drain
+						if(container.stamina < 0) container.stamina = 0
+
 			var/unmastered_ratio = max(0, (100 - mastery) / 100)
 			if(apply_backlash && unmastered_ratio > 0)
 				var/form_pressure = max(0.5, form_multiplier - 0.5)
@@ -1901,6 +1922,7 @@ mob/proc/Changeling_Superform4thForm_Effect()
 					form_preview = 'cooler_4Red.dmi'
 				else
 					form_preview = 'cooler_4.dmi'
+		o.icon = form_preview
 		rays.icon = 'fx_ray_large.dmi'
 		rays.pixel_x = -284
 		rays.pixel_y = -284
@@ -1931,7 +1953,6 @@ mob/proc/Changeling_Superform4thForm_Effect()
 
 			m.filters -= filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor) // possibly purple? rgb(102,0,204)
 			m.filters += filter(type="drop_shadow", x=0, y=0, size=3, offset=1, color=m.auracolor)
-			o.icon = form_preview
 			o.icon_state = ""
 			o.overlays = m.overlays
 			o.loc = m.loc
@@ -1971,7 +1992,6 @@ mob/proc/Changeling_Superform4thForm_Effect()
 		animate(transform = turn(matrix(),120), time = 5)
 		animate(transform = null, time = 5)
 
-	var/icon/form_preview = 'Frieza_4th_form.dmi'
 	spawn(120)
 		if(pixs && islist(pixs))
 			for(var/obj/v in pixs)

@@ -240,6 +240,37 @@ obj
 				layer = 7
 				mouse_opacity = 0
 				icon_state = "mp"
+			player_stamina_inner
+				icon = 'hud_bar_new_inner.dmi'
+				screen_loc = "3:2,17:3"
+				layer = 7
+				mouse_opacity = 0
+				icon_state = "mp"
+				color = rgb(50, 205, 50)
+			player_stamina
+				icon = 'hud_bar_new.dmi'
+				screen_loc = "3:1,17:17"
+				layer = 6
+				icon_state = "bar holder"
+				color = rgb(50, 205, 50)
+				var/obj/txt_percent
+				MouseEntered()
+					if(src.txt_percent)
+						usr.client.screen += src.txt_percent
+				MouseExited()
+					if(src.txt_percent)
+						usr.client.screen -= src.txt_percent
+				New()
+					..()
+					var/obj/txt = new
+					txt.maptext = "<font size = 1> <text align=center valign=top>[css_outline]100%"
+					txt.maptext_width = 128
+					txt.screen_loc = "4,28:03"
+					txt.layer = 25
+					txt.loc = src
+					src.txt_percent = txt
+					src.txt_percent.layer = 999
+					src.txt_percent.plane = 30
 			cft_button
 				icon = 'TBMS.dmi'
 				screen_loc = "1:55,15:13"
@@ -3726,6 +3757,8 @@ obj
 							src.vis_contents -= player.babyport
 					update_portrait_transform()
 						var/mob/player = src.loc
+						for(var/mob/m in src.vis_contents)
+							src.vis_contents -= m
 						if(player.port)
 							src.vis_contents -= player.port
 							src.vis_contents += player.port
@@ -3798,7 +3831,7 @@ obj
 									src.avatar_holder = ava_holder
 
 									var/obj/ava = new
-									ava.icon = 'NewMalesWhite.dmi'
+									ava.icon = 'NewMalesWhite(faceless).dmi'
 									ava.hud_x = 180
 									ava.hud_y = 484
 									ava.layer = 33
@@ -22244,6 +22277,9 @@ obj
 					plane = 34
 			main
 				plane=29
+				var
+					tooltip_shift_x = -10
+					tooltip_shift_y = 28
 				toggle_skillbar_button
 					icon = 'loadout_swap.dmi'
 					icon_state = "1" // You can define this state in the icon
@@ -23531,13 +23567,14 @@ obj
 
 									if("Heal")
 										var/mob/races/choice = input("Select a player:") as null|anything in race_mobs
+										if(!choice) return
 										if(choice.koed==1||choice.koed||choice.icon_state=="KO")
 											choice.KO(0,1)
 										sleep(1)
 										choice.percent_health= 100
-										choice.energy = choice.energy_max
 										choice.stunned = 0
 										choice.stunned_pending = 0
+										choice.refresh_vital_bars(TRUE)
 										world.log << "(Admin Log): [usr.client.admin_name] [usr] healed [choice]"
 
 									if("Observe")
@@ -24025,12 +24062,19 @@ mob
 			var/shift_y_pix = round(L_y % 32)
 			var/shift_ver = 18-shift_y
 
-			var/current_x = src.mouse_x+shift_x
-			var/current_y = src.mouse_y+shift_y
 			var/tooltip_x = src.mouse_x
 			var/tooltip_px = src.mouse_pix_x
 			var/tooltip_y = src.mouse_y
 			var/tooltip_py = src.mouse_pix_y
+			var/tooltip_shift_x = 0
+			var/tooltip_shift_y = 0
+			if(istype(h, /obj/hud/buttons/main))
+				var/obj/hud/buttons/main/hub_button = h
+				// Keep docked hub button tooltips from sitting too low against the HUD bar.
+				tooltip_shift_x = hub_button.tooltip_shift_x
+				tooltip_shift_y = hub_button.tooltip_shift_y
+			var/current_x = tooltip_x+shift_x
+			var/current_y = tooltip_y+shift_y
 
 			if(current_x >= 30 && current_y >= 18)
 				tooltip_x = max(1, src.mouse_x-shift_x)
@@ -24043,6 +24087,8 @@ mob
 			else if(current_y >= 18)
 				tooltip_y = max(1, shift_ver)
 				tooltip_py = src.mouse_pix_y-shift_y_pix
+			tooltip_px += tooltip_shift_x
+			tooltip_py += tooltip_shift_y
 
 			src.mouse_screen_loc = BuildScreenLoc(tooltip_x, tooltip_px, tooltip_y, tooltip_py)
 

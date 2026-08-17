@@ -329,6 +329,7 @@ mob
 			npc_ai()
 				set background = 1
 				if(src.active) return
+				if(istype(src,/mob/NPC/Animals/T_Rex) || istype(src,/mob/NPC/Animals/Mammoth) || istype(src,/mob/NPC/Animals/Black_Mammoth)) return
 				if(istype(src,/mob/NPC/Defenders/) || istype(src,/mob/NPC/People/)) return
 				src.active = 1
 				if(!src.start_loc) src.start_loc = src.loc
@@ -340,7 +341,7 @@ mob
 						sleep(10)
 						continue
 
-					// Too far from home — leash back
+					// Too far from home ï¿½ leash back
 					if(get_dist(src, src.start_loc) > src.leash_range)
 						src._npc_return_home()
 						sleep(src.follow_delay)
@@ -367,9 +368,10 @@ mob
 						//	sleep(src.follow_delay)
 						//	continue
 
-						// Too far? Follow using Eternia’s logic
+						// Too far? Follow using Eterniaï¿½s logic
 						if(dist > src.attack_range)
-							src.updateFollow(src.target, 0, src.follow_delay)
+							if(!src._npc_move_toward(src.target, src.attack_range))
+								src.updateFollow(src.target, 0, src.follow_delay)
 							sleep(src.follow_delay)
 							continue
 
@@ -411,7 +413,7 @@ mob
 						if(src.agressive && prob(35))
 							var/tx = src.start_loc.x + rand(-3,3)
 							var/ty = src.start_loc.y + rand(-3,3)
-							step_towards(src, locate(tx, ty, src.z))
+							src._npc_move_toward(locate(tx, ty, src.z), 0)
 						sleep(src.patrol_delay)
 						continue
 					sleep(0.2)
@@ -422,7 +424,8 @@ mob
 				if(src.Follow)
 					if(get_dist(src,A) <= src.chase_range)
 						src.Follow = A
-						walk_to(src, src.Follow, 1, delay)
+						if(!src._npc_move_toward(A, min))
+							walk_to(src, src.Follow, 1, delay)
 						return 1
 					else
 						src.Follow = null
@@ -431,7 +434,8 @@ mob
 				else
 					if(get_dist(src,A) <= src.chase_range)
 						src.Follow = A
-						walk_to(src, src.Follow, 1, delay)
+						if(!src._npc_move_toward(A, min))
+							walk_to(src, src.Follow, 1, delay)
 						src.FollowLoop(A, min, delay)
 						return 1
 				return 0
@@ -467,6 +471,38 @@ mob
 					if(istype(M, /mob/races)) return M
 				return null
 
+			_npc_move_toward(atom/target, var/min_dist = 0)
+				if(!src || !target || src.koed || src.stunned || !src.loc || !target.loc)
+					return 0
+				if(target.z != src.z)
+					return 0
+				if(get_dist(src, target) <= min_dist)
+					return 1
+
+				var/dir_to_target = get_dir(src, target)
+				var/list/candidate_dirs = list(dir_to_target)
+				var/list/backup_dirs = list()
+
+				switch(dir_to_target)
+					if(NORTH, SOUTH)
+						backup_dirs += list(EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+					if(EAST, WEST)
+						backup_dirs += list(NORTH, SOUTH, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+					else
+						backup_dirs += list(NORTH, SOUTH, EAST, WEST, NORTHEAST, NORTHWEST, SOUTHEAST, SOUTHWEST)
+
+				for(var/d in backup_dirs)
+					if(!(d in candidate_dirs))
+						candidate_dirs += d
+
+				for(var/d in candidate_dirs)
+					if(!d)
+						continue
+					if(step(src, d))
+						return 1
+
+				return 0
+
 			_npc_melee_strike(var/mob/T)
 				if(!src || !T || T.koed) return
 				var/dmg = 5 + src.level
@@ -490,8 +526,8 @@ mob
 				race = "Beetle"
 				appearance_flags = KEEP_TOGETHER
 
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				proc/beetle_idle_ai()
 					if(src.active || src.koed || src.stunned) return
@@ -509,7 +545,7 @@ mob
 							// === If a target is found, step toward them ===
 							if(src.target)
 								if(get_dist(src, src.target) > 32)
-									step_towards(src, src.target)
+									src._npc_move_toward(src.target, 0)
 								else
 									src.Attack()
 
@@ -600,7 +636,7 @@ mob
 
 				proc
 					turret_cancel_attack()
-					// Safety: stop any “stuck” attack state
+					// Safety: stop any ï¿½stuckï¿½ attack state
 						src.active_attack = null
 						src.current_attack = null
 						src.mouse_down = null
@@ -633,7 +669,7 @@ mob
 									// Always face target (no movement)
 									src.dir = get_dir(src, src.target)
 
-									// Only fire if within 1–10 tiles
+									// Only fire if within 1ï¿½10 tiles
 									if(d >= 1 && d>= src.attack_range)
 										// If your blast system sets active_attack while firing, respect it
 										if(!src.active_attack && world.time >= src.next_fire_time)
@@ -750,8 +786,8 @@ mob
 					tmp/next_fire_time = 0
 				attack_range = 10
 				prob_ki_atk = 100
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				proc/turret_idle_ai()
 					if(src.active || src.koed || src.stunned) return
@@ -906,8 +942,8 @@ mob
 					can_attack = 0
 					can_move = 0
 					var/icer_delux_value = 50000
-					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 					Click(location,control,params)
 						..()
 						params = params2list(params)
@@ -930,8 +966,8 @@ mob
 					bolted = 2
 					can_move = 0
 					var/icer_delux_value = 50000
-					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 					Click(location,control,params)
 						..()
 						params = params2list(params)
@@ -954,8 +990,8 @@ mob
 					bolted = 2
 					can_move = 0
 					var/icer_delux_value = 50000
-					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 					Click(location,control,params)
 						..()
 						params = params2list(params)
@@ -978,8 +1014,8 @@ mob
 					bolted = 2
 					can_move = 0
 					var/icer_delux_value = 50000
-					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 					Click(location,control,params)
 						..()
 						params = params2list(params)
@@ -1002,8 +1038,8 @@ mob
 					bolted = 2
 					can_move = 0
 					var/icer_delux_value = 50000
-					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 					Click(location,control,params)
 						..()
 						params = params2list(params)
@@ -1026,8 +1062,8 @@ mob
 					bolted = 2
 					can_move = 0
 					var/icer_delux_value = 50000
-					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 					Click(location,control,params)
 						..()
 						params = params2list(params)
@@ -1050,8 +1086,8 @@ mob
 					bolted = 2
 					can_move = 0
 					var/icer_delux_value = 50000
-					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+					attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+					attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 					Click(location,control,params)
 						..()
 						params = params2list(params)
@@ -1104,8 +1140,8 @@ mob
 				bolted = 2
 				can_move = 0
 				var/icer_delux_value = 15000
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 				Click(location,control,params)
 					..()
 					params = params2list(params)
@@ -1113,8 +1149,8 @@ mob
 						if(get_dist(usr,src) < 2)
 							//winshow(src,"inven",1)
 							if(src.z == 9)
-								switch(input(usr,"Hurry up and buy!") in list ("Cancel","Hair Dye(¥50z)","Scissors(¥50z)","Sparring Gloves((¥100z)","Bedroll(¥1,500z)","Deluxe Ship(¥15,000z)+"))
-									if("Sparring Gloves((¥100z)")
+								switch(input(usr,"Hurry up and buy!") in list ("Cancel","Hair Dye(ï¿½50z)","Scissors(ï¿½50z)","Sparring Gloves((ï¿½100z)","Bedroll(ï¿½1,500z)","Deluxe Ship(ï¿½15,000z)+"))
+									if("Sparring Gloves((ï¿½100z)")
 										var/value = 100
 										var/amount=input(usr,"How much are you buying?:") as num
 										if(amount<1) return
@@ -1141,7 +1177,7 @@ mob
 													usr.resources -= (amount*value)
 													usr.refresh_inv()
 
-									if("Bedroll(¥1,500z)")
+									if("Bedroll(ï¿½1,500z)")
 										var/value = 1500
 										var/amount=input(usr,"How much are you buying?:") as num
 										if(amount<1) return
@@ -1156,7 +1192,7 @@ mob
 											usr<<"You purchased x[amount] Bedroll(s)"
 											usr.resources -= (amount*value)
 											usr.refresh_inv()
-									if("Hair Dye(¥50z)")
+									if("Hair Dye(ï¿½50z)")
 										var/value = 50
 										var/amount=input(usr,"How much are you buying?:") as num
 										if(amount<1) return
@@ -1170,7 +1206,7 @@ mob
 											usr<<"You purchased x[amount] Hair Dye(s)"
 											usr.resources -= (amount*value)
 											usr.refresh_inv()
-									if("Scissors(¥50z)")
+									if("Scissors(ï¿½50z)")
 										var/value = 50
 										var/amount=input(usr,"How much are you buying?:") as num
 										if(amount<1) return
@@ -1184,7 +1220,7 @@ mob
 											usr<<"You purchased x[amount] Scissors(s)"
 											usr.resources -= (amount*value)
 											usr.refresh_inv()
-									if("Deluxe Ship(¥15,000z)+")
+									if("Deluxe Ship(ï¿½15,000z)+")
 										switch(alert(usr,"The Current Price is: [src.icer_delux_value]","","Purchase","Cancel"))
 											if("Purchase")
 												if(usr.resources<src.icer_delux_value )
@@ -1207,8 +1243,8 @@ mob
 													usr.refresh_inv()
 
 							else
-								switch(input(usr,"Hurry up and buy!") in list ("Cancel","Hair Dye(¥50z)","Scissors(¥50z)","Sparring Gloves((¥100z)","Bedroll(¥1,500z)"))
-									if("Sparring Gloves((¥100z)")
+								switch(input(usr,"Hurry up and buy!") in list ("Cancel","Hair Dye(ï¿½50z)","Scissors(ï¿½50z)","Sparring Gloves((ï¿½100z)","Bedroll(ï¿½1,500z)"))
+									if("Sparring Gloves((ï¿½100z)")
 										var/value = 100
 										var/amount=input(usr,"How much are you buying?:") as num
 										if(amount<1) return
@@ -1233,7 +1269,7 @@ mob
 													usr.resources -= (amount*value)
 													usr.refresh_inv()
 
-									if("Bedroll(¥1,500z)")
+									if("Bedroll(ï¿½1,500z)")
 										var/value = 1500
 										var/amount=input(usr,"How much are you buying?:") as num
 										if(amount<1) return
@@ -1247,7 +1283,7 @@ mob
 											usr<<"You purchased x[amount] Bedroll(s)"
 											usr.resources -= (amount*value)
 											usr.refresh_inv()
-									if("Hair Dye(¥50z)")
+									if("Hair Dye(ï¿½50z)")
 										var/value = 50
 										var/amount=input(usr,"How much are you buying?:") as num
 										if(amount<1) return
@@ -1261,7 +1297,7 @@ mob
 											usr<<"You purchased x[amount] Hair Dye(s)"
 											usr.resources -= (amount*value)
 											usr.refresh_inv()
-									if("Scissors(¥50z)")
+									if("Scissors(ï¿½50z)")
 										var/value = 50
 										var/amount=input(usr,"How much are you buying?:") as num
 										if(amount<1) return
@@ -1334,8 +1370,8 @@ mob
 			race = "Attack Bot"
 			appearance_flags = KEEP_TOGETHER
 			fullname = "Attack Bot"
-			attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-			attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+			attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+			attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 			Click(location,control,params)
 				..()
@@ -1494,6 +1530,24 @@ mob
 							if(dist >= 320 || src.target.koed) src.target = null
 						//else if(prob(0.1)) src.hate_list = list()
 					sleep(2)
+			proc/is_contact_predator()
+				if(istype(src,/mob/NPC/Animals/T_Rex) || istype(src,/mob/NPC/Animals/Mammoth) || istype(src,/mob/NPC/Animals/Black_Mammoth))
+					return 1
+				return 0
+			proc/try_contact_attack()
+				if(!src || !src.target) return
+				if(src.koed || src.stunned) return
+				if(src.target.koed || src.target.dead)
+					src.target = null
+					return
+				if(!src.is_contact_predator()) return
+				if(src.active_attack || src.current_attack || src.mouse_down) return
+				if(bounds_dist(src, src.target) <= 0)
+					if(world.time - src.last_attack >= src.attack_cooldown)
+						src.last_attack = world.time
+						src.dir = get_dir(src, src.target)
+						src.spawn_melee_hit_effect(src.target)
+						src._npc_melee_strike(src.target)
 			Pterodactyl
 				icon = 'PterodactylG.dmi'
 				name = "Pterodactyl"
@@ -1503,8 +1557,8 @@ mob
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Pterodactyl
 				fullname = "Pterodactyl"
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -1623,8 +1677,8 @@ mob
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Dragon
 
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -1741,8 +1795,8 @@ mob
 				fullname = "Fish"
 				appearance_flags = KEEP_TOGETHER
 
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -1812,8 +1866,8 @@ mob
 				fullname = "Fish"
 				appearance_flags = KEEP_TOGETHER
 
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -1878,14 +1932,14 @@ mob
 				icon = 'T-Rex_Colorable.dmi'
 				name = "T Rex"
 				gender = "neuter"
-				agressive = 1
+				agressive = 0
 				race = "T Rex"
 				fullname = "T Rex"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/T_Rex
 
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -1995,9 +2049,10 @@ mob
 										src.task = null ; src.icon_state = src.state()
 								else step_towards(src,spot)
 							if(src.target)
+								src.try_contact_attack()
 								var/dist = bounds_dist(src, src.target)
 								if(dist >= 32) step_towards(src,src.target)
-								if(dist >= 320 || src.target.koed) src.target = null
+								if(dist >= 320 || src.target.koed || src.target.dead) src.target = null
 							//else if(prob(0.1)) src.hate_list = list()
 						sleep(0.5)
 
@@ -2011,8 +2066,8 @@ mob
 				fullname = "Dinosaur"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Dinosaur
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -2125,13 +2180,13 @@ mob
 				icon_state = ""
 				name = "Mammoth"
 				gender = "neuter"
-				agressive = 1
+				agressive = 0
 				race = "Mammoth"
 				fullname = "Mammoth"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Black_Mammoth
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -2235,9 +2290,10 @@ mob
 										src.task = null ; src.icon_state = src.state()
 								else step_towards(src,spot)
 							if(src.target)
+								src.try_contact_attack()
 								var/dist = bounds_dist(src, src.target)
 								if(dist >= 32) step_towards(src,src.target)
-								if(dist >= 320 || src.target.koed) src.target = null
+								if(dist >= 320 || src.target.koed || src.target.dead) src.target = null
 							//else if(prob(0.1)) src.hate_list = list()
 						sleep(0.5)
 			Mammoth
@@ -2245,13 +2301,13 @@ mob
 				icon_state = ""
 				name = "Mammoth"
 				gender = "neuter"
-				agressive = 1
+				agressive = 0
 				race = "Mammoth"
 				fullname = "Mammoth"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Mammoth
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -2354,9 +2410,10 @@ mob
 										src.task = null ; src.icon_state = src.state()
 								else step_towards(src,spot)
 							if(src.target)
+								src.try_contact_attack()
 								var/dist = bounds_dist(src, src.target)
 								if(dist >= 32) step_towards(src,src.target)
-								if(dist >= 320 || src.target.koed) src.target = null
+								if(dist >= 320 || src.target.koed || src.target.dead) src.target = null
 							//else if(prob(0.1)) src.hate_list = list()
 						sleep(0.5)
 
@@ -2374,8 +2431,8 @@ mob
 				fullname = "Monkey"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Monkey
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -2491,8 +2548,8 @@ mob
 				fullname = "Chicken"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Chicken
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -2608,8 +2665,8 @@ mob
 				fullname = "Pig"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Pig
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -2721,8 +2778,8 @@ mob
 				fullname = "Sheep"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Sheep
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -2836,8 +2893,8 @@ mob
 				fullname = "Cow"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Cow
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -2953,8 +3010,8 @@ mob
 				fullname = "Bat"
 				appearance_flags = KEEP_TOGETHER
 				respawn_type = /mob/NPC/Animals/Bat
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 
 				Click(location,control,params)
 					..()
@@ -3070,8 +3127,8 @@ mob
 				race = "Android"
 				appearance_flags = KEEP_TOGETHER
 
-				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ·-·-·-"
-				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ·-·-·-"
+				attacked_text = "-.. . ..-. . -. -.-. .     .- .-.. --. --- .-. .. - .... -- ...         .- -.-. - .. ...- .- - . -.. ï¿½-ï¿½-ï¿½-"
+				attack_text = ".--. .-. . .--. .- .-. .     - ---     -... .     .--. .-. --- -.-. . ... ... . -..     .- -. -..     .--. ..- .-. --. . -.. ï¿½-ï¿½-ï¿½-"
 				Click(location,control,params)
 					..()
 					params = params2list(params)
@@ -4140,7 +4197,7 @@ mob
 				src.set_lists()
 				sleep(100)
 				//src.Human()
-				var/obj/hairs/male/Hair7/h = new
+				var/obj/overlay/hairs/normal/male/Hair7/h = new
 				src.hair = h
 				src.overlays += h
 				src.name_txt()

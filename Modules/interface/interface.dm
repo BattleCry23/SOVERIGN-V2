@@ -408,10 +408,11 @@ HUD/proc/Rescale_HUD(var/mob/m)
 	var/vy = view_tiles[2]
 	var/hud_top_y = max(1, vy - 1)
 	var/hud_second_y = max(1, vy - 2)
-	var/hud_menu_y = max(1, vy - 3)
-	var/hud_admin_y = max(1, vy - 4)
-	var/hud_tree_y = max(1, vy - 5)
-	var/hud_portrait_y = max(1, vy - 2)
+	var/hud_stamina_y = max(1, vy - 3)
+	var/hud_menu_y = max(1, vy - 4)
+	var/hud_admin_y = max(1, vy - 5)
+	var/hud_tree_y = max(1, vy - 6)
+	var/hud_portrait_y = max(1, vy - 3)
 	var/hud_title_x = max(1, vx - 12)
 	var/hud_help_x = max(1, vx - 15)
 
@@ -428,6 +429,10 @@ HUD/proc/Rescale_HUD(var/mob/m)
 		m.hud_eng_bar.screen_loc = BuildScreenLoc(3, 1, hud_second_y, 17)
 	if(m.hud_eng_bar_inner)
 		m.hud_eng_bar_inner.screen_loc = BuildScreenLoc(3, 2, hud_second_y, 18)
+	if(m.hud_stamina_bar)
+		m.hud_stamina_bar.screen_loc = BuildScreenLoc(3, 1, hud_stamina_y, 17)
+	if(m.hud_stamina_bar_inner)
+		m.hud_stamina_bar_inner.screen_loc = BuildScreenLoc(3, 2, hud_stamina_y, 18)
 	var/start_x = 3
 	var/start_y = 5
 	for(var/obj/effects/over_displays/lvl_up_overlay/h in m.client.screen)
@@ -448,14 +453,14 @@ HUD/proc/Rescale_HUD(var/mob/m)
 				animate(h)
 				h.transform = matrix().Scale(growth_rate, growth_rate)
 				//animate(h, transform = matrix().Scale(growth_rate, growth_rate), time = growth_time)
-				h.screen_loc = "TOP-3,LEFT+2"
+				h.screen_loc = "TOP-4,LEFT+2"
 				matched = TRUE
 
 			if("Right Arm", "rightarm", "right_arm")
 				animate(h)
 				h.transform = matrix().Scale(growth_rate, growth_rate)
 				//animate(h, transform = matrix().Scale(growth_rate, growth_rate), time = growth_time)
-				h.screen_loc = "TOP-3,LEFT+3:8" // 2L28
+				h.screen_loc = "TOP-4,LEFT+3:8" // 2L28
 				matched = TRUE
 
 			if("Left Leg", "leftleg", "left_leg")
@@ -463,7 +468,7 @@ HUD/proc/Rescale_HUD(var/mob/m)
 				h.transform = matrix().Scale(growth_rate, growth_rate)
 				//animate(h, transform = matrix().Scale(growth_rate, growth_rate), time = growth_time)
 				//h.screen_loc = "TOP-3:-28,LEFT+2"
-				h.screen_loc = "TOP-4:-8,LEFT+2"
+				h.screen_loc = "TOP-5:-8,LEFT+2"
 				matched = TRUE
 
 			if("Right Leg", "rightleg", "right_leg")
@@ -471,7 +476,7 @@ HUD/proc/Rescale_HUD(var/mob/m)
 				h.transform = matrix().Scale(growth_rate, growth_rate)
 				//animate(h, transform = matrix().Scale(growth_rate, growth_rate), time = growth_time)
 			//	h.screen_loc = "TOP-4,LEFT+2:32"
-				h.screen_loc = "TOP-4:-8,LEFT+3:8"
+				h.screen_loc = "TOP-5:-8,LEFT+3:8"
 				matched = TRUE
 
 

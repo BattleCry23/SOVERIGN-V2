@@ -218,19 +218,9 @@ mob
 						// Limb Regeneration (New System)
 						// =============================
 						src.check_body_health()
-
-
-
-
-
-
-
-
-
-
 					/*	for(var/obj/body_related/p in src.hurt_limbs)
-							if(p.disabled_perma == 0)
-								if(src.bandaged == 0)
+						if(p.disabled_perma == 0)
+							if(src.bandaged == 0)
 									p.hp += (0.06*mod_regeneration)*rand(1,1.3)
 									if(icon_state == "Meditate") p.hp += (0.08*mod_regeneration)*rand(1,1.5)
 								if(src.bandaged == 1)
@@ -253,6 +243,13 @@ mob
 									src.hurt_limbs -= p*/
 				else if(src.toxicity >= 200)
 					src.Death("Toxicity buildup",1)
+				else if(src.extra_regen && src.dead == 0)
+					if(src.percent_health < 100)
+						src.percent_health += 0.45 * src.mod_regeneration
+						if(src.percent_health > 100) src.percent_health = 100
+					src.check_body_health()
+					if(src.ko_time > 30 && src.percent_health >= 35)
+						src.ko_time = 30
 			//Dynamically adjust hp bars
 			if(src.change_hp != src.percent_health && src.hud_hp_bar_inner)
 				var/obj/bar_hp = src.hud_hp_bar_inner
@@ -320,9 +317,82 @@ mob
 				bar_eng.transform = m
 				var/obj/hud/bars/player_eng/eng = bar_eng.loc
 				if(eng && eng.txt_percent) eng.txt_percent.maptext = "<font size = 1> <text align=center valign=top>[css_outline][round(src.percent_energy)]%"
+			if(!src.stamina_max) src.stamina_max = 100
+			if(src.dead)
+				src.stamina = src.stamina_max
+				if(src.stamina_max > 0) src.percent_stamina = 100
+			else
+				if(src.stamina > src.stamina_max) src.stamina = src.stamina_max
+				if(src.stamina < 0) src.stamina = 0
+				var/stamina_threshold = 35
+				var/stamina_regen = 0
+				if(src.hunger >= stamina_threshold && src.thirst >= stamina_threshold && src.restedness >= stamina_threshold)
+					stamina_regen += 0.12 + (src.mod_recovery * 0.06)
+				if((src.meditating || (src.skill_meditation && src.skill_meditation.active)) && !src.dead && !src.koed)
+					stamina_regen += 0.35 + (src.mod_recovery * 0.12)
+				if(src.skill_sleep && src.skill_sleep.active && !src.dead && !src.koed)
+					stamina_regen += 0.5 + (src.mod_recovery * 0.2)
+				else if(src.resting && !src.dead && !src.koed)
+					stamina_regen += 0.25 + (src.mod_recovery * 0.08)
+				if(stamina_regen > 0 && src.stamina < src.stamina_max)
+					src.stamina += stamina_regen
+					if(src.stamina > src.stamina_max) src.stamina = src.stamina_max
+				src.percent_stamina = (src.stamina / src.stamina_max) * 100
+				if(src.percent_stamina > 100) src.percent_stamina = 100
+				if(src.percent_stamina < 0) src.percent_stamina = 0
+			src.update_stamina_bar()
 			src.change_eng = src.percent_energy
+			src.change_stamina = src.percent_stamina
 			src.change_hp = src.percent_health
 			src.tech_unlocking(src)
+
+		update_stamina_bar(var/force = FALSE)
+			if(!src) return
+			if(src.stamina_max <= 0) src.stamina_max = 100
+			if(src.dead)
+				src.stamina = src.stamina_max
+				src.percent_stamina = 100
+			else
+				src.stamina = clamp(src.stamina, 0, src.stamina_max)
+				src.percent_stamina = round((src.stamina / src.stamina_max) * 100, 1)
+				if(src.percent_stamina > 100) src.percent_stamina = 100
+				if(src.percent_stamina < 0) src.percent_stamina = 0
+			if(force || src.change_stamina != src.percent_stamina)
+				if(src.hud_stamina_bar_inner)
+					var/obj/bar_stamina = src.hud_stamina_bar_inner
+					var/matrix/stm = matrix()
+					var/width = clamp(src.percent_stamina, 0, 100)
+					stm.Scale(width * 2, 1)
+					stm.Translate(width, 0)
+					bar_stamina.transform = stm
+					var/obj/hud/bars/player_stamina/stamina_holder = bar_stamina.loc
+					if(stamina_holder && stamina_holder.txt_percent)
+						stamina_holder.txt_percent.maptext = "<font size = 1> <text align=center valign=top>[css_outline][round(src.percent_stamina)]%"
+			src.change_stamina = src.percent_stamina
+
+		//Force-redraws the energy and stamina bars. Used by any code path that writes
+		//these values directly (admin heals, senzu, revives) instead of waiting on stats().
+		refresh_vital_bars(var/full_restore = FALSE)
+			if(!src) return
+			if(full_restore)
+				if(src.energy_max > 0) src.energy = src.energy_max
+				if(src.stamina_max <= 0) src.stamina_max = 100
+				src.stamina = src.stamina_max
+			if(src.energy_max > 0)
+				src.percent_energy = round((src.energy / src.energy_max) * 100, 1)
+				if(src.percent_energy > 100) src.percent_energy = 100
+				if(src.percent_energy < 0) src.percent_energy = 0
+			if(src.hud_eng_bar_inner)
+				var/obj/bar_eng = src.hud_eng_bar_inner
+				var/matrix/em = matrix()
+				em.Scale(src.percent_energy*2,1)
+				em.Translate(src.percent_energy,0)
+				bar_eng.transform = em
+				var/obj/hud/bars/player_eng/eng = bar_eng.loc
+				if(eng && eng.txt_percent)
+					eng.txt_percent.maptext = "<font size = 1> <text align=center valign=top>[css_outline][round(src.percent_energy)]%"
+			src.change_eng = src.percent_energy
+			src.update_stamina_bar(TRUE)
 
 		check_body_health()
 			set background = 1
@@ -336,7 +406,9 @@ mob
 				var/heal_amount = 0
 
 			    // Base regen
-				if(src.bandaged)
+				if(src.koed && src.extra_regen && src.dead == 0)
+					heal_amount = 0.08 * src.mod_regeneration
+				else if(src.bandaged)
 					heal_amount = 0.10 * src.mod_regeneration
 				else
 					heal_amount = 0.025 * src.mod_regeneration

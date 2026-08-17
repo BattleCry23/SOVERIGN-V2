@@ -44,6 +44,43 @@ mob/proc/find_facing_object(range)
 			min_dist = dist
 
 	return best_target
+
+mob/proc/apply_combat_tag(var/mob/opponent, var/duration_ticks = 1200)
+	if(!src || src.dead) return
+	if(src.npc || !src.client) return
+	if(duration_ticks <= 0) duration_ticks = 1200
+	var/new_expire = world.time + duration_ticks
+	if(new_expire > src.combat_tag_until)
+		src.combat_tag_until = new_expire
+	if(opponent)
+		src.combat_tag_source = opponent.real_name
+
+mob/proc/has_active_combat_tag()
+	if(!src || src.dead) return 0
+	if(src.combat_tag_until <= world.time)
+		src.combat_tag_until = 0
+		src.combat_tag_source = null
+		return 0
+	return 1
+
+mob/proc/tag_pvp_combat(var/mob/other, var/duration_ticks = 1200)
+	if(!src || !other) return
+	if(src == other) return
+	if(src.dead || other.dead) return
+	if(src.npc || other.npc) return
+	if(!src.client || !other.client) return
+	src.apply_combat_tag(other, duration_ticks)
+	other.apply_combat_tag(src, duration_ticks)
+
+mob/proc/spawn_melee_hit_effect(var/mob/target)
+	if(!src || !target || !target.loc) return
+	var/obj/effects/hit/h = new
+	h.loc = target.loc
+	h.dir = src.dir
+	h.step_x = target.step_x
+	h.step_y = target.step_y
+	if(h.dir == SOUTH || h.dir == NORTH)
+		h.pixel_x += 16
 proc/handle_energy_deflection(mob/M, edeflection, damage, var/mob/opp)
 	if (opp.Edeflection_skill && prob(edeflection * 1.2))
 		switch(rand(1,4))
@@ -485,6 +522,8 @@ mob
 			if(src.eating) src.cancel_eat()
 			src.letgo()
 			src.dead = 1;
+			src.combat_tag_until = 0
+			src.combat_tag_source = null
 			src.disable_skills()
 			src.clear_drugs()
 			src.dead_ki_lock = max(src.energy, 1)
@@ -674,6 +713,8 @@ mob
 			if(src.eating) src.cancel_eat()
 			src.letgo()
 			src.dead = 1;
+			src.combat_tag_until = 0
+			src.combat_tag_source = null
 			src.toxicity = 0
 			src.hunger = 99
 			src.thirst = 99
@@ -962,15 +1003,20 @@ mob
 				//src.death_power_mod = 0.5
 				animate(src.screen_text,alpha = 255,time = 60)
 				animate(alpha = 0,time = 60)
-				src.disable_parts(null,1,0)
+				if(src.dead && src.kept_body)
+					src.disable_parts(null,1,1,1,"Dead")
+				else
+					src.disable_parts(null,1,0)
 				winset(src,null,"stats_other.label_has_body.text=\"Has Body: Yes\"")
 
 		Body_kept_while_dead()
-			if(src.kept_body)
+			if(src)
 				src.Body()
 				src.death_power_mod = 0.5
 				src.power_percent = (100 * src.death_power_mod)
 				src.alpha = 150
+				if(!src.halo) src.halo = new /obj/overlay/halo
+				add_overlay(src, src.halo)
 				for(var/obj/items/misc/body/B in world)
 					if(B.matches_owner(src))
 						spawn(200)
@@ -1010,6 +1056,8 @@ mob
 			if(src.has_body == 0)
 				src.Body()
 			src.dead = 0;
+			src.combat_tag_until = 0
+			src.combat_tag_source = null
 			src.dead_ki_lock = 0
 			src.dead_skill_levels = null
 			if(src.debuff_dead && src.debuff_dead.active)
@@ -1069,7 +1117,10 @@ mob
 			src.corpse_x = 0
 			src.corpse_y = 0
 			src.corpse_z = 0
+			src.redraw_appearance()
 			src.update_looks()
+			if(src.hud_char)
+				src.hud_char.update_portrait_transform()
 
 			//if(src.debuff_dead && src.debuff_dead.active) call(src.debuff_dead.act)(src,src.debuff_dead)
 		ensure_screen_text_obj()
@@ -1657,6 +1708,8 @@ mob
 
 			if(M.trait_cn) if(prob(10))
 				return
+			src.tag_pvp_combat(M, 1200)
+			src.spawn_melee_hit_effect(M)
 			var/S = pick("1", "2")
 			if (S == "1") hearers(6, src) << sound('weakkick.ogg', volume = 24)
 			if (S == "2") hearers(6, src) << sound('weakpunch.ogg', volume = 24)

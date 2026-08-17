@@ -88,6 +88,8 @@ mob
 						if(Evasion&&prob(5))
 							view(src)<<"[src] breaks free of [src.grabbed_by]!"
 							src.grabbed_by.grab = null
+							src.grabbed_by.tail_grab = FALSE
+							src.grabbed_by.tail_grab_effect_time = 0
 							src.grabbed_by = null
 
 						else
@@ -551,6 +553,7 @@ atom/movable
 				if(Damage > 0)
 					if(M.eating) M.cancel_eat()
 					M.percent_health -= Damage
+					if(beam_attacker) beam_attacker.tag_pvp_combat(M, 1200)
 
 				if(beam_attacker)
 					if(!M.remembers_force.Find(beam_attacker.id)) M.remembers_force += beam_attacker.id
@@ -677,7 +680,9 @@ atom/movable
 								for(var/obj/body_related/bodyparts/t in M.body)
 									randomlimb = pick(t)
 								if(ranged_attacker && (ranged_attacker.srs_mode || ranged_attacker.lethal_mode)) M.damage_limb(ranged_attacker,1, 1, Damage, randomlimb)
-								if(Damage > 0) M.percent_health -= Damage
+								if(Damage > 0)
+									M.percent_health -= Damage
+									if(ranged_attacker) ranged_attacker.tag_pvp_combat(M, 1200)
 								if(prob(50))M.gain_stat("resistance",1,(M.mod_resistance*0.25),"Attacked by skill",1)
 							//	M.gain_stat("defence",1,10,"Defending from ranged",1)
 								//M.gain_stat("power",1,1,"Attacked by skill",1)
@@ -763,6 +768,7 @@ atom/movable
 											Damage/=2
 											if(M.eating) M.cancel_eat()
 											M.percent_health -= Damage
+											if(explosion_attacker) explosion_attacker.tag_pvp_combat(M, 1200)
 										if(prob(50))M.gain_stat("resistance",1,(M.mod_resistance*0.5),"Attacked by skill",1)
 									//	M.gain_stat("defence",1,10,"Defending from ranged",1)
 										//M.gain_stat("power",1,1,"Attacked by skill",1)

@@ -12,37 +12,8 @@ obj
 		layer = 34
 		blend_mode = BLEND_INSET_OVERLAY
 		appearance_flags = KEEP_TOGETHER | PIXEL_SCALE | TILE_BOUND
-		New()
-			..()
-			var/image/over = image('unlocks_over.dmi',src,"over",100)
-			over.pixel_x = -1
-			over.pixel_y = -1
-			src.img_over = over
-		/*
-		DblClick(location,control,params)
-			if(src in usr.traits)
-				params = params2list(params)
-				var/dir = null
-				if(params["left"] || usr.mouse_dir == "left")
-					dir = "left"
-				if(params["right"] || usr.mouse_dir == "right")
-					dir = "right"
-				if(dir == "left")
-					if(usr.skill_points_combat) if(src.active == 0)
-						usr.skill_points_combat -= 1
-						src.overlays = null
-						src.overlays += /obj/effects/misc/trait_select
-						call(src.act)(usr,src)
-						src.active = 1
-		*/
-				/*
-				if(dir == "right")
-					if(src.active)
-						usr.skill_points_combat += 1
-						src.overlays = null
-						call(src.act)(usr,src)
-						src.active = 0
-				*/
+		var/banned_races = list("") // You can customize this per trait if needed
+
 		Click()
 			if(src.loc == null && usr.hud_unlocks)
 				usr.skill_selected = src
@@ -85,6 +56,20 @@ obj
 				usr.info_box3.maptext = null
 		//Iron_Bones
 			//Increased health for limbs.
+		racial
+			// Racial traits are given to a player based on their race. They are not selectable and are instead automatically applied when a player selects a race
+			
+			//Saiyan//
+			Saiyan_power
+				info = "Your Saiyan heritage grants you a natural affinity for combat and the ability to grow stronger through battle. With this trait, you gain a 10% bonus to your strength and endurance mods."
+				info_name = "Saiyan_power"
+				act = /obj/traits/racial/Saiyan_power/proc/activate
+				proc
+					activate(var/mob/m,var/obj/s)
+						src.active = 1
+						m.allowed_zenkai = 1 // i set this to 1 because in the future, if bios have this trait, the`re ability to zenkai wont be as potent.
+
+
 		Tough_as_Nails
 			//Increased endurance
 			info = "Your body has become incredibly resistant to physical attacks, making you withstand sundering blows with casual ease. With this trait, you gain an extra 10% to your endurance mod, making you weather blows much easier."
